@@ -1,9 +1,9 @@
 {
-  "schemaVersion": "xtapp-codex-plugin-distribution/v1",
-  "repositoryName": "xtapp-codex-plugin",
+  "schemaVersion": "xtapp-studio-mcp-distribution/v1",
+  "repositoryName": "xtapp-studio-mcp",
   "primaryAudience": "agent",
   "agentEntrypoint": "AGENTS.md",
-  "distributionRepository": "https://github.com/linchuanXu/xtapp-codex-plugin",
+  "distributionRepository": "https://github.com/linchuanXu/xtapp-studio-mcp",
   "distributionStatus": "published-git-marketplace",
   "baseline": "mcp-stdio",
   "supportedHosts": ["mcp", "codex", "cursor"],
@@ -26,17 +26,17 @@
     "userConfigWriter": "scripts/cursor-mcp-config.mjs"
   },
   "marketplace": {
-    "name": "xtapp-codex-plugin-github",
-    "gitSource": "linchuanXu/xtapp-codex-plugin",
+    "name": "xtapp-studio-mcp-github",
+    "gitSource": "linchuanXu/xtapp-studio-mcp",
     "gitRef": "main",
     "manifest": ".agents/plugins/marketplace.json"
   },
   "plugin": {
-    "name": "xtapp-codex-plugin",
+    "name": "xtapp-studio-mcp",
     "version": "0.1.5",
     "path": ".",
     "displayName": "XTApp Studio",
-    "selector": "xtapp-codex-plugin@xtapp-codex-plugin-github",
+    "selector": "xtapp-studio-mcp@xtapp-studio-mcp-github",
     "mcpName": "xtapp_studio"
   },
   "source": {

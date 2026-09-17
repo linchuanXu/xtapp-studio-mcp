@@ -10,7 +10,7 @@
 
 ## 启动
 
-1. 调用 `run_xtapp_preview`，拿到带插件 session 的 `previewUrl`。不要只打开 `https://xtapp-ai-dev.xteink.cn/studio/preview?preview=1`。
+1. 调用 `run_xtapp_preview`，拿到带插件 session 的 `previewUrl`。不要只打开 `region.json` 里 `studioOrigin` 的裸 `/studio/preview?preview=1`。
 2. 打开这条 URL，并保持打开。打开方式取决于宿主：
    - **有浏览器 MCP 的宿主（Cursor）：** 用内置浏览器 MCP（`browser_tabs` / `browser_navigate`）打开 `previewUrl`，不要请用户另开 Chrome。出现登录页就停下，请用户在这个内置页里登录，Agent 不填账号密码。登录后再回到同一条 `previewUrl`。
    - **其他 MCP 宿主（含 Codex）：** 把 `previewUrl` 原样交给用户打开。出现登录页就先登录，再回到同一条地址。Codex 插件可能另有状态 Widget，那不是模拟器。

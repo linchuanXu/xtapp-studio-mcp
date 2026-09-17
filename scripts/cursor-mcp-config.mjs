@@ -21,8 +21,8 @@ export function cursorUserMcpConfig(pluginRoot = ROOT) {
 }
 
 /** Config when this plugin lives in a subdirectory of the Cursor workspace. */
-export function cursorNestedWorkspaceMcpConfig(relativePluginDir = 'xtapp-codex-plugin') {
-  const dir = String(relativePluginDir || 'xtapp-codex-plugin').replace(/\/+$/, '')
+export function cursorNestedWorkspaceMcpConfig(relativePluginDir = 'xtapp-studio-mcp') {
+  const dir = String(relativePluginDir || 'xtapp-studio-mcp').replace(/\/+$/, '')
   return {
     mcpServers: {
       xtapp_studio: {

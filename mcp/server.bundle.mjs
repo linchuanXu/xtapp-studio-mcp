@@ -26768,8 +26768,8 @@ var require_dist = __commonJS({
 // mcp/server.mjs
 import { cp, readFile as readFile4, readdir as readdir3, stat as stat3 } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname as dirname2, join as join4, resolve as resolve2 } from "node:path";
-import { fileURLToPath } from "node:url";
+import { dirname as dirname3, join as join5, resolve as resolve2 } from "node:path";
+import { fileURLToPath as fileURLToPath2 } from "node:url";
 
 // node_modules/zod/v3/helpers/util.js
 var util;
@@ -37123,9 +37123,30 @@ async function tapPreviewTarget({ targetId, gesture = "tap" } = {}, { getTargets
   };
 }
 
+// mcp/regionConfig.mjs
+import { readFileSync } from "node:fs";
+import { dirname as dirname2, join as join3 } from "node:path";
+import { fileURLToPath } from "node:url";
+var defaultRegionPath = join3(dirname2(fileURLToPath(import.meta.url)), "..", "region.json");
+function loadPluginRegion(regionPath = defaultRegionPath) {
+  return JSON.parse(readFileSync(regionPath, "utf8"));
+}
+function resolveStudioOrigin({
+  env = process.env,
+  region = loadPluginRegion()
+} = {}) {
+  const fromEnv = String(env.XTAPP_STUDIO_CONTROL_URL || "").trim().replace(/\/$/, "");
+  if (fromEnv) return fromEnv;
+  const fromRegion = String(region.studioOrigin || "").trim().replace(/\/$/, "");
+  if (!fromRegion) {
+    throw new Error("region.json studioOrigin is empty; set it or XTAPP_STUDIO_CONTROL_URL");
+  }
+  return fromRegion;
+}
+
 // mcp/storeTemplate.mjs
 import { readdir as readdir2, readFile as readFile3, stat as stat2 } from "node:fs/promises";
-import { join as join3, sep as sep2 } from "node:path";
+import { join as join4, sep as sep2 } from "node:path";
 var TEXT_FILE2 = /\.(lua|json|md|txt|tsv)$/i;
 var BINARY_FILE = /\.(xic|png|jpe?g|webp)$/i;
 var TEMPLATE_GET_NOTE = "\u4EE5\u4E0A\u662F\u6587\u672C\u6E90\u7801\u548C\u7D20\u6750\u6E05\u5355\uFF08\u4E0D\u542B\u4E8C\u8FDB\u5236\u5185\u5BB9\uFF09\u3002\u53EF\u8FD0\u884C\u526F\u672C\u5FC5\u987B\u7528 copy_xtapp_store_template\uFF0C\u4E0D\u8981\u6839\u636E\u672C\u7ED3\u679C\u624B\u5199\u6F0F\u6389\u7684\u56FE\u7247\u6216 XIC\u3002";
@@ -37139,7 +37160,7 @@ async function readStoreTemplate(dir) {
     for (const entry of await readdir2(current, { withFileTypes: true })) {
       if (entry.name === ".git" || entry.name === "node_modules") continue;
       const relative2 = posixRelative(prefix, entry.name);
-      const absolute = join3(current, entry.name);
+      const absolute = join4(current, entry.name);
       if (entry.isDirectory()) {
         await walk(absolute, relative2);
         continue;
@@ -37158,11 +37179,11 @@ async function readStoreTemplate(dir) {
 }
 
 // mcp/server.mjs
-var ROOT = resolve2(dirname2(fileURLToPath(import.meta.url)), "..");
+var ROOT = resolve2(dirname3(fileURLToPath2(import.meta.url)), "..");
 var CONTRACT_DIR = process.env.XTAPP_CONTRACT_DIR ? resolve2(process.env.XTAPP_CONTRACT_DIR) : null;
-var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve2(process.env.XTAPP_CATALOG_SOURCE_DIR) : join4(ROOT, "catalog", "templates");
-var CATALOG_INDEX = join4(ROOT, "catalog", "index.json");
-var KNOWLEDGE_INDEX = join4(ROOT, "knowledge", "index.json");
+var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve2(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
+var CATALOG_INDEX = join5(ROOT, "catalog", "index.json");
+var KNOWLEDGE_INDEX = join5(ROOT, "knowledge", "index.json");
 var WIDGET_URI = "ui://widget/xtapp/studio.html";
 var sourceWatchers = /* @__PURE__ */ new Map();
 var lastPushed = /* @__PURE__ */ new Map();
@@ -37187,12 +37208,12 @@ async function publicApps() {
   const result = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    const dir = join4(STORE_DIR, entry.name);
-    const manifestPath = join4(dir, "manifest.json");
+    const dir = join5(STORE_DIR, entry.name);
+    const manifestPath = join5(dir, "manifest.json");
     if (!existsSync(manifestPath)) continue;
     try {
       const manifest = await readJson(manifestPath);
-      const readmePath = join4(dir, "README.md");
+      const readmePath = join5(dir, "README.md");
       result.push({
         id: entry.name,
         appId: manifest.app_id || entry.name,
@@ -37206,7 +37227,7 @@ async function publicApps() {
   return result.sort((a, b) => a.id.localeCompare(b.id));
 }
 async function templateFiles(id) {
-  const dir = join4(STORE_DIR, safeAppId(id));
+  const dir = join5(STORE_DIR, safeAppId(id));
   const info = await stat3(dir).catch(() => null);
   if (!info?.isDirectory()) throw new Error(`\u516C\u5F00\u6A21\u677F\u4E0D\u5B58\u5728\uFF1A${id}`);
   return readStoreTemplate(dir);
@@ -37214,13 +37235,13 @@ async function templateFiles(id) {
 function contractCandidates() {
   if (!CONTRACT_DIR) return [];
   return [
-    join4(CONTRACT_DIR, "SPEC.md"),
-    join4(CONTRACT_DIR, "README.md"),
-    join4(CONTRACT_DIR, "api", "runtime.md"),
-    join4(CONTRACT_DIR, "api", "input.md"),
-    join4(CONTRACT_DIR, "api", "graphics.md"),
-    join4(CONTRACT_DIR, "api", "ui-components.md"),
-    join4(CONTRACT_DIR, "api", "manifest.md")
+    join5(CONTRACT_DIR, "SPEC.md"),
+    join5(CONTRACT_DIR, "README.md"),
+    join5(CONTRACT_DIR, "api", "runtime.md"),
+    join5(CONTRACT_DIR, "api", "input.md"),
+    join5(CONTRACT_DIR, "api", "graphics.md"),
+    join5(CONTRACT_DIR, "api", "ui-components.md"),
+    join5(CONTRACT_DIR, "api", "manifest.md")
   ];
 }
 async function contractSearch(query, limit = 6, topicFilter = "") {
@@ -37290,7 +37311,7 @@ N3(server, "xtapp-studio-widget", WIDGET_URI, {
     "openai/widgetPrefersBorder": true,
     "openai/widgetCSP": { connect_domains: [], resource_domains: ["data:"] }
   }
-}, async () => ({ contents: [{ uri: WIDGET_URI, mimeType: p, text: await readFile4(join4(ROOT, "widget", "index.html"), "utf8") }] }));
+}, async () => ({ contents: [{ uri: WIDGET_URI, mimeType: p, text: await readFile4(join5(ROOT, "widget", "index.html"), "utf8") }] }));
 K3(server, "render_xtapp_studio_widget", {
   title: "Render XTApp Studio Preview",
   description: "Open or refresh the native right-side XTApp Studio preview widget for the active project.",
@@ -37330,10 +37351,9 @@ server.registerTool("copy_xtapp_store_template", { description: "Copy a complete
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true });
   return textResult(`\u5DF2\u590D\u5236\u516C\u5F00\u6A21\u677F ${id} \u5230 ${relativeDestination}`, { id, destination: target, sourceDir: template.dir });
 });
-var OFFICIAL_STUDIO_ORIGIN = "https://xtapp-ai-dev.xteink.cn";
 var previewSession = await loadOrCreatePreviewSession();
 function studioOrigin() {
-  return String(process.env.XTAPP_STUDIO_CONTROL_URL || OFFICIAL_STUDIO_ORIGIN).replace(/\/$/, "");
+  return resolveStudioOrigin();
 }
 function previewSessionId() {
   return previewSession;

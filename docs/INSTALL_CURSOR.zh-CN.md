@@ -38,7 +38,7 @@ node scripts/cursor-mcp-config.mjs --write-user
 一个 Agent 对话**。
 
 如果本插件只是更大 Cursor 工作区里的子目录，要把 args 指到那个子目录，例如
-`xtapp-codex-plugin/mcp/server.bundle.mjs`。
+`xtapp-studio-mcp/mcp/server.bundle.mjs`。
 
 把 `skills/xtapp-contracts` 和 `skills/xtapp-open-preview` 符号链接到
 `~/.cursor/skills/` 或项目的 `.cursor/skills/`。不要改写 skill 正文。

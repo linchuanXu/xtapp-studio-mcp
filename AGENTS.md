@@ -5,8 +5,9 @@ contract is a local stdio MCP named `xtapp_studio`. Any MCP-capable
 agent can register it. Codex additionally has a marketplace **plugin**
 that bundles the same MCP plus skills and a status widget.
 
-Canonical distribution repository:
-`https://github.com/linchuanXu/xtapp-codex-plugin`.
+This checkout is one regional distribution. Read `region.json` for
+`pluginRepo`, `githubSource`, `marketplaceName`, `pluginSelector`, and
+`studioOrigin`. Do not send preview traffic to another region's Studio.
 
 ## First decide the operation
 
@@ -204,9 +205,11 @@ configuration.
 ### 1. Preflight
 
 ```bash
-XTAPP_AGENT_PLUGIN_SOURCE="linchuanXu/xtapp-codex-plugin"
+XTAPP_AGENT_PLUGIN_SOURCE="$(node scripts/region-field.mjs githubSource)"
+XTAPP_AGENT_PLUGIN_MARKETPLACE="$(node scripts/region-field.mjs marketplaceName)"
+XTAPP_AGENT_PLUGIN_SELECTOR="$(node scripts/region-field.mjs pluginSelector)"
 codex --version
-git ls-remote https://github.com/linchuanXu/xtapp-codex-plugin.git main
+git ls-remote "$(node scripts/region-field.mjs pluginRepo).git" main
 ```
 
 Require a Codex build that supports `codex plugin marketplace`. If
@@ -226,7 +229,7 @@ codex plugin list --json
 If the user asks to update the XTApp plugin, or says「升级 XTApp 插件」,
 follow this upgrade path. Do not invent a download URL.
 
-If marketplace `xtapp-codex-plugin-github` points at a different source,
+If marketplace `$XTAPP_AGENT_PLUGIN_MARKETPLACE` points at a different source,
 stop and report the name collision. Never remove or overwrite unrelated
 marketplaces, plugins, MCP servers, or auth state.
 
@@ -235,8 +238,8 @@ build a custom updater. If the marketplace is already configured, refresh
 it first, then install or refresh the plugin:
 
 ```bash
-codex plugin marketplace upgrade xtapp-codex-plugin-github --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace upgrade "$XTAPP_AGENT_PLUGIN_MARKETPLACE" --json
+codex plugin add "$XTAPP_AGENT_PLUGIN_SELECTOR" --json
 ```
 
 If the marketplace is not configured yet, add it, then add the plugin.
@@ -245,8 +248,8 @@ If the marketplace is not configured yet, add it, then add the plugin.
 
 ```bash
 codex plugin marketplace add "$XTAPP_AGENT_PLUGIN_SOURCE" --ref main --json
-codex plugin marketplace upgrade xtapp-codex-plugin-github --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace upgrade "$XTAPP_AGENT_PLUGIN_MARKETPLACE" --json
+codex plugin add "$XTAPP_AGENT_PLUGIN_SELECTOR" --json
 ```
 
 `alreadyAdded: true` is success. After a marketplace upgrade, still run
@@ -275,9 +278,9 @@ codex plugin list --json
 
 Required evidence:
 
-- plugin id `xtapp-codex-plugin@xtapp-codex-plugin-github`;
+- plugin id equals `pluginSelector` in `region.json`;
 - installed version equals `release-manifest.json`;
-- marketplace name is `xtapp-codex-plugin-github`;
+- marketplace name equals `marketplaceName` in `region.json`;
 - no bearer token, API key, or `.env` value is embedded.
 
 If the official preview page is open, a runtime smoke may additionally
@@ -326,8 +329,11 @@ Enter only when the user asks to refresh, validate, or release:
 2. Refresh only the reviewed public payload files when the user provides
    maintainer-local source directories through environment variables.
 3. Run `npm run check` and `npm run build:mcp` when MCP sources change.
-4. Keep changes unpushed unless publication was explicitly authorized.
-5. Never write private source names, clone URLs, or checkout paths into
+4. Overseas GitHub is a generated repo. From this source checkout:
+   `npm run publish:intl -- --studio-origin <overseas-studio> --push`
+   Do not hand-edit `xtapp-studio-mcp-intl`.
+5. Keep changes unpushed unless publication was explicitly authorized.
+6. Never write private source names, clone URLs, or checkout paths into
    this repository.
 
 ## Host directory convention

@@ -1,14 +1,14 @@
 {
-  "name": "xtapp-codex-plugin",
+  "name": "xtapp-studio-mcp",
   "version": "0.1.5",
-  "description": "XTApp Codex integration: Lua contract knowledge, public app templates, and a live Studio preview widget.",
+  "description": "XTApp Studio MCP: Lua contract knowledge, public app templates, and a live Studio preview for any MCP host.",
   "author": {
     "name": "XTApp AI Studio"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "XTApp Studio",
-    "shortDescription": "Run XTApp projects, search Lua contracts, and browse public app templates in Codex.",
+    "shortDescription": "Run XTApp projects, search Lua contracts, and browse public app templates.",
     "longDescription": "Adds a local MCP server and native Widget for XTApp project validation, preview orchestration, contract knowledge, and public store templates.",
     "developerName": "XTApp AI Studio",
     "category": "Productivity",

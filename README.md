@@ -1,4 +1,4 @@
-# XTApp Codex Plugin
+# XTApp Studio MCP
 
 English · [中文文档](README.zh-CN.md)
 
@@ -12,11 +12,11 @@ can register it. Codex Desktop / Codex CLI additionally has a marketplace
 Give Codex this instruction (MCP / Cursor prompts are in
 [`AGENT_PROMPT.md`](AGENT_PROMPT.md)):
 
-> Read
-> `https://github.com/linchuanXu/xtapp-codex-plugin/blob/main/AGENTS.md`
-> and install the XTApp plugin into Codex. Follow the Install into Codex
-> lane, preserve existing configuration, keep the bundled `xtapp_studio`
-> MCP, and report any XTApp Studio prerequisite.
+> Read `AGENTS.md` in this repository and install the XTApp plugin into
+> Codex. Follow the Install into Codex lane, preserve existing
+> configuration, keep the bundled `xtapp_studio` MCP, and report any
+> XTApp Studio prerequisite. Use `region.json` for this region's GitHub
+> source and Studio origin.
 
 The detailed entrypoint is [`AGENTS.md`](AGENTS.md). After install, the
 agent should ask the user to say the one create sentence in
@@ -50,10 +50,9 @@ of overwriting it.
 
 - Baseline: local stdio MCP `xtapp_studio` (`node ./mcp/server.bundle.mjs`)
 - Codex enhancement: Git marketplace plugin from `main`
-- Marketplace: `xtapp-codex-plugin-github`
-- Plugin: `xtapp-codex-plugin`
+- Marketplace / selector / Studio origin: `region.json` (this checkout is China; overseas is `xtapp-studio-mcp-intl`)
+- Plugin: `xtapp-studio-mcp`
 - Display name: `XTApp Studio`
-- Stable plugin selector: `xtapp-codex-plugin@xtapp-codex-plugin-github`
 - Plugin version: `0.1.5`
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
@@ -80,8 +79,8 @@ See [docs/INSTALL_CURSOR.md](docs/INSTALL_CURSOR.md).
 ### Codex plugin
 
 ```bash
-codex plugin marketplace add linchuanXu/xtapp-codex-plugin --ref main --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace add "$(node scripts/region-field.mjs githubSource)" --ref main --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 The plugin already ships `.mcp.json`. Do not invent a remote MCP URL or a
@@ -95,8 +94,8 @@ If the plugin is already installed, refresh the marketplace instead of
 building a custom updater:
 
 ```bash
-codex plugin marketplace upgrade xtapp-codex-plugin-github --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace upgrade "$(node scripts/region-field.mjs marketplaceName)" --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 Codex may also auto-upgrade this Git marketplace on plugin startup. Start

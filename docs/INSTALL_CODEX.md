@@ -10,7 +10,7 @@ plugin support use [INSTALL_MCP.md](INSTALL_MCP.md).
 
 - Codex Desktop or Codex CLI with `codex plugin marketplace`
 - Signed-in XTApp Studio
-- Plugin selector `xtapp-codex-plugin@xtapp-codex-plugin-github`
+- Plugin selector from `region.json` `pluginSelector`
 - Bundled MCP identity `xtapp_studio`
 - Preview page from `get_xtapp_preview_status.previewUrl` (login required,
   includes session)
@@ -19,8 +19,8 @@ plugin support use [INSTALL_MCP.md](INSTALL_MCP.md).
 ## Normal Git marketplace install
 
 ```bash
-codex plugin marketplace add linchuanXu/xtapp-codex-plugin --ref main --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace add "$(node scripts/region-field.mjs githubSource)" --ref main --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 If the preview is not open, give the exact `previewUrl` from
@@ -36,8 +36,8 @@ codex plugin list --json
 
 Expected plugin identity:
 
-- Selector: `xtapp-codex-plugin@xtapp-codex-plugin-github`
-- Marketplace: `xtapp-codex-plugin-github`
+- Selector: `pluginSelector` in `region.json`
+- Marketplace: `marketplaceName` in `region.json`
 - Version: the value in `release-manifest.json`
 - MCP: bundled `xtapp_studio` stdio, command `node ./mcp/server.bundle.mjs`
 
@@ -55,8 +55,8 @@ The host may auto-upgrade the configured Git marketplace on plugin
 startup or `plugin/list`. To refresh now:
 
 ```bash
-codex plugin marketplace upgrade xtapp-codex-plugin-github --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace upgrade "$(node scripts/region-field.mjs marketplaceName)" --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 The TUI `/plugins` marketplace tab can also upgrade. After the cache
@@ -71,9 +71,9 @@ normal Codex state:
 ```bash
 XTAPP_CODEX_PLUGIN_TEST_HOME="$(mktemp -d /tmp/xtapp-plugin-codex-home.XXXXXX)"
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin marketplace add \
-  linchuanXu/xtapp-codex-plugin --ref main --json
+  "$(node scripts/region-field.mjs githubSource)" --ref main --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin add \
-  xtapp-codex-plugin@xtapp-codex-plugin-github --json
+  "$(node scripts/region-field.mjs pluginSelector)" --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin list --json
 ```
 
@@ -96,7 +96,7 @@ XTAPP_CODEX_PLUGIN_TEST_HOME="$(mktemp -d /tmp/xtapp-plugin-candidate-home.XXXXX
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin marketplace add \
   "$XTAPP_AGENT_PLUGIN_REPO" --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin add \
-  xtapp-codex-plugin@xtapp-codex-plugin-github --json
+  "$(node scripts/region-field.mjs pluginSelector)" --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin list --json
 ```
 
@@ -130,8 +130,8 @@ snapshot remain in Studio's asset pipeline.
 ## Uninstall
 
 ```bash
-codex plugin remove xtapp-codex-plugin@xtapp-codex-plugin-github --json
-codex plugin marketplace remove xtapp-codex-plugin-github --json
+codex plugin remove "$(node scripts/region-field.mjs pluginSelector)" --json
+codex plugin marketplace remove "$(node scripts/region-field.mjs marketplaceName)" --json
 ```
 
 Removing the plugin does not remove XTApp Studio, IndexedDB preview

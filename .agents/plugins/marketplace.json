@@ -1,11 +1,11 @@
 {
-  "name": "xtapp-codex-plugin-github",
+  "name": "xtapp-studio-mcp-github",
   "interface": {
-    "displayName": "XTApp Codex Plugin GitHub"
+    "displayName": "XTApp Studio MCP"
   },
   "plugins": [
     {
-      "name": "xtapp-codex-plugin",
+      "name": "xtapp-studio-mcp",
       "source": {
         "source": "local",
         "path": "."

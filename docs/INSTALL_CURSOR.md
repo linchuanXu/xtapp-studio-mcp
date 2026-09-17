@@ -37,7 +37,7 @@ Settings, then start a **new Agent chat**.
 
 If this plugin is a subdirectory of a larger Cursor workspace, point args
 at that subdirectory instead, for example
-`xtapp-codex-plugin/mcp/server.bundle.mjs`.
+`xtapp-studio-mcp/mcp/server.bundle.mjs`.
 
 Symlink `skills/xtapp-contracts` and `skills/xtapp-open-preview` into
 `~/.cursor/skills/` or the project's `.cursor/skills/`. Do not rewrite

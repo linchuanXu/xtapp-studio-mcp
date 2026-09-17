@@ -1,0 +1,8 @@
+{
+  "id": "cn",
+  "studioOrigin": "https://xtapp-ai-dev.xteink.cn",
+  "pluginRepo": "https://github.com/linchuanXu/xtapp-studio-mcp",
+  "githubSource": "linchuanXu/xtapp-studio-mcp",
+  "marketplaceName": "xtapp-studio-mcp-github",
+  "pluginSelector": "xtapp-studio-mcp@xtapp-studio-mcp-github"
+}

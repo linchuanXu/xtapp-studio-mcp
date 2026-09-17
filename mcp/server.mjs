@@ -11,6 +11,7 @@ import { loadOrCreatePreviewSession, previewRunPath } from './previewSession.mjs
 import { readProjectSnapshot } from './projectSnapshot.mjs'
 import { pushProjectSnapshot, snapshotPushState, withProjectPushLock } from './previewSourceSync.mjs'
 import { tapPreviewTarget } from './previewTap.mjs'
+import { resolveStudioOrigin } from './regionConfig.mjs'
 import { readStoreTemplate, TEMPLATE_GET_NOTE } from './storeTemplate.mjs'
 import {
   classifyPreviewBridgeError,
@@ -212,11 +213,10 @@ server.registerTool('copy_xtapp_store_template', { description: 'Copy a complete
   return textResult(`已复制公开模板 ${id} 到 ${relativeDestination}`, { id, destination: target, sourceDir: template.dir })
 })
 
-const OFFICIAL_STUDIO_ORIGIN = 'https://xtapp-ai-dev.xteink.cn'
 const previewSession = await loadOrCreatePreviewSession()
 
 function studioOrigin() {
-  return String(process.env.XTAPP_STUDIO_CONTROL_URL || OFFICIAL_STUDIO_ORIGIN).replace(/\/$/, '')
+  return resolveStudioOrigin()
 }
 
 function previewSessionId() {

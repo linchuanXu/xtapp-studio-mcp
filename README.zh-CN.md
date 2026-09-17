@@ -1,4 +1,4 @@
-# XTApp Codex Plugin
+# XTApp Studio MCP
 
 [English](README.md) · 中文
 
@@ -47,10 +47,9 @@ Codex 插件：marketplace 包同一份 MCP + skills + 状态 Widget
 
 - 基线：本地 stdio MCP `xtapp_studio`（`node ./mcp/server.bundle.mjs`）
 - Codex 增强：从 `main` 发布的 Git marketplace 插件
-- Marketplace：`xtapp-codex-plugin-github`
-- Plugin：`xtapp-codex-plugin`
+- Marketplace / 选择器 / Studio 源：`region.json`（本仓是国内；国外是 `xtapp-studio-mcp-intl`）
+- Plugin：`xtapp-studio-mcp`
 - 显示名：`XTApp Studio`
-- 稳定选择器：`xtapp-codex-plugin@xtapp-codex-plugin-github`
 - 插件版本：`0.1.5`
 - 运行时：已登录的 XTApp Studio
 - 默认预览：以 `get_xtapp_preview_status` 返回的 `previewUrl` 为准
@@ -77,8 +76,8 @@ node scripts/cursor-mcp-config.mjs
 ### Codex 插件
 
 ```bash
-codex plugin marketplace add linchuanXu/xtapp-codex-plugin --ref main --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace add "$(node scripts/region-field.mjs githubSource)" --ref main --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 插件已经带有 `.mcp.json`。不要编造远程 MCP 地址或 Studio 源码路径。验证：
@@ -90,8 +89,8 @@ codex plugin list --json
 已经装过插件时，用市场升级，不要自己写更新器：
 
 ```bash
-codex plugin marketplace upgrade xtapp-codex-plugin-github --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace upgrade "$(node scripts/region-field.mjs marketplaceName)" --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 Codex 也可能在插件启动时自动升级这个 Git 市场。安装或升级后新开一个

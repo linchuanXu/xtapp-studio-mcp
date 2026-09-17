@@ -23,7 +23,7 @@ test('用户级 MCP 用绝对路径，合并时不删其他 server', () => {
 
 test('Cursor 嵌套工作区 MCP 指向子目录 bundle', () => {
   const config = cursorNestedWorkspaceMcpConfig()
-  assert.deepEqual(config.mcpServers.xtapp_studio.args, ['xtapp-codex-plugin/mcp/server.bundle.mjs'])
+  assert.deepEqual(config.mcpServers.xtapp_studio.args, ['xtapp-studio-mcp/mcp/server.bundle.mjs'])
 })
 
 test('预览 skill 要求 Cursor 用内置浏览器打开，点选走 MCP', async () => {

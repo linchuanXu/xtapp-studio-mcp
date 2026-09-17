@@ -12,7 +12,7 @@ skills 和状态 Widget。没有插件能力的智能体走
 
 - 带 `codex plugin marketplace` 的 Codex Desktop 或 Codex CLI
 - 已登录的 XTApp Studio
-- 插件选择器 `xtapp-codex-plugin@xtapp-codex-plugin-github`
+- 插件选择器见 `region.json` 的 `pluginSelector`
 - 自带 MCP 名称 `xtapp_studio`
 - 预览页以 `get_xtapp_preview_status` 返回的 `previewUrl` 为准（需登录，带 session）
 - 保持官网预览页打开
@@ -20,8 +20,8 @@ skills 和状态 Widget。没有插件能力的智能体走
 ## 常规 Git marketplace 安装
 
 ```bash
-codex plugin marketplace add linchuanXu/xtapp-codex-plugin --ref main --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace add "$(node scripts/region-field.mjs githubSource)" --ref main --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 如果预览页没有打开，把 `run_xtapp_preview` 或 `get_xtapp_preview_status`
@@ -36,8 +36,8 @@ codex plugin list --json
 
 期望的插件身份：
 
-- 选择器：`xtapp-codex-plugin@xtapp-codex-plugin-github`
-- Marketplace：`xtapp-codex-plugin-github`
+- 选择器：`region.json` 的 `pluginSelector`
+- Marketplace：`region.json` 的 `marketplaceName`
 - 版本：`release-manifest.json` 中的值
 - MCP：自带 `xtapp_studio` stdio，命令 `node ./mcp/server.bundle.mjs`
 
@@ -51,8 +51,8 @@ codex plugin list --json
 `plugin/list` 时自动升级已配置的 Git 市场。要立刻刷新：
 
 ```bash
-codex plugin marketplace upgrade xtapp-codex-plugin-github --json
-codex plugin add xtapp-codex-plugin@xtapp-codex-plugin-github --json
+codex plugin marketplace upgrade "$(node scripts/region-field.mjs marketplaceName)" --json
+codex plugin add "$(node scripts/region-field.mjs pluginSelector)" --json
 ```
 
 TUI 的 `/plugins` 市场页也可以升级。缓存版本与 `release-manifest.json`
@@ -65,9 +65,9 @@ TUI 的 `/plugins` 市场页也可以升级。缓存版本与 `release-manifest.
 ```bash
 XTAPP_CODEX_PLUGIN_TEST_HOME="$(mktemp -d /tmp/xtapp-plugin-codex-home.XXXXXX)"
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin marketplace add \
-  linchuanXu/xtapp-codex-plugin --ref main --json
+  "$(node scripts/region-field.mjs githubSource)" --ref main --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin add \
-  xtapp-codex-plugin@xtapp-codex-plugin-github --json
+  "$(node scripts/region-field.mjs pluginSelector)" --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin list --json
 ```
 
@@ -88,7 +88,7 @@ XTAPP_CODEX_PLUGIN_TEST_HOME="$(mktemp -d /tmp/xtapp-plugin-candidate-home.XXXXX
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin marketplace add \
   "$XTAPP_AGENT_PLUGIN_REPO" --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin add \
-  xtapp-codex-plugin@xtapp-codex-plugin-github --json
+  "$(node scripts/region-field.mjs pluginSelector)" --json
 CODEX_HOME="$XTAPP_CODEX_PLUGIN_TEST_HOME" codex plugin list --json
 ```
 
@@ -119,8 +119,8 @@ session 对不上。`timeout` / `queued_timeout` 表示 Studio 已接收命令�
 ## 卸载
 
 ```bash
-codex plugin remove xtapp-codex-plugin@xtapp-codex-plugin-github --json
-codex plugin marketplace remove xtapp-codex-plugin-github --json
+codex plugin remove "$(node scripts/region-field.mjs pluginSelector)" --json
+codex plugin marketplace remove "$(node scripts/region-field.mjs marketplaceName)" --json
 ```
 
 卸载插件不会删除 XTApp Studio、IndexedDB 预览状态或用户的 App 项目。那些只在

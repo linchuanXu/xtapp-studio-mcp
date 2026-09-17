@@ -20,8 +20,7 @@ English:
 
 Use this instruction in any host that can run a local stdio MCP:
 
-> Read
-> `https://github.com/linchuanXu/xtapp-codex-plugin/blob/main/AGENTS.md`.
+> Read `AGENTS.md` in this repository.
 > Install XTApp using the **Install as MCP** lane. From a checkout of
 > this repository, run `node scripts/cursor-mcp-config.mjs` and merge only
 > `mcpServers.xtapp_studio` into this host's MCP config without deleting
@@ -37,8 +36,7 @@ Use this instruction in any host that can run a local stdio MCP:
 
 Use this instruction in Codex Desktop or Codex CLI:
 
-> Read
-> `https://github.com/linchuanXu/xtapp-codex-plugin/blob/main/AGENTS.md`.
+> Read `AGENTS.md` in this repository.
 > Install the XTApp plugin into Codex using the **Install into Codex** lane.
 > Preserve unrelated plugins, marketplaces, MCP servers, and auth state.
 > Keep the bundled `xtapp_studio` MCP from this plugin. Do not invent a
@@ -53,8 +51,7 @@ Use this instruction in Codex Desktop or Codex CLI:
 Cursor has no plugin marketplace. It is the MCP lane plus a built-in
 browser:
 
-> Read
-> `https://github.com/linchuanXu/xtapp-codex-plugin/blob/main/AGENTS.md`.
+> Read `AGENTS.md` in this repository.
 > Install XTApp using the **Install as MCP** lane. Run
 > `node scripts/cursor-mcp-config.mjs --write-user` from a checkout of
 > this repository so `~/.cursor/mcp.json` gets `xtapp_studio` without
