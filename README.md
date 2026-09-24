@@ -57,7 +57,7 @@ of overwriting it.
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)
-- Public knowledge: `knowledge/index.json` (schema 2, 22 entries)
+- Public knowledge: `knowledge/index.json` (schema 2, 24 entries)
 - Public catalog: `catalog/index.json` (107 reviewed text templates)
 - Widget: `widget/index.html` is Codex-only; shows preview status, not the simulator frame
 
@@ -122,6 +122,21 @@ Product updates behind the stable `/preview/*` contract do not
 automatically change this repository. Refresh the knowledge index and
 catalog only from maintainer-local sources, and never publish those
 source locations.
+
+Knowledge refresh takes the source roots from environment variables, so
+no checkout path is recorded here; `--check` fails when the committed
+index no longer matches those sources, and skips with a notice when the
+roots are not provided:
+
+```bash
+XTAPP_CONTRACT_DIR=<contracts-checkout> \
+XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents>:<studio-content-public> \
+npm run sync:knowledge
+
+XTAPP_CONTRACT_DIR=<contracts-checkout> \
+XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents>:<studio-content-public> \
+npm run knowledge:check
+```
 
 This revision ships the Codex plugin payload at the repository root. Do
 not nest it under `plugins/codex/`. Do not add `hosts/<name>/`.

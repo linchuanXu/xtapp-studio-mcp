@@ -17,7 +17,11 @@ function flag(name, fallback = '') {
 const dest = resolve(flag('dest', process.env.XTAPP_INTL_PLUGIN_DIR || join(root, '..', 'xtapp-studio-mcp-intl')))
 const studioOrigin = String(flag('studio-origin', process.env.XTAPP_INTL_STUDIO_ORIGIN || '')).trim().replace(/\/$/, '')
 const shouldPush = args.includes('--push')
-const intlBase = JSON.parse(readFileSync(join(root, 'regions', 'intl.json'), 'utf8'))
+const regionName = String(flag('region', process.env.XTAPP_INTL_REGION || 'intl'))
+const intlBase = JSON.parse(readFileSync(join(root, 'regions', `${regionName}.json`), 'utf8'))
+if (intlBase.pluginSelector?.split('@')[1] !== intlBase.marketplaceName) {
+  throw new Error(`regions/${regionName}.json 自身不一致：pluginSelector 的 marketplace 必须等于 marketplaceName`)
+}
 
 if (!studioOrigin) {
   console.warn('publish-intl-repo: studioOrigin is empty; preview will fail until you republish with --studio-origin')
@@ -44,6 +48,28 @@ cpSync(root, dest, {
 
 const region = { ...intlBase, studioOrigin }
 writeFileSync(join(dest, 'region.json'), `${JSON.stringify(region, null, 2)}\n`)
+
+// region.json 是发行身份的唯一来源：把同一身份同步到 Codex marketplace 与 release-manifest，
+// 否则发行仓里会出现“region 说 A、manifest 说 B”，安装校验直接失败。
+function rewriteJson(relative, mutate) {
+  const file = join(dest, relative)
+  if (!existsSync(file)) return
+  const value = JSON.parse(readFileSync(file, 'utf8'))
+  mutate(value)
+  writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`)
+}
+rewriteJson('.agents/plugins/marketplace.json', (manifest) => {
+  manifest.name = region.marketplaceName
+  if (region.marketplaceDisplayName) {
+    manifest.interface = { ...manifest.interface, displayName: region.marketplaceDisplayName }
+  }
+})
+rewriteJson('release-manifest.json', (release) => {
+  release.repositoryName = region.pluginRepo.split('/').pop()
+  release.distributionRepository = region.pluginRepo
+  release.marketplace = { ...release.marketplace, name: region.marketplaceName, gitSource: region.githubSource }
+  release.plugin = { ...release.plugin, selector: region.pluginSelector }
+})
 
 execFileSync('npm', ['ci'], { cwd: dest, stdio: 'inherit' })
 execFileSync('npm', ['run', 'build:mcp'], { cwd: dest, stdio: 'inherit' })

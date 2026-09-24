@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check mcp/server.mjs && node --check mcp/regionConfig.mjs && node --check mcp/previewSession.mjs && node --check mcp/previewReady.mjs && node --check mcp/previewBridgeClient.mjs && node --check mcp/projectSnapshot.mjs && node --check mcp/previewSourceSync.mjs && node --check mcp/previewTap.mjs && node --check mcp/storeTemplate.mjs && node --check scripts/sync-knowledge.mjs && node --check scripts/cursor-mcp-config.mjs && node --check scripts/region-field.mjs && node --check scripts/publish-intl-repo.mjs",
+    "knowledge:check": "node scripts/sync-knowledge.mjs --check",
+    "check": "npm run knowledge:check && node --check mcp/server.mjs && node --check mcp/regionConfig.mjs && node --check mcp/previewSession.mjs && node --check mcp/previewReady.mjs && node --check mcp/previewBridgeClient.mjs && node --check mcp/projectSnapshot.mjs && node --check mcp/previewSourceSync.mjs && node --check mcp/previewTap.mjs && node --check mcp/storeTemplate.mjs && node --check scripts/sync-knowledge.mjs && node --check scripts/cursor-mcp-config.mjs && node --check scripts/region-field.mjs && node --check scripts/publish-intl-repo.mjs",
     "test": "node --test mcp/*.test.mjs scripts/cursor-mcp-config.test.mjs",
     "build:mcp": "esbuild mcp/server.mjs --bundle --platform=node --format=esm --outfile=mcp/server.bundle.mjs",
     "sync:knowledge": "node scripts/sync-knowledge.mjs",
