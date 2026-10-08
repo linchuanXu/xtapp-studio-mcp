@@ -3,10 +3,10 @@ local LOCALES={{code="en-US",label="EN",w=27},{code="zh-CN",label="ZH",w=27},{co
 local M = {}
 local BLACK, WHITE = 15, 0
 
-local function clock_parts(sec)
-  if type(sec) ~= "number" or sec < 1577836800 then return nil end
-  local minutes = math.floor(sec / 60)
-  return { hour=math.floor(minutes / 60) % 24, min=minutes % 60, day=math.floor(minutes / 1440) }
+local function clock_parts(ctx)
+  local clock = ctx.sys and ctx.sys:clock()
+  if not clock or clock.valid ~= true or clock.hour == nil or clock.minute == nil then return nil end
+  return { hour = clock.hour, min = clock.minute }
 end
 local function center(g,y,text,color) g:text(math.max(18,math.floor((480-#text*10)/2)),y,text,{color=color or BLACK}) end
 local function wrap(text,limit)
@@ -139,7 +139,7 @@ local function draw_time(g,p,y)
   g:text(354,y+57,p.hour<12 and "AM" or "PM",{color=BLACK})
 end
 local function current(ctx,locale)
-  local p = clock_parts(ctx.sys:local_sec())
+  local p = clock_parts(ctx)
   if not p then return nil, nil end
   local key=string.format("%02d:%02d",p.hour,p.min)
   local corpus=QUOTES[locale] or QUOTES["en-US"]; local values=corpus[key]

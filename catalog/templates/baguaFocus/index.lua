@@ -128,10 +128,16 @@ local function ct(g, cx, y, t, c)
   g:text(math.floor(cx - text_width(t)/2), y, t, {color = c})
 end
 
-local function hhmm(sec)
-  if not sec then return "--:--" end
-  local total_min = math.floor(sec / 60)
-  return string.format("%02d:%02d", math.floor(total_min / 60) % 24, total_min % 60)
+local function wall_clock(ctx)
+  local clock = ctx.sys and ctx.sys:clock()
+  if not clock or clock.valid ~= true or clock.hour == nil or clock.minute == nil then return nil end
+  return clock
+end
+
+local function hhmm(ctx)
+  local clock = wall_clock(ctx)
+  if not clock then return "--:--" end
+  return string.format("%02d:%02d", clock.hour, clock.minute)
 end
 
 local function mmss(sec)
@@ -171,8 +177,8 @@ function on_tick(ctx, _dt)
       ctx:invalidate()
     end
   elseif s.phase == "idle" then
-    local now = ctx.sys:local_sec()
-    local minute = now and math.floor(now / 60) or nil
+    local clock = wall_clock(ctx)
+    local minute = clock and (clock.hour * 60 + clock.minute) or nil
     if minute and minute ~= s.last then
       s.last = minute
       ctx:invalidate()
@@ -345,7 +351,7 @@ function on_draw(ctx, g)
   elseif s.phase == "finished" then
     ct(g, geo.cx, geo.cy - 8, "00:00", BLACK)
   else
-    ct(g, geo.cx, geo.cy - 8, hhmm(ctx.sys:local_sec()), BLACK)
+    ct(g, geo.cx, geo.cy - 8, hhmm(ctx), BLACK)
   end
 
   -- ═══ 底部提示 ═══
