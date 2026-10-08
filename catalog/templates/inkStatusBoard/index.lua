@@ -21,21 +21,9 @@ local function center(g, x, y, width, text, color)
   g:text(x + math.floor((width - text_width(text)) / 2), y, text, { color = color or BLACK })
 end
 
-local function date_parts(seconds)
-  if type(seconds) ~= "number" or seconds < 1577836800 then return nil end
-  local minute = math.floor(seconds / 60)
-  local hour = math.floor(minute / 60) % 24
-  local min = minute % 60
-  local days = math.floor(minute / 1440)
-  local weekday = (days + 4) % 7
-  local year = 1970
-  local month_days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
-  local function leap(y) return (y % 4 == 0 and y % 100 ~= 0) or y % 400 == 0 end
-  local function count(y, m) if m == 2 and leap(y) then return 29 end return month_days[m] end
-  while days >= (leap(year) and 366 or 365) do days = days - (leap(year) and 366 or 365); year = year + 1 end
-  local month = 1
-  while days >= count(year, month) do days = days - count(year, month); month = month + 1 end
-  return { year = year, month = month, day = days + 1, hour = hour, min = min, weekday = weekday }
+local function date_parts(clock)
+  if not clock or clock.valid ~= true or clock.year == nil or clock.hour == nil or clock.minute == nil then return nil end
+  return { year = clock.year, month = clock.month, day = clock.day, hour = clock.hour, min = clock.minute, weekday = clock.weekday }
 end
 
 -- 一个确定性的轻量伪随机序列：无需网络，刷新后仍能得到自然的模拟状态。
@@ -46,8 +34,8 @@ end
 local function snapshot(ctx)
   ctx.state.ink_board = ctx.state.ink_board or { nonce = 0, focus = 0 }
   local state = ctx.state.ink_board
-  local local_sec = ctx.sys:local_sec() or 1711929600
-  local minute = math.floor(local_sec / 60)
+  local clock = ctx.sys:clock()
+  local minute = clock.valid and (clock.hour * 60 + clock.minute) or 0
   local seed = (minute + state.nonce * 137) % 997
   seed = next_value(seed); local quota = 18 + seed % 71
   seed = next_value(seed); local temperature = 16 + seed % 18
@@ -55,7 +43,7 @@ local function snapshot(ctx)
   seed = next_value(seed); local focus_minutes = 24 + seed % 56
   seed = next_value(seed); local remaining = 2 + seed % 7
   seed = next_value(seed); local jobs = 1 + seed % 5
-  return { quota = quota, temperature = temperature, humidity = humidity, focus_minutes = focus_minutes, remaining = remaining, jobs = jobs, parts = date_parts(local_sec) }
+  return { quota = quota, temperature = temperature, humidity = humidity, focus_minutes = focus_minutes, remaining = remaining, jobs = jobs, parts = date_parts(clock) }
 end
 
 local function draw_rule(g, x, y, width)
@@ -157,7 +145,8 @@ end
 
 function on_tick(ctx, _dt_ms)
   local state = ctx.state.ink_board
-  local minute = math.floor((ctx.sys:local_sec() or 0) / 60)
+  local clock = ctx.sys:clock()
+  local minute = clock.valid and (clock.hour * 60 + clock.minute) or nil
   if minute ~= state.minute then state.minute = minute; ctx:invalidate() end
 end
 

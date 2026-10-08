@@ -15,25 +15,12 @@ local function month_days(year, month)
   return MONTH_DAYS[month]
 end
 
-local function project(local_sec)
-  if type(local_sec) ~= "number" or local_sec < 1577836800 then return nil end
-  local whole = math.floor(local_sec)
-  local days = math.floor(whole / 86400)
-  local weekday = (days + 4) % 7
-  local year = 1970
-  while days >= (is_leap(year) and 366 or 365) do
-    days = days - (is_leap(year) and 366 or 365)
-    year = year + 1
-  end
-  local month = 1
-  while days >= month_days(year, month) do
-    days = days - month_days(year, month)
-    month = month + 1
-  end
+local function project(ctx)
+  local clock = ctx.sys:clock()
+  if not clock.valid or clock.month == nil or clock.day == nil or clock.hour == nil or clock.minute == nil then return nil end
   return {
-    month=month, day=days+1, weekday=weekday,
-    hour=math.floor(whole / 3600) % 24,
-    minute=math.floor(whole / 60) % 60
+    month=clock.month, day=clock.day, weekday=clock.weekday,
+    hour=clock.hour, minute=clock.minute
   }
 end
 
@@ -88,7 +75,7 @@ function on_tick(ctx)
 end
 
 function on_draw(ctx, g)
-  local parts = project(ctx.sys:local_sec())
+  local parts = project(ctx)
   local state = ctx.state.alipay_money_brief
   local remaining = math.max(0, 4 - completed_count(state))
   g:clear(W)

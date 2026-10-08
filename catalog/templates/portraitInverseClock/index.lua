@@ -1,13 +1,13 @@
 local C = require("clock_common")
 local M = {}
 local function draw(ctx,g,show_button)
-  local w,h=ctx.screen.width,ctx.screen.height; local m=C.clamp(math.floor(w*0.06),20,30); local p=C.project(ctx.sys:local_sec())
+  local w,h=ctx.screen.width,ctx.screen.height; local m=C.clamp(math.floor(w*0.06),20,30); local p=C.project(ctx)
   g:clear(C.WHITE); local panel_h=show_button and h-122 or h-60; g:rect(m,42,w-m*2,panel_h,"fill",C.BLACK); if p then C.center(g,m,75,w-m*2,string.format("%04d.%02d.%02d  周%s",p.year,p.month,p.day,C.WEEKDAYS[p.wday+1]),C.WHITE); C.draw_blocks(g,string.format("%02d:%02d",p.hour,p.min),m+18,260,w-m*2-36,180,C.WHITE); C.center(g,m,panel_h-8,w-m*2,"BLACK / WHITE",C.WHITE) else C.center(g,m,350,w-m*2,"时间未校准",C.WHITE) end
   if show_button then C.draw_button(ctx,g) end
 end
 M.draw=draw
 function on_enter(ctx) ctx.state.portrait_inverse_clock=ctx.state.portrait_inverse_clock or {}; ctx.state.portrait_inverse_clock.last=nil; ctx:set_tick_rate("low"); ctx:invalidate() end
-function on_tick(ctx,_dt_ms) local p=C.project(ctx.sys:local_sec()); local key=p and string.format("%04d%02d%02d%02d%02d",p.year,p.month,p.day,p.hour,p.min) or "unsynced"; if key~=ctx.state.portrait_inverse_clock.last then ctx.state.portrait_inverse_clock.last=key; ctx:invalidate() end end
+function on_tick(ctx,_dt_ms) local p=C.project(ctx); local key=p and string.format("%04d%02d%02d%02d%02d",p.year,p.month,p.day,p.hour,p.min) or "unsynced"; if key~=ctx.state.portrait_inverse_clock.last then ctx.state.portrait_inverse_clock.last=key; ctx:invalidate() end end
 function on_input(ctx,ev) return C.handle(ctx,ev) end
 function on_draw(ctx,g) draw(ctx,g,true) end
 return M

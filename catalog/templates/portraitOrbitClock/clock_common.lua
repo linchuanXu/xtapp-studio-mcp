@@ -13,14 +13,12 @@ local DIGITS = {
 function M.clamp(value, minimum, maximum) if value < minimum then return minimum end if value > maximum then return maximum end return value end
 function M.is_leap(year) return (year % 4 == 0 and year % 100 ~= 0) or year % 400 == 0 end
 function M.month_days(year, month) if month == 2 and M.is_leap(year) then return 29 end return MONTH_DAYS[month] end
-function M.project(local_sec)
-  if type(local_sec) ~= "number" or local_sec < 1577836800 then return nil end
-  local whole = math.floor(local_sec); local minute = math.floor(whole / 60) % 60; local hour = math.floor(whole / 3600) % 24
-  local days = math.floor(whole / 86400); local weekday = (days + 4) % 7; local year = 1970
-  while days >= (M.is_leap(year) and 366 or 365) do days = days - (M.is_leap(year) and 366 or 365); year = year + 1 end
-  local year_day = days + 1; local month = 1
-  while days >= M.month_days(year, month) do days = days - M.month_days(year, month); month = month + 1 end
-  return { year=year, month=month, day=days+1, hour=hour, min=minute, wday=weekday, year_day=year_day }
+function M.project(ctx)
+  local clock = ctx.sys:clock()
+  if not clock.valid or clock.hour == nil or clock.minute == nil or clock.year == nil or clock.month == nil or clock.day == nil then return nil end
+  local year_day = clock.day
+  for month = 1, clock.month - 1 do year_day = year_day + M.month_days(clock.year, month) end
+  return { year=clock.year, month=clock.month, day=clock.day, hour=clock.hour, min=clock.minute, wday=clock.weekday, year_day=year_day }
 end
 function M.first_wday(year, month)
   local days = 0

@@ -256,9 +256,9 @@ end
 -- 使用契约提供的本地秒数计算自然日；RTC 未校准时安全回退到同一序号，
 -- 避免伪造日期，也保证已领取状态不会因 nil 运行时值反复发奖。
 local function day(ctx)
-  local seconds = ctx.sys and ctx.sys:local_sec()
-  if type(seconds) ~= "number" then return 0 end
-  return math.floor(seconds / 86400)
+  local clock = ctx.sys and ctx.sys:clock()
+  if not clock or clock.valid ~= true or clock.year == nil or clock.month == nil or clock.day == nil then return 0 end
+  return clock.year * 10000 + clock.month * 100 + clock.day
 end
 local function rand(s, limit) s.seed = (s.seed * 1103515245 + 12345) % 2147483647; return (s.seed % limit) + 1 end
 local function gain_xp(s, amount)

@@ -40,7 +40,7 @@ end
 local function draw(ctx, g, show_button)
   local w, h = ctx.screen.width, ctx.screen.height
   local m = C.clamp(math.floor(w * 0.06), 20, 30)
-  local p = C.project(ctx.sys:local_sec())
+  local p = C.project(ctx)
   g:clear(C.WHITE)
   if p then
     -- 中央大号笔画时间（黑字白底，醒目；顶部无短句）
@@ -66,7 +66,7 @@ function on_enter(ctx)
   ctx:invalidate()
 end
 function on_tick(ctx, _dt_ms)
-  local p = C.project(ctx.sys:local_sec())
+  local p = C.project(ctx)
   local key = p and string.format("%04d%02d%02d%02d%02d", p.year, p.month, p.day, p.hour, p.min) or "unsynced"
   if key ~= ctx.state.portrait_maple_dusk_clock.last then
     ctx.state.portrait_maple_dusk_clock.last = key

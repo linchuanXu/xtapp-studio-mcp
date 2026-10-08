@@ -31,26 +31,10 @@ local function month_days(year, month)
   return MONTH_DAYS[month]
 end
 
-local function project_time(local_sec)
-  if type(local_sec) ~= "number" or local_sec < 1577836800 then return nil end
-  local whole = math.floor(local_sec)
-  local second = whole % 60
-  local minutes = math.floor(whole / 60)
-  local minute = minutes % 60
-  local hour = math.floor(minutes / 60) % 24
-  local days = math.floor(minutes / 1440)
-  local weekday = (days + 4) % 7
-  local year = 1970
-  while days >= (is_leap(year) and 366 or 365) do
-    days = days - (is_leap(year) and 366 or 365)
-    year = year + 1
-  end
-  local month = 1
-  while days >= month_days(year, month) do
-    days = days - month_days(year, month)
-    month = month + 1
-  end
-  return { year = year, month = month, day = days + 1, hour = hour, min = minute, sec = second, wday = weekday }
+local function project_time(ctx)
+  local clock = ctx.sys:clock()
+  if not clock.valid or clock.year == nil or clock.hour == nil or clock.minute == nil then return nil end
+  return { year = clock.year, month = clock.month, day = clock.day, hour = clock.hour, min = clock.minute, sec = clock.second, wday = clock.weekday }
 end
 
 local function text_width(text)
@@ -98,7 +82,7 @@ function M.draw(ctx, g, show_button)
   local width, height = ctx.screen.width, ctx.screen.height
   g:clear(WHITE)
   g:image(BACKGROUND, 0, 0)
-  draw_time(g, project_time(ctx.sys:local_sec()))
+  draw_time(g, project_time(ctx))
   if show_button then
     local rect = button_rect(ctx)
     g:rect(rect.x, rect.y, rect.w, rect.h, "fill", WHITE)
@@ -120,7 +104,7 @@ function on_enter(ctx)
 end
 
 function on_tick(ctx, _dt_ms)
-  local key = refresh_key(project_time(ctx.sys:local_sec()))
+  local key = refresh_key(project_time(ctx))
   if key ~= ctx.state.pixel_clock.last_key then
     ctx.state.pixel_clock.last_key = key
     ctx:invalidate()

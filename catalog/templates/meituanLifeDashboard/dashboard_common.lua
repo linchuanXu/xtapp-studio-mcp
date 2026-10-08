@@ -16,25 +16,12 @@ local function month_days(year, month)
   return MONTH_DAYS[month]
 end
 
-local function project(local_sec)
-  if type(local_sec) ~= "number" or local_sec < 1577836800 then return nil end
-  local whole = math.floor(local_sec)
-  local days = math.floor(whole / 86400)
-  local year = 1970
-  while days >= (is_leap(year) and 366 or 365) do
-    days = days - (is_leap(year) and 366 or 365)
-    year = year + 1
-  end
-  local month = 1
-  while days >= month_days(year, month) do
-    days = days - month_days(year, month)
-    month = month + 1
-  end
+local function project(ctx)
+  local clock = ctx.sys:clock()
+  if not clock.valid or clock.year == nil or clock.hour == nil or clock.minute == nil then return nil end
   return {
-    year=year, month=month, day=days+1,
-    hour=math.floor(whole / 3600) % 24,
-    min=math.floor(whole / 60) % 60,
-    wday=(math.floor(whole / 86400) + 4) % 7,
+    year=clock.year, month=clock.month, day=clock.day,
+    hour=clock.hour, min=clock.minute, wday=clock.weekday,
   }
 end
 
@@ -128,7 +115,7 @@ end
 
 function M.draw(ctx, g, show_button)
   local state = M.state(ctx)
-  local parts = project(ctx.sys:local_sec())
+  local parts = project(ctx)
   local width = ctx.screen.width
   local deal = DEALS[state.deal_index or 1]
   local eta, delivery_title, delivery_detail = delivery(ctx, state)

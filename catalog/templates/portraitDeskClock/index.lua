@@ -21,26 +21,10 @@ local function month_days(year, month)
     return MONTH_DAYS[month]
 end
 
-local function project_time(local_sec)
-    if type(local_sec) ~= "number" or local_sec < 1577836800 then return nil end
-    local whole = math.floor(local_sec)
-    local second = whole % 60
-    local minutes = math.floor(whole / 60)
-    local minute = minutes % 60
-    local hour = math.floor(minutes / 60) % 24
-    local days = math.floor(minutes / 1440)
-    local weekday = (days + 4) % 7
-    local year = 1970
-    while days >= (is_leap(year) and 366 or 365) do
-        days = days - (is_leap(year) and 366 or 365)
-        year = year + 1
-    end
-    local month = 1
-    while days >= month_days(year, month) do
-        days = days - month_days(year, month)
-        month = month + 1
-    end
-    return { year = year, month = month, day = days + 1, hour = hour, min = minute, sec = second, wday = weekday }
+local function project_time(ctx)
+    local clock = ctx.sys:clock()
+    if not clock.valid or clock.year == nil or clock.hour == nil or clock.minute == nil then return nil end
+    return { year = clock.year, month = clock.month, day = clock.day, hour = clock.hour, min = clock.minute, sec = clock.second, wday = clock.weekday }
 end
 
 local function first_wday(year, month)
@@ -123,7 +107,7 @@ end
 local function draw_dashboard(ctx, g, show_button)
     local width, height = ctx.screen.width, ctx.screen.height
     local margin = clamp(math.floor(width * 0.06), 20, 30)
-    local parts = project_time(ctx.sys:local_sec())
+    local parts = project_time(ctx)
     local calendar_h = 236
     local button_space = show_button and BUTTON_H + 30 or 26
     local calendar_y = height - margin - button_space - calendar_h
@@ -162,7 +146,7 @@ function on_enter(ctx)
 end
 
 function on_tick(ctx, _dt_ms)
-    local key = refresh_key(project_time(ctx.sys:local_sec()))
+    local key = refresh_key(project_time(ctx))
     if key ~= ctx.state.portrait_clock.last_key then
         ctx.state.portrait_clock.last_key = key
         ctx:invalidate()
