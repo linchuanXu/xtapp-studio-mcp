@@ -133,22 +133,18 @@ local function mark_fetch(ctx, s)
 end
 
 local function device_clock(ctx)
-  local epoch = ctx.sys and ctx.sys.epoch_sec and ctx.sys:epoch_sec() or nil
-  if type(epoch) ~= "number" then
-    return { has_clock = false, year = 2026, month = 9, day = 4 }
-  end
-  local parts = Time.hms_from_epoch(epoch)
-  if not parts then
+  local clock = ctx.sys and ctx.sys.clock and ctx.sys:clock() or nil
+  if type(clock) ~= "table" or clock.valid ~= true or clock.year == nil or clock.month == nil or clock.day == nil or clock.hour == nil or clock.minute == nil then
     return { has_clock = false, year = 2026, month = 9, day = 4 }
   end
   return {
     has_clock = true,
-    year = parts.year,
-    month = parts.month,
-    day = parts.day,
-    hour = parts.hour,
-    minute = parts.minute,
-    epoch = epoch,
+    year = clock.year,
+    month = clock.month,
+    day = clock.day,
+    hour = clock.hour,
+    minute = clock.minute,
+    epoch = clock.epoch_sec,
   }
 end
 

@@ -208,10 +208,22 @@ local function spec_avg(s, key)
   return math.floor(sum / n)
 end
 
+local function days_since_unix(year, month, day)
+  local y, m = year, month
+  if m <= 2 then y, m = y - 1, m + 12 end
+  local era = y // 400
+  local yoe = y - era * 400
+  local doy = (153 * (m - 3) + 2) // 5 + day - 1
+  local doe = yoe * 365 + yoe // 4 - yoe // 100 + doy
+  return era * 146097 + doe - 719468
+end
+
 local function today_id(ctx)
-  local sec = ctx.sys:local_sec() or ctx.sys:epoch_sec()
-  if type(sec) ~= "number" then return 0 end
-  return math.floor(sec / 86400)
+  local clock = ctx.sys:clock()
+  if type(clock) ~= "table" or clock.valid ~= true or clock.year == nil or clock.month == nil or clock.day == nil then
+    return 0
+  end
+  return days_since_unix(clock.year, clock.month, clock.day)
 end
 
 local function grid_geom(s)

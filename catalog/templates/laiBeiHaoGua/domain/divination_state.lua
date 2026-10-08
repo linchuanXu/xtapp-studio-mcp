@@ -106,6 +106,11 @@ function M.castLine(ctx, s)
   s.lastValue = value
   if #s.lines == 6 then
     s.castTs = ctx.sys:epoch_sec() or 0
+    s.castCivil = nil
+    local clock = ctx.sys and ctx.sys.clock and ctx.sys:clock() or nil
+    if type(clock) == "table" and clock.valid == true and clock.year ~= nil and clock.month ~= nil and clock.day ~= nil and clock.hour ~= nil and clock.minute ~= nil then
+      s.castCivil = { year = clock.year, month = clock.month, day = clock.day, hour = clock.hour, minute = clock.minute }
+    end
   end
   return true
 end
@@ -122,6 +127,7 @@ end
 
 function M.startCasting(s)
   s.imOpen = false
+  s.castCivil = nil
   s.lines = {}
   s.lastCoins = {}
   s.lastValue = 0
@@ -130,6 +136,7 @@ function M.startCasting(s)
 end
 
 function M.resetAll(s)
+  s.castCivil = nil
   s.lines = {}
   s.lastCoins = {}
   s.lastValue = 0
@@ -141,6 +148,7 @@ function M.resetAll(s)
 end
 
 function M.reroll(s)
+  s.castCivil = nil
   s.lines = {}
   s.lastCoins = {}
   s.lastValue = 0

@@ -19,8 +19,9 @@ end
 
 function M.utc_string(seconds)
   if type(seconds) ~= "number" or seconds < 0 then return nil end
-  local days = math.floor(seconds / 86400)
-  local remaining = math.floor(seconds - days * 86400)
+  local whole = seconds // 1
+  local days = whole // 86400
+  local remaining = whole - days * 86400
   local year = 1970
   while days >= (M.leap_year(year) and 366 or 365) do
     days = days - (M.leap_year(year) and 366 or 365)
@@ -29,8 +30,8 @@ function M.utc_string(seconds)
   local month_days = { 31, M.leap_year(year) and 29 or 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
   local month = 1
   while days >= month_days[month] do days = days - month_days[month]; month = month + 1 end
-  local hour = math.floor(remaining / 3600)
-  local minute = math.floor(remaining / 60) % 60
+  local hour = remaining // 3600
+  local minute = (remaining // 60) % 60
   local second = remaining % 60
   return string.format("%04d%02d%02dT%02d%02d%02dZ", year, month, days + 1, hour, minute, second)
 end
@@ -66,7 +67,7 @@ end
 
 function M.weekday_monday(year, month, day)
   local local_epoch = M.local_midnight_epoch(year, month, day) + M.BEIJING_OFFSET_SECONDS
-  return (math.floor(local_epoch / M.DAY_SECONDS) + 3) % 7 + 1
+  return (local_epoch // M.DAY_SECONDS + 3) % 7 + 1
 end
 
 function M.monday_of(year, month, day)

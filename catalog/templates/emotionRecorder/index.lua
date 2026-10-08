@@ -853,20 +853,6 @@ end
 -- 仅当固件取时失败时使用的兜底值：2026-07-31。
 local TODAY_DAY = 20665
 
-local function sync_today(ctx)
-  local ok, epoch = pcall(function()
-    return ctx.sys:epoch_sec()
-  end)
-
-  epoch = tonumber(epoch)
-
-  if ok and epoch and epoch > 0 then
-    -- epoch_sec 是 UTC 秒；加 8 小时后得到中国标准时间日期。
-    TODAY_DAY = math.floor((epoch + 8 * 3600) / 86400)
-  end
-end
-
-
 -- 将公历日期转换为“天数”（civil_from_days 的逆运算），供跳转定位日期。
 local function days_from_civil(year, month, day)
   local y = year
@@ -884,6 +870,15 @@ local function days_from_civil(year, month, day)
     - math.floor(yoe / 100)
     + doy
   return era * 146097 + doe - 719468
+end
+
+local function sync_today(ctx)
+  local ok, clock = pcall(function()
+    return ctx.sys:clock()
+  end)
+  if not ok or type(clock) ~= "table" or clock.valid ~= true then return end
+  if clock.year == nil or clock.month == nil or clock.day == nil then return end
+  TODAY_DAY = days_from_civil(clock.year, clock.month, clock.day)
 end
 
 local function date_to_offset(ms, date_str)

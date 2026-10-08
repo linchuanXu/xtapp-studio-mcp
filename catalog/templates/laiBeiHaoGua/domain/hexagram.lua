@@ -38,8 +38,10 @@ end
 
 -- epoch 秒 -> {year, month, day, hour, minute}
 function M.civilFromEpoch(sec)
-  local days = math.floor(sec / 86400)
-  local rem = sec % 86400
+  sec = math.floor(tonumber(sec) or 0)
+  if sec < 0 then sec = 0 end
+  local days = sec // 86400
+  local rem = sec - days * 86400
   local jdn = days + 2440588
   local a = jdn + 32044
   local b = math.floor((4 * a + 3) / 146097)
@@ -50,8 +52,8 @@ function M.civilFromEpoch(sec)
   local day = e - math.floor((153 * m + 2) / 5) + 1
   local month = m + 3 - 12 * math.floor(m / 10)
   local year = 100 * b + d - 4800 + math.floor(m / 10)
-  local hour = math.floor(rem / 3600)
-  local minute = math.floor((rem % 3600) / 60)
+  local hour = rem // 3600
+  local minute = (rem % 3600) // 60
   return { year = year, month = month, day = day, hour = hour, minute = minute }
 end
 
@@ -191,8 +193,11 @@ local function wxIdxOfZhi(z)
 end
 
 -- 主入口：lines = { {yang, moving}, ... } 初爻在下；ts 为起卦 epoch 秒
-function M.calc(lines, ts)
-  local dt = M.civilFromEpoch(ts or 0)
+function M.calc(lines, ts, civil)
+  local dt = civil
+  if type(dt) ~= "table" or dt.year == nil or dt.month == nil or dt.day == nil or dt.hour == nil or dt.minute == nil then
+    dt = M.civilFromEpoch(ts or 0)
+  end
   local g = ganzhiTable(dt)
 
   -- 本卦上下卦

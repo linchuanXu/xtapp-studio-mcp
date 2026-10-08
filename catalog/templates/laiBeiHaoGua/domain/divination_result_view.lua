@@ -441,7 +441,7 @@ local function drawResult4(g, l, s, r)
 end
 
 function M.draw(g, l, s)
-  local r = Hex.calc(s.lines, s.castTs)
+  local r = Hex.calc(s.lines, s.castTs, s.castCivil)
   if s.resultSub == 1 then drawResult1(g, l, s, r)
   elseif s.resultSub == 2 then drawResult2(g, l, s, r)
   elseif s.resultSub == 3 then drawResult3(g, l, s, r)

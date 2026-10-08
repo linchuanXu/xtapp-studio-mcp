@@ -23,8 +23,7 @@ local LETTER_WIDTH = { a = 42, b = 47, c = 42, d = 46, e = 42, f = 31, g = 43, h
 local COMPACT_LETTER_WIDTH = { a = 28, b = 31, c = 28, d = 31, e = 28, f = 21, g = 28, h = 32, i = 19, j = 21, k = 30, l = 19, m = 44, n = 32, o = 31, p = 31, q = 31, r = 24, s = 24, t = 20, u = 32, v = 29, w = 42, x = 29, y = 30, z = 25 }
 local LETTER_GAP = 4
 local COMPACT_LETTER_GAP = 2
-local MIN_VALID_LOCAL_SEC = 1577836800
-local DAY_SECONDS = 86400
+local MIN_VALID_DAY = 18262
 local SESSION_LIMIT = 12
 local DATA_CHUNK_SIZE = 200
 local INTERVALS = { 1, 3, 7, 14, 30, 60, 120 }
@@ -32,10 +31,24 @@ local HARD_INTERVALS = { 1, 2, 4, 7, 14, 30, 60 }
 local DAILY_OPTIONS = { 5, 10, 15, 20, 30 }
 local DIRECTION_OPTIONS = { "en_zh", "zh_en", "mixed" }
 
+local function days_since_unix(year, month, day)
+  local y, m = year, month
+  if m <= 2 then y, m = y - 1, m + 12 end
+  local era = y // 400
+  local yoe = y - era * 400
+  local doy = (153 * (m - 3) + 2) // 5 + day - 1
+  local doe = yoe * 365 + yoe // 4 - yoe // 100 + doy
+  return era * 146097 + doe - 719468
+end
+
 local function day_now(ctx)
-  local value = ctx.sys and ctx.sys.local_sec and ctx.sys:local_sec() or nil
-  if type(value) ~= "number" or value < MIN_VALID_LOCAL_SEC then return nil end
-  return math.floor(value / DAY_SECONDS)
+  local clock = ctx.sys and ctx.sys.clock and ctx.sys:clock() or nil
+  if type(clock) ~= "table" or clock.valid ~= true or clock.year == nil or clock.month == nil or clock.day == nil then
+    return nil
+  end
+  local day = days_since_unix(clock.year, clock.month, clock.day)
+  if day < MIN_VALID_DAY then return nil end
+  return day
 end
 
 local function normalize_item(p)
