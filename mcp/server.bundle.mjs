@@ -37178,6 +37178,47 @@ async function readStoreTemplate(dir) {
   return { dir, files, assets };
 }
 
+// mcp/knowledgeSearch.mjs
+var HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
+function markdownSections(content) {
+  const lines = String(content || "").split("\n");
+  const marks = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = HEADING.exec(lines[index]);
+    if (match) marks.push({ title: match[2].trim(), line: index });
+  }
+  const sections = [];
+  const preambleEnd = marks[0]?.line ?? lines.length;
+  const preamble = lines.slice(0, preambleEnd).join("\n").trim();
+  if (preamble) sections.push({ title: "", line: 1, text: preamble });
+  for (let index = 0; index < marks.length; index += 1) {
+    const end = marks[index + 1]?.line ?? lines.length;
+    sections.push({
+      title: marks[index].title,
+      line: marks[index].line + 1,
+      text: lines.slice(marks[index].line, end).join("\n").trim()
+    });
+  }
+  return sections;
+}
+function sectionScore(section, needle, terms) {
+  const title = section.title.toLowerCase();
+  const body = section.text.toLowerCase();
+  const titleHit = needle && title.includes(needle) ? 20 : 0;
+  const termTitle = terms.reduce((total, term) => total + (title.includes(term) ? 4 : 0), 0);
+  let bodyHit = 0;
+  if (needle.includes(" ")) bodyHit = terms.filter((term) => body.includes(term)).length;
+  else if (needle && body.includes(needle)) bodyHit = 2;
+  else bodyHit = terms.reduce((total, term) => total + (body.includes(term) ? 1 : 0), 0);
+  return titleHit + termTitle + bodyHit;
+}
+function searchSections(content, query) {
+  const needle = String(query || "").trim().toLowerCase();
+  if (!needle) return [];
+  const terms = [...new Set(needle.split(/[^\p{L}\p{N}_.:]+/u).filter((term) => term.length >= 2))];
+  return markdownSections(content).map((section) => ({ section, score: sectionScore(section, needle, terms) })).filter((row) => row.score > 0).sort((a, b) => b.score - a.score || a.section.line - b.section.line);
+}
+
 // mcp/server.mjs
 var ROOT = resolve2(dirname3(fileURLToPath2(import.meta.url)), "..");
 var CONTRACT_DIR = process.env.XTAPP_CONTRACT_DIR ? resolve2(process.env.XTAPP_CONTRACT_DIR) : null;
@@ -37244,32 +37285,42 @@ function contractCandidates() {
     join5(CONTRACT_DIR, "api", "manifest.md")
   ];
 }
+function sectionRows(content, query, meta3) {
+  return searchSections(content, query).map(({ section, score }) => ({
+    score,
+    topic: meta3.topic,
+    api: apiForLine(section.text, meta3.topic),
+    version: meta3.version,
+    source: meta3.source,
+    sourcePath: meta3.sourcePath,
+    line: section.line,
+    excerpt: section.text.length > 6e3 ? `${section.text.slice(0, 6e3)}
+\u2026` : section.text
+  }));
+}
 async function contractSearch(query, limit = 6, topicFilter = "") {
   const needle = String(query || "").trim().toLowerCase();
   if (!needle) return [];
-  const terms = [...new Set(needle.split(/[^\p{L}\p{N}_.:]+/u).filter((term) => term.length >= 2))];
   const rows = [];
   for (const path of contractCandidates()) {
     if (!existsSync(path)) continue;
     const content = await readFile4(path, "utf8");
-    const lines = content.split("\n");
-    lines.forEach((line, index) => {
-      const lower = line.toLowerCase();
-      const score = needle.includes(" ") ? terms.reduce((total, term) => total + (lower.includes(term) ? 1 : 0), 0) : lower.includes(needle) ? 1 : 0;
-      if (score > 0) rows.push({ score, topic: topicForPath(path), api: apiForLine(line, topicForPath(path)), version: versionForPath(path, content), source: sourceForPath(path), sourcePath: path, line: index + 1, excerpt: line.trim().slice(0, 500) });
-    });
+    rows.push(...sectionRows(content, needle, {
+      topic: topicForPath(path),
+      version: versionForPath(path, content),
+      source: sourceForPath(path),
+      sourcePath: path
+    }));
   }
   if (!rows.length && existsSync(KNOWLEDGE_INDEX)) {
     const knowledge = await readJson(KNOWLEDGE_INDEX);
     for (const entry of knowledge.entries || []) {
-      const content = String(entry.content || "");
-      const lower = content.toLowerCase();
-      const index = lower.indexOf(needle);
-      const score = index >= 0 ? terms.length + 1 : terms.reduce((total, term) => total + (lower.includes(term) ? 1 : 0), 0);
-      if (score > 0) {
-        const firstTermIndex = index >= 0 ? index : Math.max(0, terms.map((term) => lower.indexOf(term)).filter((value) => value >= 0).sort((a, b) => a - b)[0] || 0);
-        rows.push({ score, topic: entry.topic || "overview", api: entry.api || null, version: entry.version || "unknown", source: entry.source || "unknown", sourcePath: entry.sourcePath || entry.source, line: entry.lineStart || 1, excerpt: content.slice(Math.max(0, firstTermIndex - 160), firstTermIndex + 340).replaceAll("\n", " ") });
-      }
+      rows.push(...sectionRows(String(entry.content || ""), needle, {
+        topic: entry.topic || "overview",
+        version: entry.version || "unknown",
+        source: entry.source || "unknown",
+        sourcePath: entry.sourcePath || entry.source
+      }));
     }
   }
   const filtered = topicFilter ? rows.filter((row) => row.topic === topicFilter) : rows;
@@ -37318,7 +37369,7 @@ K3(server, "render_xtapp_studio_widget", {
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
 }, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve2(input2.projectDir) : null, widget: WIDGET_URI }));
-server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua contract and API guides. Classify the question first and optionally filter by topic.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
+server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua contract and API guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
   const results = await contractSearch(query, limit, topic);
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, count: results.length });
 });
