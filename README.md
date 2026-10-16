@@ -57,7 +57,7 @@ of overwriting it.
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)
-- Public knowledge: `knowledge/index.json` (schema 3, 99 entries: 70 API 2.x contract sections and guides, 4 shared, 25 for 0.8 migration; search defaults to 2.x)
+- Public knowledge: `knowledge/index.json` (schema 3, 99 entries: 70 API 2.x contract sections and guides, 4 shared, 25 frozen 0.8 pages that search does not return)
 - Public catalog: `catalog/index.json` (107 reviewed text templates)
 - Widget: `widget/index.html` is Codex-only; shows preview status, not the simulator frame
 

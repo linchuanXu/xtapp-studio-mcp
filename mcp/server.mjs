@@ -32,7 +32,7 @@ const sourceWatchers = new Map()
 const lastPushed = new Map()
 
 const server = new McpServer({ name: 'xtapp-studio', version: PLUGIN_VERSION }, {
-  instructions: 'New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (甘草) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence and wait: 在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder\'s absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Public store tools inspect and copy only the checked-in standard app templates.'
+  instructions: 'New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (甘草) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence and wait: 在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder\'s absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Public store tools inspect and copy only the checked-in standard app templates. Those templates may still be 0.8 source: keep the visual layout, rewrite the calls to 2.x, and do not keep ctx.state, ev.state, ctx.longtask, or matte.'
 })
 
 function textResult(text, details = {}) {
@@ -82,9 +82,10 @@ async function templateFiles(id) {
   return readStoreTemplate(dir)
 }
 
-// 知识只从提交的 knowledge/index.json 检索。每条带 version：2.x（契约 2.x 条文）、
-// 0.8（旧接口，只在迁移 0.8 应用时查）、any（两代通用）。默认只给 2.x 和通用的。
+// 知识只从提交的 knowledge/index.json 检索。索引里仍有冻结的 0.8 页，检索不返回它们。
+// 每条带 version：2.x（契约）、any（两代通用）。调用方传 0.8 也按 2.x 查。
 async function contractSearch(query, { limit = 6, topic = '', api = '2.x' } = {}) {
+  if (api !== '2.x') api = '2.x'
   const needle = String(query || '').trim().toLowerCase()
   if (!needle || !existsSync(KNOWLEDGE_INDEX)) return []
   const knowledge = await readJson(KNOWLEDGE_INDEX)
@@ -128,18 +129,18 @@ registerAppTool(server, 'render_xtapp_studio_widget', {
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ['model', 'app'] }, 'openai/outputTemplate': WIDGET_URI, 'openai/widgetAccessible': true },
 }, async (input = {}) => textResult('XTApp Studio preview widget ready.', { projectDir: input.projectDir ? resolve(input.projectDir) : null, widget: WIDGET_URI }))
 
-server.registerTool('search_xtapp_knowledge', { description: 'Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Set api to "0.8" only when migrating an existing 0.8 app.', inputSchema: { query: z.string().min(1), topic: z.enum(['input', 'graphics', 'runtime', 'manifest', 'network', 'assets', 'ui', 'studio-preview', 'overview']).optional(), limit: z.number().int().min(1).max(10).optional(), api: z.enum(['2.x', '0.8']).optional() } }, async ({ query, topic, limit, api = '2.x' }) => {
-  const results = await contractSearch(query, { limit, topic, api })
-  return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api, count: results.length })
+server.registerTool('search_xtapp_knowledge', { description: 'Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.', inputSchema: { query: z.string().min(1), topic: z.enum(['input', 'graphics', 'runtime', 'manifest', 'network', 'assets', 'ui', 'studio-preview', 'overview']).optional(), limit: z.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
+  const results = await contractSearch(query, { limit, topic, api: '2.x' })
+  return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: '2.x', count: results.length })
 })
 
-server.registerTool('list_xtapp_store_apps', { description: 'List public XTApp apps available as checked-in templates. Each item carries its manifest api; the official store apps are currently API 0.8 and serve as reference only.', inputSchema: { query: z.string().optional() } }, async ({ query = '' }) => {
+server.registerTool('list_xtapp_store_apps', { description: 'List public XTApp apps available as checked-in templates. Each item carries its manifest api. The checked-in official apps are still API 0.8 source; keep their visual layout and rewrite the calls to 2.x.', inputSchema: { query: z.string().optional() } }, async ({ query = '' }) => {
   const apps = await publicApps()
   const filtered = query ? apps.filter((app) => JSON.stringify(app).toLowerCase().includes(query.toLowerCase())) : apps
   return textResult(JSON.stringify(filtered, null, 2), { count: filtered.length, catalogIndexPresent: existsSync(CATALOG_INDEX), templateDirPresent: existsSync(STORE_DIR) })
 })
 
-server.registerTool('get_xtapp_store_template', { description: 'Inspect a public XTApp template: text sources plus an asset inventory without binary contents. These official store apps are API 0.8 and are reference only; write new apps against API 2.x.', inputSchema: { id: z.string().min(1) } }, async ({ id }) => {
+server.registerTool('get_xtapp_store_template', { description: 'Inspect a public XTApp template: text sources plus an asset inventory without binary contents. The source may be API 0.8. Keep the visual layout and rewrite calls to 2.x (manifest.api, ctx.storage, ev.phase). Do not keep ctx.state, ev.state, ctx.longtask, or matte.', inputSchema: { id: z.string().min(1) } }, async ({ id }) => {
   const template = await templateFiles(id)
   const payload = { id, files: template.files, assets: template.assets, note: TEMPLATE_GET_NOTE }
   return textResult(JSON.stringify(payload, null, 2), {
@@ -153,7 +154,7 @@ server.registerTool('get_xtapp_store_template', { description: 'Inspect a public
   })
 })
 
-server.registerTool('copy_xtapp_store_template', { description: 'Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. Templates are API 0.8 reference apps; new apps follow API 2.x, so after copying rewrite to the 2.x spec (manifest.api, ctx.package:image, no matte, etc.).', inputSchema: { id: z.string().min(1), projectDir: z.string().trim(), destination: z.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
+server.registerTool('copy_xtapp_store_template', { description: 'Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api, ctx.storage, ctx.package:image, ev.phase). Do not keep ctx.state, ev.state, ctx.longtask, or matte.', inputSchema: { id: z.string().min(1), projectDir: z.string().trim(), destination: z.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id)
   const base = resolve(projectDir)
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim()
@@ -162,7 +163,7 @@ server.registerTool('copy_xtapp_store_template', { description: 'Copy a public X
   if (!target.startsWith(`${base}/`)) throw new Error('模板目标越过了项目目录边界')
   if (existsSync(target)) throw new Error(`模板目标已存在，为避免覆盖请换一个目录：${relativeDestination}`)
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true })
-  return textResult(`已复制公开模板 ${id} 到 ${relativeDestination}。注意：这是 0.8 官方应用，公开目录只含文本源码（缺图片/XIC 素材时需在 Studio 导入）；新应用请按 2.x 规范改写（manifest.api、ctx.package:image、无 matte 等）。`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE })
+  return textResult(`已复制公开模板 ${id} 到 ${relativeDestination}。${TEMPLATE_COPY_NOTE}`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE })
 })
 
 const previewSession = await loadOrCreatePreviewSession()

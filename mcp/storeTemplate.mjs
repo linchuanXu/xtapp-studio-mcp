@@ -4,8 +4,8 @@ import { join, sep } from 'node:path'
 const TEXT_FILE = /\.(lua|json|md|txt|tsv)$/i
 const BINARY_FILE = /\.(xic|png|jpe?g|webp)$/i
 
-export const TEMPLATE_GET_NOTE = '以上是文本源码和素材清单（不含二进制内容）。这些官方商店应用是 0.8，只作参考；新应用按 2.x 规范写（manifest.api、ctx.package:image、无 matte 等）。'
-export const TEMPLATE_COPY_NOTE = '公开目录只导出文本源码；缺图片/XIC 素材时需在 Studio 导入。模板是 0.8 官方应用，复制后需按 2.x 规范改写。'
+export const TEMPLATE_GET_NOTE = '以上是文本源码和素材清单（不含二进制内容）。源码可能是 0.8。保留画面层级，调用改成 2.x（manifest.api、ctx.storage、ev.phase、ctx.package:image）。不要保留 ctx.state、ev.state、ctx.longtask 或 matte。'
+export const TEMPLATE_COPY_NOTE = '公开目录只导出文本源码；缺图片/XIC 素材时需在 Studio 导入。源码可能是 0.8：保留画面层级，调用改成 2.x，不要保留 ctx.state、ev.state、ctx.longtask 或 matte。'
 
 function posixRelative(prefix, name) {
   return [prefix, name].filter(Boolean).join('/').split(sep).join('/')
