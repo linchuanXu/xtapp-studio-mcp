@@ -104,7 +104,9 @@ async function contractSearch(query, { limit = 6, topic = '', api = '2.x' } = {}
       })
     }
   }
-  return rows.sort((a, b) => b.score - a.score || a.sourcePath.localeCompare(b.sourcePath) || a.line - b.line)
+  // 同分时 Studio 作者指南排在契约前：指南里的代码按契约校验过，能直接照抄。
+  const guideFirst = (row) => (row.source === 'public-contract' ? 1 : 0)
+  return rows.sort((a, b) => b.score - a.score || guideFirst(a) - guideFirst(b) || a.sourcePath.localeCompare(b.sourcePath) || a.line - b.line)
     .slice(0, Math.max(1, Math.min(10, limit))).map(({ score, ...row }) => row)
 }
 
