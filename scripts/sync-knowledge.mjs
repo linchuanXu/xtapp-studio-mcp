@@ -79,8 +79,9 @@ function specTopic(name) {
   const number = /^(?:附录)?([0-9]{2}|[A-Z])/.exec(name)?.[1]
   return Object.entries(SPEC_TOPICS).find(([, numbers]) => numbers.includes(number))?.[0] || 'runtime'
 }
-// 两代通用的 Studio 指南（编辑器自身的文件约定），其余 Studio 指南按 0.8 写。
-const SHARED_DOCUMENTS = /^studio-javascript-files(?:\.en)?\.md$/
+// 与 Studio 的 knowledgeApiFamily 同一分法：Studio 只讲 2.x 的指南、两代通用的指南，其余按 0.8 写。
+const V2_DOCUMENTS = /^assets-drawing(?:\.en)?\.md$/
+const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id)(?:\.en)?\.md$/
 
 function topicFor(source, content) {
   const value = source.toLowerCase()
@@ -110,7 +111,7 @@ function apiFor(content, topic) {
 }
 
 function versionFor(sourcePath) {
-  if (sourcePath.startsWith('contract/v2/')) return '2.x'
+  if (sourcePath.startsWith('contract/v2/') || V2_DOCUMENTS.test(sourcePath)) return '2.x'
   return SHARED_DOCUMENTS.test(sourcePath) ? 'any' : '0.8'
 }
 

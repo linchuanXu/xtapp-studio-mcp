@@ -26,7 +26,7 @@
 
 - 快照里每个素材都带 `key/path/mime/bytes/sha256/base64`。解析不出 key 的条目会出现在 `dropped`，不会被静默丢掉。
 - 超过单次请求条数时，插件继续补发剩余素材；`assetKeys` 是工程完整清单。不要把 80 当成设备或工程上限。
-- `.xic` 原样入库。`.png/.jpg/.webp` 由 Studio 转成 1bpp XIC 和配套 matte。Proxy 不转码。
+- `.xic` 原样入库。`.png/.jpg/.webp` 由 Studio 转成 XIC，透明跟着源图的透明通道；白底图的白色会照样画出来。Proxy 不转码。
 - 工具返回文本里如果出现 `未接受：…`，必须告诉用户哪些文件没进去，不要假装同步成功。
 
 ## 能力
