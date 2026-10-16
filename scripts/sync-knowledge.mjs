@@ -7,9 +7,11 @@ import { createHash } from 'node:crypto'
 // 维护者车道：只在用户要求刷新/校验知识时运行，源目录一律由本机环境变量提供，
 // 仓库内不写任何 checkout 路径。
 //
-//   XTAPP_CONTRACT_DIR         公司内部契约仓的根目录（可选，取其中固定的 7 个文件）
+//   XTAPP_CONTRACT_DIR         Studio 按标签同步的契约 2.x 副本 content/contracts/v2（取 source.json 的标签和 spec/*.md）
 //   XTAPP_PUBLIC_KNOWLEDGE_DIR Studio 侧公开知识根目录，可用路径分隔符列多个（POSIX 为 ":"）；
 //                              正文在 content/knowledge/generated/documents/，资产在 content/knowledge/public/
+//
+// 每条带 version：2.x（契约条文）、0.8（Studio 的旧接口指南，只在迁移时检索）、any（两代通用）。
 //
 //   node scripts/sync-knowledge.mjs            重新生成 knowledge/index.json
 //   node scripts/sync-knowledge.mjs --check    只校验已提交的索引是否与源一致（无源时跳过并说明）
@@ -22,14 +24,6 @@ const knowledgeDirs = String(process.env.XTAPP_PUBLIC_KNOWLEDGE_DIR || '')
   .filter(Boolean)
   .map((item) => resolve(item))
 const configuredRoots = [...(contractDir ? [contractDir] : []), ...knowledgeDirs]
-const sources = [
-  ...(contractDir ? [
-    join(contractDir, 'SPEC.md'), join(contractDir, 'README.md'), join(contractDir, 'api', 'runtime.md'),
-    join(contractDir, 'api', 'input.md'), join(contractDir, 'api', 'graphics.md'), join(contractDir, 'api', 'ui-components.md'),
-    join(contractDir, 'api', 'manifest.md'),
-  ] : []),
-  ...knowledgeDirs,
-]
 
 if (!check && configuredRoots.length === 0) {
   console.error('缺少知识源：请通过 XTAPP_CONTRACT_DIR / XTAPP_PUBLIC_KNOWLEDGE_DIR 指定本机目录后再生成索引。')
@@ -56,10 +50,30 @@ async function visit(path) {
   }
 }
 
-for (const source of sources) {
-  if (knowledgeDirs.includes(source)) await visit(source)
-  else if (existsSync(source)) files.push(source)
+let contractTag = null
+if (contractDir) {
+  contractTag = JSON.parse(await readFile(join(contractDir, 'source.json'), 'utf8')).tag
+  if (!/^api-2\.\d+\.\d+$/.test(contractTag || '')) {
+    console.error(`XTAPP_CONTRACT_DIR 不是 Studio 的契约 2.x 副本（缺 source.json 标签）：${contractDir}`)
+    process.exit(1)
+  }
+  for (const name of (await readdir(join(contractDir, 'spec'))).sort()) {
+    if (name.endsWith('.md')) files.push(join(contractDir, 'spec', name))
+  }
 }
+for (const dir of knowledgeDirs) await visit(dir)
+
+// 契约 2.x 各节按节号归类；名字见 spec/ 目录。
+const SPEC_TOPICS = {
+  input: ['04'], graphics: ['05', '06', '07', '11'], manifest: ['00', '19', '21'], assets: ['08', 'A'],
+  network: ['14'], ui: ['16', '23'], overview: ['03', 'C'],
+}
+function specTopic(name) {
+  const number = /^(?:附录)?([0-9]{2}|[A-Z])/.exec(name)?.[1]
+  return Object.entries(SPEC_TOPICS).find(([, numbers]) => numbers.includes(number))?.[0] || 'runtime'
+}
+// 两代通用的 Studio 指南（编辑器自身的文件约定），其余 Studio 指南按 0.8 写。
+const SHARED_DOCUMENTS = /^studio-javascript-files(?:\.en)?\.md$/
 
 function topicFor(source, content) {
   const value = source.toLowerCase()
@@ -88,16 +102,13 @@ function apiFor(content, topic) {
   return patterns[topic]?.exec(content)?.[1] || null
 }
 
-function versionFor(content, source) {
-  const match = content.match(/(?:契约版本|contract version|API version|apiVersion|version)\D{0,20}(\d+\.\d+)/i)
-  if (match) return match[1]
-  if (source.startsWith('contract/')) return '1.0'
-  if (source.startsWith('studio/')) return '0.1'
-  return '0.8'
+function versionFor(sourcePath) {
+  if (sourcePath.startsWith('contract/v2/')) return '2.x'
+  return SHARED_DOCUMENTS.test(sourcePath) ? 'any' : '0.8'
 }
 
 function publicPath(path, contractDir, knowledgeDirs) {
-  if (contractDir && (path === contractDir || path.startsWith(`${contractDir}/`))) return `contract/${path.slice(contractDir.length + 1)}`
+  if (contractDir && (path === contractDir || path.startsWith(`${contractDir}/`))) return `contract/v2/${path.slice(contractDir.length + 1)}`
   for (const dir of knowledgeDirs) {
     if (path === dir || path.startsWith(`${dir}/`)) return path.slice(dir.length + 1)
   }
@@ -114,15 +125,15 @@ for (const path of files.sort()) {
   const content = await readFile(path, 'utf8')
   const sourcePath = publicPath(path, contractDir, knowledgeDirs)
   const source = sourcePath.startsWith('contract/') ? 'public-contract' : 'xtapp-studio'
-  const topic = topicFor(sourcePath, content)
-  entries.push({ topic, api: apiFor(content, topic), version: versionFor(content, sourcePath), source, sourcePath, content, example: exampleFor(content) })
+  const topic = source === 'public-contract' ? specTopic(sourcePath.split('/').at(-1)) : topicFor(sourcePath, content)
+  entries.push({ topic, api: apiFor(content, topic), version: versionFor(sourcePath), source, sourcePath, content, example: exampleFor(content) })
 }
 if (existsSync(studioPreviewKnowledge)) {
   const content = await readFile(studioPreviewKnowledge, 'utf8')
-  entries.push({ topic: 'studio-preview', api: apiFor(content, 'studio-preview'), version: '0.1', source: 'xtapp-studio', sourcePath: 'studio/preview.md', content, example: exampleFor(content) })
+  entries.push({ topic: 'studio-preview', api: apiFor(content, 'studio-preview'), version: 'any', source: 'xtapp-studio', sourcePath: 'studio/preview.md', content, example: exampleFor(content) })
 }
 
-const hash = createHash('sha256').update(entries.map((entry) => `${entry.source}\0${entry.sourcePath}\0${entry.content}`).join('\0')).digest('hex')
+const hash = createHash('sha256').update([contractTag || '', ...entries.map((entry) => `${entry.source}\0${entry.sourcePath}\0${entry.version}\0${entry.content}`)].join('\0')).digest('hex')
 const outputPath = join(root, 'knowledge', 'index.json')
 
 if (check) {
@@ -153,5 +164,6 @@ if (existsSync(outputPath)) {
     if (previous.sourceHash === hash && typeof previous.generatedAt === 'string') generatedAt = previous.generatedAt
   } catch { /* rebuild malformed or legacy indexes */ }
 }
-await writeFile(outputPath, JSON.stringify({ schemaVersion: 2, generatedAt, sourceHash: hash, entries }, null, 2) + '\n')
-console.log(`Generated ${entries.length} public knowledge entries (${hash.slice(0, 12)}).`)
+await writeFile(outputPath, JSON.stringify({ schemaVersion: 3, generatedAt, contractTag, sourceHash: hash, entries }, null, 2) + '\n')
+const counts = entries.reduce((total, entry) => ({ ...total, [entry.version]: (total[entry.version] || 0) + 1 }), {})
+console.log(`Generated ${entries.length} public knowledge entries (${JSON.stringify(counts)}, contract ${contractTag || 'none'}, ${hash.slice(0, 12)}).`)

@@ -53,11 +53,11 @@ of overwriting it.
 - Marketplace / selector / Studio origin: `region.json` (this checkout is China; overseas is `xtapp-studio-mcp-intl`)
 - Plugin: `xtapp-studio-mcp`
 - Display name: `XTApp Studio`
-- Plugin version: `0.1.5`
+- Plugin version: `0.1.6`
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)
-- Public knowledge: `knowledge/index.json` (schema 2, 24 entries)
+- Public knowledge: `knowledge/index.json` (schema 3, 64 entries: 31 API 2.x contract sections, 2 shared, 31 for 0.8 migration; search defaults to 2.x)
 - Public catalog: `catalog/index.json` (107 reviewed text templates)
 - Widget: `widget/index.html` is Codex-only; shows preview status, not the simulator frame
 
@@ -126,14 +126,15 @@ source locations.
 Knowledge refresh takes the source roots from environment variables, so
 no checkout path is recorded here; `--check` fails when the committed
 index no longer matches those sources, and skips with a notice when the
-roots are not provided:
+roots are not provided. `XTAPP_CONTRACT_DIR` is Studio's tag-synced
+API 2.x contract copy (`source.json` + `spec/`); the index records its tag:
 
 ```bash
-XTAPP_CONTRACT_DIR=<contracts-checkout> \
+XTAPP_CONTRACT_DIR=<studio-contracts-v2-copy> \
 XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents>:<studio-content-public> \
 npm run sync:knowledge
 
-XTAPP_CONTRACT_DIR=<contracts-checkout> \
+XTAPP_CONTRACT_DIR=<studio-contracts-v2-copy> \
 XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents>:<studio-content-public> \
 npm run knowledge:check
 ```

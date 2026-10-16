@@ -3,642 +3,749 @@
     "id": "aiQuotaBoard",
     "appId": "ai_quota_board-0c6aa55d",
     "name": "AI 余量板",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "ali1688Restock",
     "appId": "ali_1688_restock-16880001",
     "name": "1688 采购补货台",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "aliCloudAiBoard",
     "appId": "ali_cloud_ai_board-414c4943",
     "name": "阿里云 AI 看板",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "aliInstantDelivery",
     "appId": "ali_instant_delivery-414c4931",
     "name": "淘宝闪购",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "aliMerchantPulse",
     "appId": "ali_merchant_pulse-414c4932",
     "name": "淘宝经营快报",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "alipayMoneyBrief",
     "appId": "alipay_money_brief-20880001",
     "name": "支付宝收支提醒",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "ankiClassic",
     "appId": "anki_classic-6c3d9f12",
     "name": "墨卡复习 · Classic",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "ankiPro",
     "appId": "anki_pro-20d5b8e1",
     "name": "墨背单词",
-    "version": "0.5.0"
+    "version": "0.5.0",
+    "api": "0.8"
   },
   {
     "id": "aStockLive",
     "appId": "a_stock_live-e7c31a5d",
     "name": "A股实况",
-    "version": "1.2.0"
+    "version": "1.2.0",
+    "api": "0.8"
   },
   {
     "id": "baguaFocus",
     "appId": "focus_clock-34809d07",
     "name": "专注时钟",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "cardGameSample",
     "appId": "card_game_sample-9c61f2a4",
     "name": "卡牌游戏样例",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "cellAtlas",
     "appId": "cell_atlas-19d6b3e8",
     "name": "细胞图鉴",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "chineseChess",
     "appId": "hello_world-6629a6c8",
     "name": "中国象棋",
-    "version": "0.1.5"
+    "version": "0.1.5",
+    "api": "0.8"
   },
   {
     "id": "cityTycoon",
     "appId": "city_tycoon-7d3b19a4",
     "name": "城镇大亨",
-    "version": "1.0.1"
+    "version": "1.0.1",
+    "api": "0.8"
   },
   {
     "id": "cowHit",
     "appId": "cow_hit_game-3a91c2d7",
     "name": "牛马再打我一次",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "cricketLantern",
     "appId": "cricket_lantern-7d12a9e3",
     "name": "灯下促织",
-    "version": "0.2.0"
+    "version": "0.2.0",
+    "api": "0.8"
   },
   {
     "id": "darkRoomX4",
     "appId": "dark_room_x4-2d6f9c31",
     "name": "A Dark Room · 墨水版",
-    "version": "0.2.0"
+    "version": "0.2.0",
+    "api": "0.8"
   },
   {
     "id": "dictionary",
     "appId": "dictionary-7e1825de",
     "name": "查字典",
-    "version": "0.4.0"
+    "version": "0.4.0",
+    "api": "0.8"
   },
   {
     "id": "doudizhu",
     "appId": "doudizhu_ink-4d6f2b91",
     "name": "斗地主",
-    "version": "0.2.0"
+    "version": "0.2.0",
+    "api": "0.8"
   },
   {
     "id": "dynastyLine",
     "appId": "dynasty_line-4a80c2f1",
     "name": "史纲年表",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "emotionRecorder",
     "appId": "mood_recorder-8c4b244e",
     "name": "情绪记录器",
-    "version": "0.2.0"
+    "version": "0.2.0",
+    "api": "0.8"
   },
   {
     "id": "feishuCalendar",
     "appId": "feishu_calendar-a1b2c3d4",
     "name": "飞书日历",
-    "version": "0.7.0"
+    "version": "0.7.0",
+    "api": "0.8"
   },
   {
     "id": "fridgeInventory",
     "appId": "fridge_inventory-9472b499",
     "name": "冰箱食材管家",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "futuresLive",
     "appId": "futures_live-3a0f2c71",
     "name": "期货行情",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "geometryInk",
     "appId": "geometry_ink-c3e8a47d",
     "name": "尺规几何",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "geoOutline",
     "appId": "geo_outline-8e15d0b6",
     "name": "山河简图",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "gomokuInk",
     "appId": "gomoku_ink-7f39c2a1",
     "name": "五子棋·墨局",
-    "version": "1.0.1"
+    "version": "1.0.1",
+    "api": "0.8"
   },
   {
     "id": "heroDaledou",
     "appId": "hero_daledou-9d7a41c2",
     "name": "勇者大乐斗",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "hkStockLive",
     "appId": "hk_stock_live-9c6f77a2",
     "name": "港股实况",
-    "version": "1.2.0"
+    "version": "1.2.0",
+    "api": "0.8"
   },
   {
     "id": "homeStatusBoard",
     "appId": "home_status_board-6f0a81c4",
     "name": "家居状态板",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "inkMatch3",
     "appId": "ink_match3-8f31c2a7",
     "name": "果蔬消消乐",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "inkNewsLive",
     "appId": "ink_news_live-7d8f2c1a",
     "name": "墨闻",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "inkStatusBoard",
     "appId": "ink_status_board-4f0ba72c",
     "name": "墨水状态板",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "inkWeatherLive",
     "appId": "ink_weather_live-2c8041e7",
     "name": "墨水天气",
-    "version": "1.2.1"
+    "version": "1.2.1",
+    "api": "0.8"
   },
   {
     "id": "laiBeiHaoGua",
     "appId": "lai_bei_hao_gua-61e7b4dc",
     "name": "来杯好卦爻一爻",
-    "version": "0.8.38"
+    "version": "0.8.38",
+    "api": "0.8"
   },
   {
     "id": "literatureQuoteClock",
     "appId": "literature_quote_clock-8d2c4f91",
     "name": "文学报时",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "maifangji",
     "appId": "maifangji-4f2a8c19",
     "name": "买房记",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "marketPulseLive",
     "appId": "market_pulse_live-6e30aa9c",
     "name": "全球市场",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "marketRadar",
     "appId": "market_radar_live-4d18ce72",
     "name": "市场异动雷达",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "meituanDeals",
     "appId": "meituan_deals-4d544431",
     "name": "附近神价",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "meituanDelivery",
     "appId": "meituan_delivery-4d544432",
     "name": "外卖到哪了",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "meituanFoodReport",
     "appId": "meituan_food_report-4d544433",
     "name": "本月吃了啥",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "meituanLifeDashboard",
     "appId": "meituan_life_dashboard-67af9031",
     "name": "美团生活仪表盘",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "meituanLongCatQuota",
     "appId": "meituan_longcat_quota-4d544435",
     "name": "LongCat余量",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "meituanStock",
     "appId": "meituan_stock-4d544434",
     "name": "美团行情",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "mindNotes",
     "appId": "mindnotes_review-1c7a43e9",
     "name": "MindNotes",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "mistHarbor",
     "appId": "mist_harbor-4e13a0bf",
     "name": "雾港遗书",
-    "version": "0.2.0"
+    "version": "0.2.0",
+    "api": "0.8"
   },
   {
     "id": "moonlitGallery",
     "appId": "moonlit_gallery-5d8a2f41",
     "name": "雨夜画廊",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "periodicTable",
     "appId": "periodic_table-b7d2f91c",
     "name": "元素周期表",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "physicsInk",
     "appId": "physics_ink-7c2e91a4",
     "name": "受力图说",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "pillowPoems",
     "appId": "pillow_poems-a1c4e8b2",
     "name": "枕上古诗",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "pixelClockLandscape",
     "appId": "pixel_clock_landscape-1e4cb687",
     "name": "像素风时钟（横版）",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "pixelClockPortrait",
     "appId": "pixel_clock_portrait-1de98421",
     "name": "像素风时钟（竖版）",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "pomodoroTimer",
     "appId": "pomodoro_timer-dea082dd",
     "name": "极简番茄钟",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "pomodoroTimerLandscape",
     "appId": "pomodoro_timer_landscape-49e30a6b",
     "name": "极简番茄钟（横版）",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "portraitAbyssPendulumClock",
     "appId": "portrait_abyss_pendulum_clock-e7a6c4b9",
     "name": "深渊摆钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitAlchemyClock",
     "appId": "portrait_alchemy_clock-18e3b975",
     "name": "魔女炼金台",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitAnalogClock",
     "appId": "portrait_analog_clock-b7504ae2",
     "name": "极简指针时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitArchiveClock",
     "appId": "portrait_archive_clock-a570c8d4",
     "name": "档案双栏时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitAstrariumClock",
     "appId": "portrait_astrarium_clock-5e72b3c9",
     "name": "天文星盘钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitBookmarkClock",
     "appId": "portrait_bookmark_clock-75cf208b",
     "name": "竖排书签时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitBronzeMirrorClock",
     "appId": "portrait_bronze_mirror_clock-8a32c947",
     "name": "山水铜镜",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitChamferClock",
     "appId": "portrait_chamfer_clock-c3169fa4",
     "name": "切角叠字时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitChineseClock",
     "appId": "portrait_chinese_clock-90c2e671",
     "name": "中文报时时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitCliffSteleClock",
     "appId": "portrait_cliff_stele_clock-c24f7b6e",
     "name": "绝壁秘笈",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitCubicleClock",
     "appId": "portrait_cubicle_clock-9b1e4f82",
     "name": "工位桌面",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitDeskClock",
     "appId": "portrait_desk_clock-1d790b7a",
     "name": "竖版桌面时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitDigitalClock",
     "appId": "portrait_digital_clock-2e67b913",
     "name": "复古数码时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitDotClock",
     "appId": "portrait_dot_clock-1f63ca90",
     "name": "圆点矩阵时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitEldritchClock",
     "appId": "portrait_eldritch_clock-6f83b1d4",
     "name": "旧日摆钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitEmaClock",
     "appId": "portrait_ema_clock-4c8e2a17",
     "name": "鸟居绘马",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitFlipClock",
     "appId": "portrait_flip_clock-82d30f61",
     "name": "翻页台历时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitGaugeClock",
     "appId": "portrait_gauge_clock-48f1a7ce",
     "name": "双仪表时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitHourglassClock",
     "appId": "portrait_hourglass_clock-4ad901e6",
     "name": "沙漏时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitInverseClock",
     "appId": "portrait_inverse_clock-4aa79c10",
     "name": "黑底反相时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitMapleDuskClock",
     "appId": "portrait_maple_dusk_clock-21374bbb",
     "name": "枫晚 · 时刻",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitMinimalClock",
     "appId": "portrait_minimal_clock-6f4b18a2",
     "name": "留白大字时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitMoonlightWandClock",
     "appId": "portrait_moonlight_wand_clock-b48d7e2a",
     "name": "月光魔法棒",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitNeonClock",
     "appId": "portrait_neon_clock-a2f7c35d",
     "name": "霓虹框架时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitOrbitClock",
     "appId": "portrait_orbit_clock-2d8cb941",
     "name": "轨道行星时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitPendulumClock",
     "appId": "portrait_pendulum_clock-3c8b47d1",
     "name": "机械摆钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitPianoClock",
     "appId": "portrait_piano_clock-9b14d6e8",
     "name": "钢琴谱架",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitPressClock",
     "appId": "portrait_press_clock-c6e4bd20",
     "name": "报纸头版时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitQinClock",
     "appId": "portrait_qin_clock-5d2a8c14",
     "name": "琴匣",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitRibbonClock",
     "appId": "portrait_ribbon_clock-28b7a5d1",
     "name": "圆角连笔时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitRippleClock",
     "appId": "portrait_ripple_clock-9d13ef78",
     "name": "波纹中心时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitSegmentClock",
     "appId": "portrait_segment_clock-e8249b17",
     "name": "细线七段时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitSketchPendulumClock",
     "appId": "portrait_sketch_pendulum_clock-91d3ae6f",
     "name": "素描摆钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitStationClock",
     "appId": "portrait_station_clock-7cb193a4",
     "name": "站台翻牌时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitSwordImmortalClock",
     "appId": "portrait_sword_immortal_clock-9e1b4c72",
     "name": "云海问剑",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitTodayClock",
     "appId": "portrait_today_clock-9c1d32e7",
     "name": "今日台历时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitTubeClock",
     "appId": "portrait_tube_clock-71d20c4e",
     "name": "空心管线时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitWaterCurtainClock",
     "appId": "portrait_water_curtain_clock-7a3e9c21",
     "name": "水帘洞",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitWeekClock",
     "appId": "portrait_week_clock-3b8e51af",
     "name": "星期进度时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "portraitYearClock",
     "appId": "portrait_year_clock-d31476c9",
     "name": "年度进度时钟",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "qingheJourney",
     "appId": "qinghe_journey-a13e5f20",
     "name": "清河问道",
-    "version": "0.8.0"
+    "version": "0.8.0",
+    "api": "0.8"
   },
   {
     "id": "quadrantPlanner",
     "appId": "quadrant_planner-1c6a9e72",
     "name": "四象限清单",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "quietFish",
     "appId": "quiet_fish-0ea72d5b",
     "name": "一叩 · 电子木鱼",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "sanguosha",
     "appId": "sanguosha-2e2a813f",
     "name": "三国杀·墨战",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "schulteGrid",
     "appId": "schulte_grid-7b2e9c14",
     "name": "舒尔特方格",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "sheepStack",
     "appId": "sheep_stack-9b6c0e21",
     "name": "三羊叠叠乐",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "sheepWolfRiver",
     "appId": "sheep_wolf_river-a1b2c3d4",
     "name": "羊狼过河",
-    "version": "1.6.3"
+    "version": "1.6.3",
+    "api": "0.8"
   },
   {
     "id": "starfieldMonsters",
     "appId": "starfield_monsters-7ac91e42",
     "name": "星野录",
-    "version": "0.1.1"
+    "version": "0.1.1",
+    "api": "0.8"
   },
   {
     "id": "usStockLive",
     "appId": "us_stock_live-4b62d9e1",
     "name": "美股实况",
-    "version": "1.2.0"
+    "version": "1.2.0",
+    "api": "0.8"
   },
   {
     "id": "watchlistLive",
     "appId": "watchlist_live-0af83d64",
     "name": "自选行情",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "api": "0.8"
   },
   {
     "id": "webgalKit",
     "appId": "webgal_kit-c8f1a204",
     "name": "文游基座",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   },
   {
     "id": "werewolfTable",
     "appId": "werewolf_table-1b92e5f4",
     "name": "月下狼局",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "api": "0.8"
   }
 ]

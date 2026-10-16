@@ -36494,7 +36494,7 @@ var StdioServerTransport = class {
 };
 
 // mcp/previewReady.mjs
-var PLUGIN_VERSION = "0.1.5";
+var PLUGIN_VERSION = "0.1.6";
 var PREVIEW_RUN_WAIT_MS = 3e4;
 var PREVIEW_QUICK_WAIT_MS = 4e3;
 function requireProjectDir(projectDir) {
@@ -36608,7 +36608,7 @@ var MAX_FILES = 2e3;
 var MAX_FILE_BYTES = 256 * 1024;
 var MAX_ASSETS = 2e3;
 var MAX_ASSET_BYTES = 2 * 1024 * 1024;
-var TEXT_FILE = /^(?:manifest\.json|[^/]+\.lua|(?:domain|persistence|scripts)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*\.lua|(?:data|lang)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*\.(?:tsv|txt|json))$/i;
+var TEXT_FILE = /^(?:manifest\.json|[^/]+\.lua|(?:[A-Za-z0-9_-][A-Za-z0-9_.-]*\/)+[A-Za-z0-9_.-]+\.lua|(?:data|lang)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*\.(?:tsv|txt|json))$/i;
 var ASSET_FILE = /^(?:assets|raw)\/[A-Za-z0-9_-]{1,23}\.(xic|png|jpe?g|webp)$/i;
 var LOOKS_LIKE_SOURCE = /\.(lua|tsv|txt|json)$/i;
 var SILENT_SKIP = /^(?:docs|tmp|prototypes|\.tmp)\//i;
@@ -37149,7 +37149,8 @@ import { readdir as readdir2, readFile as readFile3, stat as stat2 } from "node:
 import { join as join4, sep as sep2 } from "node:path";
 var TEXT_FILE2 = /\.(lua|json|md|txt|tsv)$/i;
 var BINARY_FILE = /\.(xic|png|jpe?g|webp)$/i;
-var TEMPLATE_GET_NOTE = "\u4EE5\u4E0A\u662F\u6587\u672C\u6E90\u7801\u548C\u7D20\u6750\u6E05\u5355\uFF08\u4E0D\u542B\u4E8C\u8FDB\u5236\u5185\u5BB9\uFF09\u3002\u53EF\u8FD0\u884C\u526F\u672C\u5FC5\u987B\u7528 copy_xtapp_store_template\uFF0C\u4E0D\u8981\u6839\u636E\u672C\u7ED3\u679C\u624B\u5199\u6F0F\u6389\u7684\u56FE\u7247\u6216 XIC\u3002";
+var TEMPLATE_GET_NOTE = "\u4EE5\u4E0A\u662F\u6587\u672C\u6E90\u7801\u548C\u7D20\u6750\u6E05\u5355\uFF08\u4E0D\u542B\u4E8C\u8FDB\u5236\u5185\u5BB9\uFF09\u3002\u8FD9\u4E9B\u5B98\u65B9\u5546\u5E97\u5E94\u7528\u662F 0.8\uFF0C\u53EA\u4F5C\u53C2\u8003\uFF1B\u65B0\u5E94\u7528\u6309 2.x \u89C4\u8303\u5199\uFF08manifest.api\u3001ctx.package:image\u3001\u65E0 matte \u7B49\uFF09\u3002";
+var TEMPLATE_COPY_NOTE = "\u516C\u5F00\u76EE\u5F55\u53EA\u5BFC\u51FA\u6587\u672C\u6E90\u7801\uFF1B\u7F3A\u56FE\u7247/XIC \u7D20\u6750\u65F6\u9700\u5728 Studio \u5BFC\u5165\u3002\u6A21\u677F\u662F 0.8 \u5B98\u65B9\u5E94\u7528\uFF0C\u590D\u5236\u540E\u9700\u6309 2.x \u89C4\u8303\u6539\u5199\u3002";
 function posixRelative(prefix, name) {
   return [prefix, name].filter(Boolean).join("/").split(sep2).join("/");
 }
@@ -37175,7 +37176,12 @@ async function readStoreTemplate(dir) {
   };
   await walk(dir);
   assets.sort((a, b) => a.path.localeCompare(b.path));
-  return { dir, files, assets };
+  let api = null;
+  try {
+    api = JSON.parse(files["manifest.json"]).api || null;
+  } catch {
+  }
+  return { dir, files, assets, api };
 }
 
 // mcp/knowledgeSearch.mjs
@@ -37221,7 +37227,6 @@ function searchSections(content, query) {
 
 // mcp/server.mjs
 var ROOT = resolve2(dirname3(fileURLToPath2(import.meta.url)), "..");
-var CONTRACT_DIR = process.env.XTAPP_CONTRACT_DIR ? resolve2(process.env.XTAPP_CONTRACT_DIR) : null;
 var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve2(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
 var CATALOG_INDEX = join5(ROOT, "catalog", "index.json");
 var KNOWLEDGE_INDEX = join5(ROOT, "knowledge", "index.json");
@@ -37229,7 +37234,7 @@ var WIDGET_URI = "ui://widget/xtapp/studio.html";
 var sourceWatchers = /* @__PURE__ */ new Map();
 var lastPushed = /* @__PURE__ */ new Map();
 var server = new McpServer({ name: "xtapp-studio", version: PLUGIN_VERSION }, {
-  instructions: "Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence and wait: \u5728\u5F53\u524D\u6587\u4EF6\u5939\u65B0\u5EFA todo-list\uFF0C\u505A\u4E00\u6B3E\u80FD\u6DFB\u52A0\u3001\u5B8C\u6210\u3001\u5220\u9664\u7684\u5F85\u529E\u3002Classic \u7528\u65B9\u5411\u952E\u548C OK\uFF0CPro \u4E5F\u80FD\u70B9\u3002 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder's absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Public store tools inspect and copy only the checked-in standard app templates."
+  instructions: "New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (\u7518\u8349) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence and wait: \u5728\u5F53\u524D\u6587\u4EF6\u5939\u65B0\u5EFA todo-list\uFF0C\u505A\u4E00\u6B3E\u80FD\u6DFB\u52A0\u3001\u5B8C\u6210\u3001\u5220\u9664\u7684\u5F85\u529E\u3002Classic \u7528\u65B9\u5411\u952E\u548C OK\uFF0CPro \u4E5F\u80FD\u70B9\u3002 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder's absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Public store tools inspect and copy only the checked-in standard app templates."
 });
 function textResult(text, details = {}) {
   return { content: [{ type: "text", text }], structuredContent: details };
@@ -37260,6 +37265,7 @@ async function publicApps() {
         appId: manifest.app_id || entry.name,
         name: manifest.display_name || manifest.name || entry.name,
         version: manifest.version || null,
+        api: manifest.api || null,
         description: existsSync(readmePath) ? (await readFile4(readmePath, "utf8")).split("\n").find(Boolean) || "" : ""
       });
     } catch {
@@ -37273,85 +37279,28 @@ async function templateFiles(id) {
   if (!info?.isDirectory()) throw new Error(`\u516C\u5F00\u6A21\u677F\u4E0D\u5B58\u5728\uFF1A${id}`);
   return readStoreTemplate(dir);
 }
-function contractCandidates() {
-  if (!CONTRACT_DIR) return [];
-  return [
-    join5(CONTRACT_DIR, "SPEC.md"),
-    join5(CONTRACT_DIR, "README.md"),
-    join5(CONTRACT_DIR, "api", "runtime.md"),
-    join5(CONTRACT_DIR, "api", "input.md"),
-    join5(CONTRACT_DIR, "api", "graphics.md"),
-    join5(CONTRACT_DIR, "api", "ui-components.md"),
-    join5(CONTRACT_DIR, "api", "manifest.md")
-  ];
-}
-function sectionRows(content, query, meta3) {
-  return searchSections(content, query).map(({ section, score }) => ({
-    score,
-    topic: meta3.topic,
-    api: apiForLine(section.text, meta3.topic),
-    version: meta3.version,
-    source: meta3.source,
-    sourcePath: meta3.sourcePath,
-    line: section.line,
-    excerpt: section.text.length > 6e3 ? `${section.text.slice(0, 6e3)}
-\u2026` : section.text
-  }));
-}
-async function contractSearch(query, limit = 6, topicFilter = "") {
+async function contractSearch(query, { limit = 6, topic = "", api = "2.x" } = {}) {
   const needle = String(query || "").trim().toLowerCase();
-  if (!needle) return [];
+  if (!needle || !existsSync(KNOWLEDGE_INDEX)) return [];
+  const knowledge = await readJson(KNOWLEDGE_INDEX);
   const rows = [];
-  for (const path of contractCandidates()) {
-    if (!existsSync(path)) continue;
-    const content = await readFile4(path, "utf8");
-    rows.push(...sectionRows(content, needle, {
-      topic: topicForPath(path),
-      version: versionForPath(path, content),
-      source: sourceForPath(path),
-      sourcePath: path
-    }));
-  }
-  if (!rows.length && existsSync(KNOWLEDGE_INDEX)) {
-    const knowledge = await readJson(KNOWLEDGE_INDEX);
-    for (const entry of knowledge.entries || []) {
-      rows.push(...sectionRows(String(entry.content || ""), needle, {
+  for (const entry of knowledge.entries || []) {
+    if (entry.version !== api && entry.version !== "any") continue;
+    if (topic && entry.topic !== topic) continue;
+    for (const { section, score } of searchSections(String(entry.content || ""), needle)) {
+      rows.push({
+        score,
         topic: entry.topic || "overview",
-        version: entry.version || "unknown",
+        version: entry.version,
         source: entry.source || "unknown",
-        sourcePath: entry.sourcePath || entry.source
-      }));
+        sourcePath: entry.sourcePath || entry.source,
+        line: section.line,
+        excerpt: section.text.length > 6e3 ? `${section.text.slice(0, 6e3)}
+\u2026` : section.text
+      });
     }
   }
-  const filtered = topicFilter ? rows.filter((row) => row.topic === topicFilter) : rows;
-  return filtered.sort((a, b) => (b.score || 0) - (a.score || 0) || a.sourcePath.localeCompare(b.sourcePath) || a.line - b.line).slice(0, Math.max(1, Math.min(10, limit))).map(({ score, ...row }) => row);
-}
-function topicForPath(path) {
-  const value = String(path).toLowerCase();
-  if (value.includes("/input")) return "input";
-  if (value.includes("/graphics")) return "graphics";
-  if (value.includes("/runtime")) return "runtime";
-  if (value.includes("/manifest")) return "manifest";
-  if (value.includes("ui-components")) return "ui";
-  if (value.includes("/network")) return "network";
-  return "overview";
-}
-function apiForLine(line, topic) {
-  const patterns = {
-    input: /\b(on_input|ctx\.input(?:\.caps)?)\b/i,
-    graphics: /\b(g:(?:clear|line|rect|circle|text|image|layer|size))\b/i,
-    runtime: /\b(ctx\.(?:state|screen|sys|longtask|perf)|on_(?:load|enter|tick|draw|leave|unload))\b/i,
-    manifest: /\b(manifest(?:\.json)?|app_id|display\.orientation)\b/i,
-    network: /\b(ctx\.net:(?:get|post|poll|cancel))\b/i
-  };
-  return patterns[topic]?.exec(line)?.[1] || null;
-}
-function versionForPath(path, content) {
-  const match = String(content).match(/(?:契约版本|contract version|API version|apiVersion|version)\D{0,20}(\d+\.\d+)/i);
-  return match?.[1] || (String(path).includes("/contract/") ? "1.0" : "unknown");
-}
-function sourceForPath(path) {
-  return String(path).includes("/contract/") ? "public-contract" : "xtapp-studio";
+  return rows.sort((a, b) => b.score - a.score || a.sourcePath.localeCompare(b.sourcePath) || a.line - b.line).slice(0, Math.max(1, Math.min(10, limit))).map(({ score, ...row }) => row);
 }
 N3(server, "xtapp-studio-widget", WIDGET_URI, {
   title: "XTApp Studio Preview",
@@ -37369,16 +37318,16 @@ K3(server, "render_xtapp_studio_widget", {
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
 }, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve2(input2.projectDir) : null, widget: WIDGET_URI }));
-server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua contract and API guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
-  const results = await contractSearch(query, limit, topic);
-  return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, count: results.length });
+server.registerTool("search_xtapp_knowledge", { description: 'Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Set api to "0.8" only when migrating an existing 0.8 app.', inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional(), api: external_exports.enum(["2.x", "0.8"]).optional() } }, async ({ query, topic, limit, api = "2.x" }) => {
+  const results = await contractSearch(query, { limit, topic, api });
+  return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api, count: results.length });
 });
-server.registerTool("list_xtapp_store_apps", { description: "List public XTApp apps available as checked-in templates.", inputSchema: { query: external_exports.string().optional() } }, async ({ query = "" }) => {
+server.registerTool("list_xtapp_store_apps", { description: "List public XTApp apps available as checked-in templates. Each item carries its manifest api; the official store apps are currently API 0.8 and serve as reference only.", inputSchema: { query: external_exports.string().optional() } }, async ({ query = "" }) => {
   const apps = await publicApps();
   const filtered = query ? apps.filter((app) => JSON.stringify(app).toLowerCase().includes(query.toLowerCase())) : apps;
   return textResult(JSON.stringify(filtered, null, 2), { count: filtered.length, catalogIndexPresent: existsSync(CATALOG_INDEX), templateDirPresent: existsSync(STORE_DIR) });
 });
-server.registerTool("get_xtapp_store_template", { description: "Inspect a public XTApp template: text sources plus an asset inventory without binary contents. A runnable copy with art requires copy_xtapp_store_template.", inputSchema: { id: external_exports.string().min(1) } }, async ({ id }) => {
+server.registerTool("get_xtapp_store_template", { description: "Inspect a public XTApp template: text sources plus an asset inventory without binary contents. These official store apps are API 0.8 and are reference only; write new apps against API 2.x.", inputSchema: { id: external_exports.string().min(1) } }, async ({ id }) => {
   const template = await templateFiles(id);
   const payload = { id, files: template.files, assets: template.assets, note: TEMPLATE_GET_NOTE };
   return textResult(JSON.stringify(payload, null, 2), {
@@ -37391,7 +37340,7 @@ server.registerTool("get_xtapp_store_template", { description: "Inspect a public
     note: TEMPLATE_GET_NOTE
   });
 });
-server.registerTool("copy_xtapp_store_template", { description: "Copy a complete public XTApp template, including binary assets, into a new directory inside the explicitly selected project. The destination must not already exist. Use this for a runnable copy; get_xtapp_store_template is inspect-only.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
+server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. Templates are API 0.8 reference apps; new apps follow API 2.x, so after copying rewrite to the 2.x spec (manifest.api, ctx.package:image, no matte, etc.).", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id);
   const base = resolve2(projectDir);
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim();
@@ -37400,7 +37349,7 @@ server.registerTool("copy_xtapp_store_template", { description: "Copy a complete
   if (!target.startsWith(`${base}/`)) throw new Error("\u6A21\u677F\u76EE\u6807\u8D8A\u8FC7\u4E86\u9879\u76EE\u76EE\u5F55\u8FB9\u754C");
   if (existsSync(target)) throw new Error(`\u6A21\u677F\u76EE\u6807\u5DF2\u5B58\u5728\uFF0C\u4E3A\u907F\u514D\u8986\u76D6\u8BF7\u6362\u4E00\u4E2A\u76EE\u5F55\uFF1A${relativeDestination}`);
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true });
-  return textResult(`\u5DF2\u590D\u5236\u516C\u5F00\u6A21\u677F ${id} \u5230 ${relativeDestination}`, { id, destination: target, sourceDir: template.dir });
+  return textResult(`\u5DF2\u590D\u5236\u516C\u5F00\u6A21\u677F ${id} \u5230 ${relativeDestination}\u3002\u6CE8\u610F\uFF1A\u8FD9\u662F 0.8 \u5B98\u65B9\u5E94\u7528\uFF0C\u516C\u5F00\u76EE\u5F55\u53EA\u542B\u6587\u672C\u6E90\u7801\uFF08\u7F3A\u56FE\u7247/XIC \u7D20\u6750\u65F6\u9700\u5728 Studio \u5BFC\u5165\uFF09\uFF1B\u65B0\u5E94\u7528\u8BF7\u6309 2.x \u89C4\u8303\u6539\u5199\uFF08manifest.api\u3001ctx.package:image\u3001\u65E0 matte \u7B49\uFF09\u3002`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE });
 });
 var previewSession = await loadOrCreatePreviewSession();
 function studioOrigin() {

@@ -16,7 +16,7 @@ test('get 模板列出素材路径但不内联二进制', async () => {
     assert.equal(template.files['index.lua'], 'function on_draw() end\n')
     assert.equal(template.files['assets/hero.xic'], undefined)
     assert.deepEqual(template.assets, [{ path: 'assets/hero.xic', bytes: 10 }])
-    assert.match(TEMPLATE_GET_NOTE, /copy_xtapp_store_template/)
+    assert.match(TEMPLATE_GET_NOTE, /0\.8.*2\.x/)
   } finally {
     await rm(root, { recursive: true, force: true })
   }

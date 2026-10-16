@@ -100,7 +100,9 @@ projects.
 
 ### 2. Write a minimum app
 
-Search the public contract before editing. Do not invent APIs. The
+Write it against the latest Lua API 2.x (`manifest.api` is the newest
+2.x version). Search the public contract before editing; the search
+returns 2.x by default. Do not invent APIs. The
 smoke example is a todo list that can add, complete, and delete tasks.
 Classic must work with `up/down/left/right/ok/back`. Pro also supports
 touch. Do not copy a store template unless the user asked for one.
@@ -328,6 +330,7 @@ Enter only when the user asks to refresh, validate, or release:
    and `docs/INSTALL_CURSOR.md`.
 2. Refresh only the reviewed public payload files when the user provides
    maintainer-local source directories through environment variables.
+   `XTAPP_CONTRACT_DIR` is Studio's tag-synced API 2.x contract copy.
    `XTAPP_PUBLIC_KNOWLEDGE_DIR` accepts several roots separated by the
    platform path delimiter (Studio generated documents + public assets).
    Run `npm run knowledge:check` after refreshing: it fails when the

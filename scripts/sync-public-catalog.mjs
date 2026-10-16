@@ -31,7 +31,7 @@ for (const entry of await readdir(sourceRoot, { withFileTypes: true })) {
   const manifestPath = join(sourceDir, 'manifest.json')
   if (!existsSync(manifestPath)) continue
   const manifest = JSON.parse(await readFile(manifestPath, 'utf8'))
-  apps.push({ id: entry.name, appId: manifest.app_id || entry.name, name: manifest.display_name || manifest.name || entry.name, version: manifest.version || null })
+  apps.push({ id: entry.name, appId: manifest.app_id || entry.name, name: manifest.display_name || manifest.name || entry.name, version: manifest.version || null, api: manifest.api || null })
   await exportTextFiles(sourceDir, join(templateRoot, entry.name))
 }
 await mkdir(outputRoot, { recursive: true })

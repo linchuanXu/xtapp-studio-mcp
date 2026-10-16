@@ -6,7 +6,8 @@ export const MAX_FILES = 2000
 export const MAX_FILE_BYTES = 256 * 1024
 export const MAX_ASSETS = 2000
 export const MAX_ASSET_BYTES = 2 * 1024 * 1024
-export const TEXT_FILE = /^(?:manifest\.json|[^/]+\.lua|(?:domain|persistence|scripts)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*\.lua|(?:data|lang)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*\.(?:tsv|txt|json))$/i
+// 与 Proxy preview_bridge.SOURCE_PATH 同步：API 2.x 打包全部 .lua（点开头的目录除外）。
+export const TEXT_FILE = /^(?:manifest\.json|[^/]+\.lua|(?:[A-Za-z0-9_-][A-Za-z0-9_.-]*\/)+[A-Za-z0-9_.-]+\.lua|(?:data|lang)\/[A-Za-z0-9_.-]+(?:\/[A-Za-z0-9_.-]+)*\.(?:tsv|txt|json))$/i
 const ASSET_FILE = /^(?:assets|raw)\/[A-Za-z0-9_-]{1,23}\.(xic|png|jpe?g|webp)$/i
 const LOOKS_LIKE_SOURCE = /\.(lua|tsv|txt|json)$/i
 const SILENT_SKIP = /^(?:docs|tmp|prototypes|\.tmp)\//i
