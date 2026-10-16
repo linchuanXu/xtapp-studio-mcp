@@ -61,6 +61,13 @@ if (contractDir) {
     if (name.endsWith('.md')) files.push(join(contractDir, 'spec', name))
   }
 }
+// 英文译本在 Studio 知识目录，不在会被契约同步清掉的副本里。
+const englishSpecDir = contractDir ? join(contractDir, '..', '..', 'knowledge', 'v2-spec-en') : null
+if (englishSpecDir && existsSync(englishSpecDir)) {
+  for (const name of (await readdir(englishSpecDir)).sort()) {
+    if (name.endsWith('.md')) files.push(join(englishSpecDir, name))
+  }
+}
 for (const dir of knowledgeDirs) await visit(dir)
 
 // 契约 2.x 各节按节号归类；名字见 spec/ 目录。
@@ -108,6 +115,10 @@ function versionFor(sourcePath) {
 }
 
 function publicPath(path, contractDir, knowledgeDirs) {
+  const englishSpecDir = contractDir ? join(contractDir, '..', '..', 'knowledge', 'v2-spec-en') : null
+  if (englishSpecDir && (path === englishSpecDir || path.startsWith(`${englishSpecDir}/`))) {
+    return `contract/v2/spec-en/${path.slice(englishSpecDir.length + 1)}`
+  }
   if (contractDir && (path === contractDir || path.startsWith(`${contractDir}/`))) return `contract/v2/${path.slice(contractDir.length + 1)}`
   for (const dir of knowledgeDirs) {
     if (path === dir || path.startsWith(`${dir}/`)) return path.slice(dir.length + 1)
