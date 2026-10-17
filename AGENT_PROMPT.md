@@ -29,8 +29,8 @@ Use this instruction in any host that can run a local stdio MCP:
 > Do not invent a remote MCP URL, a second preview server, or a host
 > plugin directory. Do not edit source, publish, or push unless I asked.
 > Do not write a todo app in this turn. After reload, start a new session
-> and tell me to send this exact sentence:
-> 「在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。」
+> and tell me to send the sentence
+> under "The sentence to say", in my language (English or 中文).
 
 ## Install into Codex
 
@@ -42,9 +42,8 @@ Use this instruction in Codex Desktop or Codex CLI:
 > Keep the bundled `xtapp_studio` MCP from this plugin. Do not invent a
 > download URL, clone path, install script, remote MCP URL, or source
 > checkout path. Do not edit source, publish, or push. Do not write a
-> todo app in this turn. After a new Codex task, tell me to send this
-> exact sentence:
-> 「在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。」
+> todo app in this turn. After a new Codex task, tell me to send the sentence
+> under "The sentence to say", in my language (English or 中文).
 
 ## Install into Cursor
 
@@ -60,5 +59,5 @@ browser:
 > `.cursor/skills/`. Reload MCP. Do not invent a remote MCP URL or a
 > second preview server. Do not edit source, publish, or push unless I
 > asked. Do not write a todo app in this turn. After a new Agent chat,
-> tell me to send this exact sentence:
-> 「在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。」
+> tell me to send the sentence
+> under "The sentence to say", in my language (English or 中文).
