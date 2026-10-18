@@ -54,7 +54,7 @@ Codex 插件：marketplace 包同一份 MCP + skills + 状态 Widget
 - 运行时：已登录的 XTApp Studio
 - 默认预览：以 `get_xtapp_preview_status` 返回的 `previewUrl` 为准
 - Skills：`xtapp-contracts`、`xtapp-open-preview`（可移植；Codex 会自动加载）
-- 公开知识：`knowledge/index.json`（schema 3，99 条：2.x 契约条文与指南 70、两代通用 4、冻结的 0.8 页 25；检索不返回 0.8）
+- 公开知识：`knowledge/index.json`（schema 3，109 条：2.x 契约条文与指南 72、两代通用 4、冻结的 0.8 页 33；检索不返回 0.8）
 - 公开目录：`catalog/index.json`（107 个审核过的文本模板）
 - Widget：`widget/index.html` 仅 Codex；显示预览状态，不是模拟器画面
 
