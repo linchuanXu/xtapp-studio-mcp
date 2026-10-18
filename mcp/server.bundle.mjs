@@ -22551,7 +22551,7 @@ var require_compile = __commonJS({
       const schOrFunc = root.refs[ref];
       if (schOrFunc)
         return schOrFunc;
-      let _sch = resolve3.call(this, root, ref);
+      let _sch = resolve4.call(this, root, ref);
       if (_sch === void 0) {
         const schema = (_a3 = root.localRefs) === null || _a3 === void 0 ? void 0 : _a3[ref];
         const { schemaId } = this.opts;
@@ -22578,7 +22578,7 @@ var require_compile = __commonJS({
     function sameSchemaEnv(s1, s2) {
       return s1.schema === s2.schema && s1.root === s2.root && s1.baseId === s2.baseId;
     }
-    function resolve3(root, ref) {
+    function resolve4(root, ref) {
       let sch;
       while (typeof (sch = this.refs[ref]) == "string")
         ref = sch;
@@ -23408,7 +23408,7 @@ var require_fast_uri = __commonJS({
       }
       return uri;
     }
-    function resolve3(baseURI, relativeURI, options) {
+    function resolve4(baseURI, relativeURI, options) {
       const schemelessOptions = options ? Object.assign({ scheme: "null" }, options) : { scheme: "null" };
       const {
         parsed: baseParsed,
@@ -23776,7 +23776,7 @@ var require_fast_uri = __commonJS({
     var fastUri = {
       SCHEMES,
       normalize,
-      resolve: resolve3,
+      resolve: resolve4,
       resolveComponent,
       equal,
       serialize,
@@ -26768,7 +26768,7 @@ var require_dist = __commonJS({
 // mcp/server.mjs
 import { cp, readFile as readFile4, readdir as readdir3, stat as stat3 } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname as dirname3, join as join5, resolve as resolve2 } from "node:path";
+import { dirname as dirname4, join as join5, resolve as resolve3 } from "node:path";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
 // node_modules/zod/v3/helpers/util.js
@@ -34267,7 +34267,7 @@ var Protocol = class {
           return;
         }
         const pollInterval = task2.pollInterval ?? this._options?.defaultTaskPollInterval ?? 1e3;
-        await new Promise((resolve3) => setTimeout(resolve3, pollInterval));
+        await new Promise((resolve4) => setTimeout(resolve4, pollInterval));
         options?.signal?.throwIfAborted();
       }
     } catch (error61) {
@@ -34284,7 +34284,7 @@ var Protocol = class {
    */
   request(request, resultSchema, options) {
     const { relatedRequestId, resumptionToken, onresumptiontoken, task, relatedTask } = options ?? {};
-    return new Promise((resolve3, reject) => {
+    return new Promise((resolve4, reject) => {
       const earlyReject = (error61) => {
         reject(error61);
       };
@@ -34362,7 +34362,7 @@ var Protocol = class {
           if (!parseResult.success) {
             reject(parseResult.error);
           } else {
-            resolve3(parseResult.data);
+            resolve4(parseResult.data);
           }
         } catch (error61) {
           reject(error61);
@@ -34623,12 +34623,12 @@ var Protocol = class {
       }
     } catch {
     }
-    return new Promise((resolve3, reject) => {
+    return new Promise((resolve4, reject) => {
       if (signal.aborted) {
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
         return;
       }
-      const timeoutId = setTimeout(resolve3, interval);
+      const timeoutId = setTimeout(resolve4, interval);
       signal.addEventListener("abort", () => {
         clearTimeout(timeoutId);
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
@@ -35818,7 +35818,7 @@ var McpServer = class {
     let task = createTaskResult.task;
     const pollInterval = task.pollInterval ?? 5e3;
     while (task.status !== "completed" && task.status !== "failed" && task.status !== "cancelled") {
-      await new Promise((resolve3) => setTimeout(resolve3, pollInterval));
+      await new Promise((resolve4) => setTimeout(resolve4, pollInterval));
       const updatedTask = await extra.taskStore.getTask(taskId);
       if (!updatedTask) {
         throw new McpError(ErrorCode.InternalError, `Task ${taskId} not found during polling`);
@@ -36482,12 +36482,12 @@ var StdioServerTransport = class {
     this.onclose?.();
   }
   send(message) {
-    return new Promise((resolve3) => {
+    return new Promise((resolve4) => {
       const json2 = serializeMessage(message);
       if (this._stdout.write(json2)) {
-        resolve3();
+        resolve4();
       } else {
-        this._stdout.once("drain", resolve3);
+        this._stdout.once("drain", resolve4);
       }
     });
   }
@@ -37067,6 +37067,121 @@ async function pushProjectSnapshot(snapshot, request, { previous } = {}) {
   }
 }
 
+// mcp/studioPull.mjs
+import { createHash as createHash2 } from "node:crypto";
+import { mkdir as mkdir2, rm, writeFile as writeFile2 } from "node:fs/promises";
+import { dirname as dirname2, resolve as resolve2 } from "node:path";
+var ASSET_KEY = /^[A-Za-z0-9_-]{1,23}$/;
+var EXPORT_BATCH_ITEMS = 200;
+var EXPORT_BATCH_BYTES = 3 * 1024 * 1024;
+function sha256Text(text) {
+  return createHash2("sha256").update(String(text ?? ""), "utf8").digest("hex");
+}
+function sameAsset(hash2, asset = {}) {
+  return Boolean(hash2) && (hash2 === asset.hash || hash2 === asset.contentHash);
+}
+function selectPullItems({ snapshot = {}, catalog = {}, paths, keys, overwrite = false } = {}) {
+  const localFiles = snapshot.files || {};
+  const localAssets = Object.fromEntries((snapshot.assets || []).filter((item) => item?.key).map((item) => [item.key, item.sha256]));
+  const studioFiles = catalog.files || {};
+  const studioAssets = new Map((catalog.assets || []).map((item) => [item.key, item]));
+  const explicit = Array.isArray(paths) || Array.isArray(keys);
+  const wantPaths = explicit ? paths || [] : Object.keys(studioFiles);
+  const wantKeys = explicit ? keys || [] : [...studioAssets.keys()];
+  const skipped = [];
+  const missing = [];
+  const pullPaths = [];
+  const pullKeys = [];
+  for (const path of wantPaths) {
+    if (!Object.hasOwn(studioFiles, path)) {
+      missing.push(path);
+      continue;
+    }
+    if (Object.hasOwn(localFiles, path)) {
+      if (sha256Text(localFiles[path]) === studioFiles[path]) continue;
+      if (!overwrite) {
+        skipped.push(path);
+        continue;
+      }
+    }
+    pullPaths.push(path);
+  }
+  for (const key of wantKeys) {
+    const asset = studioAssets.get(key);
+    if (!asset) {
+      missing.push(key);
+      continue;
+    }
+    if (Object.hasOwn(localAssets, key)) {
+      if (sameAsset(localAssets[key], asset)) continue;
+      if (!overwrite) {
+        skipped.push(key);
+        continue;
+      }
+    }
+    pullKeys.push(key);
+  }
+  return { paths: pullPaths, keys: pullKeys, skipped, missing };
+}
+function splitExportBatches({ paths = [], keys = [] } = {}, catalog = {}, {
+  maxItems = EXPORT_BATCH_ITEMS,
+  maxBytes = EXPORT_BATCH_BYTES
+} = {}) {
+  const sizes = new Map((catalog.assets || []).map((item) => [item.key, Number(item.bytes) || 0]));
+  const batches = [];
+  let current = { paths: [], keys: [] };
+  let bytes = 0;
+  const push = (kind, value, size) => {
+    const count = current.paths.length + current.keys.length;
+    if (count && (count >= maxItems || bytes + size > maxBytes)) {
+      batches.push(current);
+      current = { paths: [], keys: [] };
+      bytes = 0;
+    }
+    current[kind].push(value);
+    bytes += size;
+  };
+  for (const path of paths) push("paths", path, 0);
+  for (const key of keys) push("keys", key, sizes.get(key) || 0);
+  if (current.paths.length || current.keys.length) batches.push(current);
+  return batches;
+}
+function insideRoot(root, relativePath) {
+  const target = resolve2(root, relativePath);
+  if (!target.startsWith(`${root}/`)) throw new Error(`\u5BFC\u51FA\u8DEF\u5F84\u8D8A\u8FC7\u9879\u76EE\u76EE\u5F55\uFF1A${relativePath}`);
+  return target;
+}
+async function writeExportedItems(root, exported = {}, snapshot = {}) {
+  const written = [];
+  for (const [path, content] of Object.entries(exported.files || {})) {
+    if (!TEXT_FILE.test(path) || typeof content !== "string") continue;
+    const target = insideRoot(root, path);
+    await mkdir2(dirname2(target), { recursive: true });
+    await writeFile2(target, content, "utf8");
+    written.push(path);
+  }
+  for (const asset of exported.assets || []) {
+    const key = String(asset?.key || "");
+    if (!ASSET_KEY.test(key) || typeof asset.base64 !== "string") continue;
+    const path = `assets/${key}.xic`;
+    for (const old of (snapshot.assets || []).filter((item) => item.key === key && item.path !== path)) {
+      await rm(insideRoot(root, old.path), { force: true });
+    }
+    const target = insideRoot(root, path);
+    await mkdir2(dirname2(target), { recursive: true });
+    await writeFile2(target, Buffer.from(asset.base64, "base64"));
+    written.push(path);
+  }
+  return written;
+}
+function describeStudioAssets({ keptAssets = [], deleted = [], deleteMissing = [] } = {}) {
+  return [
+    deleted.length ? `\u5DF2\u5220\u9664 Studio \u91CC\u7684\u56FE\uFF1A${deleted.join("\u3001")}` : "",
+    deleteMissing.length ? `Studio \u91CC\u6CA1\u6709\u8FD9\u4E9B\u56FE\uFF0C\u672A\u5220\u9664\uFF1A${deleteMissing.join("\u3001")}` : "",
+    keptAssets.length ? `Studio \u91CC\u6709 ${keptAssets.length} \u5F20\u56FE\u672C\u5730\u6CA1\u6709\uFF08\u7528\u6237\u5728 Studio \u4E0A\u4F20\u6216\u751F\u6210\u7684\uFF09\uFF0C\u540C\u6B65\u65F6\u5DF2\u4FDD\u7559\uFF1A${keptAssets.join("\u3001")}\u3002\u5982\u679C\u7528\u6237\u4E4B\u524D\u6CA1\u63D0\u8FC7\uFF0C\u544A\u8BC9\u7528\u6237\u4E00\u58F0\uFF1B\u8981\u7528\u5C31\u8C03\u7528 pull_xtapp_studio_source \u62C9\u56DE\u672C\u5730\uFF0C\u7528\u6237\u8981\u5220\u5C31\u5728\u4E0B\u6B21 run_xtapp_preview \u5E26\u4E0A deleteAssets\u3002` : ""
+  ].filter(Boolean).join("\n");
+}
+
 // mcp/previewTap.mjs
 function targetCenter(target = {}) {
   const x = Number(target.x) || 0;
@@ -37125,9 +37240,9 @@ async function tapPreviewTarget({ targetId, gesture = "tap" } = {}, { getTargets
 
 // mcp/regionConfig.mjs
 import { readFileSync } from "node:fs";
-import { dirname as dirname2, join as join3 } from "node:path";
+import { dirname as dirname3, join as join3 } from "node:path";
 import { fileURLToPath } from "node:url";
-var defaultRegionPath = join3(dirname2(fileURLToPath(import.meta.url)), "..", "region.json");
+var defaultRegionPath = join3(dirname3(fileURLToPath(import.meta.url)), "..", "region.json");
 function loadPluginRegion(regionPath = defaultRegionPath) {
   return JSON.parse(readFileSync(regionPath, "utf8"));
 }
@@ -37226,15 +37341,17 @@ function searchSections(content, query) {
 }
 
 // mcp/server.mjs
-var ROOT = resolve2(dirname3(fileURLToPath2(import.meta.url)), "..");
-var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve2(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
+var ROOT = resolve3(dirname4(fileURLToPath2(import.meta.url)), "..");
+var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve3(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
 var CATALOG_INDEX = join5(ROOT, "catalog", "index.json");
 var KNOWLEDGE_INDEX = join5(ROOT, "knowledge", "index.json");
 var WIDGET_URI = "ui://widget/xtapp/studio.html";
 var sourceWatchers = /* @__PURE__ */ new Map();
 var lastPushed = /* @__PURE__ */ new Map();
+var STUDIO_COMMAND_WAIT_MS = 1e4;
+var EXPORT_WAIT_MS = 2e4;
 var server = new McpServer({ name: "xtapp-studio", version: PLUGIN_VERSION }, {
-  instructions: "New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (\u7518\u8349) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence in the language the user writes in and wait. English: Create todo-list in this folder and make a todo app that can add, complete, and delete. Classic uses d-pad and OK. Pro also supports touch. \u4E2D\u6587\uFF1A\u5728\u5F53\u524D\u6587\u4EF6\u5939\u65B0\u5EFA todo-list\uFF0C\u505A\u4E00\u6B3E\u80FD\u6DFB\u52A0\u3001\u5B8C\u6210\u3001\u5220\u9664\u7684\u5F85\u529E\u3002Classic \u7528\u65B9\u5411\u952E\u548C OK\uFF0CPro \u4E5F\u80FD\u70B9\u3002 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder's absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Public store tools inspect and copy only the checked-in standard app templates. Those templates may still be 0.8 source: keep the visual layout and rewrite the calls to 2.x. Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte."
+  instructions: "New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (\u7518\u8349) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence in the language the user writes in and wait. English: Create todo-list in this folder and make a todo app that can add, complete, and delete. Classic uses d-pad and OK. Pro also supports touch. \u4E2D\u6587\uFF1A\u5728\u5F53\u524D\u6587\u4EF6\u5939\u65B0\u5EFA todo-list\uFF0C\u505A\u4E00\u6B3E\u80FD\u6DFB\u52A0\u3001\u5B8C\u6210\u3001\u5220\u9664\u7684\u5F85\u529E\u3002Classic \u7528\u65B9\u5411\u952E\u548C OK\uFF0CPro \u4E5F\u80FD\u70B9\u3002 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder's absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Sync never deletes images that exist only in Studio (uploaded or generated there); when the user asks to delete such an image, pass its key in deleteAssets on run_xtapp_preview. If a result lists images Studio kept and the user has not mentioned them, tell the user once; use pull_xtapp_studio_source to bring them into the worktree. Public store tools inspect and copy only the checked-in standard app templates. Those templates may still be 0.8 source: keep the visual layout and rewrite the calls to 2.x. Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte."
 });
 function textResult(text, details = {}) {
   return { content: [{ type: "text", text }], structuredContent: details };
@@ -37319,7 +37436,7 @@ K3(server, "render_xtapp_studio_widget", {
   description: "Open or refresh the native right-side XTApp Studio preview widget for the active project.",
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
-}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve2(input2.projectDir) : null, widget: WIDGET_URI }));
+}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve3(input2.projectDir) : null, widget: WIDGET_URI }));
 server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
   const results = await contractSearch(query, { limit, topic, api: "2.x" });
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: "2.x", count: results.length });
@@ -37344,10 +37461,10 @@ server.registerTool("get_xtapp_store_template", { description: "Inspect a public
 });
 server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api 2.2, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id);
-  const base = resolve2(projectDir);
+  const base = resolve3(projectDir);
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim();
   if (!relativeDestination || relativeDestination.startsWith("/") || relativeDestination.includes("..")) throw new Error("\u6A21\u677F\u76EE\u6807\u5FC5\u987B\u662F\u5F53\u524D\u9879\u76EE\u5185\u7684\u76F8\u5BF9\u8DEF\u5F84\uFF0C\u4E14\u4E0D\u80FD\u5305\u542B ..");
-  const target = resolve2(base, relativeDestination);
+  const target = resolve3(base, relativeDestination);
   if (!target.startsWith(`${base}/`)) throw new Error("\u6A21\u677F\u76EE\u6807\u8D8A\u8FC7\u4E86\u9879\u76EE\u76EE\u5F55\u8FB9\u754C");
   if (existsSync(target)) throw new Error(`\u6A21\u677F\u76EE\u6807\u5DF2\u5B58\u5728\uFF0C\u4E3A\u907F\u514D\u8986\u76D6\u8BF7\u6362\u4E00\u4E2A\u76EE\u5F55\uFF1A${relativeDestination}`);
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true });
@@ -37424,7 +37541,67 @@ function previewReadyResult(result, { displayName = "", commandStatus = result?.
   });
   return { ...result, ...ready, displayName: ready.displayName };
 }
-async function ensurePreviewReady({ projectDir, device = "x4_pro" }) {
+async function deleteStudioAssets(keys = []) {
+  if (!keys.length) return {};
+  const result = await awaitCommand("/preview/delete", { keys }, STUDIO_COMMAND_WAIT_MS);
+  if (isFailedCommand(result) || result?.status !== "complete") {
+    return { deleteError: result?.message || result?.outcome?.error || result?.status || "unknown" };
+  }
+  return { deleted: result.deleted || [], deleteMissing: result.missing || [] };
+}
+function studioAssetNote(result = {}) {
+  return [
+    describeStudioAssets(result),
+    result.deleteError ? `\u5220\u9664 Studio \u91CC\u7684\u56FE\u5931\u8D25\uFF1A${result.deleteError}` : ""
+  ].filter(Boolean).join("\n");
+}
+async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) {
+  const root = requireProjectDir(projectDir);
+  return withProjectPushLock(root, async () => {
+    const snapshot = await readProjectSnapshot(root);
+    const listed = await awaitCommand("/preview/catalog", {}, STUDIO_COMMAND_WAIT_MS);
+    const catalog = listed?.catalog;
+    if (!catalog || typeof catalog !== "object") {
+      return { ...listed, projectDir: snapshot.projectDir, message: listed?.message || `Studio \u6CA1\u6709\u56DE\u62A5\u9879\u76EE\u6E05\u5355\uFF08${listed?.status || "unknown"}\uFF09\u3002\u8BF7\u786E\u8BA4\u9884\u89C8\u9875\u5DF2\u6253\u5F00\u4E14\u662F\u6700\u65B0\u7248\u672C\u3002` };
+    }
+    if (catalog.codexWorktreeDir !== snapshot.projectDir) {
+      return {
+        status: "not_linked",
+        projectDir: snapshot.projectDir,
+        message: `Studio \u5F53\u524D\u6253\u5F00\u7684\u9879\u76EE\u300C${catalog.name || catalog.projectId}\u300D\u4E0D\u662F\u8FD9\u4E2A\u76EE\u5F55\u5173\u8054\u7684\u9879\u76EE\u3002\u5148\u8C03\u7528 run_xtapp_preview \u8BA9 Studio \u6253\u5F00\u5BF9\u5E94\u9879\u76EE\uFF0C\u518D\u62C9\u53D6\u3002`
+      };
+    }
+    const selection = selectPullItems({ snapshot, catalog, paths, keys, overwrite });
+    const written = [];
+    const errors = [];
+    for (const batch of splitExportBatches(selection, catalog)) {
+      const result = await awaitCommand("/preview/export", batch, EXPORT_WAIT_MS);
+      if (!result?.export || isFailedCommand(result)) {
+        errors.push(result?.message || result?.outcome?.error || result?.status || "unknown");
+        continue;
+      }
+      written.push(...await writeExportedItems(snapshot.projectDir, result.export, snapshot));
+      selection.missing.push(...result.export.missing || []);
+    }
+    const lines = [
+      written.length ? `\u5DF2\u4ECE Studio \u62C9\u56DE ${written.length} \u9879\uFF1A${written.join("\u3001")}` : "\u6CA1\u6709\u9700\u8981\u62C9\u56DE\u7684\u5185\u5BB9\u3002",
+      selection.skipped.length ? `\u672C\u5730\u5DF2\u6709\u4E0D\u540C\u7248\u672C\uFF0C\u672A\u8986\u76D6\uFF1A${selection.skipped.join("\u3001")}\uFF08\u8981\u7528 Studio \u7248\u672C\u5C31\u5E26 overwrite: true \u518D\u62C9\uFF09` : "",
+      selection.missing.length ? `Studio \u91CC\u6CA1\u6709\uFF1A${selection.missing.join("\u3001")}` : "",
+      errors.length ? `\u90E8\u5206\u5BFC\u51FA\u5931\u8D25\uFF1A${errors.join("\uFF1B")}` : "",
+      written.length ? "\u56FE\u4EE5 .xic \u5199\u5165 assets/\uFF0C\u4E4B\u540E\u7531\u672C\u5730\u7BA1\u7406\u3002" : ""
+    ];
+    return {
+      status: errors.length ? "partial" : "pulled",
+      projectDir: snapshot.projectDir,
+      written,
+      skipped: selection.skipped,
+      missing: selection.missing,
+      errors,
+      message: lines.filter(Boolean).join("\n")
+    };
+  });
+}
+async function ensurePreviewReady({ projectDir, device = "x4_pro", deleteAssets = [] }) {
   const root = requireProjectDir(projectDir);
   const snapshot = await readProjectSnapshot(root);
   const displayName = displayNameFromManifest(snapshot.manifest, snapshot.projectName);
@@ -37434,11 +37611,13 @@ async function ensurePreviewReady({ projectDir, device = "x4_pro" }) {
     return previewReadyResult({ ...status, projectDir: snapshot.projectDir, watching: true }, { displayName, commandStatus: status.status });
   }
   const source = await syncProjectSource(snapshot.projectDir);
+  const removal = await deleteStudioAssets(deleteAssets);
   const path = previewRunPath(status.status);
   const result = await awaitCommand(path, { projectDir: source.projectDir, revision: source.revision, device });
   return previewReadyResult({
     ...result,
     ...source,
+    ...removal,
     device,
     watching: true,
     commandPath: path
@@ -37472,16 +37651,23 @@ function startSourceWatcher(projectDir) {
   sourceWatchers.set(projectDir, watcher);
   return watcher;
 }
-server.registerTool("run_xtapp_preview", { description: "Ensure the official Studio preview page is running the current local worktree. Requires the absolute projectDir. If the page is closed or needs login, returns the exact previewUrl instead of claiming success.", inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional() } }, async ({ projectDir, device = "x4_pro" }) => {
-  const result = await ensurePreviewReady({ projectDir, device });
-  return textResult([result.message || JSON.stringify(result), formatDroppedAssets(result.dropped)].filter(Boolean).join("\n"), result);
+var DELETE_ASSETS_NOTE = " Sync deletes source files and images the worktree pushed earlier once they are gone locally. Images that exist only in Studio (uploaded or generated there) are kept and listed; to delete them when the user asks, pass their keys in deleteAssets.";
+var deleteAssetsSchema = external_exports.array(external_exports.string().trim().min(1)).max(200).optional();
+server.registerTool("run_xtapp_preview", { description: `Ensure the official Studio preview page is running the current local worktree. Requires the absolute projectDir. If the page is closed or needs login, returns the exact previewUrl instead of claiming success.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, device = "x4_pro", deleteAssets = [] }) => {
+  const result = await ensurePreviewReady({ projectDir, device, deleteAssets });
+  return textResult([result.message || JSON.stringify(result), formatDroppedAssets(result.dropped), studioAssetNote(result)].filter(Boolean).join("\n"), result);
 });
-server.registerTool("sync_xtapp_preview_source", { description: "Read the current local worktree source and make it available to the official Studio preview.", inputSchema: { projectDir: external_exports.string().trim() } }, async ({ projectDir }) => {
-  const result = await syncProjectSource(projectDir);
-  return textResult(describeSourceSync(result), result);
+server.registerTool("sync_xtapp_preview_source", { description: `Read the current local worktree source and make it available to the official Studio preview.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: external_exports.string().trim(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, deleteAssets = [] }) => {
+  const source = await syncProjectSource(projectDir);
+  const result = { ...source, ...await deleteStudioAssets(deleteAssets) };
+  return textResult([describeSourceSync(result), studioAssetNote(result)].filter(Boolean).join("\n"), result);
+});
+server.registerTool("pull_xtapp_studio_source", { description: "Copy files and images from the open Studio project back into the local worktree, e.g. images the user uploaded in Studio. Default pulls everything Studio has that the worktree lacks; pass paths (source files) and/or keys (image keys) to pick. Images are written as assets/<key>.xic and are owned by the worktree afterwards. Local files that differ are skipped unless overwrite is true. Studio must already show this worktree (call run_xtapp_preview first).", inputSchema: { projectDir: external_exports.string().trim().min(1), paths: external_exports.array(external_exports.string().trim()).optional(), keys: external_exports.array(external_exports.string().trim()).optional(), overwrite: external_exports.boolean().optional() } }, async (args) => {
+  const result = await pullStudioSource(args);
+  return textResult(result.message || JSON.stringify(result), result);
 });
 server.registerTool("watch_xtapp_preview", { description: "Watch a local worktree and automatically synchronize source changes to the official Studio preview.", inputSchema: { projectDir: external_exports.string().trim(), enabled: external_exports.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
-  const root = resolve2(projectDir);
+  const root = resolve3(projectDir);
   if (!enabled) return textResult(JSON.stringify({ status: stopSourceWatcher(root) ? "stopped" : "not_watching", projectDir: root }), { status: "stopped", projectDir: root });
   await syncProjectSource(root);
   startSourceWatcher(root);
@@ -37537,6 +37723,6 @@ server.registerTool("stop_xtapp_preview", { description: "Stop the active Studio
 server.registerTool("restart_xtapp_preview", { description: "Restart the official Studio preview with the current local worktree. Syncs source first, then restarts the Lua worker.", inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional() } }, async ({ projectDir, device }) => {
   const source = await syncProjectSource(requireProjectDir(projectDir));
   const result = await awaitCommand("/preview/restart", { projectDir: source.projectDir, revision: source.revision, device });
-  return textResult(result.message || JSON.stringify(result), { ...result, ...source });
+  return textResult([result.message || JSON.stringify(result), studioAssetNote(result)].filter(Boolean).join("\n"), { ...result, ...source });
 });
 await server.connect(new StdioServerTransport());

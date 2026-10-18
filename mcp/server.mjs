@@ -10,6 +10,7 @@ import { PLUGIN_VERSION, describePreviewReady, displayNameFromManifest, previewC
 import { loadOrCreatePreviewSession, previewRunPath } from './previewSession.mjs'
 import { readProjectSnapshot } from './projectSnapshot.mjs'
 import { pushProjectSnapshot, snapshotPushState, withProjectPushLock } from './previewSourceSync.mjs'
+import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems } from './studioPull.mjs'
 import { tapPreviewTarget } from './previewTap.mjs'
 import { resolveStudioOrigin } from './regionConfig.mjs'
 import { readStoreTemplate, TEMPLATE_GET_NOTE, TEMPLATE_COPY_NOTE } from './storeTemplate.mjs'
@@ -30,9 +31,11 @@ const KNOWLEDGE_INDEX = join(ROOT, 'knowledge', 'index.json')
 const WIDGET_URI = 'ui://widget/xtapp/studio.html'
 const sourceWatchers = new Map()
 const lastPushed = new Map()
+const STUDIO_COMMAND_WAIT_MS = 10_000
+const EXPORT_WAIT_MS = 20_000
 
 const server = new McpServer({ name: 'xtapp-studio', version: PLUGIN_VERSION }, {
-  instructions: 'New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (甘草) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence in the language the user writes in and wait. English: Create todo-list in this folder and make a todo app that can add, complete, and delete. Classic uses d-pad and OK. Pro also supports touch. 中文：在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder\'s absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Public store tools inspect and copy only the checked-in standard app templates. Those templates may still be 0.8 source: keep the visual layout and rewrite the calls to 2.x. Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.'
+  instructions: 'New apps use the latest XTApp Lua API 2.x (manifest.api is the newest 2.x version). API 2.x apps install only on devices running the Gancao (甘草) firmware; say so when the user asks about installing. Use XTApp public contract knowledge before guessing APIs. If the user has not named a folder or app, quote this sentence in the language the user writes in and wait. English: Create todo-list in this folder and make a todo app that can add, complete, and delete. Classic uses d-pad and OK. Pro also supports touch. 中文：在当前文件夹新建 todo-list，做一款能添加、完成、删除的待办。Classic 用方向键和 OK，Pro 也能点。 After they say it, write ./todo-list (or the path they named). If the current directory is already an XTApp, use it. After project changes, call run_xtapp_preview with that folder\'s absolute path as projectDir, not the parent workspace. Open the exact previewUrl: Cursor must use its built-in browser MCP and keep that tab open; other hosts give the URL to the user. If a login page appears, stop and let the user sign in; do not fill credentials. Do not click the simulator DOM; use send_xtapp_preview_input and send_xtapp_preview_touch. Do not overwrite an unrelated Studio project. Sync never deletes images that exist only in Studio (uploaded or generated there); when the user asks to delete such an image, pass its key in deleteAssets on run_xtapp_preview. If a result lists images Studio kept and the user has not mentioned them, tell the user once; use pull_xtapp_studio_source to bring them into the worktree. Public store tools inspect and copy only the checked-in standard app templates. Those templates may still be 0.8 source: keep the visual layout and rewrite the calls to 2.x. Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.'
 })
 
 function textResult(text, details = {}) {
@@ -246,7 +249,71 @@ function previewReadyResult(result, { displayName = '', commandStatus = result?.
   return { ...result, ...ready, displayName: ready.displayName }
 }
 
-async function ensurePreviewReady({ projectDir, device = 'x4_pro' }) {
+// 同步之后删掉用户点名的 Studio 图；其余 Studio 自己的图同步时保留。
+async function deleteStudioAssets(keys = []) {
+  if (!keys.length) return {}
+  const result = await awaitCommand('/preview/delete', { keys }, STUDIO_COMMAND_WAIT_MS)
+  if (isFailedCommand(result) || result?.status !== 'complete') {
+    return { deleteError: result?.message || result?.outcome?.error || result?.status || 'unknown' }
+  }
+  return { deleted: result.deleted || [], deleteMissing: result.missing || [] }
+}
+
+function studioAssetNote(result = {}) {
+  return [
+    describeStudioAssets(result),
+    result.deleteError ? `删除 Studio 里的图失败：${result.deleteError}` : '',
+  ].filter(Boolean).join('\n')
+}
+
+async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) {
+  const root = requireProjectDir(projectDir)
+  return withProjectPushLock(root, async () => {
+    const snapshot = await readProjectSnapshot(root)
+    const listed = await awaitCommand('/preview/catalog', {}, STUDIO_COMMAND_WAIT_MS)
+    const catalog = listed?.catalog
+    if (!catalog || typeof catalog !== 'object') {
+      return { ...listed, projectDir: snapshot.projectDir, message: listed?.message || `Studio 没有回报项目清单（${listed?.status || 'unknown'}）。请确认预览页已打开且是最新版本。` }
+    }
+    if (catalog.codexWorktreeDir !== snapshot.projectDir) {
+      return {
+        status: 'not_linked',
+        projectDir: snapshot.projectDir,
+        message: `Studio 当前打开的项目「${catalog.name || catalog.projectId}」不是这个目录关联的项目。先调用 run_xtapp_preview 让 Studio 打开对应项目，再拉取。`,
+      }
+    }
+    const selection = selectPullItems({ snapshot, catalog, paths, keys, overwrite })
+    const written = []
+    const errors = []
+    for (const batch of splitExportBatches(selection, catalog)) {
+      const result = await awaitCommand('/preview/export', batch, EXPORT_WAIT_MS)
+      if (!result?.export || isFailedCommand(result)) {
+        errors.push(result?.message || result?.outcome?.error || result?.status || 'unknown')
+        continue
+      }
+      written.push(...await writeExportedItems(snapshot.projectDir, result.export, snapshot))
+      selection.missing.push(...(result.export.missing || []))
+    }
+    const lines = [
+      written.length ? `已从 Studio 拉回 ${written.length} 项：${written.join('、')}` : '没有需要拉回的内容。',
+      selection.skipped.length ? `本地已有不同版本，未覆盖：${selection.skipped.join('、')}（要用 Studio 版本就带 overwrite: true 再拉）` : '',
+      selection.missing.length ? `Studio 里没有：${selection.missing.join('、')}` : '',
+      errors.length ? `部分导出失败：${errors.join('；')}` : '',
+      written.length ? '图以 .xic 写入 assets/，之后由本地管理。' : '',
+    ]
+    return {
+      status: errors.length ? 'partial' : 'pulled',
+      projectDir: snapshot.projectDir,
+      written,
+      skipped: selection.skipped,
+      missing: selection.missing,
+      errors,
+      message: lines.filter(Boolean).join('\n'),
+    }
+  })
+}
+
+async function ensurePreviewReady({ projectDir, device = 'x4_pro', deleteAssets = [] }) {
   const root = requireProjectDir(projectDir)
   const snapshot = await readProjectSnapshot(root)
   const displayName = displayNameFromManifest(snapshot.manifest, snapshot.projectName)
@@ -256,11 +323,13 @@ async function ensurePreviewReady({ projectDir, device = 'x4_pro' }) {
     return previewReadyResult({ ...status, projectDir: snapshot.projectDir, watching: true }, { displayName, commandStatus: status.status })
   }
   const source = await syncProjectSource(snapshot.projectDir)
+  const removal = await deleteStudioAssets(deleteAssets)
   const path = previewRunPath(status.status)
   const result = await awaitCommand(path, { projectDir: source.projectDir, revision: source.revision, device })
   return previewReadyResult({
     ...result,
     ...source,
+    ...removal,
     device,
     watching: true,
     commandPath: path,
@@ -296,14 +365,23 @@ function startSourceWatcher(projectDir) {
   return watcher
 }
 
-server.registerTool('run_xtapp_preview', { description: 'Ensure the official Studio preview page is running the current local worktree. Requires the absolute projectDir. If the page is closed or needs login, returns the exact previewUrl instead of claiming success.', inputSchema: { projectDir: z.string().trim().min(1), device: z.enum(['x4_classic', 'x4_pro']).optional() } }, async ({ projectDir, device = 'x4_pro' }) => {
-  const result = await ensurePreviewReady({ projectDir, device })
-  return textResult([result.message || JSON.stringify(result), formatDroppedAssets(result.dropped)].filter(Boolean).join('\n'), result)
+const DELETE_ASSETS_NOTE = ' Sync deletes source files and images the worktree pushed earlier once they are gone locally. Images that exist only in Studio (uploaded or generated there) are kept and listed; to delete them when the user asks, pass their keys in deleteAssets.'
+const deleteAssetsSchema = z.array(z.string().trim().min(1)).max(200).optional()
+
+server.registerTool('run_xtapp_preview', { description: `Ensure the official Studio preview page is running the current local worktree. Requires the absolute projectDir. If the page is closed or needs login, returns the exact previewUrl instead of claiming success.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: z.string().trim().min(1), device: z.enum(['x4_classic', 'x4_pro']).optional(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, device = 'x4_pro', deleteAssets = [] }) => {
+  const result = await ensurePreviewReady({ projectDir, device, deleteAssets })
+  return textResult([result.message || JSON.stringify(result), formatDroppedAssets(result.dropped), studioAssetNote(result)].filter(Boolean).join('\n'), result)
 })
 
-server.registerTool('sync_xtapp_preview_source', { description: 'Read the current local worktree source and make it available to the official Studio preview.', inputSchema: { projectDir: z.string().trim() } }, async ({ projectDir }) => {
-  const result = await syncProjectSource(projectDir)
-  return textResult(describeSourceSync(result), result)
+server.registerTool('sync_xtapp_preview_source', { description: `Read the current local worktree source and make it available to the official Studio preview.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: z.string().trim(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, deleteAssets = [] }) => {
+  const source = await syncProjectSource(projectDir)
+  const result = { ...source, ...await deleteStudioAssets(deleteAssets) }
+  return textResult([describeSourceSync(result), studioAssetNote(result)].filter(Boolean).join('\n'), result)
+})
+
+server.registerTool('pull_xtapp_studio_source', { description: 'Copy files and images from the open Studio project back into the local worktree, e.g. images the user uploaded in Studio. Default pulls everything Studio has that the worktree lacks; pass paths (source files) and/or keys (image keys) to pick. Images are written as assets/<key>.xic and are owned by the worktree afterwards. Local files that differ are skipped unless overwrite is true. Studio must already show this worktree (call run_xtapp_preview first).', inputSchema: { projectDir: z.string().trim().min(1), paths: z.array(z.string().trim()).optional(), keys: z.array(z.string().trim()).optional(), overwrite: z.boolean().optional() } }, async (args) => {
+  const result = await pullStudioSource(args)
+  return textResult(result.message || JSON.stringify(result), result)
 })
 
 server.registerTool('watch_xtapp_preview', { description: 'Watch a local worktree and automatically synchronize source changes to the official Studio preview.', inputSchema: { projectDir: z.string().trim(), enabled: z.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
@@ -374,7 +452,7 @@ server.registerTool('stop_xtapp_preview', { description: 'Stop the active Studio
 server.registerTool('restart_xtapp_preview', { description: 'Restart the official Studio preview with the current local worktree. Syncs source first, then restarts the Lua worker.', inputSchema: { projectDir: z.string().trim().min(1), device: z.enum(['x4_classic', 'x4_pro']).optional() } }, async ({ projectDir, device }) => {
   const source = await syncProjectSource(requireProjectDir(projectDir))
   const result = await awaitCommand('/preview/restart', { projectDir: source.projectDir, revision: source.revision, device })
-  return textResult(result.message || JSON.stringify(result), { ...result, ...source })
+  return textResult([result.message || JSON.stringify(result), studioAssetNote(result)].filter(Boolean).join('\n'), { ...result, ...source })
 })
 
 await server.connect(new StdioServerTransport())
