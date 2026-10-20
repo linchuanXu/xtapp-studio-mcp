@@ -80,7 +80,7 @@ function specTopic(name) {
   return Object.entries(SPEC_TOPICS).find(([, numbers]) => numbers.includes(number))?.[0] || 'runtime'
 }
 // 与 Studio 的 knowledgeApiFamily 同一分法：Studio 只讲 2.x 的指南、两代通用的指南，其余按 0.8 写。
-const V2_DOCUMENTS = /^(?:assets-drawing|text-fonts|device-ui-components|advanced-interactive-games)(?:\.en)?\.md$/
+const V2_DOCUMENTS = /^(?:assets-drawing|text-fonts|device-ui-components|advanced-interactive-games|clock-timer|idle-games|online-games|pro-home-key|eink-motion)(?:\.en)?\.md$/
 const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id)(?:\.en)?\.md$/
 
 function topicFor(source, content) {
