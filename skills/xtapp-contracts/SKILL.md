@@ -7,6 +7,8 @@ Before answering or changing XTApp code, classify the request as `input`, `graph
 
 For a runtime problem such as “on_input 不生效”, query the contract first, then call `inspect_xtapp_preview_context` to inspect the active project's relevant Lua/Manifest snippets and recent Studio logs. Separate contract facts, project observations, and hypotheses in the response.
 
+When the user says a game or animation is slow, laggy, choppy, drops frames, or the display is slow (游戏卡、动画慢、掉帧、显示速度慢), or asks for a game with motion, search with `topic: graphics` for the author guide 「墨水屏动画与游戏：流畅度和速度」 (English: "Smooth, fast animation and games on e-ink"). Read its drawing-cost table, the farm game case study and the checklist for what to check first before changing code. The frame interval on the device is set by the screen refresh, so a shorter tick does not make it faster.
+
 Use `list_xtapp_store_apps` to discover public apps, then `get_xtapp_store_template` to inspect text sources and the asset inventory. That tool does not inline binaries. `copy_xtapp_store_template` copies the same text sources into the project; the public catalog has no images, so import art in Studio and never reconstruct missing `.xic` or images from the inspect result. Templates may still be API 0.8 source: after copying, keep the visual layout and rewrite the calls to 2.x. Do not keep the 0.8 calls. The public contract is authoritative; do not infer private firmware or editor behavior. After edits, run validation and preview using the available Studio tools.
 
 When the user explicitly asks to bring a public app into the current project, call `copy_xtapp_store_template` with a new destination directory. Never overwrite an existing destination.

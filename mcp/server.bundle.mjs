@@ -37322,7 +37322,56 @@ function markdownSections(content) {
   }
   return sections;
 }
-function sectionScore(section, needle, terms) {
+var FILLER_TERMS = /* @__PURE__ */ new Set([
+  "\u600E\u4E48",
+  "\u600E\u6837",
+  "\u5982\u4F55",
+  "\u4EC0\u4E48",
+  "\u4E3A\u4EC0",
+  "\u4E48\u505A",
+  "\u4E48\u753B",
+  "\u4E48\u5199",
+  "\u4E48\u529E",
+  "\u4E48\u6837",
+  "\u4E48\u7528",
+  "\u4E00\u4E2A",
+  "\u6211\u60F3",
+  "\u6211\u8981",
+  "\u60F3\u8981",
+  "how",
+  "what",
+  "why",
+  "the",
+  "an",
+  "to",
+  "of",
+  "in",
+  "on",
+  "for",
+  "and",
+  "or",
+  "is",
+  "are",
+  "do",
+  "does",
+  "can",
+  "my",
+  "it"
+]);
+function queryTerms(needle) {
+  const terms = [];
+  for (const word of needle.split(/[^\p{L}\p{N}_.:]+/u)) {
+    for (const part of word.split(/(\p{Script=Han}+)/u)) {
+      if (part.length < 2) continue;
+      terms.push(part);
+      if (part.length > 2 && /^\p{Script=Han}+$/u.test(part)) {
+        for (let index = 0; index + 2 <= part.length; index += 1) terms.push(part.slice(index, index + 2));
+      }
+    }
+  }
+  return [...new Set(terms)].filter((term) => !FILLER_TERMS.has(term));
+}
+function sectionScore(section, needle, terms, keywords = "") {
   const title = section.title.toLowerCase();
   const body = section.text.toLowerCase();
   const titleHit = needle && title.includes(needle) ? 20 : 0;
@@ -37331,13 +37380,15 @@ function sectionScore(section, needle, terms) {
   if (needle.includes(" ")) bodyHit = terms.filter((term) => body.includes(term)).length;
   else if (needle && body.includes(needle)) bodyHit = 2;
   else bodyHit = terms.reduce((total, term) => total + (body.includes(term) ? 1 : 0), 0);
-  return titleHit + termTitle + bodyHit;
+  const keywordHit = keywords ? terms.filter((term) => keywords.includes(term)).length * 2 : 0;
+  return titleHit + termTitle + bodyHit + keywordHit;
 }
-function searchSections(content, query) {
+function searchSections(content, query, keywords = "") {
   const needle = String(query || "").trim().toLowerCase();
   if (!needle) return [];
-  const terms = [...new Set(needle.split(/[^\p{L}\p{N}_.:]+/u).filter((term) => term.length >= 2))];
-  return markdownSections(content).map((section) => ({ section, score: sectionScore(section, needle, terms) })).filter((row) => row.score > 0).sort((a, b) => b.score - a.score || a.section.line - b.section.line);
+  const terms = queryTerms(needle);
+  const words = String(keywords || "").toLowerCase();
+  return markdownSections(content).map((section) => ({ section, score: sectionScore(section, needle, terms, words) })).filter((row) => row.score > 0).sort((a, b) => b.score - a.score || a.section.line - b.section.line);
 }
 
 // mcp/server.mjs
@@ -37405,7 +37456,7 @@ async function contractSearch(query, { limit = 6, topic = "", api = "2.x" } = {}
   for (const entry of knowledge.entries || []) {
     if (entry.version !== api && entry.version !== "any") continue;
     if (topic && entry.topic !== topic) continue;
-    for (const { section, score } of searchSections(String(entry.content || ""), needle)) {
+    for (const { section, score } of searchSections(String(entry.content || ""), needle, entry.keywords)) {
       rows.push({
         score,
         topic: entry.topic || "overview",

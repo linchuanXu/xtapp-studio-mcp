@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { markdownSections, searchSections } from './knowledgeSearch.mjs'
+import { markdownSections, queryTerms, searchSections } from './knowledgeSearch.mjs'
 
 const SAMPLE = `# 设备 UI
 
@@ -43,4 +43,30 @@ test('a bookshelf query returns that subsection, not the parent screen heading a
 test('sections stop at the next heading', () => {
   const button = markdownSections(SAMPLE).find((section) => section.title === '按钮')
   assert.equal(button.text.split('\n').at(-1), '确认按钮是黑底白字，圆角 8。')
+})
+
+const MOTION = `# 墨水屏动画与游戏
+
+## 画得快
+
+图层按原尺寸贴回。
+
+## 列表
+
+行高 70。
+`
+
+test('a colloquial Chinese query reaches a guide through its two-character words and keywords', () => {
+  const [best] = searchSections(MOTION, '游戏很卡', '游戏卡 很卡 掉帧')
+  assert.ok(best, 'expected a hit for 游戏很卡')
+  assert.equal(searchSections(MOTION, '游戏很卡').length > 0, true, 'the title word 游戏 still matches without keywords')
+  assert.equal(searchSections(MOTION, '掉帧').length, 0)
+  assert.ok(searchSections(MOTION, '掉帧', '掉帧 很卡').length > 0)
+})
+
+test('filler words in a question do not lift unrelated sections', () => {
+  assert.deepEqual(queryTerms('列表怎么画'), ['列表怎么画', '列表', '表怎'])
+  const [best] = searchSections(MOTION, '列表怎么画')
+  assert.equal(best.section.title, '列表')
+  assert.deepEqual(queryTerms('how to make it faster'), ['make', 'faster'])
 })

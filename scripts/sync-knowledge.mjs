@@ -83,8 +83,14 @@ function specTopic(name) {
 const V2_DOCUMENTS = /^(?:assets-drawing|text-fonts|device-ui-components|advanced-interactive-games|clock-timer|idle-games|online-games|pro-home-key|eink-motion)(?:\.en)?\.md$/
 const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id)(?:\.en)?\.md$/
 
+// 正文里顺带写了点击、按键的作者指南，按内容会被猜成 input；这几篇按篇定主题，
+// 免得按 graphics / network / runtime 过滤时查不到。
+const GUIDE_TOPICS = { 'eink-motion': 'graphics', 'online-games': 'network', 'idle-games': 'runtime' }
+
 function topicFor(source, content) {
   const value = source.toLowerCase()
+  const guide = GUIDE_TOPICS[value.split('/').at(-1).replace(/(?:\.en)?\.md$/, '')]
+  if (guide) return guide
   if (value.includes('/input')) return 'input'
   if (value.includes('/graphics')) return 'graphics'
   if (value.includes('/runtime')) return 'runtime'
@@ -127,6 +133,17 @@ function publicPath(path, contractDir, knowledgeDirs) {
   return path.split(/[/\\]/).slice(-2).join('/')
 }
 
+// 作者指南的口语检索词只写在手改源 jsonc 里，生成的 Markdown 不带。
+// 生成目录是 <知识根>/generated/documents，源在同一知识根的 documents/<id>.jsonc。
+async function keywordsFor(path) {
+  const match = /[/\\]generated[/\\]documents[/\\]([^/\\]+?)(\.en)?\.md$/.exec(path)
+  if (!match) return null
+  const source = join(path, '..', '..', '..', 'documents', `${match[1]}.jsonc`)
+  if (!existsSync(source)) return null
+  const document = JSON.parse((await readFile(source, 'utf8')).replace(/^\s*\/\/.*$/gm, ''))
+  return document.keywords?.[match[2] ? 'en' : 'zh'] || null
+}
+
 function exampleFor(content) {
   const match = content.match(/```(?:lua|json|javascript|js)?\s*\n([\s\S]*?)```/i)
   return match?.[1]?.trim().slice(0, 2400) || null
@@ -138,22 +155,23 @@ for (const path of files.sort()) {
   const sourcePath = publicPath(path, contractDir, knowledgeDirs)
   const source = sourcePath.startsWith('contract/') ? 'public-contract' : 'xtapp-studio'
   const topic = source === 'public-contract' ? specTopic(sourcePath.split('/').at(-1)) : topicFor(sourcePath, content)
-  entries.push({ topic, api: apiFor(content, topic), version: versionFor(sourcePath), source, sourcePath, content, example: exampleFor(content) })
+  const keywords = source === 'xtapp-studio' ? await keywordsFor(path) : null
+  entries.push({ topic, api: apiFor(content, topic), version: versionFor(sourcePath), source, sourcePath, content, example: exampleFor(content), ...(keywords ? { keywords } : {}) })
 }
 if (existsSync(studioPreviewKnowledge)) {
   const content = await readFile(studioPreviewKnowledge, 'utf8')
   entries.push({ topic: 'studio-preview', api: apiFor(content, 'studio-preview'), version: 'any', source: 'xtapp-studio', sourcePath: 'studio/preview.md', content, example: exampleFor(content) })
 }
 
-const hash = createHash('sha256').update([contractTag || '', ...entries.map((entry) => `${entry.source}\0${entry.sourcePath}\0${entry.version}\0${entry.content}`)].join('\0')).digest('hex')
+const hash = createHash('sha256').update([contractTag || '', ...entries.map((entry) => `${entry.source}\0${entry.sourcePath}\0${entry.version}\0${entry.content}\0${entry.keywords || ''}`)].join('\0')).digest('hex')
 const outputPath = join(root, 'knowledge', 'index.json')
 
 if (check) {
   const previous = JSON.parse(await readFile(outputPath, 'utf8').catch(() => '{"entries":[]}'))
   if (previous.sourceHash !== hash) {
     // 报告差异，便于定位是哪些知识没同步。
-    const before = new Map((previous.entries || []).map((entry) => [entry.sourcePath, entry.content]))
-    const after = new Map(entries.map((entry) => [entry.sourcePath, entry.content]))
+    const before = new Map((previous.entries || []).map((entry) => [entry.sourcePath, `${entry.content}\0${entry.keywords || ''}`]))
+    const after = new Map(entries.map((entry) => [entry.sourcePath, `${entry.content}\0${entry.keywords || ''}`]))
     const added = [...after.keys()].filter((key) => !before.has(key))
     const removed = [...before.keys()].filter((key) => !after.has(key))
     const changed = [...after.keys()].filter((key) => before.has(key) && before.get(key) !== after.get(key))

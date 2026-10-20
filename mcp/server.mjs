@@ -96,7 +96,7 @@ async function contractSearch(query, { limit = 6, topic = '', api = '2.x' } = {}
   for (const entry of knowledge.entries || []) {
     if (entry.version !== api && entry.version !== 'any') continue
     if (topic && entry.topic !== topic) continue
-    for (const { section, score } of searchSections(String(entry.content || ''), needle)) {
+    for (const { section, score } of searchSections(String(entry.content || ''), needle, entry.keywords)) {
       rows.push({
         score,
         topic: entry.topic || 'overview',
