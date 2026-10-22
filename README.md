@@ -58,7 +58,7 @@ of overwriting it.
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)
 - Public knowledge: `knowledge/index.json` (schema 3, 111 entries: 82 API 2.x contract sections and guides, 4 shared, 25 frozen 0.8 pages that search does not return)
-- Public catalog: `catalog/index.json` (108 reviewed text templates)
+- Public catalog: `catalog/index.json` (107 reviewed text templates)
 - Widget: `widget/index.html` is Codex-only; shows preview status, not the simulator frame
 
 ## Direct installation

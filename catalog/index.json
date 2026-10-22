@@ -119,13 +119,6 @@
     "api": "0.8"
   },
   {
-    "id": "deepseekChat",
-    "appId": "ds_chat",
-    "name": "DeepSeek 聊天",
-    "version": "1.2.0",
-    "api": "2.9"
-  },
-  {
     "id": "dictionary",
     "appId": "dictionary-7e1825de",
     "name": "查字典",
