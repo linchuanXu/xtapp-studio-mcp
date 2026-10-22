@@ -37497,7 +37497,7 @@ server.registerTool("list_xtapp_store_apps", { description: "List public XTApp a
   const filtered = query ? apps.filter((app) => JSON.stringify(app).toLowerCase().includes(query.toLowerCase())) : apps;
   return textResult(JSON.stringify(filtered, null, 2), { count: filtered.length, catalogIndexPresent: existsSync(CATALOG_INDEX), templateDirPresent: existsSync(STORE_DIR) });
 });
-server.registerTool("get_xtapp_store_template", { description: "Inspect a public XTApp template: text sources plus an asset inventory without binary contents. The source may be API 0.8. Keep the visual layout and rewrite calls to 2.x (manifest.api 2.2, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1) } }, async ({ id }) => {
+server.registerTool("get_xtapp_store_template", { description: "Inspect a public XTApp template: text sources plus an asset inventory without binary contents. The source may be API 0.8. Keep the visual layout and rewrite calls to 2.x (manifest.api = the newest 2.x, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1) } }, async ({ id }) => {
   const template = await templateFiles(id);
   const payload = { id, files: template.files, assets: template.assets, note: TEMPLATE_GET_NOTE };
   return textResult(JSON.stringify(payload, null, 2), {
@@ -37510,7 +37510,7 @@ server.registerTool("get_xtapp_store_template", { description: "Inspect a public
     note: TEMPLATE_GET_NOTE
   });
 });
-server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api 2.2, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
+server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api = the newest 2.x, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id);
   const base = resolve3(projectDir);
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim();
