@@ -37492,7 +37492,7 @@ server.registerTool("search_xtapp_knowledge", { description: "Search the public 
   const results = await contractSearch(query, { limit, topic, api: "2.x" });
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: "2.x", count: results.length });
 });
-server.registerTool("list_xtapp_store_apps", { description: "List public XTApp apps available as checked-in templates. Each item carries its manifest api. The checked-in official apps are still API 0.8 source; keep their visual layout and rewrite the calls to 2.x.", inputSchema: { query: external_exports.string().optional() } }, async ({ query = "" }) => {
+server.registerTool("list_xtapp_store_apps", { description: "List public XTApp apps available as checked-in templates. Each item carries its manifest api. Templates may still be API 0.8 source; keep their visual layout and rewrite those calls to 2.x.", inputSchema: { query: external_exports.string().optional() } }, async ({ query = "" }) => {
   const apps = await publicApps();
   const filtered = query ? apps.filter((app) => JSON.stringify(app).toLowerCase().includes(query.toLowerCase())) : apps;
   return textResult(JSON.stringify(filtered, null, 2), { count: filtered.length, catalogIndexPresent: existsSync(CATALOG_INDEX), templateDirPresent: existsSync(STORE_DIR) });
