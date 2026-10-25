@@ -33,7 +33,7 @@
   },
   "plugin": {
     "name": "xtapp-studio-mcp",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "path": ".",
     "displayName": "XTApp Studio",
     "selector": "xtapp-studio-mcp@xtapp-studio-mcp-github",

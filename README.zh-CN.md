@@ -50,7 +50,7 @@ Codex 插件：marketplace 包同一份 MCP + skills + 状态 Widget
 - Marketplace / 选择器 / Studio 源：`region.json`（本仓是国内；国外是 `xtapp-studio-mcp-intl`）
 - Plugin：`xtapp-studio-mcp`
 - 显示名：`XTApp Studio`
-- 插件版本：`0.1.6`
+- 插件版本：`0.1.7`
 - 运行时：已登录的 XTApp Studio
 - 默认预览：以 `get_xtapp_preview_status` 返回的 `previewUrl` 为准
 - Skills：`xtapp-contracts`、`xtapp-open-preview`（可移植；Codex 会自动加载）
