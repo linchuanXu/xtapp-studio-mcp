@@ -7,7 +7,8 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod'
 import { PLUGIN_VERSION, describePreviewReady, displayNameFromManifest, previewCommandWaitMs, requireProjectDir } from './previewReady.mjs'
-import { loadOrCreatePreviewSession, previewRunPath } from './previewSession.mjs'
+import { AsyncLocalStorage } from 'node:async_hooks'
+import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProject } from './previewSession.mjs'
 import { readProjectSnapshot } from './projectSnapshot.mjs'
 import { pushProjectSnapshot, snapshotPushState, withProjectPushLock } from './previewSourceSync.mjs'
 import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems } from './studioPull.mjs'
@@ -169,14 +170,22 @@ server.registerTool('copy_xtapp_store_template', { description: 'Copy a public X
   return textResult(`已复制公开模板 ${id} 到 ${relativeDestination}。${TEMPLATE_COPY_NOTE}`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE })
 })
 
-const previewSession = await loadOrCreatePreviewSession()
+let previewSession = await loadOrCreatePreviewSession()
+
+// 带 projectDir 的工具先切到该工程自己的 session；不带 projectDir 的工具（按键、触摸、截图等）沿用最近一次切到的。
+async function selectProjectSession(projectDir) {
+  previewSession = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir))
+}
 
 function studioOrigin() {
   return resolveStudioOrigin()
 }
 
+// 后台监听自己带着所属工程的 session 同步，不抢走前台工具正在用的那条。
+const sessionScope = new AsyncLocalStorage()
+
 function previewSessionId() {
-  return previewSession
+  return sessionScope.getStore() || previewSession
 }
 
 function previewPageUrl() {
@@ -211,6 +220,11 @@ async function bridgeRequest(path, body = {}, method = 'POST', timeoutMs = previ
 }
 
 async function syncProjectSource(projectDir) {
+  const scoped = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir))
+  return sessionScope.run(scoped, () => syncProjectSourceScoped(projectDir))
+}
+
+async function syncProjectSourceScoped(projectDir) {
   return withProjectPushLock(projectDir, async () => {
     const snapshot = await readProjectSnapshot(projectDir)
     const previous = lastPushed.get(snapshot.projectDir)
@@ -268,6 +282,7 @@ function studioAssetNote(result = {}) {
 
 async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) {
   const root = requireProjectDir(projectDir)
+  await selectProjectSession(root)
   return withProjectPushLock(root, async () => {
     const snapshot = await readProjectSnapshot(root)
     const listed = await awaitCommand('/preview/catalog', {}, STUDIO_COMMAND_WAIT_MS)
@@ -315,6 +330,7 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
 
 async function ensurePreviewReady({ projectDir, device = 'x4_pro', deleteAssets = [] }) {
   const root = requireProjectDir(projectDir)
+  await selectProjectSession(root)
   const snapshot = await readProjectSnapshot(root)
   const displayName = displayNameFromManifest(snapshot.manifest, snapshot.projectName)
   startSourceWatcher(snapshot.projectDir)
@@ -374,6 +390,7 @@ server.registerTool('run_xtapp_preview', { description: `Ensure the official Stu
 })
 
 server.registerTool('sync_xtapp_preview_source', { description: `Read the current local worktree source and make it available to the official Studio preview.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: z.string().trim(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, deleteAssets = [] }) => {
+  await selectProjectSession(requireProjectDir(projectDir))
   const source = await syncProjectSource(projectDir)
   const result = { ...source, ...await deleteStudioAssets(deleteAssets) }
   return textResult([describeSourceSync(result), studioAssetNote(result)].filter(Boolean).join('\n'), result)
@@ -386,6 +403,7 @@ server.registerTool('pull_xtapp_studio_source', { description: 'Copy files and i
 
 server.registerTool('watch_xtapp_preview', { description: 'Watch a local worktree and automatically synchronize source changes to the official Studio preview.', inputSchema: { projectDir: z.string().trim(), enabled: z.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
   const root = resolve(projectDir)
+  await selectProjectSession(root)
   if (!enabled) return textResult(JSON.stringify({ status: stopSourceWatcher(root) ? 'stopped' : 'not_watching', projectDir: root }), { status: 'stopped', projectDir: root })
   await syncProjectSource(root)
   startSourceWatcher(root)
@@ -450,6 +468,7 @@ server.registerTool('stop_xtapp_preview', { description: 'Stop the active Studio
 })
 
 server.registerTool('restart_xtapp_preview', { description: 'Restart the official Studio preview with the current local worktree. Syncs source first, then restarts the Lua worker.', inputSchema: { projectDir: z.string().trim().min(1), device: z.enum(['x4_classic', 'x4_pro']).optional() } }, async ({ projectDir, device }) => {
+  await selectProjectSession(requireProjectDir(projectDir))
   const source = await syncProjectSource(requireProjectDir(projectDir))
   const result = await awaitCommand('/preview/restart', { projectDir: source.projectDir, revision: source.revision, device })
   return textResult([result.message || JSON.stringify(result), studioAssetNote(result)].filter(Boolean).join('\n'), { ...result, ...source })

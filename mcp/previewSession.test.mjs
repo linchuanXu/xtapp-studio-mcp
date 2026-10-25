@@ -3,7 +3,7 @@ import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
-import { loadOrCreatePreviewSession, previewRunPath } from './previewSession.mjs'
+import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProject } from './previewSession.mjs'
 
 test('预览 session 落盘后跨进程复用同一 id', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'xtapp-preview-session-'))
@@ -30,4 +30,18 @@ test('已停止或出错时 run 改走 restart', () => {
   assert.equal(previewRunPath('running'), '/preview/run')
   assert.equal(previewRunPath('ready'), '/preview/run')
   assert.equal(previewRunPath('not_connected'), '/preview/run')
+})
+
+test('不同工程目录用不同 session 文件，同一目录稳定复用', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'xtapp-preview-projects-'))
+  process.env.XTAPP_PREVIEW_SESSION_FILE = join(dir, 'default')
+  try {
+    const a = await previewSessionFileForProject(join(dir, 'game-a'))
+    const b = await previewSessionFileForProject(join(dir, 'game-b'))
+    assert.notEqual(a, b)
+    assert.equal(await previewSessionFileForProject(join(dir, 'game-a')), a)
+    assert.notEqual(await loadOrCreatePreviewSession(a), await loadOrCreatePreviewSession(b))
+  } finally {
+    delete process.env.XTAPP_PREVIEW_SESSION_FILE
+  }
 })

@@ -22551,7 +22551,7 @@ var require_compile = __commonJS({
       const schOrFunc = root.refs[ref];
       if (schOrFunc)
         return schOrFunc;
-      let _sch = resolve4.call(this, root, ref);
+      let _sch = resolve5.call(this, root, ref);
       if (_sch === void 0) {
         const schema = (_a3 = root.localRefs) === null || _a3 === void 0 ? void 0 : _a3[ref];
         const { schemaId } = this.opts;
@@ -22578,7 +22578,7 @@ var require_compile = __commonJS({
     function sameSchemaEnv(s1, s2) {
       return s1.schema === s2.schema && s1.root === s2.root && s1.baseId === s2.baseId;
     }
-    function resolve4(root, ref) {
+    function resolve5(root, ref) {
       let sch;
       while (typeof (sch = this.refs[ref]) == "string")
         ref = sch;
@@ -23408,7 +23408,7 @@ var require_fast_uri = __commonJS({
       }
       return uri;
     }
-    function resolve4(baseURI, relativeURI, options) {
+    function resolve5(baseURI, relativeURI, options) {
       const schemelessOptions = options ? Object.assign({ scheme: "null" }, options) : { scheme: "null" };
       const {
         parsed: baseParsed,
@@ -23776,7 +23776,7 @@ var require_fast_uri = __commonJS({
     var fastUri = {
       SCHEMES,
       normalize,
-      resolve: resolve4,
+      resolve: resolve5,
       resolveComponent,
       equal,
       serialize,
@@ -26768,7 +26768,7 @@ var require_dist = __commonJS({
 // mcp/server.mjs
 import { cp, readFile as readFile4, readdir as readdir3, stat as stat3 } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname as dirname4, join as join5, resolve as resolve3 } from "node:path";
+import { dirname as dirname4, join as join5, resolve as resolve4 } from "node:path";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
 // node_modules/zod/v3/helpers/util.js
@@ -34267,7 +34267,7 @@ var Protocol = class {
           return;
         }
         const pollInterval = task2.pollInterval ?? this._options?.defaultTaskPollInterval ?? 1e3;
-        await new Promise((resolve4) => setTimeout(resolve4, pollInterval));
+        await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
         options?.signal?.throwIfAborted();
       }
     } catch (error61) {
@@ -34284,7 +34284,7 @@ var Protocol = class {
    */
   request(request, resultSchema, options) {
     const { relatedRequestId, resumptionToken, onresumptiontoken, task, relatedTask } = options ?? {};
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       const earlyReject = (error61) => {
         reject(error61);
       };
@@ -34362,7 +34362,7 @@ var Protocol = class {
           if (!parseResult.success) {
             reject(parseResult.error);
           } else {
-            resolve4(parseResult.data);
+            resolve5(parseResult.data);
           }
         } catch (error61) {
           reject(error61);
@@ -34623,12 +34623,12 @@ var Protocol = class {
       }
     } catch {
     }
-    return new Promise((resolve4, reject) => {
+    return new Promise((resolve5, reject) => {
       if (signal.aborted) {
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
         return;
       }
-      const timeoutId = setTimeout(resolve4, interval);
+      const timeoutId = setTimeout(resolve5, interval);
       signal.addEventListener("abort", () => {
         clearTimeout(timeoutId);
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
@@ -35818,7 +35818,7 @@ var McpServer = class {
     let task = createTaskResult.task;
     const pollInterval = task.pollInterval ?? 5e3;
     while (task.status !== "completed" && task.status !== "failed" && task.status !== "cancelled") {
-      await new Promise((resolve4) => setTimeout(resolve4, pollInterval));
+      await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
       const updatedTask = await extra.taskStore.getTask(taskId);
       if (!updatedTask) {
         throw new McpError(ErrorCode.InternalError, `Task ${taskId} not found during polling`);
@@ -36482,12 +36482,12 @@ var StdioServerTransport = class {
     this.onclose?.();
   }
   send(message) {
-    return new Promise((resolve4) => {
+    return new Promise((resolve5) => {
       const json2 = serializeMessage(message);
       if (this._stdout.write(json2)) {
-        resolve4();
+        resolve5();
       } else {
-        this._stdout.once("drain", resolve4);
+        this._stdout.once("drain", resolve5);
       }
     });
   }
@@ -36574,15 +36574,24 @@ function describePreviewReady({
   };
 }
 
+// mcp/server.mjs
+import { AsyncLocalStorage } from "node:async_hooks";
+
 // mcp/previewSession.mjs
-import { randomUUID } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { createHash, randomUUID } from "node:crypto";
+import { mkdir, readFile, realpath, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 var SESSION_ID = /^[A-Za-z0-9:_-]{8,160}$/;
 function defaultPreviewSessionPath() {
   const override = String(process.env.XTAPP_PREVIEW_SESSION_FILE || "").trim();
   return override || join(homedir(), ".xtapp", "codex-preview-session");
+}
+async function previewSessionFileForProject(projectDir) {
+  const root = resolve(String(projectDir || "").trim());
+  const real = await realpath(root).catch(() => root);
+  const key = createHash("sha256").update(real).digest("hex").slice(0, 24);
+  return join(dirname(defaultPreviewSessionPath()), "preview-sessions", key);
 }
 async function loadOrCreatePreviewSession(filePath = defaultPreviewSessionPath()) {
   try {
@@ -36601,9 +36610,9 @@ function previewRunPath(status) {
 }
 
 // mcp/projectSnapshot.mjs
-import { createHash } from "node:crypto";
-import { readFile as readFile2, readdir, realpath, stat } from "node:fs/promises";
-import { basename, join as join2, relative, resolve, sep } from "node:path";
+import { createHash as createHash2 } from "node:crypto";
+import { readFile as readFile2, readdir, realpath as realpath2, stat } from "node:fs/promises";
+import { basename, join as join2, relative, resolve as resolve2, sep } from "node:path";
 var MAX_FILES = 2e3;
 var MAX_FILE_BYTES = 256 * 1024;
 var MAX_ASSETS = 2e3;
@@ -36614,7 +36623,7 @@ var LOOKS_LIKE_SOURCE = /\.(lua|tsv|txt|json)$/i;
 var SILENT_SKIP = /^(?:docs|tmp|prototypes|\.tmp)\//i;
 var CLOUD_BINDING_PATHS = ["docs/studio.cloud.json", "studio.cloud.json"];
 function snapshotRevision(files = {}, assets = [], extra = "") {
-  const digest = createHash("sha256").update(JSON.stringify(Object.entries(files).sort(([a], [b]) => a.localeCompare(b)))).update(JSON.stringify(
+  const digest = createHash2("sha256").update(JSON.stringify(Object.entries(files).sort(([a], [b]) => a.localeCompare(b)))).update(JSON.stringify(
     assets.map(({ path, sha256, bytes }) => ({ path, sha256, bytes })).sort((a, b) => String(a.path).localeCompare(String(b.path)))
   ));
   if (extra) digest.update(String(extra));
@@ -36658,7 +36667,7 @@ var IGNORED_DIRS = /* @__PURE__ */ new Set([".git", "node_modules", "dist", "bui
 function assertProjectDir(value) {
   const raw = String(value || "").trim();
   if (!raw) throw new Error("\u8BF7\u63D0\u4F9B XTApp \u9879\u76EE\u7684\u7EDD\u5BF9\u8DEF\u5F84");
-  const dir = resolve(raw);
+  const dir = resolve2(raw);
   if (!raw.startsWith("/") || !dir.startsWith("/")) throw new Error("\u9879\u76EE\u8DEF\u5F84\u5FC5\u987B\u662F\u7EDD\u5BF9\u8DEF\u5F84");
   return dir;
 }
@@ -36687,7 +36696,7 @@ async function collectFiles(root) {
         warnings.push(`\u6587\u672C\u6587\u4EF6\u8D85\u8FC7 ${MAX_FILES} \u4E2A\uFF0C\u5DF2\u622A\u65AD`);
         continue;
       }
-      const target = await realpath(absolute).catch(() => null);
+      const target = await realpath2(absolute).catch(() => null);
       if (!target || target !== root && !target.startsWith(`${root}/`)) {
         warnings.push(`${path} \u662F\u8D8A\u754C\u94FE\u63A5\uFF0C\u5DF2\u8DF3\u8FC7`);
         continue;
@@ -36703,7 +36712,7 @@ async function collectFiles(root) {
           continue;
         }
         totalAssetBytes += bytes.length;
-        assets.push({ path, key: assetKey(path), mime: assetMime(path), bytes: bytes.length, sha256: createHash("sha256").update(bytes).digest("hex"), base64: bytes.toString("base64") });
+        assets.push({ path, key: assetKey(path), mime: assetMime(path), bytes: bytes.length, sha256: createHash2("sha256").update(bytes).digest("hex"), base64: bytes.toString("base64") });
         continue;
       }
       if (!TEXT_FILE.test(path)) {
@@ -36724,7 +36733,7 @@ async function collectFiles(root) {
   return { files, assets, warnings, totalBytes, assetBytes: totalAssetBytes };
 }
 async function readProjectSnapshot(projectDir) {
-  const root = await realpath(assertProjectDir(projectDir));
+  const root = await realpath2(assertProjectDir(projectDir));
   const info = await stat(root).catch(() => null);
   if (!info?.isDirectory()) throw new Error(`\u9879\u76EE\u76EE\u5F55\u4E0D\u5B58\u5728\uFF1A${root}`);
   const { files, assets, warnings, totalBytes, assetBytes } = await collectFiles(root);
@@ -37068,14 +37077,14 @@ async function pushProjectSnapshot(snapshot, request, { previous } = {}) {
 }
 
 // mcp/studioPull.mjs
-import { createHash as createHash2 } from "node:crypto";
+import { createHash as createHash3 } from "node:crypto";
 import { mkdir as mkdir2, rm, writeFile as writeFile2 } from "node:fs/promises";
-import { dirname as dirname2, resolve as resolve2 } from "node:path";
+import { dirname as dirname2, resolve as resolve3 } from "node:path";
 var ASSET_KEY = /^[A-Za-z0-9_-]{1,23}$/;
 var EXPORT_BATCH_ITEMS = 200;
 var EXPORT_BATCH_BYTES = 3 * 1024 * 1024;
 function sha256Text(text) {
-  return createHash2("sha256").update(String(text ?? ""), "utf8").digest("hex");
+  return createHash3("sha256").update(String(text ?? ""), "utf8").digest("hex");
 }
 function sameAsset(hash2, asset = {}) {
   return Boolean(hash2) && (hash2 === asset.hash || hash2 === asset.contentHash);
@@ -37147,7 +37156,7 @@ function splitExportBatches({ paths = [], keys = [] } = {}, catalog = {}, {
   return batches;
 }
 function insideRoot(root, relativePath) {
-  const target = resolve2(root, relativePath);
+  const target = resolve3(root, relativePath);
   if (!target.startsWith(`${root}/`)) throw new Error(`\u5BFC\u51FA\u8DEF\u5F84\u8D8A\u8FC7\u9879\u76EE\u76EE\u5F55\uFF1A${relativePath}`);
   return target;
 }
@@ -37392,8 +37401,8 @@ function searchSections(content, query, keywords = "") {
 }
 
 // mcp/server.mjs
-var ROOT = resolve3(dirname4(fileURLToPath2(import.meta.url)), "..");
-var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve3(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
+var ROOT = resolve4(dirname4(fileURLToPath2(import.meta.url)), "..");
+var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve4(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
 var CATALOG_INDEX = join5(ROOT, "catalog", "index.json");
 var KNOWLEDGE_INDEX = join5(ROOT, "knowledge", "index.json");
 var WIDGET_URI = "ui://widget/xtapp/studio.html";
@@ -37487,7 +37496,7 @@ K3(server, "render_xtapp_studio_widget", {
   description: "Open or refresh the native right-side XTApp Studio preview widget for the active project.",
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
-}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve3(input2.projectDir) : null, widget: WIDGET_URI }));
+}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve4(input2.projectDir) : null, widget: WIDGET_URI }));
 server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
   const results = await contractSearch(query, { limit, topic, api: "2.x" });
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: "2.x", count: results.length });
@@ -37512,21 +37521,25 @@ server.registerTool("get_xtapp_store_template", { description: "Inspect a public
 });
 server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api = the newest 2.x, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id);
-  const base = resolve3(projectDir);
+  const base = resolve4(projectDir);
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim();
   if (!relativeDestination || relativeDestination.startsWith("/") || relativeDestination.includes("..")) throw new Error("\u6A21\u677F\u76EE\u6807\u5FC5\u987B\u662F\u5F53\u524D\u9879\u76EE\u5185\u7684\u76F8\u5BF9\u8DEF\u5F84\uFF0C\u4E14\u4E0D\u80FD\u5305\u542B ..");
-  const target = resolve3(base, relativeDestination);
+  const target = resolve4(base, relativeDestination);
   if (!target.startsWith(`${base}/`)) throw new Error("\u6A21\u677F\u76EE\u6807\u8D8A\u8FC7\u4E86\u9879\u76EE\u76EE\u5F55\u8FB9\u754C");
   if (existsSync(target)) throw new Error(`\u6A21\u677F\u76EE\u6807\u5DF2\u5B58\u5728\uFF0C\u4E3A\u907F\u514D\u8986\u76D6\u8BF7\u6362\u4E00\u4E2A\u76EE\u5F55\uFF1A${relativeDestination}`);
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true });
   return textResult(`\u5DF2\u590D\u5236\u516C\u5F00\u6A21\u677F ${id} \u5230 ${relativeDestination}\u3002${TEMPLATE_COPY_NOTE}`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE });
 });
 var previewSession = await loadOrCreatePreviewSession();
+async function selectProjectSession(projectDir) {
+  previewSession = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir));
+}
 function studioOrigin() {
   return resolveStudioOrigin();
 }
+var sessionScope = new AsyncLocalStorage();
 function previewSessionId() {
-  return previewSession;
+  return sessionScope.getStore() || previewSession;
 }
 function previewPageUrl() {
   return `${studioOrigin()}/studio/preview?preview=1&session=${encodeURIComponent(previewSessionId())}`;
@@ -37557,6 +37570,10 @@ async function bridgeRequest(path, body = {}, method = "POST", timeoutMs = previ
   }
 }
 async function syncProjectSource(projectDir) {
+  const scoped = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir));
+  return sessionScope.run(scoped, () => syncProjectSourceScoped(projectDir));
+}
+async function syncProjectSourceScoped(projectDir) {
   return withProjectPushLock(projectDir, async () => {
     const snapshot = await readProjectSnapshot(projectDir);
     const previous = lastPushed.get(snapshot.projectDir);
@@ -37608,6 +37625,7 @@ function studioAssetNote(result = {}) {
 }
 async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) {
   const root = requireProjectDir(projectDir);
+  await selectProjectSession(root);
   return withProjectPushLock(root, async () => {
     const snapshot = await readProjectSnapshot(root);
     const listed = await awaitCommand("/preview/catalog", {}, STUDIO_COMMAND_WAIT_MS);
@@ -37654,6 +37672,7 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
 }
 async function ensurePreviewReady({ projectDir, device = "x4_pro", deleteAssets = [] }) {
   const root = requireProjectDir(projectDir);
+  await selectProjectSession(root);
   const snapshot = await readProjectSnapshot(root);
   const displayName = displayNameFromManifest(snapshot.manifest, snapshot.projectName);
   startSourceWatcher(snapshot.projectDir);
@@ -37709,6 +37728,7 @@ server.registerTool("run_xtapp_preview", { description: `Ensure the official Stu
   return textResult([result.message || JSON.stringify(result), formatDroppedAssets(result.dropped), studioAssetNote(result)].filter(Boolean).join("\n"), result);
 });
 server.registerTool("sync_xtapp_preview_source", { description: `Read the current local worktree source and make it available to the official Studio preview.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: external_exports.string().trim(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, deleteAssets = [] }) => {
+  await selectProjectSession(requireProjectDir(projectDir));
   const source = await syncProjectSource(projectDir);
   const result = { ...source, ...await deleteStudioAssets(deleteAssets) };
   return textResult([describeSourceSync(result), studioAssetNote(result)].filter(Boolean).join("\n"), result);
@@ -37718,7 +37738,8 @@ server.registerTool("pull_xtapp_studio_source", { description: "Copy files and i
   return textResult(result.message || JSON.stringify(result), result);
 });
 server.registerTool("watch_xtapp_preview", { description: "Watch a local worktree and automatically synchronize source changes to the official Studio preview.", inputSchema: { projectDir: external_exports.string().trim(), enabled: external_exports.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
-  const root = resolve3(projectDir);
+  const root = resolve4(projectDir);
+  await selectProjectSession(root);
   if (!enabled) return textResult(JSON.stringify({ status: stopSourceWatcher(root) ? "stopped" : "not_watching", projectDir: root }), { status: "stopped", projectDir: root });
   await syncProjectSource(root);
   startSourceWatcher(root);
@@ -37772,6 +37793,7 @@ server.registerTool("stop_xtapp_preview", { description: "Stop the active Studio
   return textResult(JSON.stringify(result), result);
 });
 server.registerTool("restart_xtapp_preview", { description: "Restart the official Studio preview with the current local worktree. Syncs source first, then restarts the Lua worker.", inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional() } }, async ({ projectDir, device }) => {
+  await selectProjectSession(requireProjectDir(projectDir));
   const source = await syncProjectSource(requireProjectDir(projectDir));
   const result = await awaitCommand("/preview/restart", { projectDir: source.projectDir, revision: source.revision, device });
   return textResult([result.message || JSON.stringify(result), studioAssetNote(result)].filter(Boolean).join("\n"), { ...result, ...source });

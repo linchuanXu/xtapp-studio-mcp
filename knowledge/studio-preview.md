@@ -16,7 +16,7 @@
    - **其他 MCP 宿主（含 Codex）：** 把 `previewUrl` 原样交给用户打开。出现登录页就先登录，再回到同一条地址。Codex 插件可能另有状态 Widget，那不是模拟器。
 3. 再调 `get_xtapp_preview_status`。仍是 `need_login_or_open_page` 时，停下来，用同一条 URL 再打开一次。
 4. 不要用浏览器去点模拟器 DOM。按键走 `send_xtapp_preview_input`，点选走 `send_xtapp_preview_touch`。设备截图走 `capture_xtapp_preview`。浏览器截图只能确认预览页已打开，不能代替模拟器截图。
-5. MCP 重启后 session 复用本机 `~/.xtapp/codex-preview-session`，同一 URL 仍然有效。文件监听不会跨进程存活，每次预览都要再走一遍就绪检查。
+5. 每个 `projectDir` 有自己独立的 session 和 `previewUrl`（存在 `~/.xtapp/preview-sessions/`），多个会话同时做不同游戏互不干扰；每个项目各开一个预览标签页。MCP 重启后同一目录仍复用原 session，同一 URL 仍然有效。按键、触摸、截图这类不带 `projectDir` 的工具，作用于最近一次 `run/sync/restart/watch/pull` 的那个项目。同一个目录被多个会话同时用，仍会共用一个预览。文件监听不会跨进程存活，每次预览都要再走一遍就绪检查。
 
 `not_connected` / `need_login_or_open_page` 表示预览页没开、没登录，或打开的 URL 不是插件返回的那条。不要报成功。
 
