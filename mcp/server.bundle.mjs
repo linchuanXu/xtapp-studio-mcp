@@ -37755,12 +37755,12 @@ server.registerTool("get_xtapp_preview_status", { description: "Read whether the
   const ready = previewReadyResult(result, { displayName, commandStatus: result.status === "not_connected" ? "not_connected" : "" });
   return textResult(ready.message || JSON.stringify(ready), ready);
 });
-server.registerTool("inspect_xtapp_preview_context", { description: "Inspect the active Studio project manifest, Lua entry snippets and recent runtime logs for joint diagnosis.", inputSchema: { query: external_exports.string().trim().optional() } }, async ({ query = "" }) => {
+server.registerTool("inspect_xtapp_preview_context", { description: "Inspect the active Studio project manifest, Lua entry snippets, recent runtime logs and the Problems panel diagnostics (errors, off-screen text, refresh, memory and draw limits) for joint diagnosis.", inputSchema: { query: external_exports.string().trim().optional() } }, async ({ query = "" }) => {
   const context = await bridgeRequest("/preview/context", {}, "GET");
   if (context.status === "not_connected") return textResult(JSON.stringify(context), context);
   const needle = String(query).toLowerCase();
   const files = Object.fromEntries(Object.entries(context.files || {}).filter(([path, content]) => !needle || path.toLowerCase().includes(needle) || String(content).toLowerCase().includes(needle)));
-  const result = { projectId: context.projectId || null, manifest: context.manifest || null, files, logs: context.logs || [], updatedAt: context.updatedAt || null };
+  const result = { projectId: context.projectId || null, manifest: context.manifest || null, files, logs: context.logs || [], diagnostics: context.diagnostics || [], updatedAt: context.updatedAt || null };
   return textResult(JSON.stringify(result, null, 2), { ...result, fileCount: Object.keys(files).length });
 });
 server.registerTool("send_xtapp_preview_input", { description: "Send an X4 device key to the active Studio preview.", inputSchema: { key: external_exports.enum(["up", "down", "left", "right", "ok", "back"]) } }, async ({ key }) => {
