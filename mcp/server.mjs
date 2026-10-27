@@ -8,8 +8,9 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod'
 import { PLUGIN_VERSION, describePreviewReady, displayNameFromManifest, previewCommandWaitMs, requireProjectDir } from './previewReady.mjs'
 import { AsyncLocalStorage } from 'node:async_hooks'
-import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProject } from './previewSession.mjs'
-import { readProjectSnapshot } from './projectSnapshot.mjs'
+import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProject, readLastPreviewSession, rememberLastPreviewSession } from './previewSession.mjs'
+import { readProjectSnapshot, resolveProjectDir } from './projectSnapshot.mjs'
+import { isInsideRoot, looksAbsolute, samePath } from './projectPath.mjs'
 import { pushProjectSnapshot, snapshotPushState, withProjectPushLock } from './previewSourceSync.mjs'
 import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems } from './studioPull.mjs'
 import { tapPreviewTarget } from './previewTap.mjs'
@@ -162,21 +163,35 @@ server.registerTool('get_xtapp_store_template', { description: 'Inspect a public
 
 server.registerTool('copy_xtapp_store_template', { description: 'Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api = the newest 2.x, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.', inputSchema: { id: z.string().min(1), projectDir: z.string().trim(), destination: z.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id)
-  const base = resolve(projectDir)
+  const base = await resolveProjectDir(requireProjectDir(projectDir))
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim()
-  if (!relativeDestination || relativeDestination.startsWith('/') || relativeDestination.includes('..')) throw new Error('模板目标必须是当前项目内的相对路径，且不能包含 ..')
+  if (!relativeDestination || looksAbsolute(relativeDestination) || relativeDestination.split(/[\\/]/).includes('..')) throw new Error('模板目标必须是当前项目内的相对路径，且不能包含 ..')
   const target = resolve(base, relativeDestination)
-  if (!target.startsWith(`${base}/`)) throw new Error('模板目标越过了项目目录边界')
+  if (!isInsideRoot(base, target, process.platform, { allowRoot: false })) throw new Error('模板目标越过了项目目录边界')
   if (existsSync(target)) throw new Error(`模板目标已存在，为避免覆盖请换一个目录：${relativeDestination}`)
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true })
   return textResult(`已复制公开模板 ${id} 到 ${relativeDestination}。${TEMPLATE_COPY_NOTE}`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE })
 })
 
-let previewSession = await loadOrCreatePreviewSession()
+// 本进程选中的工程 session。没选过时不回落到全局默认 session（预览页不在那条上，会误报未连接），
+// 而是接着用最近一次任何进程选中的工程；一次都没选过就提示先 run_xtapp_preview。
+let previewSession = ''
+let projectSelected = false
 
-// 带 projectDir 的工具先切到该工程自己的 session；不带 projectDir 的工具（按键、触摸、截图等）沿用最近一次切到的。
+/** 带 projectDir 的工具先切到该工程自己的 session，返回规范化后的工程根目录。 */
 async function selectProjectSession(projectDir) {
-  previewSession = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir))
+  const root = await resolveProjectDir(requireProjectDir(projectDir))
+  previewSession = await loadOrCreatePreviewSession(await previewSessionFileForProject(root))
+  projectSelected = true
+  await rememberLastPreviewSession(previewSession).catch(() => {})
+  return root
+}
+
+/** 不带 projectDir 的工具：传了就切过去，没传就沿用本进程或最近一次选中的工程。 */
+async function selectToolSession(projectDir) {
+  if (String(projectDir || '').trim()) return selectProjectSession(projectDir)
+  if (!projectSelected) previewSession = await readLastPreviewSession()
+  return null
 }
 
 function studioOrigin() {
@@ -191,8 +206,11 @@ function previewSessionId() {
 }
 
 function previewPageUrl() {
-  return `${studioOrigin()}/studio/preview?preview=1&session=${encodeURIComponent(previewSessionId())}`
+  const sessionId = previewSessionId()
+  return sessionId ? `${studioOrigin()}/studio/preview?preview=1&session=${encodeURIComponent(sessionId)}` : ''
 }
+
+const NO_PROJECT_MESSAGE = '还没有选中工程：先用该工程的绝对路径调用 run_xtapp_preview（或给这个工具带上 projectDir），再按键、截图或查状态。'
 
 function withPreviewMeta(result = {}) {
   return { ...result, sessionId: result.sessionId || previewSessionId(), previewUrl: previewPageUrl() }
@@ -201,6 +219,7 @@ function withPreviewMeta(result = {}) {
 async function bridgeRequest(path, body = {}, method = 'POST', timeoutMs = previewRequestTimeoutMs(path.split('?')[0])) {
   const origin = studioOrigin()
   const sessionId = previewSessionId()
+  if (!sessionId) return withPreviewMeta({ status: 'no_project', message: NO_PROJECT_MESSAGE })
   const url = new URL(path, `${origin}/`)
   if (method === 'GET') url.searchParams.set('sessionId', sessionId)
   const controller = new AbortController()
@@ -222,8 +241,9 @@ async function bridgeRequest(path, body = {}, method = 'POST', timeoutMs = previ
 }
 
 async function syncProjectSource(projectDir) {
-  const scoped = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir))
-  return sessionScope.run(scoped, () => syncProjectSourceScoped(projectDir))
+  const root = await resolveProjectDir(projectDir)
+  const scoped = await loadOrCreatePreviewSession(await previewSessionFileForProject(root))
+  return sessionScope.run(scoped, () => syncProjectSourceScoped(root))
 }
 
 async function syncProjectSourceScoped(projectDir) {
@@ -283,8 +303,7 @@ function studioAssetNote(result = {}) {
 }
 
 async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) {
-  const root = requireProjectDir(projectDir)
-  await selectProjectSession(root)
+  const root = await selectProjectSession(projectDir)
   return withProjectPushLock(root, async () => {
     const snapshot = await readProjectSnapshot(root)
     const listed = await awaitCommand('/preview/catalog', {}, STUDIO_COMMAND_WAIT_MS)
@@ -292,7 +311,7 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
     if (!catalog || typeof catalog !== 'object') {
       return { ...listed, projectDir: snapshot.projectDir, message: listed?.message || `Studio 没有回报项目清单（${listed?.status || 'unknown'}）。请确认预览页已打开且是最新版本。` }
     }
-    if (catalog.codexWorktreeDir !== snapshot.projectDir) {
+    if (!samePath(catalog.codexWorktreeDir, snapshot.projectDir)) {
       return {
         status: 'not_linked',
         projectDir: snapshot.projectDir,
@@ -331,8 +350,7 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
 }
 
 async function ensurePreviewReady({ projectDir, device = 'x4_pro', deleteAssets = [] }) {
-  const root = requireProjectDir(projectDir)
-  await selectProjectSession(root)
+  const root = await selectProjectSession(projectDir)
   const snapshot = await readProjectSnapshot(root)
   const displayName = displayNameFromManifest(snapshot.manifest, snapshot.projectName)
   startSourceWatcher(snapshot.projectDir)
@@ -383,6 +401,9 @@ function startSourceWatcher(projectDir) {
   return watcher
 }
 
+const SESSION_NOTE = ' Optional projectDir picks that project\'s preview; without it the tool uses the project last passed to a preview tool.'
+const optionalProjectDir = z.string().trim().optional()
+
 const DELETE_ASSETS_NOTE = ' Sync deletes source files and images the worktree pushed earlier once they are gone locally. Images that exist only in Studio (uploaded or generated there) are kept and listed; to delete them when the user asks, pass their keys in deleteAssets.'
 const deleteAssetsSchema = z.array(z.string().trim().min(1)).max(200).optional()
 
@@ -392,8 +413,8 @@ server.registerTool('run_xtapp_preview', { description: `Ensure the official Stu
 })
 
 server.registerTool('sync_xtapp_preview_source', { description: `Read the current local worktree source and make it available to the official Studio preview.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: z.string().trim(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, deleteAssets = [] }) => {
-  await selectProjectSession(requireProjectDir(projectDir))
-  const source = await syncProjectSource(projectDir)
+  const root = await selectProjectSession(projectDir)
+  const source = await syncProjectSource(root)
   const result = { ...source, ...await deleteStudioAssets(deleteAssets) }
   return textResult([describeSourceSync(result), studioAssetNote(result)].filter(Boolean).join('\n'), result)
 })
@@ -404,8 +425,7 @@ server.registerTool('pull_xtapp_studio_source', { description: 'Copy files and i
 })
 
 server.registerTool('watch_xtapp_preview', { description: 'Watch a local worktree and automatically synchronize source changes to the official Studio preview.', inputSchema: { projectDir: z.string().trim(), enabled: z.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
-  const root = resolve(projectDir)
-  await selectProjectSession(root)
+  const root = await selectProjectSession(projectDir)
   if (!enabled) return textResult(JSON.stringify({ status: stopSourceWatcher(root) ? 'stopped' : 'not_watching', projectDir: root }), { status: 'stopped', projectDir: root })
   await syncProjectSource(root)
   startSourceWatcher(root)
@@ -415,8 +435,7 @@ server.registerTool('watch_xtapp_preview', { description: 'Watch a local worktre
 const APP_FILES_NOTE = ' This is the app\'s folder on the preview storage card, /AppFiles/<app_id>/ (what the app reads and writes with ctx.files): user data, not project source. Needs a 2.x device, manifest.api 2.9 or later and an app_id, and Studio must show this projectDir (call run_xtapp_preview first). File names are case-insensitive.'
 
 async function appFilesTool(projectDir, run) {
-  const root = requireProjectDir(projectDir)
-  await selectProjectSession(root)
+  const root = await selectProjectSession(projectDir)
   const result = await run((body) => awaitCommand('/preview/app_files', body, STUDIO_COMMAND_WAIT_MS), root)
   const { contentBase64, content, ...details } = result
   return textResult(result.message, details)
@@ -438,37 +457,42 @@ server.registerTool('delete_xtapp_preview_app_file', { description: `Delete one 
   return appFilesTool(projectDir, (send) => deleteAppFile(send, { name }))
 })
 
-server.registerTool('get_xtapp_preview_status', { description: 'Read whether the official Studio preview page is open, which app it is showing, and the exact previewUrl to open.', inputSchema: {} }, async () => {
+server.registerTool('get_xtapp_preview_status', { description: `Read whether the official Studio preview page is open, which app it is showing, and the exact previewUrl to open.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir)
   const result = await bridgeRequest('/preview/status', {}, 'GET')
   let displayName = displayNameFromManifest(result.manifest)
   if (!displayName && result.status !== 'not_connected' && result.status !== 'timeout') {
     const context = await bridgeRequest('/preview/context', {}, 'GET')
     displayName = displayNameFromManifest(context.manifest)
   }
-  const ready = previewReadyResult(result, { displayName, commandStatus: result.status === 'not_connected' ? 'not_connected' : '' })
+  const ready = previewReadyResult(result, { displayName, commandStatus: result.status === 'not_connected' || result.status === 'no_project' ? result.status : '' })
   return textResult(ready.message || JSON.stringify(ready), ready)
 })
 
-server.registerTool('inspect_xtapp_preview_context', { description: 'Inspect the active Studio project manifest, Lua entry snippets, recent runtime logs and the Problems panel diagnostics (errors, off-screen text, refresh, memory and draw limits) for joint diagnosis.', inputSchema: { query: z.string().trim().optional() } }, async ({ query = '' }) => {
+server.registerTool('inspect_xtapp_preview_context', { description: `Inspect the active Studio project manifest, Lua entry snippets, recent runtime logs and the Problems panel diagnostics (errors, off-screen text, refresh, memory and draw limits) for joint diagnosis.${SESSION_NOTE}`, inputSchema: { query: z.string().trim().optional(), projectDir: optionalProjectDir } }, async ({ query = '', projectDir }) => {
+  await selectToolSession(projectDir)
   const context = await bridgeRequest('/preview/context', {}, 'GET')
-  if (context.status === 'not_connected') return textResult(JSON.stringify(context), context)
+  if (context.status === 'not_connected' || context.status === 'no_project') return textResult(JSON.stringify(context), context)
   const needle = String(query).toLowerCase()
   const files = Object.fromEntries(Object.entries(context.files || {}).filter(([path, content]) => !needle || path.toLowerCase().includes(needle) || String(content).toLowerCase().includes(needle)))
   const result = { projectId: context.projectId || null, manifest: context.manifest || null, files, logs: context.logs || [], diagnostics: context.diagnostics || [], updatedAt: context.updatedAt || null }
   return textResult(JSON.stringify(result, null, 2), { ...result, fileCount: Object.keys(files).length })
 })
 
-server.registerTool('send_xtapp_preview_input', { description: 'Send an X4 device key to the active Studio preview.', inputSchema: { key: z.enum(['up', 'down', 'left', 'right', 'ok', 'back']) } }, async ({ key }) => {
+server.registerTool('send_xtapp_preview_input', { description: `Send an X4 device key to the active Studio preview.${SESSION_NOTE}`, inputSchema: { key: z.enum(['up', 'down', 'left', 'right', 'ok', 'back']), projectDir: optionalProjectDir } }, async ({ key, projectDir }) => {
+  await selectToolSession(projectDir)
   const result = await awaitCommand('/preview/input', { key })
   return textResult(JSON.stringify(result), result)
 })
 
-server.registerTool('get_xtapp_preview_targets', { description: 'Read semantic interactive targets and the current frame revision from the active Studio preview.', inputSchema: {} }, async () => {
+server.registerTool('get_xtapp_preview_targets', { description: `Read semantic interactive targets and the current frame revision from the active Studio preview.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir)
   const result = await bridgeRequest('/preview/targets', {}, 'GET')
   return textResult(JSON.stringify(result, null, 2), result)
 })
 
-server.registerTool('tap_xtapp_preview_target', { description: 'Tap a published preview target by converting its rectangle to a coordinate touch. If the current frame has no targets, use send_xtapp_preview_touch. Apps do not need a Lua testing slot.', inputSchema: { targetId: z.string().min(1).max(120), gesture: z.enum(['tap', 'double_tap', 'long', 'swipe_left', 'swipe_right', 'swipe_up', 'swipe_down']).optional() } }, async ({ targetId, gesture = 'tap' }) => {
+server.registerTool('tap_xtapp_preview_target', { description: `Tap a published preview target by converting its rectangle to a coordinate touch. If the current frame has no targets, use send_xtapp_preview_touch. Apps do not need a Lua testing slot.${SESSION_NOTE}`, inputSchema: { targetId: z.string().min(1).max(120), gesture: z.enum(['tap', 'double_tap', 'long', 'swipe_left', 'swipe_right', 'swipe_up', 'swipe_down']).optional(), projectDir: optionalProjectDir } }, async ({ targetId, gesture = 'tap', projectDir }) => {
+  await selectToolSession(projectDir)
   const result = await tapPreviewTarget({ targetId, gesture }, {
     getTargets: () => bridgeRequest('/preview/targets', {}, 'GET'),
     sendTouch: ({ x, y, gesture: nextGesture }) => awaitCommand('/preview/touch', { x, y, gesture: nextGesture }),
@@ -476,12 +500,14 @@ server.registerTool('tap_xtapp_preview_target', { description: 'Tap a published 
   return textResult(JSON.stringify(result, null, 2), result)
 })
 
-server.registerTool('send_xtapp_preview_touch', { description: 'Default way to click the official Studio preview: send a touch gesture using logical device coordinates. Use this unless a published target already has a rectangle.', inputSchema: { x: z.number().finite(), y: z.number().finite(), gesture: z.enum(['tap', 'double_tap', 'long', 'swipe_left', 'swipe_right', 'swipe_up', 'swipe_down']).optional() } }, async ({ x, y, gesture = 'tap' }) => {
+server.registerTool('send_xtapp_preview_touch', { description: `Default way to click the official Studio preview: send a touch gesture using logical device coordinates. Use this unless a published target already has a rectangle.${SESSION_NOTE}`, inputSchema: { x: z.number().finite(), y: z.number().finite(), gesture: z.enum(['tap', 'double_tap', 'long', 'swipe_left', 'swipe_right', 'swipe_up', 'swipe_down']).optional(), projectDir: optionalProjectDir } }, async ({ x, y, gesture = 'tap', projectDir }) => {
+  await selectToolSession(projectDir)
   const result = await awaitCommand('/preview/touch', { x, y, gesture })
   return textResult(JSON.stringify(result, null, 2), result)
 })
 
-server.registerTool('capture_xtapp_preview', { description: 'Capture the current Studio preview PNG and frame revision.', inputSchema: {} }, async () => {
+server.registerTool('capture_xtapp_preview', { description: `Capture the current Studio preview PNG and frame revision.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir)
   const command = await awaitCommand('/preview/capture', {})
   const screenshot = command.screenshot?.dataUrl
     ? command.screenshot
@@ -490,14 +516,15 @@ server.registerTool('capture_xtapp_preview', { description: 'Capture the current
   return textResult(JSON.stringify(result), result)
 })
 
-server.registerTool('stop_xtapp_preview', { description: 'Stop the active Studio preview runtime.', inputSchema: {} }, async () => {
+server.registerTool('stop_xtapp_preview', { description: `Stop the active Studio preview runtime.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir)
   const result = await awaitCommand('/preview/stop')
   return textResult(JSON.stringify(result), result)
 })
 
 server.registerTool('restart_xtapp_preview', { description: 'Restart the official Studio preview with the current local worktree. Syncs source first, then restarts the Lua worker.', inputSchema: { projectDir: z.string().trim().min(1), device: z.enum(['x4_classic', 'x4_pro']).optional() } }, async ({ projectDir, device }) => {
-  await selectProjectSession(requireProjectDir(projectDir))
-  const source = await syncProjectSource(requireProjectDir(projectDir))
+  const root = await selectProjectSession(projectDir)
+  const source = await syncProjectSource(root)
   const result = await awaitCommand('/preview/restart', { projectDir: source.projectDir, revision: source.revision, device })
   return textResult([result.message || JSON.stringify(result), studioAssetNote(result)].filter(Boolean).join('\n'), { ...result, ...source })
 })

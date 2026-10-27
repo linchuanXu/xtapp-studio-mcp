@@ -225,10 +225,10 @@ function mergeDefs(...defs) {
 function cloneDef(schema) {
   return mergeDefs(schema._zod.def);
 }
-function getElementAtPath(obj, path) {
-  if (!path)
+function getElementAtPath(obj, path2) {
+  if (!path2)
     return obj;
-  return path.reduce((acc, key) => acc?.[key], obj);
+  return path2.reduce((acc, key) => acc?.[key], obj);
 }
 function promiseAllObject(promisesObj) {
   const keys = Object.keys(promisesObj);
@@ -559,11 +559,11 @@ function explicitlyAborted(x, startIndex = 0) {
   }
   return false;
 }
-function prefixIssues(path, issues) {
+function prefixIssues(path2, issues) {
   return issues.map((iss) => {
     var _a3;
     (_a3 = iss).path ?? (_a3.path = []);
-    iss.path.unshift(path);
+    iss.path.unshift(path2);
     return iss;
   });
 }
@@ -1049,16 +1049,16 @@ function flattenError(error61, mapper = (issue2) => issue2.message) {
 }
 function formatError(error61, mapper = (issue2) => issue2.message) {
   const fieldErrors = { _errors: [] };
-  const processError = (error62, path = []) => {
+  const processError = (error62, path2 = []) => {
     for (const issue2 of error62.issues) {
       if (issue2.code === "invalid_union" && issue2.errors.length) {
-        issue2.errors.map((issues) => processError({ issues }, [...path, ...issue2.path]));
+        issue2.errors.map((issues) => processError({ issues }, [...path2, ...issue2.path]));
       } else if (issue2.code === "invalid_key") {
-        processError({ issues: issue2.issues }, [...path, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path2, ...issue2.path]);
       } else if (issue2.code === "invalid_element") {
-        processError({ issues: issue2.issues }, [...path, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path2, ...issue2.path]);
       } else {
-        const fullpath = [...path, ...issue2.path];
+        const fullpath = [...path2, ...issue2.path];
         if (fullpath.length === 0) {
           fieldErrors._errors.push(mapper(issue2));
         } else {
@@ -1097,17 +1097,17 @@ function formatError(error61, mapper = (issue2) => issue2.message) {
 }
 function treeifyError(error61, mapper = (issue2) => issue2.message) {
   const result = { errors: [] };
-  const processError = (error62, path = []) => {
+  const processError = (error62, path2 = []) => {
     var _a3;
     for (const issue2 of error62.issues) {
       if (issue2.code === "invalid_union" && issue2.errors.length) {
-        issue2.errors.map((issues) => processError({ issues }, [...path, ...issue2.path]));
+        issue2.errors.map((issues) => processError({ issues }, [...path2, ...issue2.path]));
       } else if (issue2.code === "invalid_key") {
-        processError({ issues: issue2.issues }, [...path, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path2, ...issue2.path]);
       } else if (issue2.code === "invalid_element") {
-        processError({ issues: issue2.issues }, [...path, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path2, ...issue2.path]);
       } else {
-        const fullpath = [...path, ...issue2.path];
+        const fullpath = [...path2, ...issue2.path];
         if (fullpath.length === 0) {
           result.errors.push(mapper(issue2));
           continue;
@@ -1146,8 +1146,8 @@ function treeifyError(error61, mapper = (issue2) => issue2.message) {
 }
 function toDotPath(_path) {
   const segs = [];
-  const path = _path.map((seg) => typeof seg === "object" ? seg.key : seg);
-  for (const seg of path) {
+  const path2 = _path.map((seg) => typeof seg === "object" ? seg.key : seg);
+  for (const seg of path2) {
     if (typeof seg === "number")
       segs.push(`[${seg}]`);
     else if (typeof seg === "symbol")
@@ -18697,13 +18697,13 @@ function resolveRef(ref, ctx) {
   if (!ref.startsWith("#")) {
     throw new Error("External $ref is not supported, only local refs (#/...) are allowed");
   }
-  const path = ref.slice(1).split("/").filter(Boolean);
-  if (path.length === 0) {
+  const path2 = ref.slice(1).split("/").filter(Boolean);
+  if (path2.length === 0) {
     return ctx.rootSchema;
   }
   const defsKey = ctx.version === "draft-2020-12" ? "$defs" : "definitions";
-  if (path[0] === defsKey) {
-    const key = path[1] === void 0 ? void 0 : decodeJSONPointerSegment(path[1]);
+  if (path2[0] === defsKey) {
+    const key = path2[1] === void 0 ? void 0 : decodeJSONPointerSegment(path2[1]);
     if (!key || !ctx.defs[key]) {
       throw new Error(`Reference not found: ${ref}`);
     }
@@ -22551,7 +22551,7 @@ var require_compile = __commonJS({
       const schOrFunc = root.refs[ref];
       if (schOrFunc)
         return schOrFunc;
-      let _sch = resolve6.call(this, root, ref);
+      let _sch = resolve5.call(this, root, ref);
       if (_sch === void 0) {
         const schema = (_a3 = root.localRefs) === null || _a3 === void 0 ? void 0 : _a3[ref];
         const { schemaId } = this.opts;
@@ -22578,7 +22578,7 @@ var require_compile = __commonJS({
     function sameSchemaEnv(s1, s2) {
       return s1.schema === s2.schema && s1.root === s2.root && s1.baseId === s2.baseId;
     }
-    function resolve6(root, ref) {
+    function resolve5(root, ref) {
       let sch;
       while (typeof (sch = this.refs[ref]) == "string")
         ref = sch;
@@ -22829,8 +22829,8 @@ var require_utils = __commonJS({
       }
       return ind;
     }
-    function removeDotSegments(path) {
-      let input2 = path;
+    function removeDotSegments(path2) {
+      let input2 = path2;
       const output2 = [];
       let nextSlash = -1;
       let len = 0;
@@ -23239,8 +23239,8 @@ var require_schemes = __commonJS({
       }
       if (wsComponent.resourceName) {
         const queryIndex = wsComponent.resourceName.indexOf("?");
-        const path = queryIndex === -1 ? wsComponent.resourceName : wsComponent.resourceName.slice(0, queryIndex);
-        wsComponent.path = path && path !== "/" ? path : void 0;
+        const path2 = queryIndex === -1 ? wsComponent.resourceName : wsComponent.resourceName.slice(0, queryIndex);
+        wsComponent.path = path2 && path2 !== "/" ? path2 : void 0;
         wsComponent.query = queryIndex === -1 ? void 0 : wsComponent.resourceName.slice(queryIndex + 1);
         wsComponent.resourceName = void 0;
       }
@@ -23408,7 +23408,7 @@ var require_fast_uri = __commonJS({
       }
       return uri;
     }
-    function resolve6(baseURI, relativeURI, options) {
+    function resolve5(baseURI, relativeURI, options) {
       const schemelessOptions = options ? Object.assign({ scheme: "null" }, options) : { scheme: "null" };
       const {
         parsed: baseParsed,
@@ -23776,7 +23776,7 @@ var require_fast_uri = __commonJS({
     var fastUri = {
       SCHEMES,
       normalize,
-      resolve: resolve6,
+      resolve: resolve5,
       resolveComponent,
       equal,
       serialize,
@@ -26768,7 +26768,7 @@ var require_dist = __commonJS({
 // mcp/server.mjs
 import { cp, readFile as readFile5, readdir as readdir3, stat as stat3 } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname as dirname5, join as join5, resolve as resolve5 } from "node:path";
+import { dirname as dirname5, join as join5, resolve as resolve4 } from "node:path";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
 // node_modules/zod/v3/helpers/util.js
@@ -27145,8 +27145,8 @@ function getErrorMap() {
 
 // node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
-  const { data, path, errorMaps, issueData } = params;
-  const fullPath = [...path, ...issueData.path || []];
+  const { data, path: path2, errorMaps, issueData } = params;
+  const fullPath = [...path2, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -27261,11 +27261,11 @@ var errorUtil;
 
 // node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
-  constructor(parent, value, path, key) {
+  constructor(parent, value, path2, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path;
+    this._path = path2;
     this._key = key;
   }
   get path() {
@@ -30828,11 +30828,11 @@ function normalizeObjectSchema(schema) {
   }
   return void 0;
 }
-function getDotPath(path) {
-  if (path.length === 0) {
+function getDotPath(path2) {
+  if (path2.length === 0) {
     return "object root";
   }
-  return path.reduce((acc, seg, index) => {
+  return path2.reduce((acc, seg, index) => {
     if (index === 0) {
       return String(seg);
     }
@@ -34267,7 +34267,7 @@ var Protocol = class {
           return;
         }
         const pollInterval = task2.pollInterval ?? this._options?.defaultTaskPollInterval ?? 1e3;
-        await new Promise((resolve6) => setTimeout(resolve6, pollInterval));
+        await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
         options?.signal?.throwIfAborted();
       }
     } catch (error61) {
@@ -34284,7 +34284,7 @@ var Protocol = class {
    */
   request(request, resultSchema, options) {
     const { relatedRequestId, resumptionToken, onresumptiontoken, task, relatedTask } = options ?? {};
-    return new Promise((resolve6, reject) => {
+    return new Promise((resolve5, reject) => {
       const earlyReject = (error61) => {
         reject(error61);
       };
@@ -34362,7 +34362,7 @@ var Protocol = class {
           if (!parseResult.success) {
             reject(parseResult.error);
           } else {
-            resolve6(parseResult.data);
+            resolve5(parseResult.data);
           }
         } catch (error61) {
           reject(error61);
@@ -34623,12 +34623,12 @@ var Protocol = class {
       }
     } catch {
     }
-    return new Promise((resolve6, reject) => {
+    return new Promise((resolve5, reject) => {
       if (signal.aborted) {
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
         return;
       }
-      const timeoutId = setTimeout(resolve6, interval);
+      const timeoutId = setTimeout(resolve5, interval);
       signal.addEventListener("abort", () => {
         clearTimeout(timeoutId);
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
@@ -35818,7 +35818,7 @@ var McpServer = class {
     let task = createTaskResult.task;
     const pollInterval = task.pollInterval ?? 5e3;
     while (task.status !== "completed" && task.status !== "failed" && task.status !== "cancelled") {
-      await new Promise((resolve6) => setTimeout(resolve6, pollInterval));
+      await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
       const updatedTask = await extra.taskStore.getTask(taskId);
       if (!updatedTask) {
         throw new McpError(ErrorCode.InternalError, `Task ${taskId} not found during polling`);
@@ -36482,19 +36482,19 @@ var StdioServerTransport = class {
     this.onclose?.();
   }
   send(message) {
-    return new Promise((resolve6) => {
+    return new Promise((resolve5) => {
       const json2 = serializeMessage(message);
       if (this._stdout.write(json2)) {
-        resolve6();
+        resolve5();
       } else {
-        this._stdout.once("drain", resolve6);
+        this._stdout.once("drain", resolve5);
       }
     });
   }
 };
 
 // mcp/previewReady.mjs
-var PLUGIN_VERSION = "0.1.7";
+var PLUGIN_VERSION = "0.1.8";
 var PREVIEW_RUN_WAIT_MS = 3e4;
 var PREVIEW_QUICK_WAIT_MS = 4e3;
 function requireProjectDir(projectDir) {
@@ -36502,8 +36502,8 @@ function requireProjectDir(projectDir) {
   if (!dir) throw new Error("\u5FC5\u987B\u63D0\u4F9B\u5F53\u524D worktree \u7684\u7EDD\u5BF9\u8DEF\u5F84 projectDir\uFF0C\u4E0D\u80FD\u9884\u89C8\u5B98\u7F51\u91CC\u5DF2\u7ECF\u6253\u5F00\u7684\u5176\u4ED6\u9879\u76EE");
   return dir;
 }
-function previewCommandWaitMs(path) {
-  return path === "/preview/run" || path === "/preview/restart" ? PREVIEW_RUN_WAIT_MS : PREVIEW_QUICK_WAIT_MS;
+function previewCommandWaitMs(path2) {
+  return path2 === "/preview/run" || path2 === "/preview/restart" ? PREVIEW_RUN_WAIT_MS : PREVIEW_QUICK_WAIT_MS;
 }
 function displayNameFromManifest(manifest, fallback = "") {
   return String(manifest?.display_name || fallback || "").trim();
@@ -36518,6 +36518,14 @@ function describePreviewReady({
   const name = String(displayName || "").trim();
   const url2 = String(previewUrl || "").trim();
   const named = name ? `\u300C${name}\u300D` : "\u5F53\u524D\u9879\u76EE";
+  if (connectedStatus === "no_project" || commandStatus === "no_project") {
+    return {
+      userStatus: "no_project",
+      displayName: name || null,
+      previewUrl: url2,
+      message: message || "\u8FD8\u6CA1\u6709\u9009\u4E2D\u5DE5\u7A0B\uFF1A\u5148\u7528\u8BE5\u5DE5\u7A0B\u7684\u7EDD\u5BF9\u8DEF\u5F84\u8C03\u7528 run_xtapp_preview\u3002"
+    };
+  }
   if (connectedStatus === "not_connected" || commandStatus === "not_connected") {
     return {
       userStatus: "need_login_or_open_page",
@@ -36582,16 +36590,76 @@ import { createHash, randomUUID } from "node:crypto";
 import { mkdir, readFile, realpath, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, join, resolve } from "node:path";
+
+// mcp/projectPath.mjs
+import path from "node:path";
+var MSYS_DRIVE = /^\/([A-Za-z])(?:\/|$)/;
+function pathApi(platform) {
+  return platform === "win32" ? path.win32 : path.posix;
+}
+function normalizeAbsolutePath(value, platform = process.platform) {
+  let raw = String(value || "").trim();
+  if (!raw) return "";
+  const api = pathApi(platform);
+  if (platform === "win32") {
+    const drive = raw.match(MSYS_DRIVE);
+    if (drive) raw = `${drive[1].toUpperCase()}:\\${raw.slice(drive[0].length)}`;
+    if (!/^[A-Za-z]:[\\/]/.test(raw) && !/^[\\/]{2}[^\\/]/.test(raw)) return "";
+  } else if (!api.isAbsolute(raw)) {
+    return "";
+  }
+  return api.resolve(raw);
+}
+function pathKey(value, platform = process.platform) {
+  const text = String(value || "");
+  return platform === "win32" ? pathApi(platform).normalize(text).toLowerCase() : text;
+}
+function samePath(a, b, platform = process.platform) {
+  return pathKey(a, platform) === pathKey(b, platform);
+}
+function isInsideRoot(root, target, platform = process.platform, { allowRoot = true } = {}) {
+  const api = pathApi(platform);
+  const rel = api.relative(pathKey(api.resolve(root), platform), pathKey(api.resolve(target), platform));
+  if (!rel) return allowRoot;
+  return rel !== ".." && !rel.startsWith(`..${api.sep}`) && !api.isAbsolute(rel);
+}
+function looksAbsolute(value) {
+  const text = String(value || "");
+  return path.posix.isAbsolute(text) || path.win32.isAbsolute(text) || /^[A-Za-z]:/.test(text);
+}
+
+// mcp/previewSession.mjs
 var SESSION_ID = /^[A-Za-z0-9:_-]{8,160}$/;
 function defaultPreviewSessionPath() {
   const override = String(process.env.XTAPP_PREVIEW_SESSION_FILE || "").trim();
   return override || join(homedir(), ".xtapp", "codex-preview-session");
 }
 async function previewSessionFileForProject(projectDir) {
-  const root = resolve(String(projectDir || "").trim());
+  const raw = String(projectDir || "").trim();
+  const root = normalizeAbsolutePath(raw) || resolve(raw);
   const real = await realpath(root).catch(() => root);
-  const key = createHash("sha256").update(real).digest("hex").slice(0, 24);
-  return join(dirname(defaultPreviewSessionPath()), "preview-sessions", key);
+  const key = createHash("sha256").update(pathKey(real)).digest("hex").slice(0, 24);
+  return join(previewSessionsDir(), key);
+}
+function previewSessionsDir() {
+  return join(dirname(defaultPreviewSessionPath()), "preview-sessions");
+}
+function lastPreviewSessionPath() {
+  return join(previewSessionsDir(), "last");
+}
+async function readLastPreviewSession(filePath = lastPreviewSessionPath()) {
+  try {
+    const existing = (await readFile(filePath, "utf8")).trim();
+    return SESSION_ID.test(existing) ? existing : "";
+  } catch {
+    return "";
+  }
+}
+async function rememberLastPreviewSession(sessionId, filePath = lastPreviewSessionPath()) {
+  if (!SESSION_ID.test(String(sessionId || ""))) return;
+  await mkdir(dirname(filePath), { recursive: true });
+  await writeFile(filePath, `${sessionId}
+`, "utf8");
 }
 async function loadOrCreatePreviewSession(filePath = defaultPreviewSessionPath()) {
   try {
@@ -36612,7 +36680,7 @@ function previewRunPath(status) {
 // mcp/projectSnapshot.mjs
 import { createHash as createHash2 } from "node:crypto";
 import { readFile as readFile2, readdir, realpath as realpath2, stat } from "node:fs/promises";
-import { basename, join as join2, relative, resolve as resolve2, sep } from "node:path";
+import { basename, join as join2, relative, sep } from "node:path";
 var MAX_FILES = 2e3;
 var MAX_FILE_BYTES = 256 * 1024;
 var MAX_ASSETS = 2e3;
@@ -36624,7 +36692,7 @@ var SILENT_SKIP = /^(?:docs|tmp|prototypes|\.tmp)\//i;
 var CLOUD_BINDING_PATHS = ["docs/studio.cloud.json", "studio.cloud.json"];
 function snapshotRevision(files = {}, assets = [], extra = "") {
   const digest = createHash2("sha256").update(JSON.stringify(Object.entries(files).sort(([a], [b]) => a.localeCompare(b)))).update(JSON.stringify(
-    assets.map(({ path, sha256, bytes }) => ({ path, sha256, bytes })).sort((a, b) => String(a.path).localeCompare(String(b.path)))
+    assets.map(({ path: path2, sha256, bytes }) => ({ path: path2, sha256, bytes })).sort((a, b) => String(a.path).localeCompare(String(b.path)))
   ));
   if (extra) digest.update(String(extra));
   return digest.digest("hex");
@@ -36651,30 +36719,30 @@ async function readCloudProjectId(root) {
   }
   return "";
 }
-function assetMime(path) {
-  const lower = String(path || "").toLowerCase();
+function assetMime(path2) {
+  const lower = String(path2 || "").toLowerCase();
   if (lower.endsWith(".xic")) return "application/x-xic";
   if (lower.endsWith(".png")) return "image/png";
   if (lower.endsWith(".jpg") || lower.endsWith(".jpeg")) return "image/jpeg";
   if (lower.endsWith(".webp")) return "image/webp";
   return "application/octet-stream";
 }
-function assetKey(path) {
-  const match = String(path || "").match(/(?:^|\/)([A-Za-z0-9_-]{1,23})\.(?:xic|png|jpe?g|webp)$/i);
-  return match ? match[1] : basename(path).replace(/\.[^.]+$/, "");
+function assetKey(path2) {
+  const match = String(path2 || "").match(/(?:^|\/)([A-Za-z0-9_-]{1,23})\.(?:xic|png|jpe?g|webp)$/i);
+  return match ? match[1] : basename(path2).replace(/\.[^.]+$/, "");
 }
 var IGNORED_DIRS = /* @__PURE__ */ new Set([".git", "node_modules", "dist", "build", ".vite"]);
 function assertProjectDir(value) {
   const raw = String(value || "").trim();
   if (!raw) throw new Error("\u8BF7\u63D0\u4F9B XTApp \u9879\u76EE\u7684\u7EDD\u5BF9\u8DEF\u5F84");
-  const dir = resolve2(raw);
-  if (!raw.startsWith("/") || !dir.startsWith("/")) throw new Error("\u9879\u76EE\u8DEF\u5F84\u5FC5\u987B\u662F\u7EDD\u5BF9\u8DEF\u5F84");
+  const dir = normalizeAbsolutePath(raw);
+  if (!dir) throw new Error(`\u9879\u76EE\u8DEF\u5F84\u5FC5\u987B\u662F\u7EDD\u5BF9\u8DEF\u5F84\uFF1A${raw}`);
   return dir;
 }
 function safeRelativePath(value) {
-  const path = value.split(sep).join("/");
-  if (!path || path.startsWith("/") || path.split("/").some((part) => !part || part === "." || part === "..")) return null;
-  return path;
+  const path2 = value.split(sep).join("/");
+  if (!path2 || path2.startsWith("/") || path2.split("/").some((part) => !part || part === "." || part === "..")) return null;
+  return path2;
 }
 async function collectFiles(root) {
   const files = {};
@@ -36690,50 +36758,54 @@ async function collectFiles(root) {
         continue;
       }
       const absolute = join2(dir, entry.name);
-      const path = safeRelativePath(relative(root, absolute));
-      if (!path) continue;
-      if (TEXT_FILE.test(path) && Object.keys(files).length >= MAX_FILES) {
+      const path2 = safeRelativePath(relative(root, absolute));
+      if (!path2) continue;
+      if (TEXT_FILE.test(path2) && Object.keys(files).length >= MAX_FILES) {
         warnings.push(`\u6587\u672C\u6587\u4EF6\u8D85\u8FC7 ${MAX_FILES} \u4E2A\uFF0C\u5DF2\u622A\u65AD`);
         continue;
       }
       const target = await realpath2(absolute).catch(() => null);
-      if (!target || target !== root && !target.startsWith(`${root}/`)) {
-        warnings.push(`${path} \u662F\u8D8A\u754C\u94FE\u63A5\uFF0C\u5DF2\u8DF3\u8FC7`);
+      if (!target || !isInsideRoot(root, target)) {
+        warnings.push(`${path2} \u662F\u8D8A\u754C\u94FE\u63A5\uFF0C\u5DF2\u8DF3\u8FC7`);
         continue;
       }
       const bytes = await readFile2(target);
-      if (ASSET_FILE.test(path)) {
+      if (ASSET_FILE.test(path2)) {
         if (assets.length >= MAX_ASSETS) {
           warnings.push(`\u7D20\u6750\u8D85\u8FC7 ${MAX_ASSETS} \u4E2A\uFF0C\u5DF2\u622A\u65AD`);
           continue;
         }
         if (bytes.length > MAX_ASSET_BYTES) {
-          warnings.push(`${path} \u8D85\u8FC7 ${MAX_ASSET_BYTES} \u5B57\u8282\uFF0C\u5DF2\u8DF3\u8FC7`);
+          warnings.push(`${path2} \u8D85\u8FC7 ${MAX_ASSET_BYTES} \u5B57\u8282\uFF0C\u5DF2\u8DF3\u8FC7`);
           continue;
         }
         totalAssetBytes += bytes.length;
-        assets.push({ path, key: assetKey(path), mime: assetMime(path), bytes: bytes.length, sha256: createHash2("sha256").update(bytes).digest("hex"), base64: bytes.toString("base64") });
+        assets.push({ path: path2, key: assetKey(path2), mime: assetMime(path2), bytes: bytes.length, sha256: createHash2("sha256").update(bytes).digest("hex"), base64: bytes.toString("base64") });
         continue;
       }
-      if (!TEXT_FILE.test(path)) {
-        if (LOOKS_LIKE_SOURCE.test(path) && !SILENT_SKIP.test(path)) {
-          warnings.push(`${path} \u4E0D\u662F\u53EF\u540C\u6B65\u7684 XTApp \u6E90\u7801\u8DEF\u5F84\uFF0C\u5DF2\u8DF3\u8FC7`);
+      if (!TEXT_FILE.test(path2)) {
+        if (LOOKS_LIKE_SOURCE.test(path2) && !SILENT_SKIP.test(path2)) {
+          warnings.push(`${path2} \u4E0D\u662F\u53EF\u540C\u6B65\u7684 XTApp \u6E90\u7801\u8DEF\u5F84\uFF0C\u5DF2\u8DF3\u8FC7`);
         }
         continue;
       }
       if (bytes.length > MAX_FILE_BYTES) {
-        warnings.push(`${path} \u8D85\u8FC7 ${MAX_FILE_BYTES} \u5B57\u8282\uFF0C\u5DF2\u8DF3\u8FC7`);
+        warnings.push(`${path2} \u8D85\u8FC7 ${MAX_FILE_BYTES} \u5B57\u8282\uFF0C\u5DF2\u8DF3\u8FC7`);
         continue;
       }
       totalBytes += bytes.length;
-      files[path] = bytes.toString("utf8");
+      files[path2] = bytes.toString("utf8");
     }
   };
   await walk(root);
   return { files, assets, warnings, totalBytes, assetBytes: totalAssetBytes };
 }
+async function resolveProjectDir(projectDir) {
+  const dir = assertProjectDir(projectDir);
+  return realpath2(dir).catch(() => dir);
+}
 async function readProjectSnapshot(projectDir) {
-  const root = await realpath2(assertProjectDir(projectDir));
+  const root = await resolveProjectDir(projectDir);
   const info = await stat(root).catch(() => null);
   if (!info?.isDirectory()) throw new Error(`\u9879\u76EE\u76EE\u5F55\u4E0D\u5B58\u5728\uFF1A${root}`);
   const { files, assets, warnings, totalBytes, assetBytes } = await collectFiles(root);
@@ -36814,8 +36886,8 @@ function isFailedCommand(result = {}) {
 function isRevisionConflict(error61) {
   return error61?.code === "REVISION_CONFLICT";
 }
-function previewRequestTimeoutMs(path) {
-  return path === "/preview/source" || path === "/preview/source/patch" || path === "/preview/source/validate" ? PREVIEW_SOURCE_WAIT_MS : PREVIEW_DEFAULT_WAIT_MS;
+function previewRequestTimeoutMs(path2) {
+  return path2 === "/preview/source" || path2 === "/preview/source/patch" || path2 === "/preview/source/validate" ? PREVIEW_SOURCE_WAIT_MS : PREVIEW_DEFAULT_WAIT_MS;
 }
 
 // mcp/previewSourceSync.mjs
@@ -36881,7 +36953,7 @@ function splitFileBatches(files = {}, {
   let current = {};
   let count = 0;
   let bytes = 0;
-  for (const [path, content] of entries) {
+  for (const [path2, content] of entries) {
     const size = Buffer.byteLength(String(content ?? ""), "utf8");
     if (count && (count >= maxCount || bytes + size > maxBytes)) {
       batches.push(current);
@@ -36889,7 +36961,7 @@ function splitFileBatches(files = {}, {
       count = 0;
       bytes = 0;
     }
-    current[path] = content;
+    current[path2] = content;
     count += 1;
     bytes += size;
   }
@@ -36901,11 +36973,11 @@ function diffSnapshots(previous = {}, next = {}) {
   const nextFiles = next.files && typeof next.files === "object" ? next.files : {};
   const files = {};
   const deleteFiles = [];
-  for (const [path, content] of Object.entries(nextFiles)) {
-    if (prevFiles[path] !== content) files[path] = content;
+  for (const [path2, content] of Object.entries(nextFiles)) {
+    if (prevFiles[path2] !== content) files[path2] = content;
   }
-  for (const path of Object.keys(prevFiles)) {
-    if (!Object.hasOwn(nextFiles, path)) deleteFiles.push(path);
+  for (const path2 of Object.keys(prevFiles)) {
+    if (!Object.hasOwn(nextFiles, path2)) deleteFiles.push(path2);
   }
   const prevAssets = previousAssetHashes(previous);
   const nextAssets = Array.isArray(next.assets) ? next.assets : [];
@@ -37079,7 +37151,7 @@ async function pushProjectSnapshot(snapshot, request, { previous } = {}) {
 // mcp/studioPull.mjs
 import { createHash as createHash3 } from "node:crypto";
 import { mkdir as mkdir2, rm, writeFile as writeFile2 } from "node:fs/promises";
-import { dirname as dirname2, resolve as resolve3 } from "node:path";
+import { dirname as dirname2, resolve as resolve2 } from "node:path";
 var ASSET_KEY = /^[A-Za-z0-9_-]{1,23}$/;
 var EXPORT_BATCH_ITEMS = 200;
 var EXPORT_BATCH_BYTES = 3 * 1024 * 1024;
@@ -37101,19 +37173,19 @@ function selectPullItems({ snapshot = {}, catalog = {}, paths, keys, overwrite =
   const missing = [];
   const pullPaths = [];
   const pullKeys = [];
-  for (const path of wantPaths) {
-    if (!Object.hasOwn(studioFiles, path)) {
-      missing.push(path);
+  for (const path2 of wantPaths) {
+    if (!Object.hasOwn(studioFiles, path2)) {
+      missing.push(path2);
       continue;
     }
-    if (Object.hasOwn(localFiles, path)) {
-      if (sha256Text(localFiles[path]) === studioFiles[path]) continue;
+    if (Object.hasOwn(localFiles, path2)) {
+      if (sha256Text(localFiles[path2]) === studioFiles[path2]) continue;
       if (!overwrite) {
-        skipped.push(path);
+        skipped.push(path2);
         continue;
       }
     }
-    pullPaths.push(path);
+    pullPaths.push(path2);
   }
   for (const key of wantKeys) {
     const asset = studioAssets.get(key);
@@ -37150,36 +37222,36 @@ function splitExportBatches({ paths = [], keys = [] } = {}, catalog = {}, {
     current[kind].push(value);
     bytes += size;
   };
-  for (const path of paths) push("paths", path, 0);
+  for (const path2 of paths) push("paths", path2, 0);
   for (const key of keys) push("keys", key, sizes.get(key) || 0);
   if (current.paths.length || current.keys.length) batches.push(current);
   return batches;
 }
 function insideRoot(root, relativePath) {
-  const target = resolve3(root, relativePath);
-  if (!target.startsWith(`${root}/`)) throw new Error(`\u5BFC\u51FA\u8DEF\u5F84\u8D8A\u8FC7\u9879\u76EE\u76EE\u5F55\uFF1A${relativePath}`);
+  const target = resolve2(root, relativePath);
+  if (!isInsideRoot(root, target, process.platform, { allowRoot: false })) throw new Error(`\u5BFC\u51FA\u8DEF\u5F84\u8D8A\u8FC7\u9879\u76EE\u76EE\u5F55\uFF1A${relativePath}`);
   return target;
 }
 async function writeExportedItems(root, exported = {}, snapshot = {}) {
   const written = [];
-  for (const [path, content] of Object.entries(exported.files || {})) {
-    if (!TEXT_FILE.test(path) || typeof content !== "string") continue;
-    const target = insideRoot(root, path);
+  for (const [path2, content] of Object.entries(exported.files || {})) {
+    if (!TEXT_FILE.test(path2) || typeof content !== "string") continue;
+    const target = insideRoot(root, path2);
     await mkdir2(dirname2(target), { recursive: true });
     await writeFile2(target, content, "utf8");
-    written.push(path);
+    written.push(path2);
   }
   for (const asset of exported.assets || []) {
     const key = String(asset?.key || "");
     if (!ASSET_KEY.test(key) || typeof asset.base64 !== "string") continue;
-    const path = `assets/${key}.xic`;
-    for (const old of (snapshot.assets || []).filter((item) => item.key === key && item.path !== path)) {
+    const path2 = `assets/${key}.xic`;
+    for (const old of (snapshot.assets || []).filter((item) => item.key === key && item.path !== path2)) {
       await rm(insideRoot(root, old.path), { force: true });
     }
-    const target = insideRoot(root, path);
+    const target = insideRoot(root, path2);
     await mkdir2(dirname2(target), { recursive: true });
     await writeFile2(target, Buffer.from(asset.base64, "base64"));
-    written.push(path);
+    written.push(path2);
   }
   return written;
 }
@@ -37249,7 +37321,7 @@ async function tapPreviewTarget({ targetId, gesture = "tap" } = {}, { getTargets
 
 // mcp/appFiles.mjs
 import { mkdir as mkdir3, readFile as readFile3, writeFile as writeFile3 } from "node:fs/promises";
-import { dirname as dirname3, isAbsolute, resolve as resolve4 } from "node:path";
+import { dirname as dirname3, isAbsolute, resolve as resolve3 } from "node:path";
 var APP_FILE_READ_CHUNK = 2 * 1024 * 1024;
 var APP_FILE_WRITE_CHUNK = 256 * 1024;
 var APP_FILE_INLINE_TEXT_MAX = 256 * 1024;
@@ -37269,7 +37341,7 @@ async function appFilesCommand(send, body) {
   const reason = result?.message || result?.outcome?.error || result?.status || "unknown";
   throw new Error(result?.status === "not_connected" ? `Studio \u9884\u89C8\u9875\u6CA1\u6709\u8FDE\u4E0A\uFF1A${reason}` : `Studio \u6CA1\u6709\u5B8C\u6210\u5B58\u50A8\u5361\u6587\u4EF6\u64CD\u4F5C\uFF1A${reason}`);
 }
-var localPath = (projectDir, path) => isAbsolute(path) ? path : resolve4(projectDir, path);
+var localPath = (projectDir, path2) => isAbsolute(path2) ? path2 : resolve3(projectDir, path2);
 async function listAppFiles(send) {
   const listed = await appFilesCommand(send, { action: "list" });
   const lines = (listed.files || []).map((file2) => `${file2.name}	${file2.size}${file2.visible === false ? "	\uFF08\u540D\u5B57\u4E0D\u5408\u89C4\u5219\uFF0C\u5E94\u7528\u770B\u4E0D\u5230\uFF09" : ""}`);
@@ -37495,8 +37567,8 @@ function searchSections(content, query, keywords = "") {
 }
 
 // mcp/server.mjs
-var ROOT = resolve5(dirname5(fileURLToPath2(import.meta.url)), "..");
-var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve5(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
+var ROOT = resolve4(dirname5(fileURLToPath2(import.meta.url)), "..");
+var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve4(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
 var CATALOG_INDEX = join5(ROOT, "catalog", "index.json");
 var KNOWLEDGE_INDEX = join5(ROOT, "knowledge", "index.json");
 var WIDGET_URI = "ui://widget/xtapp/studio.html";
@@ -37515,8 +37587,8 @@ function safeAppId(value) {
   if (!/^[A-Za-z0-9_-]+$/.test(id)) throw new Error("\u975E\u6CD5 XTApp \u6A21\u677F id");
   return id;
 }
-async function readJson(path) {
-  return JSON.parse(await readFile5(path, "utf8"));
+async function readJson(path2) {
+  return JSON.parse(await readFile5(path2, "utf8"));
 }
 async function publicApps() {
   if (!process.env.XTAPP_CATALOG_SOURCE_DIR && existsSync(CATALOG_INDEX)) return readJson(CATALOG_INDEX);
@@ -37590,7 +37662,7 @@ K3(server, "render_xtapp_studio_widget", {
   description: "Open or refresh the native right-side XTApp Studio preview widget for the active project.",
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
-}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve5(input2.projectDir) : null, widget: WIDGET_URI }));
+}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve4(input2.projectDir) : null, widget: WIDGET_URI }));
 server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
   const results = await contractSearch(query, { limit, topic, api: "2.x" });
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: "2.x", count: results.length, results });
@@ -37616,18 +37688,29 @@ server.registerTool("get_xtapp_store_template", { description: "Inspect a public
 });
 server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api = the newest 2.x, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id);
-  const base = resolve5(projectDir);
+  const base = await resolveProjectDir(requireProjectDir(projectDir));
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim();
-  if (!relativeDestination || relativeDestination.startsWith("/") || relativeDestination.includes("..")) throw new Error("\u6A21\u677F\u76EE\u6807\u5FC5\u987B\u662F\u5F53\u524D\u9879\u76EE\u5185\u7684\u76F8\u5BF9\u8DEF\u5F84\uFF0C\u4E14\u4E0D\u80FD\u5305\u542B ..");
-  const target = resolve5(base, relativeDestination);
-  if (!target.startsWith(`${base}/`)) throw new Error("\u6A21\u677F\u76EE\u6807\u8D8A\u8FC7\u4E86\u9879\u76EE\u76EE\u5F55\u8FB9\u754C");
+  if (!relativeDestination || looksAbsolute(relativeDestination) || relativeDestination.split(/[\\/]/).includes("..")) throw new Error("\u6A21\u677F\u76EE\u6807\u5FC5\u987B\u662F\u5F53\u524D\u9879\u76EE\u5185\u7684\u76F8\u5BF9\u8DEF\u5F84\uFF0C\u4E14\u4E0D\u80FD\u5305\u542B ..");
+  const target = resolve4(base, relativeDestination);
+  if (!isInsideRoot(base, target, process.platform, { allowRoot: false })) throw new Error("\u6A21\u677F\u76EE\u6807\u8D8A\u8FC7\u4E86\u9879\u76EE\u76EE\u5F55\u8FB9\u754C");
   if (existsSync(target)) throw new Error(`\u6A21\u677F\u76EE\u6807\u5DF2\u5B58\u5728\uFF0C\u4E3A\u907F\u514D\u8986\u76D6\u8BF7\u6362\u4E00\u4E2A\u76EE\u5F55\uFF1A${relativeDestination}`);
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true });
   return textResult(`\u5DF2\u590D\u5236\u516C\u5F00\u6A21\u677F ${id} \u5230 ${relativeDestination}\u3002${TEMPLATE_COPY_NOTE}`, { id, destination: target, sourceDir: template.dir, api: template.api || null, note: TEMPLATE_COPY_NOTE });
 });
-var previewSession = await loadOrCreatePreviewSession();
+var previewSession = "";
+var projectSelected = false;
 async function selectProjectSession(projectDir) {
-  previewSession = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir));
+  const root = await resolveProjectDir(requireProjectDir(projectDir));
+  previewSession = await loadOrCreatePreviewSession(await previewSessionFileForProject(root));
+  projectSelected = true;
+  await rememberLastPreviewSession(previewSession).catch(() => {
+  });
+  return root;
+}
+async function selectToolSession(projectDir) {
+  if (String(projectDir || "").trim()) return selectProjectSession(projectDir);
+  if (!projectSelected) previewSession = await readLastPreviewSession();
+  return null;
 }
 function studioOrigin() {
   return resolveStudioOrigin();
@@ -37637,15 +37720,18 @@ function previewSessionId() {
   return sessionScope.getStore() || previewSession;
 }
 function previewPageUrl() {
-  return `${studioOrigin()}/studio/preview?preview=1&session=${encodeURIComponent(previewSessionId())}`;
+  const sessionId = previewSessionId();
+  return sessionId ? `${studioOrigin()}/studio/preview?preview=1&session=${encodeURIComponent(sessionId)}` : "";
 }
+var NO_PROJECT_MESSAGE = "\u8FD8\u6CA1\u6709\u9009\u4E2D\u5DE5\u7A0B\uFF1A\u5148\u7528\u8BE5\u5DE5\u7A0B\u7684\u7EDD\u5BF9\u8DEF\u5F84\u8C03\u7528 run_xtapp_preview\uFF08\u6216\u7ED9\u8FD9\u4E2A\u5DE5\u5177\u5E26\u4E0A projectDir\uFF09\uFF0C\u518D\u6309\u952E\u3001\u622A\u56FE\u6216\u67E5\u72B6\u6001\u3002";
 function withPreviewMeta(result = {}) {
   return { ...result, sessionId: result.sessionId || previewSessionId(), previewUrl: previewPageUrl() };
 }
-async function bridgeRequest(path, body = {}, method = "POST", timeoutMs = previewRequestTimeoutMs(path.split("?")[0])) {
+async function bridgeRequest(path2, body = {}, method = "POST", timeoutMs = previewRequestTimeoutMs(path2.split("?")[0])) {
   const origin = studioOrigin();
   const sessionId = previewSessionId();
-  const url2 = new URL(path, `${origin}/`);
+  if (!sessionId) return withPreviewMeta({ status: "no_project", message: NO_PROJECT_MESSAGE });
+  const url2 = new URL(path2, `${origin}/`);
   if (method === "GET") url2.searchParams.set("sessionId", sessionId);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
@@ -37665,14 +37751,15 @@ async function bridgeRequest(path, body = {}, method = "POST", timeoutMs = previ
   }
 }
 async function syncProjectSource(projectDir) {
-  const scoped = await loadOrCreatePreviewSession(await previewSessionFileForProject(projectDir));
-  return sessionScope.run(scoped, () => syncProjectSourceScoped(projectDir));
+  const root = await resolveProjectDir(projectDir);
+  const scoped = await loadOrCreatePreviewSession(await previewSessionFileForProject(root));
+  return sessionScope.run(scoped, () => syncProjectSourceScoped(root));
 }
 async function syncProjectSourceScoped(projectDir) {
   return withProjectPushLock(projectDir, async () => {
     const snapshot = await readProjectSnapshot(projectDir);
     const previous = lastPushed.get(snapshot.projectDir);
-    const result = await pushProjectSnapshot(snapshot, (path, body) => bridgeRequest(path, body), { previous });
+    const result = await pushProjectSnapshot(snapshot, (path2, body) => bridgeRequest(path2, body), { previous });
     if (result?.revision) {
       lastPushed.set(snapshot.projectDir, snapshotPushState(snapshot, result.revision));
       const watcher = sourceWatchers.get(snapshot.projectDir);
@@ -37681,8 +37768,8 @@ async function syncProjectSourceScoped(projectDir) {
     return result;
   });
 }
-async function awaitCommand(path, body = {}, waitMs = previewCommandWaitMs(path)) {
-  const queued = await bridgeRequest(path, body);
+async function awaitCommand(path2, body = {}, waitMs = previewCommandWaitMs(path2)) {
+  const queued = await bridgeRequest(path2, body);
   if (isFailedCommand(queued)) return queued;
   if (!queued?.commandId || queued.status === "not_connected") return queued;
   const query = `/preview/result?commandId=${encodeURIComponent(queued.commandId)}`;
@@ -37719,8 +37806,7 @@ function studioAssetNote(result = {}) {
   ].filter(Boolean).join("\n");
 }
 async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) {
-  const root = requireProjectDir(projectDir);
-  await selectProjectSession(root);
+  const root = await selectProjectSession(projectDir);
   return withProjectPushLock(root, async () => {
     const snapshot = await readProjectSnapshot(root);
     const listed = await awaitCommand("/preview/catalog", {}, STUDIO_COMMAND_WAIT_MS);
@@ -37728,7 +37814,7 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
     if (!catalog || typeof catalog !== "object") {
       return { ...listed, projectDir: snapshot.projectDir, message: listed?.message || `Studio \u6CA1\u6709\u56DE\u62A5\u9879\u76EE\u6E05\u5355\uFF08${listed?.status || "unknown"}\uFF09\u3002\u8BF7\u786E\u8BA4\u9884\u89C8\u9875\u5DF2\u6253\u5F00\u4E14\u662F\u6700\u65B0\u7248\u672C\u3002` };
     }
-    if (catalog.codexWorktreeDir !== snapshot.projectDir) {
+    if (!samePath(catalog.codexWorktreeDir, snapshot.projectDir)) {
       return {
         status: "not_linked",
         projectDir: snapshot.projectDir,
@@ -37766,8 +37852,7 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
   });
 }
 async function ensurePreviewReady({ projectDir, device = "x4_pro", deleteAssets = [] }) {
-  const root = requireProjectDir(projectDir);
-  await selectProjectSession(root);
+  const root = await selectProjectSession(projectDir);
   const snapshot = await readProjectSnapshot(root);
   const displayName = displayNameFromManifest(snapshot.manifest, snapshot.projectName);
   startSourceWatcher(snapshot.projectDir);
@@ -37777,15 +37862,15 @@ async function ensurePreviewReady({ projectDir, device = "x4_pro", deleteAssets 
   }
   const source = await syncProjectSource(snapshot.projectDir);
   const removal = await deleteStudioAssets(deleteAssets);
-  const path = previewRunPath(status.status);
-  const result = await awaitCommand(path, { projectDir: source.projectDir, revision: source.revision, device });
+  const path2 = previewRunPath(status.status);
+  const result = await awaitCommand(path2, { projectDir: source.projectDir, revision: source.revision, device });
   return previewReadyResult({
     ...result,
     ...source,
     ...removal,
     device,
     watching: true,
-    commandPath: path
+    commandPath: path2
   }, { displayName, commandStatus: result.status });
 }
 function stopSourceWatcher(projectDir) {
@@ -37816,6 +37901,8 @@ function startSourceWatcher(projectDir) {
   sourceWatchers.set(projectDir, watcher);
   return watcher;
 }
+var SESSION_NOTE = " Optional projectDir picks that project's preview; without it the tool uses the project last passed to a preview tool.";
+var optionalProjectDir = external_exports.string().trim().optional();
 var DELETE_ASSETS_NOTE = " Sync deletes source files and images the worktree pushed earlier once they are gone locally. Images that exist only in Studio (uploaded or generated there) are kept and listed; to delete them when the user asks, pass their keys in deleteAssets.";
 var deleteAssetsSchema = external_exports.array(external_exports.string().trim().min(1)).max(200).optional();
 server.registerTool("run_xtapp_preview", { description: `Ensure the official Studio preview page is running the current local worktree. Requires the absolute projectDir. If the page is closed or needs login, returns the exact previewUrl instead of claiming success.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, device = "x4_pro", deleteAssets = [] }) => {
@@ -37823,8 +37910,8 @@ server.registerTool("run_xtapp_preview", { description: `Ensure the official Stu
   return textResult([result.message || JSON.stringify(result), formatDroppedAssets(result.dropped), studioAssetNote(result)].filter(Boolean).join("\n"), result);
 });
 server.registerTool("sync_xtapp_preview_source", { description: `Read the current local worktree source and make it available to the official Studio preview.${DELETE_ASSETS_NOTE}`, inputSchema: { projectDir: external_exports.string().trim(), deleteAssets: deleteAssetsSchema } }, async ({ projectDir, deleteAssets = [] }) => {
-  await selectProjectSession(requireProjectDir(projectDir));
-  const source = await syncProjectSource(projectDir);
+  const root = await selectProjectSession(projectDir);
+  const source = await syncProjectSource(root);
   const result = { ...source, ...await deleteStudioAssets(deleteAssets) };
   return textResult([describeSourceSync(result), studioAssetNote(result)].filter(Boolean).join("\n"), result);
 });
@@ -37833,8 +37920,7 @@ server.registerTool("pull_xtapp_studio_source", { description: "Copy files and i
   return textResult(result.message || JSON.stringify(result), result);
 });
 server.registerTool("watch_xtapp_preview", { description: "Watch a local worktree and automatically synchronize source changes to the official Studio preview.", inputSchema: { projectDir: external_exports.string().trim(), enabled: external_exports.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
-  const root = resolve5(projectDir);
-  await selectProjectSession(root);
+  const root = await selectProjectSession(projectDir);
   if (!enabled) return textResult(JSON.stringify({ status: stopSourceWatcher(root) ? "stopped" : "not_watching", projectDir: root }), { status: "stopped", projectDir: root });
   await syncProjectSource(root);
   startSourceWatcher(root);
@@ -37842,8 +37928,7 @@ server.registerTool("watch_xtapp_preview", { description: "Watch a local worktre
 });
 var APP_FILES_NOTE = " This is the app's folder on the preview storage card, /AppFiles/<app_id>/ (what the app reads and writes with ctx.files): user data, not project source. Needs a 2.x device, manifest.api 2.9 or later and an app_id, and Studio must show this projectDir (call run_xtapp_preview first). File names are case-insensitive.";
 async function appFilesTool(projectDir, run) {
-  const root = requireProjectDir(projectDir);
-  await selectProjectSession(root);
+  const root = await selectProjectSession(projectDir);
   const result = await run((body) => awaitCommand("/preview/app_files", body, STUDIO_COMMAND_WAIT_MS), root);
   const { contentBase64, content, ...details } = result;
   return textResult(result.message, details);
@@ -37860,56 +37945,64 @@ server.registerTool("write_xtapp_preview_app_file", { description: `Create, repl
 server.registerTool("delete_xtapp_preview_app_file", { description: `Delete one file from the preview's app folder.${APP_FILES_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), name: external_exports.string().min(1).max(128) } }, async ({ projectDir, name }) => {
   return appFilesTool(projectDir, (send) => deleteAppFile(send, { name }));
 });
-server.registerTool("get_xtapp_preview_status", { description: "Read whether the official Studio preview page is open, which app it is showing, and the exact previewUrl to open.", inputSchema: {} }, async () => {
+server.registerTool("get_xtapp_preview_status", { description: `Read whether the official Studio preview page is open, which app it is showing, and the exact previewUrl to open.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir);
   const result = await bridgeRequest("/preview/status", {}, "GET");
   let displayName = displayNameFromManifest(result.manifest);
   if (!displayName && result.status !== "not_connected" && result.status !== "timeout") {
     const context = await bridgeRequest("/preview/context", {}, "GET");
     displayName = displayNameFromManifest(context.manifest);
   }
-  const ready = previewReadyResult(result, { displayName, commandStatus: result.status === "not_connected" ? "not_connected" : "" });
+  const ready = previewReadyResult(result, { displayName, commandStatus: result.status === "not_connected" || result.status === "no_project" ? result.status : "" });
   return textResult(ready.message || JSON.stringify(ready), ready);
 });
-server.registerTool("inspect_xtapp_preview_context", { description: "Inspect the active Studio project manifest, Lua entry snippets, recent runtime logs and the Problems panel diagnostics (errors, off-screen text, refresh, memory and draw limits) for joint diagnosis.", inputSchema: { query: external_exports.string().trim().optional() } }, async ({ query = "" }) => {
+server.registerTool("inspect_xtapp_preview_context", { description: `Inspect the active Studio project manifest, Lua entry snippets, recent runtime logs and the Problems panel diagnostics (errors, off-screen text, refresh, memory and draw limits) for joint diagnosis.${SESSION_NOTE}`, inputSchema: { query: external_exports.string().trim().optional(), projectDir: optionalProjectDir } }, async ({ query = "", projectDir }) => {
+  await selectToolSession(projectDir);
   const context = await bridgeRequest("/preview/context", {}, "GET");
-  if (context.status === "not_connected") return textResult(JSON.stringify(context), context);
+  if (context.status === "not_connected" || context.status === "no_project") return textResult(JSON.stringify(context), context);
   const needle = String(query).toLowerCase();
-  const files = Object.fromEntries(Object.entries(context.files || {}).filter(([path, content]) => !needle || path.toLowerCase().includes(needle) || String(content).toLowerCase().includes(needle)));
+  const files = Object.fromEntries(Object.entries(context.files || {}).filter(([path2, content]) => !needle || path2.toLowerCase().includes(needle) || String(content).toLowerCase().includes(needle)));
   const result = { projectId: context.projectId || null, manifest: context.manifest || null, files, logs: context.logs || [], diagnostics: context.diagnostics || [], updatedAt: context.updatedAt || null };
   return textResult(JSON.stringify(result, null, 2), { ...result, fileCount: Object.keys(files).length });
 });
-server.registerTool("send_xtapp_preview_input", { description: "Send an X4 device key to the active Studio preview.", inputSchema: { key: external_exports.enum(["up", "down", "left", "right", "ok", "back"]) } }, async ({ key }) => {
+server.registerTool("send_xtapp_preview_input", { description: `Send an X4 device key to the active Studio preview.${SESSION_NOTE}`, inputSchema: { key: external_exports.enum(["up", "down", "left", "right", "ok", "back"]), projectDir: optionalProjectDir } }, async ({ key, projectDir }) => {
+  await selectToolSession(projectDir);
   const result = await awaitCommand("/preview/input", { key });
   return textResult(JSON.stringify(result), result);
 });
-server.registerTool("get_xtapp_preview_targets", { description: "Read semantic interactive targets and the current frame revision from the active Studio preview.", inputSchema: {} }, async () => {
+server.registerTool("get_xtapp_preview_targets", { description: `Read semantic interactive targets and the current frame revision from the active Studio preview.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir);
   const result = await bridgeRequest("/preview/targets", {}, "GET");
   return textResult(JSON.stringify(result, null, 2), result);
 });
-server.registerTool("tap_xtapp_preview_target", { description: "Tap a published preview target by converting its rectangle to a coordinate touch. If the current frame has no targets, use send_xtapp_preview_touch. Apps do not need a Lua testing slot.", inputSchema: { targetId: external_exports.string().min(1).max(120), gesture: external_exports.enum(["tap", "double_tap", "long", "swipe_left", "swipe_right", "swipe_up", "swipe_down"]).optional() } }, async ({ targetId, gesture = "tap" }) => {
+server.registerTool("tap_xtapp_preview_target", { description: `Tap a published preview target by converting its rectangle to a coordinate touch. If the current frame has no targets, use send_xtapp_preview_touch. Apps do not need a Lua testing slot.${SESSION_NOTE}`, inputSchema: { targetId: external_exports.string().min(1).max(120), gesture: external_exports.enum(["tap", "double_tap", "long", "swipe_left", "swipe_right", "swipe_up", "swipe_down"]).optional(), projectDir: optionalProjectDir } }, async ({ targetId, gesture = "tap", projectDir }) => {
+  await selectToolSession(projectDir);
   const result = await tapPreviewTarget({ targetId, gesture }, {
     getTargets: () => bridgeRequest("/preview/targets", {}, "GET"),
     sendTouch: ({ x, y, gesture: nextGesture }) => awaitCommand("/preview/touch", { x, y, gesture: nextGesture })
   });
   return textResult(JSON.stringify(result, null, 2), result);
 });
-server.registerTool("send_xtapp_preview_touch", { description: "Default way to click the official Studio preview: send a touch gesture using logical device coordinates. Use this unless a published target already has a rectangle.", inputSchema: { x: external_exports.number().finite(), y: external_exports.number().finite(), gesture: external_exports.enum(["tap", "double_tap", "long", "swipe_left", "swipe_right", "swipe_up", "swipe_down"]).optional() } }, async ({ x, y, gesture = "tap" }) => {
+server.registerTool("send_xtapp_preview_touch", { description: `Default way to click the official Studio preview: send a touch gesture using logical device coordinates. Use this unless a published target already has a rectangle.${SESSION_NOTE}`, inputSchema: { x: external_exports.number().finite(), y: external_exports.number().finite(), gesture: external_exports.enum(["tap", "double_tap", "long", "swipe_left", "swipe_right", "swipe_up", "swipe_down"]).optional(), projectDir: optionalProjectDir } }, async ({ x, y, gesture = "tap", projectDir }) => {
+  await selectToolSession(projectDir);
   const result = await awaitCommand("/preview/touch", { x, y, gesture });
   return textResult(JSON.stringify(result, null, 2), result);
 });
-server.registerTool("capture_xtapp_preview", { description: "Capture the current Studio preview PNG and frame revision.", inputSchema: {} }, async () => {
+server.registerTool("capture_xtapp_preview", { description: `Capture the current Studio preview PNG and frame revision.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir);
   const command = await awaitCommand("/preview/capture", {});
   const screenshot = command.screenshot?.dataUrl ? command.screenshot : await bridgeRequest("/preview/screenshot", {}, "GET");
   const result = { ...command, screenshot };
   return textResult(JSON.stringify(result), result);
 });
-server.registerTool("stop_xtapp_preview", { description: "Stop the active Studio preview runtime.", inputSchema: {} }, async () => {
+server.registerTool("stop_xtapp_preview", { description: `Stop the active Studio preview runtime.${SESSION_NOTE}`, inputSchema: { projectDir: optionalProjectDir } }, async ({ projectDir } = {}) => {
+  await selectToolSession(projectDir);
   const result = await awaitCommand("/preview/stop");
   return textResult(JSON.stringify(result), result);
 });
 server.registerTool("restart_xtapp_preview", { description: "Restart the official Studio preview with the current local worktree. Syncs source first, then restarts the Lua worker.", inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional() } }, async ({ projectDir, device }) => {
-  await selectProjectSession(requireProjectDir(projectDir));
-  const source = await syncProjectSource(requireProjectDir(projectDir));
+  const root = await selectProjectSession(projectDir);
+  const source = await syncProjectSource(root);
   const result = await awaitCommand("/preview/restart", { projectDir: source.projectDir, revision: source.revision, device });
   return textResult([result.message || JSON.stringify(result), studioAssetNote(result)].filter(Boolean).join("\n"), { ...result, ...source });
 });

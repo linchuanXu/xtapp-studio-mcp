@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdir, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
+import { isInsideRoot } from './projectPath.mjs'
 import { TEXT_FILE } from './projectSnapshot.mjs'
 
 // 把 Studio 里的文件和图拉回本地目录。Studio 上传或生成的图同步时不会被删，
@@ -78,7 +79,7 @@ export function splitExportBatches({ paths = [], keys = [] } = {}, catalog = {},
 
 function insideRoot(root, relativePath) {
   const target = resolve(root, relativePath)
-  if (!target.startsWith(`${root}/`)) throw new Error(`导出路径越过项目目录：${relativePath}`)
+  if (!isInsideRoot(root, target, process.platform, { allowRoot: false })) throw new Error(`导出路径越过项目目录：${relativePath}`)
   return target
 }
 

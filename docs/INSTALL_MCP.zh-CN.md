@@ -57,7 +57,8 @@ Skills 是可移植的 Markdown。宿主如果支持 Agent Skills，可以把
 
 ## 预览
 
-1. `run_xtapp_preview` 必须带当前 worktree 绝对路径。
+1. `run_xtapp_preview` 必须带当前 worktree 绝对路径。macOS / Linux 写 `/Users/...`，
+   Windows 写 `D:\...`、`D:/...`、`\\server\share\...` 或 Git Bash 的 `/d/...` 都行。
 2. 打开返回的 `previewUrl`。
    - 有浏览器 MCP 的宿主（Cursor）：用内置浏览器打开，并保持在这条地址。
    - 其他宿主：把 URL 交给用户，请他们保持打开。

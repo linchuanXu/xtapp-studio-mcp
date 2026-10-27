@@ -54,7 +54,8 @@ not still work: the MCP tools are the contract.
 
 ## Preview
 
-1. Call `run_xtapp_preview` with the absolute current worktree.
+1. Call `run_xtapp_preview` with the absolute current worktree. macOS / Linux use
+   `/Users/...`; on Windows `D:\...`, `D:/...`, `\\server\share\...` or Git Bash `/d/...` all work.
 2. Open the exact `previewUrl`.
    - Hosts with a browser MCP (Cursor): open it in that browser and keep
      the tab on that URL.

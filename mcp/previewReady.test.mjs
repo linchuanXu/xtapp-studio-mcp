@@ -26,6 +26,12 @@ test('未打开预览页时只请用户打开链接，不报成功', () => {
   assert.equal(ready.displayName, '末班墨水车')
 })
 
+test('没选过工程时提示先 run_xtapp_preview，不报未连接', () => {
+  const ready = describePreviewReady({ connectedStatus: 'no_project' })
+  assert.equal(ready.userStatus, 'no_project')
+  assert.match(ready.message, /run_xtapp_preview/)
+})
+
 test('人读状态区分运行中、超时和页已打开', () => {
   assert.equal(describePreviewReady({
     connectedStatus: 'running',

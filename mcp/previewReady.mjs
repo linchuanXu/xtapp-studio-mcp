@@ -1,4 +1,4 @@
-export const PLUGIN_VERSION = '0.1.7'
+export const PLUGIN_VERSION = '0.1.8'
 export const PREVIEW_RUN_WAIT_MS = 30_000
 export const PREVIEW_QUICK_WAIT_MS = 4_000
 
@@ -26,6 +26,14 @@ export function describePreviewReady({
   const name = String(displayName || '').trim()
   const url = String(previewUrl || '').trim()
   const named = name ? `「${name}」` : '当前项目'
+  if (connectedStatus === 'no_project' || commandStatus === 'no_project') {
+    return {
+      userStatus: 'no_project',
+      displayName: name || null,
+      previewUrl: url,
+      message: message || '还没有选中工程：先用该工程的绝对路径调用 run_xtapp_preview。',
+    }
+  }
   if (connectedStatus === 'not_connected' || commandStatus === 'not_connected') {
     return {
       userStatus: 'need_login_or_open_page',

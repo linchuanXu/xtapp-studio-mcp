@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readFile, readdir, realpath, stat } from 'node:fs/promises'
-import { basename, join, relative, resolve, sep } from 'node:path'
+import { basename, join, relative, sep } from 'node:path'
+import { isInsideRoot, normalizeAbsolutePath } from './projectPath.mjs'
 
 export const MAX_FILES = 2000
 export const MAX_FILE_BYTES = 256 * 1024
@@ -68,8 +69,8 @@ const IGNORED_DIRS = new Set(['.git', 'node_modules', 'dist', 'build', '.vite'])
 function assertProjectDir(value) {
   const raw = String(value || '').trim()
   if (!raw) throw new Error('请提供 XTApp 项目的绝对路径')
-  const dir = resolve(raw)
-  if (!raw.startsWith('/') || !dir.startsWith('/')) throw new Error('项目路径必须是绝对路径')
+  const dir = normalizeAbsolutePath(raw)
+  if (!dir) throw new Error(`项目路径必须是绝对路径：${raw}`)
   return dir
 }
 
@@ -97,7 +98,7 @@ async function collectFiles(root) {
       if (!path) continue
       if (TEXT_FILE.test(path) && Object.keys(files).length >= MAX_FILES) { warnings.push(`文本文件超过 ${MAX_FILES} 个，已截断`); continue }
       const target = await realpath(absolute).catch(() => null)
-      if (!target || (target !== root && !target.startsWith(`${root}/`))) { warnings.push(`${path} 是越界链接，已跳过`); continue }
+      if (!target || !isInsideRoot(root, target)) { warnings.push(`${path} 是越界链接，已跳过`); continue }
       const bytes = await readFile(target)
       if (ASSET_FILE.test(path)) {
         if (assets.length >= MAX_ASSETS) { warnings.push(`素材超过 ${MAX_ASSETS} 个，已截断`); continue }
@@ -121,8 +122,14 @@ async function collectFiles(root) {
   return { files, assets, warnings, totalBytes, assetBytes: totalAssetBytes }
 }
 
+/** Absolute, symlink-resolved project root: the one form every map key, session and Studio binding uses. */
+export async function resolveProjectDir(projectDir) {
+  const dir = assertProjectDir(projectDir)
+  return realpath(dir).catch(() => dir)
+}
+
 export async function readProjectSnapshot(projectDir) {
-  const root = await realpath(assertProjectDir(projectDir))
+  const root = await resolveProjectDir(projectDir)
   const info = await stat(root).catch(() => null)
   if (!info?.isDirectory()) throw new Error(`项目目录不存在：${root}`)
   const { files, assets, warnings, totalBytes, assetBytes } = await collectFiles(root)

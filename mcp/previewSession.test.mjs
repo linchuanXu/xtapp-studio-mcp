@@ -3,7 +3,7 @@ import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
-import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProject } from './previewSession.mjs'
+import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProject, readLastPreviewSession, rememberLastPreviewSession } from './previewSession.mjs'
 
 test('预览 session 落盘后跨进程复用同一 id', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'xtapp-preview-session-'))
@@ -44,4 +44,15 @@ test('不同工程目录用不同 session 文件，同一目录稳定复用', as
   } finally {
     delete process.env.XTAPP_PREVIEW_SESSION_FILE
   }
+})
+
+test('最近一次选中的工程 session 跨进程可读，没选过时为空', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'xtapp-preview-last-'))
+  const file = join(dir, 'preview-sessions', 'last')
+  assert.equal(await readLastPreviewSession(file), '')
+  const id = await loadOrCreatePreviewSession(join(dir, 'game-a'))
+  await rememberLastPreviewSession(id, file)
+  assert.equal(await readLastPreviewSession(file), id)
+  await rememberLastPreviewSession('??', file)
+  assert.equal(await readLastPreviewSession(file), id)
 })

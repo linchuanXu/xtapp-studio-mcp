@@ -1,6 +1,6 @@
 {
   "name": "xtapp-studio-mcp",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "XTApp Studio MCP: Lua contract knowledge, public app templates, and a live Studio preview for any MCP host.",
   "author": {
     "name": "XTApp AI Studio"
