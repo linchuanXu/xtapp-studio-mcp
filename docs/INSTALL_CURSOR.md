@@ -54,6 +54,11 @@ the skill bodies.
 5. Click and keys go through `send_xtapp_preview_touch` and
    `send_xtapp_preview_input`. Do not click the simulator DOM.
 6. Device PNG is `capture_xtapp_preview`.
+7. The app's folder on the preview card, `/AppFiles/<app_id>/` (what the app
+   reads and writes with `ctx.files`), goes through
+   `list_xtapp_preview_app_files`, `read_xtapp_preview_app_file`,
+   `write_xtapp_preview_app_file` and `delete_xtapp_preview_app_file`: check what
+   the app saved, or set up test data.
 
 The Codex widget will not appear. That is expected.
 

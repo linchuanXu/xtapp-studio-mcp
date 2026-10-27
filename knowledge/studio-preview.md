@@ -43,6 +43,17 @@
 - `capture_xtapp_preview`：截当前模拟器 PNG；优先用命令结果里的 `screenshot.dataUrl`。
 - `/preview/context`：回传受限 Manifest、Lua 片段和最近日志。
 
+## 存储卡应用文件夹
+
+预览存储卡上本应用的文件夹 `/AppFiles/app_id/`（第 29 节 `ctx.files`，需要 2.x 机型、`manifest.api` 至少 2.9、写了 `app_id`）可以由插件增删改查，用来读应用写出的数据、预置测试数据，闭环验证：
+
+- `list_xtapp_preview_app_files`：列出文件名、字节数和预览上限；名字不合规则、应用看不到的会标出来。
+- `read_xtapp_preview_app_file`：UTF-8 文字直接回文字，小的二进制回 base64；大文件带 `savePath` 原样存到本地再看。
+- `write_xtapp_preview_app_file`：`content`（文字）、`contentBase64`、`sourcePath`（本地文件）三选一，`append: true` 接在原文件后面。写完马上应用到正在跑的应用。
+- `delete_xtapp_preview_app_file`：删除一个文件。
+
+文件名不分大小写，大文件由插件自动分段。都要带 `projectDir`，只作用于这个 worktree 的预览。Studio 内置智能体有同样的四个工具。
+
 右侧 widget 只报连接、应用名和 previewUrl，不是模拟器。Cursor 内置浏览器里打开的是同一张官网预览页。
 
 ## 诊断

@@ -22551,7 +22551,7 @@ var require_compile = __commonJS({
       const schOrFunc = root.refs[ref];
       if (schOrFunc)
         return schOrFunc;
-      let _sch = resolve5.call(this, root, ref);
+      let _sch = resolve6.call(this, root, ref);
       if (_sch === void 0) {
         const schema = (_a3 = root.localRefs) === null || _a3 === void 0 ? void 0 : _a3[ref];
         const { schemaId } = this.opts;
@@ -22578,7 +22578,7 @@ var require_compile = __commonJS({
     function sameSchemaEnv(s1, s2) {
       return s1.schema === s2.schema && s1.root === s2.root && s1.baseId === s2.baseId;
     }
-    function resolve5(root, ref) {
+    function resolve6(root, ref) {
       let sch;
       while (typeof (sch = this.refs[ref]) == "string")
         ref = sch;
@@ -23408,7 +23408,7 @@ var require_fast_uri = __commonJS({
       }
       return uri;
     }
-    function resolve5(baseURI, relativeURI, options) {
+    function resolve6(baseURI, relativeURI, options) {
       const schemelessOptions = options ? Object.assign({ scheme: "null" }, options) : { scheme: "null" };
       const {
         parsed: baseParsed,
@@ -23776,7 +23776,7 @@ var require_fast_uri = __commonJS({
     var fastUri = {
       SCHEMES,
       normalize,
-      resolve: resolve5,
+      resolve: resolve6,
       resolveComponent,
       equal,
       serialize,
@@ -26766,9 +26766,9 @@ var require_dist = __commonJS({
 });
 
 // mcp/server.mjs
-import { cp, readFile as readFile4, readdir as readdir3, stat as stat3 } from "node:fs/promises";
+import { cp, readFile as readFile5, readdir as readdir3, stat as stat3 } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname as dirname4, join as join5, resolve as resolve4 } from "node:path";
+import { dirname as dirname5, join as join5, resolve as resolve5 } from "node:path";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
 // node_modules/zod/v3/helpers/util.js
@@ -34267,7 +34267,7 @@ var Protocol = class {
           return;
         }
         const pollInterval = task2.pollInterval ?? this._options?.defaultTaskPollInterval ?? 1e3;
-        await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
+        await new Promise((resolve6) => setTimeout(resolve6, pollInterval));
         options?.signal?.throwIfAborted();
       }
     } catch (error61) {
@@ -34284,7 +34284,7 @@ var Protocol = class {
    */
   request(request, resultSchema, options) {
     const { relatedRequestId, resumptionToken, onresumptiontoken, task, relatedTask } = options ?? {};
-    return new Promise((resolve5, reject) => {
+    return new Promise((resolve6, reject) => {
       const earlyReject = (error61) => {
         reject(error61);
       };
@@ -34362,7 +34362,7 @@ var Protocol = class {
           if (!parseResult.success) {
             reject(parseResult.error);
           } else {
-            resolve5(parseResult.data);
+            resolve6(parseResult.data);
           }
         } catch (error61) {
           reject(error61);
@@ -34623,12 +34623,12 @@ var Protocol = class {
       }
     } catch {
     }
-    return new Promise((resolve5, reject) => {
+    return new Promise((resolve6, reject) => {
       if (signal.aborted) {
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
         return;
       }
-      const timeoutId = setTimeout(resolve5, interval);
+      const timeoutId = setTimeout(resolve6, interval);
       signal.addEventListener("abort", () => {
         clearTimeout(timeoutId);
         reject(new McpError(ErrorCode.InvalidRequest, "Request cancelled"));
@@ -35818,7 +35818,7 @@ var McpServer = class {
     let task = createTaskResult.task;
     const pollInterval = task.pollInterval ?? 5e3;
     while (task.status !== "completed" && task.status !== "failed" && task.status !== "cancelled") {
-      await new Promise((resolve5) => setTimeout(resolve5, pollInterval));
+      await new Promise((resolve6) => setTimeout(resolve6, pollInterval));
       const updatedTask = await extra.taskStore.getTask(taskId);
       if (!updatedTask) {
         throw new McpError(ErrorCode.InternalError, `Task ${taskId} not found during polling`);
@@ -36482,12 +36482,12 @@ var StdioServerTransport = class {
     this.onclose?.();
   }
   send(message) {
-    return new Promise((resolve5) => {
+    return new Promise((resolve6) => {
       const json2 = serializeMessage(message);
       if (this._stdout.write(json2)) {
-        resolve5();
+        resolve6();
       } else {
-        this._stdout.once("drain", resolve5);
+        this._stdout.once("drain", resolve6);
       }
     });
   }
@@ -37247,11 +37247,105 @@ async function tapPreviewTarget({ targetId, gesture = "tap" } = {}, { getTargets
   };
 }
 
+// mcp/appFiles.mjs
+import { mkdir as mkdir3, readFile as readFile3, writeFile as writeFile3 } from "node:fs/promises";
+import { dirname as dirname3, isAbsolute, resolve as resolve4 } from "node:path";
+var APP_FILE_READ_CHUNK = 2 * 1024 * 1024;
+var APP_FILE_WRITE_CHUNK = 256 * 1024;
+var APP_FILE_INLINE_TEXT_MAX = 256 * 1024;
+var APP_FILE_INLINE_BINARY_MAX = 48 * 1024;
+var APP_FILE_TRANSFER_MAX = 64 * 1024 * 1024;
+var utf8 = new TextDecoder("utf-8", { fatal: true });
+function utf8Text(bytes) {
+  try {
+    return utf8.decode(bytes);
+  } catch {
+    return null;
+  }
+}
+async function appFilesCommand(send, body) {
+  const result = await send(body);
+  if (result?.appFiles && !isFailedCommand(result) && result.status === "complete") return result.appFiles;
+  const reason = result?.message || result?.outcome?.error || result?.status || "unknown";
+  throw new Error(result?.status === "not_connected" ? `Studio \u9884\u89C8\u9875\u6CA1\u6709\u8FDE\u4E0A\uFF1A${reason}` : `Studio \u6CA1\u6709\u5B8C\u6210\u5B58\u50A8\u5361\u6587\u4EF6\u64CD\u4F5C\uFF1A${reason}`);
+}
+var localPath = (projectDir, path) => isAbsolute(path) ? path : resolve4(projectDir, path);
+async function listAppFiles(send) {
+  const listed = await appFilesCommand(send, { action: "list" });
+  const lines = (listed.files || []).map((file2) => `${file2.name}	${file2.size}${file2.visible === false ? "	\uFF08\u540D\u5B57\u4E0D\u5408\u89C4\u5219\uFF0C\u5E94\u7528\u770B\u4E0D\u5230\uFF09" : ""}`);
+  const head = `${listed.path} \xB7 ${listed.files?.length || 0} \u4E2A\u6587\u4EF6 \xB7 ${listed.bytes} \u5B57\u8282\uFF08\u9884\u89C8\u4E0A\u9650 ${listed.maxBytes}\uFF09`;
+  return { ...listed, message: [head, ...lines].join("\n") };
+}
+async function readWholeAppFile(send, name) {
+  const parts = [];
+  let offset = 0;
+  let first;
+  do {
+    const part = await appFilesCommand(send, { action: "read", name, offset, length: APP_FILE_READ_CHUNK });
+    first ||= part;
+    if (part.size > APP_FILE_TRANSFER_MAX) throw new Error(`\u300C${part.name}\u300D\u6709 ${part.size} \u5B57\u8282\uFF0C\u8D85\u8FC7\u63D2\u4EF6\u4E00\u6B21\u642C\u8FD0\u7684\u4E0A\u9650 ${APP_FILE_TRANSFER_MAX}`);
+    const bytes = Buffer.from(part.contentBase64 || "", "base64");
+    if (!bytes.length && part.end < part.size) throw new Error(`\u8BFB\u300C${part.name}\u300D\u65F6 Studio \u56DE\u4E86\u7A7A\u7247\u6BB5`);
+    parts.push(bytes);
+    offset = part.end;
+    if (offset >= part.size) break;
+  } while (true);
+  return { name: first.name, size: first.size, path: first.path, bytes: Buffer.concat(parts) };
+}
+async function readAppFile(send, { name, savePath, projectDir }) {
+  const file2 = await readWholeAppFile(send, name);
+  const base = { name: file2.name, size: file2.size, appFilesPath: file2.path };
+  if (savePath) {
+    const target = localPath(projectDir, savePath);
+    await mkdir3(dirname3(target), { recursive: true });
+    await writeFile3(target, file2.bytes);
+    return { ...base, savedTo: target, message: `\u5DF2\u628A ${file2.path}/${file2.name}\uFF08${file2.size} \u5B57\u8282\uFF09\u5B58\u5230 ${target}` };
+  }
+  const text = utf8Text(file2.bytes);
+  if (text !== null && file2.size <= APP_FILE_INLINE_TEXT_MAX) return { ...base, encoding: "text", content: text, message: text };
+  if (text === null && file2.size <= APP_FILE_INLINE_BINARY_MAX) {
+    const contentBase64 = file2.bytes.toString("base64");
+    return { ...base, encoding: "base64", contentBase64, message: `\u300C${file2.name}\u300D${file2.size} \u5B57\u8282\uFF0C\u4E0D\u662F UTF-8 \u6587\u5B57\uFF0Cbase64\uFF1A
+${contentBase64}` };
+  }
+  return { ...base, status: "too_large_inline", message: `\u300C${file2.name}\u300D\u6709 ${file2.size} \u5B57\u8282\uFF0C\u592A\u5927\u4E0D\u76F4\u63A5\u56DE\uFF1B\u5E26 savePath \u5B58\u5230\u672C\u5730\u518D\u770B\u3002` };
+}
+async function appFileBytes({ content, contentBase64, sourcePath, projectDir }) {
+  const given = [content, contentBase64, sourcePath].filter((value) => value !== void 0);
+  if (given.length !== 1) throw new Error("content\u3001contentBase64\u3001sourcePath \u8981\u7ED9\u4E14\u53EA\u7ED9\u4E00\u4E2A");
+  if (content !== void 0) return Buffer.from(String(content), "utf8");
+  if (sourcePath !== void 0) return readFile3(localPath(projectDir, sourcePath));
+  const text = String(contentBase64).replace(/\s+/g, "");
+  if (!/^[A-Za-z0-9+/_-]*={0,2}$/.test(text)) throw new Error("contentBase64 \u4E0D\u662F\u5408\u6CD5\u7684 base64");
+  return Buffer.from(text, "base64");
+}
+async function writeAppFile(send, { name, bytes, append = false }) {
+  if (bytes.length > APP_FILE_TRANSFER_MAX) throw new Error(`\u8981\u5199 ${bytes.length} \u5B57\u8282\uFF0C\u8D85\u8FC7\u63D2\u4EF6\u4E00\u6B21\u642C\u8FD0\u7684\u4E0A\u9650 ${APP_FILE_TRANSFER_MAX}`);
+  let written;
+  let offset = 0;
+  do {
+    const chunk = bytes.subarray(offset, offset + APP_FILE_WRITE_CHUNK);
+    written = await appFilesCommand(send, {
+      action: "write",
+      name: written?.name || name,
+      contentBase64: chunk.toString("base64"),
+      append: offset > 0 || append
+    });
+    offset += chunk.length;
+  } while (offset < bytes.length);
+  const verb = append ? "\u5DF2\u8FFD\u52A0\u5230" : "\u5DF2\u5199\u5165";
+  return { ...written, appended: append, message: `${verb} ${written.path}/${written.name}\uFF0C\u73B0\u5728 ${written.size} \u5B57\u8282\u3002\u6B63\u5728\u8DD1\u7684\u5E94\u7528\u9A6C\u4E0A\u80FD\u7528 ctx.files \u8BFB\u5230\u3002` };
+}
+async function deleteAppFile(send, { name }) {
+  const removed = await appFilesCommand(send, { action: "delete", name });
+  return { ...removed, message: `\u5DF2\u5220\u9664 ${removed.path}/${removed.name}\u3002` };
+}
+
 // mcp/regionConfig.mjs
 import { readFileSync } from "node:fs";
-import { dirname as dirname3, join as join3 } from "node:path";
+import { dirname as dirname4, join as join3 } from "node:path";
 import { fileURLToPath } from "node:url";
-var defaultRegionPath = join3(dirname3(fileURLToPath(import.meta.url)), "..", "region.json");
+var defaultRegionPath = join3(dirname4(fileURLToPath(import.meta.url)), "..", "region.json");
 function loadPluginRegion(regionPath = defaultRegionPath) {
   return JSON.parse(readFileSync(regionPath, "utf8"));
 }
@@ -37269,7 +37363,7 @@ function resolveStudioOrigin({
 }
 
 // mcp/storeTemplate.mjs
-import { readdir as readdir2, readFile as readFile3, stat as stat2 } from "node:fs/promises";
+import { readdir as readdir2, readFile as readFile4, stat as stat2 } from "node:fs/promises";
 import { join as join4, sep as sep2 } from "node:path";
 var TEXT_FILE2 = /\.(lua|json|md|txt|tsv)$/i;
 var BINARY_FILE = /\.(xic|png|jpe?g|webp)$/i;
@@ -37295,7 +37389,7 @@ async function readStoreTemplate(dir) {
         assets.push({ path: relative2, bytes: info.size });
         continue;
       }
-      if (TEXT_FILE2.test(entry.name)) files[relative2] = await readFile3(absolute, "utf8");
+      if (TEXT_FILE2.test(entry.name)) files[relative2] = await readFile4(absolute, "utf8");
     }
   };
   await walk(dir);
@@ -37401,8 +37495,8 @@ function searchSections(content, query, keywords = "") {
 }
 
 // mcp/server.mjs
-var ROOT = resolve4(dirname4(fileURLToPath2(import.meta.url)), "..");
-var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve4(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
+var ROOT = resolve5(dirname5(fileURLToPath2(import.meta.url)), "..");
+var STORE_DIR = process.env.XTAPP_CATALOG_SOURCE_DIR ? resolve5(process.env.XTAPP_CATALOG_SOURCE_DIR) : join5(ROOT, "catalog", "templates");
 var CATALOG_INDEX = join5(ROOT, "catalog", "index.json");
 var KNOWLEDGE_INDEX = join5(ROOT, "knowledge", "index.json");
 var WIDGET_URI = "ui://widget/xtapp/studio.html";
@@ -37422,7 +37516,7 @@ function safeAppId(value) {
   return id;
 }
 async function readJson(path) {
-  return JSON.parse(await readFile4(path, "utf8"));
+  return JSON.parse(await readFile5(path, "utf8"));
 }
 async function publicApps() {
   if (!process.env.XTAPP_CATALOG_SOURCE_DIR && existsSync(CATALOG_INDEX)) return readJson(CATALOG_INDEX);
@@ -37443,7 +37537,7 @@ async function publicApps() {
         name: manifest.display_name || manifest.name || entry.name,
         version: manifest.version || null,
         api: manifest.api || null,
-        description: existsSync(readmePath) ? (await readFile4(readmePath, "utf8")).split("\n").find(Boolean) || "" : ""
+        description: existsSync(readmePath) ? (await readFile5(readmePath, "utf8")).split("\n").find(Boolean) || "" : ""
       });
     } catch {
     }
@@ -37490,13 +37584,13 @@ N3(server, "xtapp-studio-widget", WIDGET_URI, {
     "openai/widgetPrefersBorder": true,
     "openai/widgetCSP": { connect_domains: [], resource_domains: ["data:"] }
   }
-}, async () => ({ contents: [{ uri: WIDGET_URI, mimeType: p, text: await readFile4(join5(ROOT, "widget", "index.html"), "utf8") }] }));
+}, async () => ({ contents: [{ uri: WIDGET_URI, mimeType: p, text: await readFile5(join5(ROOT, "widget", "index.html"), "utf8") }] }));
 K3(server, "render_xtapp_studio_widget", {
   title: "Render XTApp Studio Preview",
   description: "Open or refresh the native right-side XTApp Studio preview widget for the active project.",
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
-}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve4(input2.projectDir) : null, widget: WIDGET_URI }));
+}, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve5(input2.projectDir) : null, widget: WIDGET_URI }));
 server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
   const results = await contractSearch(query, { limit, topic, api: "2.x" });
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: "2.x", count: results.length });
@@ -37521,10 +37615,10 @@ server.registerTool("get_xtapp_store_template", { description: "Inspect a public
 });
 server.registerTool("copy_xtapp_store_template", { description: "Copy a public XTApp template (the public catalog exports text sources only: lua/json/md/txt/tsv; binary assets are copied only when the template source has them, otherwise import them in Studio) into a new directory inside the explicitly selected project. The destination must not already exist. After copying, keep the visual layout and rewrite the calls to 2.x (manifest.api = the newest 2.x, ctx.package:image, ev.phase). Keep ctx.state (2.2 saves it automatically). Do not keep ev.state, ctx.longtask, ctx:save(), or matte.", inputSchema: { id: external_exports.string().min(1), projectDir: external_exports.string().trim(), destination: external_exports.string().trim().optional() } }, async ({ id, projectDir, destination }) => {
   const template = await templateFiles(id);
-  const base = resolve4(projectDir);
+  const base = resolve5(projectDir);
   const relativeDestination = String(destination || `templates/${safeAppId(id)}`).trim();
   if (!relativeDestination || relativeDestination.startsWith("/") || relativeDestination.includes("..")) throw new Error("\u6A21\u677F\u76EE\u6807\u5FC5\u987B\u662F\u5F53\u524D\u9879\u76EE\u5185\u7684\u76F8\u5BF9\u8DEF\u5F84\uFF0C\u4E14\u4E0D\u80FD\u5305\u542B ..");
-  const target = resolve4(base, relativeDestination);
+  const target = resolve5(base, relativeDestination);
   if (!target.startsWith(`${base}/`)) throw new Error("\u6A21\u677F\u76EE\u6807\u8D8A\u8FC7\u4E86\u9879\u76EE\u76EE\u5F55\u8FB9\u754C");
   if (existsSync(target)) throw new Error(`\u6A21\u677F\u76EE\u6807\u5DF2\u5B58\u5728\uFF0C\u4E3A\u907F\u514D\u8986\u76D6\u8BF7\u6362\u4E00\u4E2A\u76EE\u5F55\uFF1A${relativeDestination}`);
   await cp(template.dir, target, { recursive: true, force: false, errorOnExist: true });
@@ -37738,12 +37832,32 @@ server.registerTool("pull_xtapp_studio_source", { description: "Copy files and i
   return textResult(result.message || JSON.stringify(result), result);
 });
 server.registerTool("watch_xtapp_preview", { description: "Watch a local worktree and automatically synchronize source changes to the official Studio preview.", inputSchema: { projectDir: external_exports.string().trim(), enabled: external_exports.boolean().optional() } }, async ({ projectDir, enabled = true }) => {
-  const root = resolve4(projectDir);
+  const root = resolve5(projectDir);
   await selectProjectSession(root);
   if (!enabled) return textResult(JSON.stringify({ status: stopSourceWatcher(root) ? "stopped" : "not_watching", projectDir: root }), { status: "stopped", projectDir: root });
   await syncProjectSource(root);
   startSourceWatcher(root);
   return textResult(`\u5DF2\u5F00\u59CB\u76D1\u542C ${root}\uFF1B\u4FDD\u5B58 Lua/Manifest \u540E\uFF0CStudio \u4F1A\u81EA\u52A8\u540C\u6B65\u6E90\u7801\u5E76\u5237\u65B0\u9884\u89C8\u3002`, { status: "watching", projectDir: root, intervalMs: 1e3 });
+});
+var APP_FILES_NOTE = " This is the app's folder on the preview storage card, /AppFiles/<app_id>/ (what the app reads and writes with ctx.files): user data, not project source. Needs a 2.x device, manifest.api 2.9 or later and an app_id, and Studio must show this projectDir (call run_xtapp_preview first). File names are case-insensitive.";
+async function appFilesTool(projectDir, run) {
+  const root = requireProjectDir(projectDir);
+  await selectProjectSession(root);
+  const result = await run((body) => awaitCommand("/preview/app_files", body, STUDIO_COMMAND_WAIT_MS), root);
+  const { contentBase64, content, ...details } = result;
+  return textResult(result.message, details);
+}
+server.registerTool("list_xtapp_preview_app_files", { description: `List the files in the preview's app folder with their byte sizes.${APP_FILES_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1) } }, async ({ projectDir }) => {
+  return appFilesTool(projectDir, (send) => listAppFiles(send));
+});
+server.registerTool("read_xtapp_preview_app_file", { description: `Read one file from the preview's app folder, e.g. data the app saved, to check what it wrote. UTF-8 text comes back as text; small binary files as base64. Pass savePath (relative to projectDir or absolute) to copy the exact bytes to a local file instead; large files need it.${APP_FILES_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), name: external_exports.string().min(1).max(128), savePath: external_exports.string().trim().min(1).optional() } }, async ({ projectDir, name, savePath }) => {
+  return appFilesTool(projectDir, (send, root) => readAppFile(send, { name, savePath, projectDir: root }));
+});
+server.registerTool("write_xtapp_preview_app_file", { description: `Create, replace or append to one file in the preview's app folder, as if the user copied it onto the card; the running app can read it with ctx.files right away. Use it to set up test data or repair bad data. Give exactly one of content (text, stored as UTF-8), contentBase64, or sourcePath (a local file, relative to projectDir or absolute). Large files are sent in parts automatically.${APP_FILES_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), name: external_exports.string().min(1).max(128), content: external_exports.string().optional(), contentBase64: external_exports.string().optional(), sourcePath: external_exports.string().trim().min(1).optional(), append: external_exports.boolean().optional() } }, async ({ projectDir, name, content, contentBase64, sourcePath, append = false }) => {
+  return appFilesTool(projectDir, async (send, root) => writeAppFile(send, { name, append, bytes: await appFileBytes({ content, contentBase64, sourcePath, projectDir: root }) }));
+});
+server.registerTool("delete_xtapp_preview_app_file", { description: `Delete one file from the preview's app folder.${APP_FILES_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), name: external_exports.string().min(1).max(128) } }, async ({ projectDir, name }) => {
+  return appFilesTool(projectDir, (send) => deleteAppFile(send, { name }));
 });
 server.registerTool("get_xtapp_preview_status", { description: "Read whether the official Studio preview page is open, which app it is showing, and the exact previewUrl to open.", inputSchema: {} }, async () => {
   const result = await bridgeRequest("/preview/status", {}, "GET");

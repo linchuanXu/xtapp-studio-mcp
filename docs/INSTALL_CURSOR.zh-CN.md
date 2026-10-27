@@ -54,6 +54,10 @@ node scripts/cursor-mcp-config.mjs --write-user
 5. 点选和按键走 `send_xtapp_preview_touch`、`send_xtapp_preview_input`，不要
    去点模拟器 DOM。
 6. 设备截图走 `capture_xtapp_preview`。
+7. 存储卡上本应用的文件夹 `/AppFiles/<app_id>/`（应用用 `ctx.files` 读写）走
+   `list_xtapp_preview_app_files`、`read_xtapp_preview_app_file`、
+   `write_xtapp_preview_app_file`、`delete_xtapp_preview_app_file`：查看应用存下的数据、
+   准备测试数据。
 
 Cursor 里不会出现 Codex 右侧 widget，这是预期。
 

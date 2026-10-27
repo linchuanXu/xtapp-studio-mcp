@@ -22,6 +22,8 @@ Official Studio may already have another project open (for example 斗地主). S
 
 Do not click the simulator canvas with browser DOM tools (`browser_click` / `browser_type`). Device input is `send_xtapp_preview_input` and `send_xtapp_preview_touch`. Device PNG is `capture_xtapp_preview`. A browser screenshot may only confirm that the preview page is showing; it is not the simulator capture.
 
+The app's folder on the preview storage card, `/AppFiles/<app_id>/` (what the app reads and writes with `ctx.files`), is not project source. To check what the app saved, or to set up test data before a run, use `list_xtapp_preview_app_files`, `read_xtapp_preview_app_file`, `write_xtapp_preview_app_file` and `delete_xtapp_preview_app_file` with the same projectDir. Do not guess its contents from the code.
+
 Human statuses:
 
 - `need_login_or_open_page`: the official page is not connected; open the same URL (Cursor: built-in browser; otherwise the user).
