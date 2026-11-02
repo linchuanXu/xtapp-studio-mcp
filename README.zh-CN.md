@@ -22,6 +22,8 @@ Widget。
 [docs/INSTALL_CODEX.zh-CN.md](docs/INSTALL_CODEX.zh-CN.md)、
 [docs/INSTALL_CURSOR.zh-CN.md](docs/INSTALL_CURSOR.zh-CN.md)
 
+装好以后插件改了什么、东西存在哪、和云工程什么关系：[docs/GUIDE.zh-CN.md](docs/GUIDE.zh-CN.md)
+
 ## 架构
 
 MCP 才是产品。它不执行 Lua，也不是设备模拟器。Codex 插件模式是这份 MCP

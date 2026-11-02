@@ -12,6 +12,10 @@ second protocol. See [INSTALL_CODEX.md](INSTALL_CODEX.md).
 Cursor is one MCP client with a built-in browser. See
 [INSTALL_CURSOR.md](INSTALL_CURSOR.md).
 
+WorkBuddy, Claude Code and other hosts all use the generic MCP lane on this
+page; there is no separate host package. For what the plugin changes and where
+things are stored after install, see [GUIDE.md](GUIDE.md).
+
 ## Supported environment
 
 - Node.js 18 or later on PATH (runs `mcp/server.bundle.mjs`)

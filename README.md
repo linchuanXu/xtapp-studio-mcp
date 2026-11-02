@@ -22,6 +22,9 @@ The detailed entrypoint is [`AGENTS.md`](AGENTS.md). After install, the
 agent should ask the user to say the one create sentence in
 [`AGENT_PROMPT.md`](AGENT_PROMPT.md).
 
+What the plugin changes, where your work is stored, and how it relates to
+cloud projects: [docs/GUIDE.md](docs/GUIDE.md)
+
 ## Architecture
 
 The MCP is the product. It does not execute Lua and it is not the device

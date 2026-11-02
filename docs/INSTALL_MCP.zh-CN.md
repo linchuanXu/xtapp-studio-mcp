@@ -14,6 +14,9 @@ Widget。那是增强层，不是第二套协议。见
 Cursor 是带内置浏览器的一个 MCP 客户端。见
 [INSTALL_CURSOR.zh-CN.md](INSTALL_CURSOR.zh-CN.md)。
 
+WorkBuddy、Claude Code 等其他宿主都走本页的通用 MCP 车道，没有单独的宿主包。
+装好以后插件改了什么、存在哪，见 [GUIDE.zh-CN.md](GUIDE.zh-CN.md)。
+
 ## 支持的环境
 
 - PATH 上有 Node.js 18 或更高版本（用来跑 `mcp/server.bundle.mjs`）
