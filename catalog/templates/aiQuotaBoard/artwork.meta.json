@@ -1,0 +1,35 @@
+[
+  {
+    "key": "app_icon_s",
+    "path": "aiQuotaBoard/assets/app_icon_s.xic",
+    "rawPath": "aiQuotaBoard/raw/app_icon_s.svg",
+    "rawMime": "image/svg+xml",
+    "process": "确认配套图 SVG → Sharp 白底直出 → 1bpp XIC",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "fb6365f807baf8e84dbd2d26b13b91eeb990df0457f4d507c56caec5e908bce0"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "aiQuotaBoard/assets/app_icon_l.xic",
+    "rawPath": "aiQuotaBoard/raw/app_icon_l.svg",
+    "rawMime": "image/svg+xml",
+    "process": "确认配套图 SVG → Sharp 白底直出 → 1bpp XIC",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "f675d8b28d83f7bae0a64aaa4d06d6768e48db4af4af10017fa4947540c6b000"
+  },
+  {
+    "key": "splash",
+    "path": "aiQuotaBoard/assets/splash.xic",
+    "rawPath": "aiQuotaBoard/raw/splash.svg",
+    "rawMime": "image/svg+xml",
+    "process": "确认配套图 SVG → Sharp 白底直出 → 1bpp XIC",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "e746f6738267f78df9e2ea79b2b7d551b7920d9fb2bad0a5ae3dbe6ccd8351c2"
+  }
+]

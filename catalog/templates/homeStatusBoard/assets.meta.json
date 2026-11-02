@@ -1,0 +1,145 @@
+[
+  {
+    "key": "icon_temp",
+    "path": "homeStatusBoard/assets/icon_temp.xic",
+    "rawPath": "homeStatusBoard/raw/icon_temp.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "1a98c61ceeb53c7c6d252632e0aa955029da5d4fb5eaadc93f582310c5e52caa"
+  },
+  {
+    "key": "icon_humidity",
+    "path": "homeStatusBoard/assets/icon_humidity.xic",
+    "rawPath": "homeStatusBoard/raw/icon_humidity.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "aac53adbe8f102a5adfa4216e20a94b090e4c8c4be6d22f3f503150543a9d250"
+  },
+  {
+    "key": "icon_air",
+    "path": "homeStatusBoard/assets/icon_air.xic",
+    "rawPath": "homeStatusBoard/raw/icon_air.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "963d04506282fd5dad0b5591135355d4010370dc8a4735b929c75da10100e95c"
+  },
+  {
+    "key": "icon_device",
+    "path": "homeStatusBoard/assets/icon_device.xic",
+    "rawPath": "homeStatusBoard/raw/icon_device.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "3e490d609b5c752b0b0f9fb6f5bcb8b1584d343e0bf9448de2b3f10c4bf68f79"
+  },
+  {
+    "key": "device_ac",
+    "path": "homeStatusBoard/assets/device_ac.xic",
+    "rawPath": "homeStatusBoard/raw/device_ac.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "018b6012531db3d3b5b14e96edad4abb17e68b9772c0651b71d349c1cc653af8"
+  },
+  {
+    "key": "device_humidifier",
+    "path": "homeStatusBoard/assets/device_humidifier.xic",
+    "rawPath": "homeStatusBoard/raw/device_humidifier.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "78090d8d518ee93124a57aee5afd39779c9eeeb942578d91d6a441ed2005442c"
+  },
+  {
+    "key": "device_lamp",
+    "path": "homeStatusBoard/assets/device_lamp.xic",
+    "rawPath": "homeStatusBoard/raw/device_lamp.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "01d34d1dd72db98cfbefb6e09e71509642bcb971916ee2fa079419289bf40569"
+  },
+  {
+    "key": "device_lock",
+    "path": "homeStatusBoard/assets/device_lock.xic",
+    "rawPath": "homeStatusBoard/raw/device_lock.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "fc61db45e635f9f16509ed7873ea26eb8e765f787828c2864254c18b8732f417"
+  },
+  {
+    "key": "detail_environment",
+    "path": "homeStatusBoard/assets/detail_environment.xic",
+    "rawPath": "homeStatusBoard/raw/detail_environment.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "f652e122f0c5026de3db4e55e0f3254eb602a1556e59e4e265289c74a4d256fc"
+  },
+  {
+    "key": "detail_energy",
+    "path": "homeStatusBoard/assets/detail_energy.xic",
+    "rawPath": "homeStatusBoard/raw/detail_energy.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "738618546c9ce690aebae0c5dda1b43c1ff3c5f032ad042ebacc738666f2d1d6"
+  },
+  {
+    "key": "detail_security",
+    "path": "homeStatusBoard/assets/detail_security.xic",
+    "rawPath": "homeStatusBoard/raw/detail_security.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "3494aef3bd0efa6a50561ca2fb142e663e91be190963836d4072d11532069148"
+  },
+  {
+    "key": "detail_automation",
+    "path": "homeStatusBoard/assets/detail_automation.xic",
+    "rawPath": "homeStatusBoard/raw/detail_automation.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "cce49becbd2e26f74b6359f6e134878f75be484ee366638ea2f4cb56b930d9a8"
+  },
+  {
+    "key": "hero_title",
+    "path": "homeStatusBoard/assets/hero_title.xic",
+    "rawPath": "homeStatusBoard/raw/hero_title.svg",
+    "rawMime": "image/svg+xml",
+    "process": "本地 SVG 排版标题 → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 176,
+    "height": 42,
+    "bpp": 1,
+    "contentHash": "58eb65523913074808163c21431a93be14123659625f67d9f935faac88e98e04"
+  }
+]

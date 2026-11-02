@@ -1,0 +1,31 @@
+{
+  "app_id": "meituan_delivery-4d544432",
+  "display_name": "外卖到哪了",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "外卖履约进度、预计送达时间与锁屏速览。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "hero_scene",
+    "icon_store",
+    "icon_rider",
+    "icon_bag",
+    "icon_pin",
+    "icon_done",
+    "brand_logo",
+    "feature_scene"
+  ],
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 30
+  }
+}

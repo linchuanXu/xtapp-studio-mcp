@@ -1,0 +1,35 @@
+[
+  {
+    "key": "app_icon_s",
+    "path": "inkStatusBoard/assets/app_icon_s.xic",
+    "rawPath": "inkStatusBoard/raw/app_icon_s.svg",
+    "rawMime": "image/svg+xml",
+    "process": "已批准 C1 微胶囊翻转 SVG → Sharp 纯白底阈值化 → 严格行步幅 1bpp XIC",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "b33ddf2f61620620abfa6d37bdf899ac4e424db5c4ae71f8814e6716964081ed"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "inkStatusBoard/assets/app_icon_l.xic",
+    "rawPath": "inkStatusBoard/raw/app_icon_l.png",
+    "rawMime": "image/png",
+    "process": "已通过 P2 桌面像素稿（45m / 62% / 26°）→ Sharp 纯白底阈值化 → 严格行步幅 1bpp XIC",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "0c71d026cf151f7ea0757f97e5d8ae9995ae712dc61ae062ca134f6eea1065c4"
+  },
+  {
+    "key": "splash",
+    "path": "inkStatusBoard/assets/splash.xic",
+    "rawPath": "inkStatusBoard/raw/splash.svg",
+    "rawMime": "image/svg+xml",
+    "process": "已批准 C1 微胶囊翻转 SVG → Sharp 纯白底阈值化 → 严格行步幅 1bpp XIC",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "2ed03929fa35587687c52ec51ba7fcec0c1280bace6c8ba2da586adf1e881b32"
+  }
+]

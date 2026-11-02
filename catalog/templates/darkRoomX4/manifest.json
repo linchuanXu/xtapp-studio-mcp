@@ -1,0 +1,16 @@
+{
+  "app_id": "dark_room_x4-2d6f9c31",
+  "display_name": "A Dark Room · 墨水版",
+  "version": "0.2.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "display": {
+    "orientation": "portrait"
+  },
+  "preload_assets": [],
+  "author": "XTApp Studio community port",
+  "description": "非官方社区移植：在 X4 墨水屏上重构的生存、探索与逃离。",
+  "splash": "splash"
+}

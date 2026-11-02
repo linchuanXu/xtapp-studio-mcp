@@ -1,0 +1,23 @@
+{
+  "app_id": "geo_outline-8e15d0b6",
+  "display_name": "山河简图",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "landscape"
+  },
+  "author": "XTApp Studio",
+  "description": "X4 Pro 横屏 800×480：十二则高中地理示意图，点图层或图例看对应带。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [],
+  "data_files": [
+    {
+      "name": "maps.tsv",
+      "format": "tsv",
+      "max_bytes": 16384
+    }
+  ]
+}

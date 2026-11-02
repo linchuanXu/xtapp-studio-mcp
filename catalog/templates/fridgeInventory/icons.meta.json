@@ -1,0 +1,54 @@
+[
+  {
+    "key": "icon_chill",
+    "path": "fridgeInventory/assets/icon_chill.xic",
+    "rawPath": "fridgeInventory/raw/icon_chill.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Iconify Material Design Icons: fridge",
+    "sourceUrl": "https://api.iconify.design/mdi:fridge-outline.svg",
+    "process": "Material Symbols SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "ad2e5b470094eed9ddec2d932aa5c72f24b2dd42656e746ca96fb3a092787abd"
+  },
+  {
+    "key": "icon_frozen",
+    "path": "fridgeInventory/assets/icon_frozen.xic",
+    "rawPath": "fridgeInventory/raw/icon_frozen.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Iconify Material Symbols: ac unit",
+    "sourceUrl": "https://api.iconify.design/material-symbols:ac-unit-rounded.svg",
+    "process": "Material Symbols SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "a19feb59433c79a12fb8a94767bbcbcc5528d5c6c2ef426be51f9602fc6386a9"
+  },
+  {
+    "key": "icon_produce",
+    "path": "fridgeInventory/assets/icon_produce.xic",
+    "rawPath": "fridgeInventory/raw/icon_produce.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Iconify Material Symbols: eco",
+    "sourceUrl": "https://api.iconify.design/material-symbols:eco-outline.svg",
+    "process": "Material Symbols SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "aa6260decd31a75af600379735de5372fd6a847d117e98ea9f33836a14e0c284"
+  },
+  {
+    "key": "icon_pantry",
+    "path": "fridgeInventory/assets/icon_pantry.xic",
+    "rawPath": "fridgeInventory/raw/icon_pantry.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Iconify Material Symbols: kitchen",
+    "sourceUrl": "https://api.iconify.design/material-symbols:kitchen-outline.svg",
+    "process": "Material Symbols SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "3105589d44f0a44ed86ee855f2312e147faee4a9d47bddc1e6e9d93ee8b78c1a"
+  }
+]

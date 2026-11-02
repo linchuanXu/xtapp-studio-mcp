@@ -1,0 +1,347 @@
+{
+  "app_id": "anki_pro-20d5b8e1",
+  "display_name": "墨背单词",
+  "version": "0.5.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "display": {
+    "orientation": "system"
+  },
+  "author": "XTApp Studio",
+  "description": "完整离线四、六级词库，支持自定计划、乱序、收藏、撤销与间隔复习。",
+  "splash": "splash",
+  "preload_assets": [
+    "home_scene",
+    "home_scene_compact",
+    "ui_home_today",
+    "ui_digit_0",
+    "ui_digit_1",
+    "ui_digit_2",
+    "ui_digit_3",
+    "ui_digit_4",
+    "ui_digit_5",
+    "ui_digit_6",
+    "ui_digit_7",
+    "ui_digit_8",
+    "ui_digit_9",
+    "letter_a",
+    "letter_b",
+    "letter_c",
+    "letter_d",
+    "letter_e",
+    "letter_f",
+    "letter_g",
+    "letter_h",
+    "letter_i",
+    "letter_j",
+    "letter_k",
+    "letter_l",
+    "letter_m",
+    "letter_n",
+    "letter_o",
+    "letter_p",
+    "letter_q",
+    "letter_r",
+    "letter_s",
+    "letter_t",
+    "letter_u",
+    "letter_v",
+    "letter_w",
+    "letter_x",
+    "letter_y",
+    "letter_z",
+    "letter_compact_a",
+    "letter_compact_b",
+    "letter_compact_c",
+    "letter_compact_d",
+    "letter_compact_e",
+    "letter_compact_f",
+    "letter_compact_g",
+    "letter_compact_h",
+    "letter_compact_i",
+    "letter_compact_j",
+    "letter_compact_k",
+    "letter_compact_l",
+    "letter_compact_m",
+    "letter_compact_n",
+    "letter_compact_o",
+    "letter_compact_p",
+    "letter_compact_q",
+    "letter_compact_r",
+    "letter_compact_s",
+    "letter_compact_t",
+    "letter_compact_u",
+    "letter_compact_v",
+    "letter_compact_w",
+    "letter_compact_x",
+    "letter_compact_y",
+    "letter_compact_z",
+    "ui_btn_start",
+    "ui_btn_summary",
+    "ui_btn_continue",
+    "ui_btn_reveal",
+    "ui_btn_library",
+    "ui_btn_home",
+    "ui_btn_again",
+    "ui_btn_known",
+    "ui_btn_hard",
+    "ui_btn_progress",
+    "ui_btn_settings",
+    "ui_btn_favorites",
+    "ui_btn_reset",
+    "ui_btn_cancel",
+    "ui_btn_start_ls",
+    "ui_btn_continue_ls",
+    "ui_btn_reveal_ls",
+    "ui_btn_library_ls",
+    "ui_btn_library_wide",
+    "ui_btn_home_ls",
+    "ui_btn_again_ls",
+    "ui_btn_known_ls",
+    "ui_btn_hard_ls",
+    "ui_btn_progress_ls",
+    "ui_btn_settings_ls",
+    "ui_btn_favorites_ls",
+    "ui_btn_reset_ls",
+    "ui_btn_cancel_ls",
+    "ui_home_library",
+    "ui_home_progress",
+    "ui_home_settings",
+    "ui_title_home",
+    "ui_title_library",
+    "ui_title_complete",
+    "ui_title_caught_up",
+    "ui_title_settings",
+    "ui_title_progress",
+    "ui_title_favorites",
+    "ui_title_reset",
+    "ui_book_row",
+    "ui_book_row_current",
+    "ui_book_row_ls",
+    "ui_book_row_current_ls",
+    "ui_setting_row",
+    "ui_setting_row_current",
+    "ui_set_row_ls",
+    "ui_set_row_current_ls",
+    "ui_home_deck"
+  ],
+  "data_files": [
+    {
+      "name": "cet4_001.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_002.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_003.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_004.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_005.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_006.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_007.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_008.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_009.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_010.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_011.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_012.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_013.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_014.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_015.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_016.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_017.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_018.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_019.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_020.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_021.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_022.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet4_023.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_001.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_002.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_003.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_004.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_005.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_006.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_007.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_008.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_009.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_010.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_011.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_012.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_013.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_014.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_015.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_016.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_017.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_018.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_019.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    },
+    {
+      "name": "cet6_020.tsv",
+      "format": "tsv",
+      "max_bytes": 131072
+    }
+  ]
+}

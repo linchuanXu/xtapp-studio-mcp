@@ -1,0 +1,138 @@
+[
+  {
+    "key": "ui_menu",
+    "path": "moonlitGallery/assets/ui_menu.xic",
+    "width": 52,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "b4a1b9a49cc44640fe374ca44146f85d7daa4b0ecae22d1f2e8f0a58cf26a737"
+  },
+  {
+    "key": "ui_dialog",
+    "path": "moonlitGallery/assets/ui_dialog.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "c63769fcaf26225b45059a91779f79786030c74fc06c8ac2427243690a9dbe8d"
+  },
+  {
+    "key": "ui_dialog_choice",
+    "path": "moonlitGallery/assets/ui_dialog_choice.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "c63769fcaf26225b45059a91779f79786030c74fc06c8ac2427243690a9dbe8d"
+  },
+  {
+    "key": "ui_nameplate",
+    "path": "moonlitGallery/assets/ui_nameplate.xic",
+    "width": 148,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "b2dd8254dde55907491f07fb938d8c8a07c17eb6a572473a4343646f5f510018"
+  },
+  {
+    "key": "ui_choice",
+    "path": "moonlitGallery/assets/ui_choice.xic",
+    "width": 384,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "6506b8ff93f614aad38df5cf9f838e25367b10cdff16890805bc89590bd9c5b1"
+  },
+  {
+    "key": "ui_choice_on",
+    "path": "moonlitGallery/assets/ui_choice_on.xic",
+    "width": 384,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "fc675f6d932c1080d920af4d8fe7951c23a4ac7acb00b634064cef9879e1fd41"
+  },
+  {
+    "key": "ui_panel",
+    "path": "moonlitGallery/assets/ui_panel.xic",
+    "width": 448,
+    "height": 680,
+    "bpp": 1,
+    "contentHash": "f1669908aada147e37b69da46ff14e356567baed787c50885df34ec1991ae7d5"
+  },
+  {
+    "key": "ui_header",
+    "path": "moonlitGallery/assets/ui_header.xic",
+    "width": 448,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "7314236ef07f44513c2ee72a073a3e2203e9ff8268129372d37352fafa75af46"
+  },
+  {
+    "key": "ending_moonlit",
+    "path": "moonlitGallery/assets/ending_moonlit.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "de12ab03142b7704c5fb3e12d2bf7127ba5ee07277d8826f160a0cb0aa76d161"
+  },
+  {
+    "key": "bg_gallery_rain",
+    "path": "moonlitGallery/assets/bg_gallery_rain.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "7981cb2998fc2c9d73458b9c76f90fd5889d67490306cf3d2e4df736edadc73a"
+  },
+  {
+    "key": "char_yanxu",
+    "path": "moonlitGallery/assets/char_yanxu.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "f3eaec7e94a497d2857bf4beaf88730bb9bd858d05943e15a1af1653336b8e6c"
+  },
+  {
+    "key": "char_chenyuan",
+    "path": "moonlitGallery/assets/char_chenyuan.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "703da175bdcd1ab55e46eb85c5de72928e1f46e27a3f66cc559e2918bb43b724"
+  },
+  {
+    "key": "char_linyu",
+    "path": "moonlitGallery/assets/char_linyu.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "37b936b18352c6912a96fd8172710a83603b933b601764738db98809e091edc6"
+  },
+  {
+    "key": "char_suyue",
+    "path": "moonlitGallery/assets/char_suyue.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "78f2c78ff296a715be8c3cc998699b282fde450a1599a9faf98b44391ddd06a5"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "moonlitGallery/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "07ce175d068a513869762a15153f5a0fd125cfd41fff6434f0a413969daddf94"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "moonlitGallery/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "b76cd401ad68ca0cc35ed51ff55d68180a0b23036bbc6a61692293dd7e433775"
+  },
+  {
+    "key": "splash",
+    "path": "moonlitGallery/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "b8a2b54c9b9940949aa7dde269bd0f756b11b86d59fafbad9a279fd654d77551"
+  }
+]

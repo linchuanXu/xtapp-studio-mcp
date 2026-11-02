@@ -1,0 +1,206 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitOrbitClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "80d35261b12255c53fcfebf0ac70953400c71f015f6afca7d4d2a89bef3af45f"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitOrbitClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "635ccec0fd1eba44a0fcc125b311555be37761260100cba034d24cb4d1203d02"
+  },
+  {
+    "key": "splash",
+    "path": "portraitOrbitClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "b1b14b0c9fcf769755d49c5f06a5d91dbbc24a98206af75296512cd5993ca052"
+  },
+  {
+    "key": "kaisei_digit_0",
+    "path": "portraitOrbitClock/assets/kaisei_digit_0.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_0.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "a2283ba3d141537d84e633bd631fa07d1961426cddd216623973d2f39efaaa5f"
+  },
+  {
+    "key": "kaisei_white_digit_0",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_0.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "76892500aa952abfa57e6dc3f15147215447231aa952dfa5a06a5ad9effeead5"
+  },
+  {
+    "key": "kaisei_digit_1",
+    "path": "portraitOrbitClock/assets/kaisei_digit_1.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_1.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "c3658c5530bae922d2598dee1f32ced7a2327c2f7757faaafd3c6d07b68aae67"
+  },
+  {
+    "key": "kaisei_white_digit_1",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_1.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "43c72a0c988fa9027ba7b9113b62aaeb78138051db74e0c20cc93e72f05447a6"
+  },
+  {
+    "key": "kaisei_digit_2",
+    "path": "portraitOrbitClock/assets/kaisei_digit_2.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_2.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "730da59d44c8d5e9adbcbf9dc8e042ab582ecb56c2f3aa00579099a64f52a284"
+  },
+  {
+    "key": "kaisei_white_digit_2",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_2.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "4ff08a375f4d4a6ed170580d38519c2c6e655eddef234e7345543ff81c3688cb"
+  },
+  {
+    "key": "kaisei_digit_3",
+    "path": "portraitOrbitClock/assets/kaisei_digit_3.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_3.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "f04c4dd5cae273c62ca6fd841aa9992eb17fce16b27b868eae2187ab046d43c4"
+  },
+  {
+    "key": "kaisei_white_digit_3",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_3.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "7816fdfa45f26939f8ed4e307e77138b80a8eb3ad5e9d6612341f7cb9b6ba2f9"
+  },
+  {
+    "key": "kaisei_digit_4",
+    "path": "portraitOrbitClock/assets/kaisei_digit_4.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_4.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "042ab76a301fa3916d3e8bfa15df9801e550abccca108f1ecc8fd81e7b42f918"
+  },
+  {
+    "key": "kaisei_white_digit_4",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_4.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "79d91e0f23ac31f7e03d6bf011669c6276c773ab099f1179cc3ad9383129b23f"
+  },
+  {
+    "key": "kaisei_digit_5",
+    "path": "portraitOrbitClock/assets/kaisei_digit_5.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_5.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "1b5758f03806bbb234da61be2cc4a5b77ed7fd9ee1338642a0e675270db1066f"
+  },
+  {
+    "key": "kaisei_white_digit_5",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_5.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "f51e678b02e54af7417386c4b8eb28f0217b20a5cdcded2dca2a1efe8a319036"
+  },
+  {
+    "key": "kaisei_digit_6",
+    "path": "portraitOrbitClock/assets/kaisei_digit_6.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_6.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "a695a8aedeb070a0d64088af852303835e796a24fe5912095b65a41cdbcd5567"
+  },
+  {
+    "key": "kaisei_white_digit_6",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_6.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "23be4dfb2ed407c2a30c332a093c2502bb0be1184e5d8fd2666c02c45ba3df98"
+  },
+  {
+    "key": "kaisei_digit_7",
+    "path": "portraitOrbitClock/assets/kaisei_digit_7.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_7.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "6854ec7ad987631ed03f67e71c8ad7132abb92149cd66c994223c0ab1e1c5d03"
+  },
+  {
+    "key": "kaisei_white_digit_7",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_7.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "273c06898e0f8dbca1688192579b929603344004b58d964bdafb740dbb27cd92"
+  },
+  {
+    "key": "kaisei_digit_8",
+    "path": "portraitOrbitClock/assets/kaisei_digit_8.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_8.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "ca865e682a2f6b8cc019b826bd71573a5e2ffa4178b2a80c55bfcd72d28b94c4"
+  },
+  {
+    "key": "kaisei_white_digit_8",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_8.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "c2b86e0cab4e4001f4dfc9193cb0291f9323a7b7998eb91b19d148dc1ae25637"
+  },
+  {
+    "key": "kaisei_digit_9",
+    "path": "portraitOrbitClock/assets/kaisei_digit_9.xic",
+    "rawPath": "portraitOrbitClock/raw/kaisei_digit_9.png",
+    "rawMime": "image/png",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "880ab2ac7cee9975f980ccda4ea662abf86efa449cfeafd498cb5b4dc42fc107"
+  },
+  {
+    "key": "kaisei_white_digit_9",
+    "path": "portraitOrbitClock/assets/kaisei_white_digit_9.xic",
+    "width": 16,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "cd8c4874c86a73c986e358e8b685d9c8e9a49ebeb3d610abe89c35cf3b99be38"
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "key": "home_review",
+    "path": "mindNotes/assets/home_review.xic",
+    "rawPath": "mindNotes/raw/home_review.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 104,
+    "height": 104,
+    "bpp": 1,
+    "contentHash": "c331d2bf835feacedf87f022615d2c9904956237b78593702ba2eeac32c2ae4f"
+  },
+  {
+    "key": "grade_again",
+    "path": "mindNotes/assets/grade_again.xic",
+    "rawPath": "mindNotes/raw/grade_again.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 24,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "951fa570393e1b23e55cdf4da86c5be25da7d59142f39c32e9dfad9044167659"
+  },
+  {
+    "key": "grade_hard",
+    "path": "mindNotes/assets/grade_hard.xic",
+    "rawPath": "mindNotes/raw/grade_hard.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 24,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "3b2f963f5f67d664437f7e82eb6f063dd3bc34a9c402aed62f0a751ded014721"
+  },
+  {
+    "key": "grade_good_inverse",
+    "path": "mindNotes/assets/grade_good_inverse.xic",
+    "rawPath": "mindNotes/raw/grade_good_inverse.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 24,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "7fcad6867156b8934107e6548b90029c7b57370b7a4d543aaae447cd850a2396"
+  },
+  {
+    "key": "grade_easy_inverse",
+    "path": "mindNotes/assets/grade_easy_inverse.xic",
+    "rawPath": "mindNotes/raw/grade_easy_inverse.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 24,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "4d0d4436435e7579629fb7733e106dae56474611a5e66b37118a62fb50725660"
+  },
+  {
+    "key": "nav_back",
+    "path": "mindNotes/assets/nav_back.xic",
+    "rawPath": "mindNotes/raw/nav_back.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 24,
+    "height": 24,
+    "bpp": 1,
+    "contentHash": "90c1f8ece2386430890d4208d3bbdef24184bdb61bcd779f4e63dab16f162600"
+  },
+  {
+    "key": "result_complete",
+    "path": "mindNotes/assets/result_complete.xic",
+    "rawPath": "mindNotes/raw/result_complete.svg",
+    "rawMime": "image/svg+xml",
+    "process": "原创 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 80,
+    "height": 80,
+    "bpp": 1,
+    "contentHash": "4a8dd3aaedf930b36a557356afc58d80520b302efe9e12d4eaeacc32f16279ce"
+  }
+]

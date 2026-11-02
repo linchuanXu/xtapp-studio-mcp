@@ -1,0 +1,146 @@
+[
+  {
+    "key": "ui_menu",
+    "path": "webgalKit/assets/ui_menu.xic",
+    "width": 52,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "b4a1b9a49cc44640fe374ca44146f85d7daa4b0ecae22d1f2e8f0a58cf26a737"
+  },
+  {
+    "key": "ui_dialog",
+    "path": "webgalKit/assets/ui_dialog.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "c63769fcaf26225b45059a91779f79786030c74fc06c8ac2427243690a9dbe8d"
+  },
+  {
+    "key": "ui_dialog_choice",
+    "path": "webgalKit/assets/ui_dialog_choice.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "c63769fcaf26225b45059a91779f79786030c74fc06c8ac2427243690a9dbe8d"
+  },
+  {
+    "key": "ui_nameplate",
+    "path": "webgalKit/assets/ui_nameplate.xic",
+    "width": 148,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "b2dd8254dde55907491f07fb938d8c8a07c17eb6a572473a4343646f5f510018"
+  },
+  {
+    "key": "ui_choice",
+    "path": "webgalKit/assets/ui_choice.xic",
+    "width": 384,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "6506b8ff93f614aad38df5cf9f838e25367b10cdff16890805bc89590bd9c5b1"
+  },
+  {
+    "key": "ui_choice_on",
+    "path": "webgalKit/assets/ui_choice_on.xic",
+    "width": 384,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "fc675f6d932c1080d920af4d8fe7951c23a4ac7acb00b634064cef9879e1fd41"
+  },
+  {
+    "key": "ui_panel",
+    "path": "webgalKit/assets/ui_panel.xic",
+    "width": 448,
+    "height": 680,
+    "bpp": 1,
+    "contentHash": "f1669908aada147e37b69da46ff14e356567baed787c50885df34ec1991ae7d5"
+  },
+  {
+    "key": "ui_header",
+    "path": "webgalKit/assets/ui_header.xic",
+    "width": 448,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "7314236ef07f44513c2ee72a073a3e2203e9ff8268129372d37352fafa75af46"
+  },
+  {
+    "key": "ending_demo",
+    "path": "webgalKit/assets/ending_demo.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "7574849af0b7b88181de97935406629f0b7df94c3217cea101441bbc1287d306"
+  },
+  {
+    "key": "bg_campus",
+    "path": "webgalKit/assets/bg_campus.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "af0ef52eeb3015f5dc9d5482e4c7bd66d976933db2a38c1501a795f8cac5ed69"
+  },
+  {
+    "key": "bg_classroom",
+    "path": "webgalKit/assets/bg_classroom.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "cc73416b11135716500b6bf83a1ce062a4c04ae3215c243170db08404d3fc235"
+  },
+  {
+    "key": "char_guide",
+    "path": "webgalKit/assets/char_guide.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "3302f2e77bf0ebbe97fb37824cf1be50ba5bf32bed0468acfa652a2f15e892c4"
+  },
+  {
+    "key": "char_visitor",
+    "path": "webgalKit/assets/char_visitor.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "a257ed472a821c1dc6f5591b445193c1728db1637077c684a5f7e25ebbb46678"
+  },
+  {
+    "key": "char_classmate",
+    "path": "webgalKit/assets/char_classmate.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "be3e20087d902cf97edbbdecaf28200567bccaabe1f01fa982b205f64271a467"
+  },
+  {
+    "key": "char_archivist",
+    "path": "webgalKit/assets/char_archivist.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "63a8fed5fdb6d40c5a12e117460f695a0959ba02c44e57e134c5c716169bbe13"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "webgalKit/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "7aa44dd603a206f1ebc187f18c72a56d6888eccfd9afb39a54d01cd67f6dfc23"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "webgalKit/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "46db2327702636e69dfd1d1d620caf6f8c36ceac104c7bb333a0f52704fa5de3"
+  },
+  {
+    "key": "splash",
+    "path": "webgalKit/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "6413ea1bf29bdc2d38635d3d0edf9f9162901f87f5159150e7807e53ac041aa0"
+  }
+]

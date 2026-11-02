@@ -1,0 +1,29 @@
+{
+  "app_id": "meituan_life_dashboard-67af9031",
+  "display_name": "美团生活仪表盘",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "以时间为中心，把配送、好价、消费、行情与LongCat状态收进同一张美团生活锁屏。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "brand_logo",
+    "icon_rider",
+    "icon_hotpot",
+    "icon_chart",
+    "icon_trend",
+    "icon_cat"
+  ],
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  }
+}

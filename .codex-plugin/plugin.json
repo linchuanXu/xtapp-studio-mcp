@@ -1,0 +1,29 @@
+{
+  "name": "xtapp-studio-mcp",
+  "version": "0.1.8",
+  "description": "XTApp Studio MCP: Lua contract knowledge, public app templates, and a live Studio preview for any MCP host.",
+  "author": {
+    "name": "XTApp AI Studio"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "XTApp Studio",
+    "shortDescription": "Run XTApp projects, search Lua contracts, and browse public app templates.",
+    "longDescription": "Adds a local MCP server and native Widget for XTApp project validation, preview orchestration, contract knowledge, and public store templates.",
+    "developerName": "XTApp AI Studio",
+    "category": "Productivity",
+    "capabilities": [
+      "Live XTApp preview",
+      "Lua contract knowledge",
+      "Public app templates",
+      "Classic and Pro validation"
+    ],
+    "defaultPrompt": [
+      "Create todo-list in this folder and make a todo app that can add, complete, and delete. Classic uses d-pad and OK. Pro also supports touch.",
+      "Search the XTApp Lua contract for this feature.",
+      "Find a public XTApp app I can use as a template."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

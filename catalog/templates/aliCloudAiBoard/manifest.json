@@ -1,0 +1,31 @@
+{
+  "app_id": "ali_cloud_ai_board-414c4943",
+  "display_name": "阿里云 AI 看板",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "通义模型费用、调用量、推理容量与预算告警的一体化离线演示看板。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "brand_mark",
+    "feature_scene",
+    "icon_cost",
+    "icon_model",
+    "icon_capacity",
+    "icon_alert",
+    "icon_budget",
+    "icon_token",
+    "icon_gpu",
+    "icon_endpoint",
+    "icon_check",
+    "icon_warning"
+  ]
+}

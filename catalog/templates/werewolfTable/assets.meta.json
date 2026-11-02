@@ -1,0 +1,226 @@
+[
+  {
+    "key": "ui_dialog",
+    "path": "werewolfTable/assets/ui_dialog.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "d9211e05b2e536715cb79392c892d683660a2e4f4ee7844f18b4410f638ce126"
+  },
+  {
+    "key": "ui_choice",
+    "path": "werewolfTable/assets/ui_choice.xic",
+    "width": 384,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "7f962c80761fd5fde0c5169fa45bf2d62d6eb81dcfee5fa888ba96d48b80ec0c"
+  },
+  {
+    "key": "ui_nameplate",
+    "path": "werewolfTable/assets/ui_nameplate.xic",
+    "width": 148,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "b2dd8254dde55907491f07fb938d8c8a07c17eb6a572473a4343646f5f510018"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "werewolfTable/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "16c900125649d0bfb11c66ebbd53a185e32e39f8f8a2c6d4828fc4e5183fa75d"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "werewolfTable/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "70cdb81a3974e242a69a2d3887c9a580df13f7f5cf37fbf974093b419998bfc4"
+  },
+  {
+    "key": "bg_table_day",
+    "path": "werewolfTable/assets/bg_table_day.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "6c7b0a77c8cf7b4f008205cd7b162d39f84c91eaaa3da855264497c1dc9911d3"
+  },
+  {
+    "key": "bg_table_night",
+    "path": "werewolfTable/assets/bg_table_night.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "e929afa7ecef7a09cc1add73bf66301ceecd0b751947cba743db889c79337389"
+  },
+  {
+    "key": "bg_result",
+    "path": "werewolfTable/assets/bg_result.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "e9bb90ffb2b1138fffc69e9a2eeb9ba3ba513656e8fac20f1d7295e5efa46b13"
+  },
+  {
+    "key": "event_card",
+    "path": "werewolfTable/assets/event_card.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "60b3687a4a05f79a313f13e6250e279f3022b43f81b1faf552dd23e34d2cf99f"
+  },
+  {
+    "key": "char_you",
+    "path": "werewolfTable/assets/char_you.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "be7736fbd6e54986c2db2c19300c0f6fbe67b33de499ddad5e8d6c18f82a6466"
+  },
+  {
+    "key": "char_you_stage",
+    "path": "werewolfTable/assets/char_you_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "740d6125e10ab15aadd316d048fc702e4fbca85f5149471b907768abfa7a68fc"
+  },
+  {
+    "key": "char_lin",
+    "path": "werewolfTable/assets/char_lin.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "e7461206644374e84a5016959a6dd031545d2b87a09bf59dbddef0ea28e3fde6"
+  },
+  {
+    "key": "char_lin_stage",
+    "path": "werewolfTable/assets/char_lin_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "f86fc37339ef4e3fbc5538c6e3ff04f7accc44060289accc696a4a5991b7d0d8"
+  },
+  {
+    "key": "char_zhou",
+    "path": "werewolfTable/assets/char_zhou.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "c5f20e306d3950e94659b98a6f769be3a88132ca13e739f3d0132a1e5df82bfb"
+  },
+  {
+    "key": "char_zhou_stage",
+    "path": "werewolfTable/assets/char_zhou_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "8c39e7cfb8cd082e5daa5024c045c410fbd5e2f288a4a5dd6b5eca4b3081c93b"
+  },
+  {
+    "key": "char_xu",
+    "path": "werewolfTable/assets/char_xu.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "a133398099d92036bd638ef2060f7eceec4094da7d26290e617624ea81ed63ef"
+  },
+  {
+    "key": "char_xu_stage",
+    "path": "werewolfTable/assets/char_xu_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "3693a1109a0af3acf49b5abb136c72459b406cb9eb8e0f6d255154f217c040f4"
+  },
+  {
+    "key": "char_chen",
+    "path": "werewolfTable/assets/char_chen.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "90a0672d428939957334c8ef7faa22012fa8be34b3576b08d5cb407e3ab2b011"
+  },
+  {
+    "key": "char_chen_stage",
+    "path": "werewolfTable/assets/char_chen_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "81f4322134f454e636df352300f1699c0059775587d6e21720a4d5f40fe071eb"
+  },
+  {
+    "key": "char_shen",
+    "path": "werewolfTable/assets/char_shen.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "9038f40ecf5fb30f2f4fe3d1170d7b1a0ae61298e25faa488e3e5be9c9b78934"
+  },
+  {
+    "key": "char_shen_stage",
+    "path": "werewolfTable/assets/char_shen_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "135c7cd23b01c31e73e827d0e16b418294f7440f0f8f566aa1f92c7d34650162"
+  },
+  {
+    "key": "char_tang",
+    "path": "werewolfTable/assets/char_tang.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "dbe7de6f343e63045a91fc2771fc7c8eb6262dbb6b2c535f3694d9b2ce229197"
+  },
+  {
+    "key": "char_tang_stage",
+    "path": "werewolfTable/assets/char_tang_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "422ca701f9f231d47533f784274ea87b700a20c68bbb790a3ae4379d2fc3b500"
+  },
+  {
+    "key": "char_gu",
+    "path": "werewolfTable/assets/char_gu.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "e599711d721028c6f01e03807a8fdb4f5191dc1dd98f2d1dcb801a6010d9ab35"
+  },
+  {
+    "key": "char_gu_stage",
+    "path": "werewolfTable/assets/char_gu_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "914a1c973cd7cbadef5fc81f43ea471a935a6bb9563367bf0e2a1083aa8fc275"
+  },
+  {
+    "key": "char_ma",
+    "path": "werewolfTable/assets/char_ma.xic",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "70383901685558b57a95009124bd6bd56945a20190fb7e7d340206f4a9953035"
+  },
+  {
+    "key": "char_ma_stage",
+    "path": "werewolfTable/assets/char_ma_stage.xic",
+    "width": 176,
+    "height": 264,
+    "bpp": 1,
+    "contentHash": "3f83f28e6add37584313673345e1bb0f6d7b026cb1d7eef38e8a502bb0ddb13a"
+  },
+  {
+    "key": "splash",
+    "path": "werewolfTable/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "62d6e7f7bedc76e4d1469606cfb79b1b2c8b58fb99e7fe7f3ada6f6a1081ad2b"
+  }
+]

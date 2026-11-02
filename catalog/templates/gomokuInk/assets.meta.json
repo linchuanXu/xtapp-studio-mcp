@@ -1,0 +1,26 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "gomokuInk/assets/app_icon_l.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "f9e620b3ea023dd5a0882b94bb9b6f070b6f4daac3dc73056352218a9260c54f"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "gomokuInk/assets/app_icon_s.xic",
+    "width": 64,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "d5cbb0c289c7abc38d3bbe36bc11529117f503eae69afbfd7b786af21b58c091"
+  },
+  {
+    "key": "splash",
+    "path": "gomokuInk/assets/splash.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "46231c05b61912cff0937320bd43fd3d17aa5d02219fad37ebf1c8b9001800cd"
+  }
+]

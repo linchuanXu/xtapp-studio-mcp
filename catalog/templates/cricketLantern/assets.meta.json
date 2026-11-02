@@ -1,0 +1,162 @@
+[
+  {
+    "key": "ui_menu",
+    "path": "cricketLantern/assets/ui_menu.xic",
+    "width": 52,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "b4a1b9a49cc44640fe374ca44146f85d7daa4b0ecae22d1f2e8f0a58cf26a737"
+  },
+  {
+    "key": "ui_nameplate",
+    "path": "cricketLantern/assets/ui_nameplate.xic",
+    "width": 148,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "b2dd8254dde55907491f07fb938d8c8a07c17eb6a572473a4343646f5f510018"
+  },
+  {
+    "key": "ui_choice",
+    "path": "cricketLantern/assets/ui_choice.xic",
+    "width": 384,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "6506b8ff93f614aad38df5cf9f838e25367b10cdff16890805bc89590bd9c5b1"
+  },
+  {
+    "key": "ui_panel",
+    "path": "cricketLantern/assets/ui_panel.xic",
+    "width": 448,
+    "height": 680,
+    "bpp": 1,
+    "contentHash": "f1669908aada147e37b69da46ff14e356567baed787c50885df34ec1991ae7d5"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "cricketLantern/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "55783106586cac39f9dd48a3877a74ff6d03c68786de9ee09732a4919333a338"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "cricketLantern/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "a248d18664b41e1b18e6779f40a8766939a59382d4871c606d93b54a9998b620"
+  },
+  {
+    "key": "ui_dialog",
+    "path": "cricketLantern/assets/ui_dialog.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "c63769fcaf26225b45059a91779f79786030c74fc06c8ac2427243690a9dbe8d"
+  },
+  {
+    "key": "ui_dialog_choice",
+    "path": "cricketLantern/assets/ui_dialog_choice.xic",
+    "width": 448,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "c63769fcaf26225b45059a91779f79786030c74fc06c8ac2427243690a9dbe8d"
+  },
+  {
+    "key": "bg_village_night",
+    "path": "cricketLantern/assets/bg_village_night.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "513d6a10878450d27cd08936cf34b25d08382614e567b78c43e8e6736624ccbf"
+  },
+  {
+    "key": "bg_garden",
+    "path": "cricketLantern/assets/bg_garden.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "5e374192b0113c31233fa3fc474de53afefe1a86c5e2bf0bbaa6aeb9b083c9f3"
+  },
+  {
+    "key": "bg_market",
+    "path": "cricketLantern/assets/bg_market.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "5946643b8caaf559cc0fdd89e5925a4eee299c2552573da931f4caa5938b4d0d"
+  },
+  {
+    "key": "bg_yamen",
+    "path": "cricketLantern/assets/bg_yamen.xic",
+    "width": 480,
+    "height": 600,
+    "bpp": 1,
+    "contentHash": "a90cb0124e5bfef8816027ba925c326af302ee4a7c45175dac3979ee5804842d"
+  },
+  {
+    "key": "ending_micro_fire",
+    "path": "cricketLantern/assets/ending_micro_fire.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "461122087cd54bcc3519440cd0a4ac5cd7464937e9a51aef1f898fc81ab4de7c"
+  },
+  {
+    "key": "ending_truth",
+    "path": "cricketLantern/assets/ending_truth.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "1fd68a7fb5f53c2a64803365928453e71c8393b622bf384612db84877004fc6c"
+  },
+  {
+    "key": "ending_lanterns",
+    "path": "cricketLantern/assets/ending_lanterns.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "3d1c2dfee9c2bdb311f941d55833e2a482cf2d6d55ea47dbc17685d7a68040d7"
+  },
+  {
+    "key": "ending_road",
+    "path": "cricketLantern/assets/ending_road.xic",
+    "width": 400,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "791ca55833decab8b4d9bfbcd7506b7702f43a6663378891f5c096e717195993"
+  },
+  {
+    "key": "char_aheng",
+    "path": "cricketLantern/assets/char_aheng.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "1d064b2f1ae5962ea186c0afd7f15fb2b736b157fe1f9d4a828769ecfcd72518"
+  },
+  {
+    "key": "char_gardener",
+    "path": "cricketLantern/assets/char_gardener.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "ab75a6f27e020574a8fcb534cf80aa6079da380cc3dc67b2509409b77c9fb62d"
+  },
+  {
+    "key": "char_vendor",
+    "path": "cricketLantern/assets/char_vendor.xic",
+    "width": 280,
+    "height": 400,
+    "bpp": 1,
+    "contentHash": "72c0759dbcb4768fa0eccb0734af4617b6d9c74ae32aa9e55eb066ba86e10d72"
+  },
+  {
+    "key": "splash",
+    "path": "cricketLantern/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "8eba458c16b2b48ed8e3b37875dcd15fed76e751420df8150a64972bf53b702c"
+  }
+]

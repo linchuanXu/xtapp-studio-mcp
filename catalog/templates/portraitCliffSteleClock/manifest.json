@@ -1,0 +1,32 @@
+{
+  "app_id": "portrait_cliff_stele_clock-c24f7b6e",
+  "display_name": "绝壁秘笈",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "绝壁石室、残卷与巨禽守住一方石碑，时间像被刻进孤绝的武学传承。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "ornament",
+    "brush_digit_0",
+    "brush_digit_1",
+    "brush_digit_2",
+    "brush_digit_3",
+    "brush_digit_4",
+    "brush_digit_5",
+    "brush_digit_6",
+    "brush_digit_7",
+    "brush_digit_8",
+    "brush_digit_9"
+  ]
+}

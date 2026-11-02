@@ -1,0 +1,373 @@
+{
+  "sourceCanvas": { "width": 360, "height": 600 },
+  "targetCanvas": { "width": 480, "height": 800 },
+  "scale": {
+    "numerator": 4,
+    "denominator": 3,
+    "rounding": "floor(value * numerator / denominator + 0.5), independently for x, y, w, and h"
+  },
+  "provenance": [
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_newgame_ask.xml", "sha256": "f97d38aa86840c384fa48ad44d8cff2e0db349d3acbb3e1c75c2a24106418a54" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_ask.xml", "sha256": "b56f6b55ef8a173d4791ffb1857cc305898241361d5fa230776f1b0e68f0806a" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_buygoods.xml", "sha256": "fba50332d69331edfa5ab3ad358c9b2fb46986341e59e21858bcdd83be54671d" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_bank.xml", "sha256": "2831aecdb4cf3497a6d388303a87580a7b98ccd04573801886475361ced99337" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_hospital_ask.xml", "sha256": "5d09083c1d7bfa62412109ed4279583d7fe34f424746923fbfe37b0f3419adc5" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_agent.xml", "sha256": "638349fcf3d2a61c53b65509f79ea5a588f85764e97ce5951867fb39f33365c4" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_pricenote.xml", "sha256": "5b6413e6c99972612ca387c60f627702077d4b83557c7007b4cd124605abbc5d" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_note.xml", "sha256": "68df5fda8d6ac797b4dbce6597b68c12bbb89221ccef950bb11df561014f975f" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_sick_blackout.xml", "sha256": "36a77ed956a2bb664f9e909eb9d5d632ae74d198dd90b3a472106ac7d956bac7" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_sick_dead.xml", "sha256": "15261c0a3c7c98aee49a03dee0d187f7cc4f1a3c7a7ff48cc5cf0dd3a5aea083" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_sell_reputation.xml", "sha256": "97f89c77fc2a8392c8de8bd0c0c3fbefddfda87eef9c0cb4ca698a10a4b91ddb" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_buy_nomoney.xml", "sha256": "937bc09567296198e0fe833908b31209d5e24470c350155454961f5853018899" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/dialog_buy_succ.xml", "sha256": "ca6ed709d8fa59792ad0d028224e181bdc59e98139841267097f88c5db9059b5" },
+    { "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/main.xml", "sha256": "e5934f121b5375a172c209664502da805bca364afc841d8a1d8085011c397868" }
+  ],
+  "resolverInputs": {
+    "status2Bottom": 331,
+    "actionable": {
+      "new_game": {
+        "include": { "id": "dialog_newgame_ask", "w": 320, "h": 215, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "row": { "bottomMargin": 20, "items": [
+          { "id": "confirm_new_game", "xmlId": "newgame_ask_ok", "w": 50, "h": 29, "label": "开始" },
+          { "id": "close_overlay", "xmlId": "newgame_ask_cancel", "w": 50, "h": 29, "marginLeft": 62, "toRightOf": "newgame_ask_ok", "label": "取消" }
+        ] },
+        "visual": {
+          "title": { "x": 30, "y": 351 },
+          "cash": { "x": 146, "y": 426, "w": 73, "h": 22 },
+          "message": { "centerX": 180, "y": 433 }
+        }
+      },
+      "quit_game": {
+        "include": { "id": "dialog_ask", "w": 285, "h": 135, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "row": { "bottomMargin": 20, "items": [
+          { "id": "confirm_quit_game", "xmlId": "ask_ok", "w": 50, "h": 29, "label": "结束" },
+          { "id": "close_overlay", "xmlId": "ask_cancel", "w": 50, "h": 29, "marginLeft": 62, "toRightOf": "ask_ok", "label": "取消" }
+        ] },
+        "visual": {
+          "title": { "x": 47.5, "y": 351 },
+          "message": { "centerX": 180, "y": 399 }
+        }
+      },
+      "buy_goods": {
+        "include": { "id": "dialog_buygoods", "w": 320, "h": 95, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "elements": {
+          "goods": { "xmlId": "buygoods_iname", "x": 32, "y": 27, "w": 75, "h": 30 },
+          "input": { "xmlId": "buygoods_enbr", "rightOf": "goods", "marginLeft": 5, "w": 80, "h": 30 },
+          "confirm": { "xmlId": "buygoods_ok", "rightOf": "input", "marginLeft": 28, "w": 50, "h": 29, "actionId": "confirm_buy", "label": "确定" },
+          "close": { "xmlId": "buygoods_cancel", "rightMargin": 13, "y": 16, "w": 25, "h": 25, "actionId": "close_overlay", "label": "关闭" }
+        },
+        "adaptation": {
+          "minus": { "inputOffsetX": 0, "w": 24, "actionId": "quantity_minus", "label": "－" },
+          "plus": { "alignInputRight": true, "w": 24, "actionId": "quantity_plus", "label": "＋" }
+        },
+        "visual": {
+          "title": { "x": 30, "y": 351 },
+          "guidance": { "centerX": 180, "bottom": 421, "w": 296, "lineHeight": 16 },
+          "fieldTextOffsetY": 6
+        }
+      },
+      "sell_goods": {
+        "include": { "id": "dialog_buygoods", "w": 320, "h": 95, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "elementsFrom": "buy_goods",
+        "actionOverrides": { "confirm": { "actionId": "confirm_sell" } },
+        "adaptationFrom": "buy_goods",
+        "visualFrom": "buy_goods"
+      },
+      "bank": {
+        "include": { "id": "dialog_bank", "w": 320, "h": 95, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "elements": {
+          "deposit": { "xmlId": "bank_bsavemoney", "x": 85, "bottomMargin": 20, "w": 50, "h": 29, "actionId": "deposit_all", "label": "存钱" },
+          "withdraw": { "xmlId": "bank_bgetmoney", "rightOf": "deposit", "marginLeft": 20, "w": 50, "h": 29, "actionId": "withdraw_all", "label": "取钱" },
+          "close": { "xmlId": "bank_bexit", "rightOf": "withdraw", "marginLeft": 20, "w": 50, "h": 29, "actionId": "close_overlay", "label": "离开" }
+        },
+        "visual": {
+          "title": { "x": 30, "y": 351 },
+          "message": { "centerX": 180, "y": 388 }
+        }
+      },
+      "hospital": {
+        "include": { "id": "dialog_hospital_ask", "w": 320, "h": 95, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "elements": {
+          "text": { "xmlId": "hospital_ask_tnote", "x": 88, "y": 16, "w": 210, "lineHeight": 16 },
+          "confirm": { "xmlId": "hospital_ask_ok", "x": 110, "bottomMargin": 10, "w": 50, "h": 29, "actionId": "treat", "label": "看病" },
+          "close": { "xmlId": "hospital_ask_cancel", "rightOf": "confirm", "marginLeft": 30, "w": 50, "h": 29, "actionId": "close_overlay", "label": "离开" }
+        },
+        "visual": {
+          "title": { "x": 30, "y": 351 }
+        }
+      },
+      "agency": {
+        "include": { "id": "dialog_agent", "w": 320, "h": 95, "belowStatus2": true, "marginTop": 10, "centerHorizontal": true },
+        "elements": {
+          "input": { "xmlId": "agent_enbr", "x": 118, "y": 7, "w": 60, "h": 30 },
+          "note": { "xmlId": "agent_note", "x": 88, "y": 38, "w": 179, "lineHeight": 16 },
+          "confirm": { "xmlId": "agent_ok", "x": 110, "bottomMargin": 10, "w": 50, "h": 29, "actionId": "expand", "label": "成交" },
+          "close": { "xmlId": "agent_cancel", "rightOf": "confirm", "marginLeft": 30, "w": 50, "h": 29, "actionId": "close_overlay", "label": "离开" }
+        },
+        "adaptation": {
+          "minus": { "inputOffsetX": 0, "w": 24, "actionId": "quantity_minus", "label": "－" },
+          "plus": { "alignInputRight": true, "w": 24, "actionId": "quantity_plus", "label": "＋" }
+        },
+        "visual": {
+          "title": { "x": 30, "y": 351 },
+          "fieldTextOffsetY": 6
+        }
+      }
+    }
+  },
+  "logicalModals": {
+    "new_game": {
+      "frame": { "x": 20, "y": 341, "w": 320, "h": 215 },
+      "actions": [
+        { "id": "confirm_new_game", "x": 99, "y": 507, "w": 50, "h": 29, "label": "开始" },
+        { "id": "close_overlay", "x": 211, "y": 507, "w": 50, "h": 29, "label": "取消" }
+      ]
+    },
+    "quit_game": {
+      "frame": { "x": 37.5, "y": 341, "w": 285, "h": 135 },
+      "actions": [
+        { "id": "confirm_quit_game", "x": 99, "y": 427, "w": 50, "h": 29, "label": "结束" },
+        { "id": "close_overlay", "x": 211, "y": 427, "w": 50, "h": 29, "label": "取消" }
+      ]
+    },
+    "buy_goods": {
+      "frame": { "x": 20, "y": 341, "w": 320, "h": 95 },
+      "actions": [
+        { "id": "confirm_buy", "x": 240, "y": 368, "w": 50, "h": 29, "label": "确定" },
+        { "id": "close_overlay", "x": 302, "y": 357, "w": 25, "h": 25, "label": "关闭" },
+        { "id": "quantity_minus", "x": 132, "y": 368, "w": 24, "h": 30, "label": "－" },
+        { "id": "quantity_plus", "x": 188, "y": 368, "w": 24, "h": 30, "label": "＋" }
+      ]
+    },
+    "sell_goods": {
+      "frame": { "x": 20, "y": 341, "w": 320, "h": 95 },
+      "actions": [
+        { "id": "confirm_sell", "x": 240, "y": 368, "w": 50, "h": 29, "label": "确定" },
+        { "id": "close_overlay", "x": 302, "y": 357, "w": 25, "h": 25, "label": "关闭" },
+        { "id": "quantity_minus", "x": 132, "y": 368, "w": 24, "h": 30, "label": "－" },
+        { "id": "quantity_plus", "x": 188, "y": 368, "w": 24, "h": 30, "label": "＋" }
+      ]
+    },
+    "bank": {
+      "frame": { "x": 20, "y": 341, "w": 320, "h": 95 },
+      "actions": [
+        { "id": "deposit_all", "x": 105, "y": 387, "w": 50, "h": 29, "label": "存钱" },
+        { "id": "withdraw_all", "x": 175, "y": 387, "w": 50, "h": 29, "label": "取钱" },
+        { "id": "close_overlay", "x": 245, "y": 387, "w": 50, "h": 29, "label": "离开" }
+      ]
+    },
+    "hospital": {
+      "frame": { "x": 20, "y": 341, "w": 320, "h": 95 },
+      "actions": [
+        { "id": "treat", "x": 130, "y": 397, "w": 50, "h": 29, "label": "看病" },
+        { "id": "close_overlay", "x": 210, "y": 397, "w": 50, "h": 29, "label": "离开" }
+      ],
+      "visual": {
+        "text": { "x": 108, "y": 357, "w": 210, "lineHeight": 16 }
+      }
+    },
+    "agency": {
+      "frame": { "x": 20, "y": 341, "w": 320, "h": 95 },
+      "actions": [
+        { "id": "expand", "x": 130, "y": 397, "w": 50, "h": 29, "label": "成交" },
+        { "id": "close_overlay", "x": 210, "y": 397, "w": 50, "h": 29, "label": "离开" },
+        { "id": "quantity_minus", "x": 138, "y": 348, "w": 24, "h": 30, "label": "－" },
+        { "id": "quantity_plus", "x": 174, "y": 348, "w": 24, "h": 30, "label": "＋" }
+      ]
+    },
+    "price_note": {
+      "frame": { "x": 93.5, "y": 187.5, "w": 173, "h": 225 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 93.5, "y": 187.5, "w": 173, "h": 225, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 110, "y": 232.5, "w": 140, "lineHeight": 18 }
+      }
+    },
+    "life_note": {
+      "frame": { "x": 95, "y": 187.5, "w": 170, "h": 225 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 95, "y": 187.5, "w": 170, "h": 225, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 121, "y": 241.5, "w": 130, "lineHeight": 18 }
+      }
+    },
+    "sick_blackout": {
+      "frame": { "x": 95, "y": 187.5, "w": 170, "h": 225 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 95, "y": 187.5, "w": 170, "h": 225, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 121, "y": 241.5, "w": 130, "lineHeight": 18 }
+      }
+    },
+    "sick_dead": {
+      "frame": { "x": 95, "y": 187.5, "w": 170, "h": 225 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 95, "y": 187.5, "w": 170, "h": 225, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 121, "y": 241.5, "w": 130, "lineHeight": 18 }
+      }
+    },
+    "time_up": {
+      "frame": { "x": 95, "y": 187.5, "w": 170, "h": 225 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 95, "y": 187.5, "w": 170, "h": 225, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 121, "y": 241.5, "w": 130, "h": 162, "lineHeight": 16 }
+      }
+    },
+    "sell_reputation": {
+      "frame": { "x": 95, "y": 187.5, "w": 170, "h": 225 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 95, "y": 187.5, "w": 170, "h": 225, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 121, "y": 241.5, "w": 130, "lineHeight": 18 }
+      }
+    },
+    "no_money": {
+      "frame": { "x": 37.5, "y": 250, "w": 285, "h": 100 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 155, "y": 306, "w": 50, "h": 29, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 58.5, "y": 262, "w": 243, "h": 46, "lineHeight": 18 }
+      }
+    },
+    "status": {
+      "frame": { "x": 37.5, "y": 250, "w": 285, "h": 100 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 155, "y": 306, "w": 50, "h": 29, "label": "确认" }
+      ],
+      "visual": {
+        "text": { "x": 58.5, "y": 262, "w": 243, "h": 46, "lineHeight": 18 }
+      }
+    },
+    "buy_succ": {
+      "frame": { "x": 35, "y": 120, "w": 290, "h": 360 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 155, "y": 431, "w": 50, "h": 29, "label": "确认" }
+      ],
+      "visual": {
+        "image": { "x": 50, "y": 136, "w": 260, "h": 217 },
+        "text": { "x": 53.5, "y": 358, "w": 253, "h": 63, "lineHeight": 18 }
+      }
+    }
+  },
+  "modals": {
+    "new_game": {
+      "frame": { "x": 27, "y": 455, "w": 427, "h": 287 },
+      "actions": [
+        { "id": "confirm_new_game", "x": 132, "y": 676, "w": 67, "h": 39, "label": "开始" },
+        { "id": "close_overlay", "x": 281, "y": 676, "w": 67, "h": 39, "label": "取消" }
+      ]
+    },
+    "quit_game": {
+      "frame": { "x": 50, "y": 455, "w": 380, "h": 180 },
+      "actions": [
+        { "id": "confirm_quit_game", "x": 132, "y": 569, "w": 67, "h": 39, "label": "结束" },
+        { "id": "close_overlay", "x": 281, "y": 569, "w": 67, "h": 39, "label": "取消" }
+      ]
+    },
+    "buy_goods": {
+      "frame": { "x": 27, "y": 455, "w": 427, "h": 163 },
+      "actions": [
+        { "id": "confirm_buy", "x": 320, "y": 491, "w": 67, "h": 39, "label": "确定" },
+        { "id": "close_overlay", "x": 403, "y": 476, "w": 33, "h": 33, "label": "关闭" },
+        { "id": "quantity_minus", "x": 176, "y": 491, "w": 32, "h": 40, "label": "－" },
+        { "id": "quantity_plus", "x": 251, "y": 491, "w": 32, "h": 40, "label": "＋" }
+      ]
+    },
+    "sell_goods": {
+      "frame": { "x": 27, "y": 455, "w": 427, "h": 163 },
+      "actions": [
+        { "id": "confirm_sell", "x": 320, "y": 491, "w": 67, "h": 39, "label": "确定" },
+        { "id": "close_overlay", "x": 403, "y": 476, "w": 33, "h": 33, "label": "关闭" },
+        { "id": "quantity_minus", "x": 176, "y": 491, "w": 32, "h": 40, "label": "－" },
+        { "id": "quantity_plus", "x": 251, "y": 491, "w": 32, "h": 40, "label": "＋" }
+      ]
+    },
+    "bank": {
+      "frame": { "x": 27, "y": 455, "w": 427, "h": 127 },
+      "actions": [
+        { "id": "deposit_all", "x": 140, "y": 516, "w": 67, "h": 39, "label": "存钱" },
+        { "id": "withdraw_all", "x": 233, "y": 516, "w": 67, "h": 39, "label": "取钱" },
+        { "id": "close_overlay", "x": 327, "y": 516, "w": 67, "h": 39, "label": "离开" }
+      ]
+    },
+    "hospital": {
+      "frame": { "x": 27, "y": 455, "w": 427, "h": 127 },
+      "actions": [
+        { "id": "treat", "x": 173, "y": 529, "w": 67, "h": 39, "label": "看病" },
+        { "id": "close_overlay", "x": 280, "y": 529, "w": 67, "h": 39, "label": "离开" }
+      ]
+    },
+    "agency": {
+      "frame": { "x": 27, "y": 455, "w": 427, "h": 127 },
+      "actions": [
+        { "id": "expand", "x": 173, "y": 529, "w": 67, "h": 39, "label": "成交" },
+        { "id": "close_overlay", "x": 280, "y": 529, "w": 67, "h": 39, "label": "离开" },
+        { "id": "quantity_minus", "x": 184, "y": 464, "w": 32, "h": 40, "label": "－" },
+        { "id": "quantity_plus", "x": 232, "y": 464, "w": 32, "h": 40, "label": "＋" }
+      ]
+    },
+    "price_note": {
+      "frame": { "x": 125, "y": 250, "w": 231, "h": 300 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 125, "y": 250, "w": 231, "h": 300, "label": "确认" }
+      ]
+    },
+    "life_note": {
+      "frame": { "x": 127, "y": 250, "w": 227, "h": 300 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 127, "y": 250, "w": 227, "h": 300, "label": "确认" }
+      ]
+    },
+    "sick_blackout": {
+      "frame": { "x": 127, "y": 250, "w": 227, "h": 300 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 127, "y": 250, "w": 227, "h": 300, "label": "确认" }
+      ]
+    },
+    "sick_dead": {
+      "frame": { "x": 127, "y": 250, "w": 227, "h": 300 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 127, "y": 250, "w": 227, "h": 300, "label": "确认" }
+      ]
+    },
+    "time_up": {
+      "frame": { "x": 127, "y": 250, "w": 227, "h": 300 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 127, "y": 250, "w": 227, "h": 300, "label": "确认" }
+      ]
+    },
+    "sell_reputation": {
+      "frame": { "x": 127, "y": 250, "w": 227, "h": 300 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 127, "y": 250, "w": 227, "h": 300, "label": "确认" }
+      ]
+    },
+    "no_money": {
+      "frame": { "x": 50, "y": 333, "w": 380, "h": 133 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 207, "y": 408, "w": 67, "h": 39, "label": "确认" }
+      ]
+    },
+    "status": {
+      "frame": { "x": 50, "y": 333, "w": 380, "h": 133 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 207, "y": 408, "w": 67, "h": 39, "label": "确认" }
+      ]
+    },
+    "buy_succ": {
+      "frame": { "x": 47, "y": 160, "w": 387, "h": 480 },
+      "actions": [
+        { "id": "confirm_overlay", "x": 207, "y": 575, "w": 67, "h": 39, "label": "确认" }
+      ]
+    }
+  }
+}

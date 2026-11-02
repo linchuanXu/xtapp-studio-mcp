@@ -1,0 +1,58 @@
+[
+  {
+    "key": "woodfish_hero",
+    "path": "quietFish/assets/woodfish_hero.xic",
+    "width": 400,
+    "height": 250,
+    "bpp": 1,
+    "contentHash": "b7fa9bf2ca12dedf61d59b3e50cafe66cdb9d005cdcb6e0882e1f37f20c17d5d"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "quietFish/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "b89c0c6822691a698fd975232fbf7ff19ac1d68822b588529f5418511f0ad76c"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "quietFish/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "c90c6051ba2d8764c1d6a586e85d5f91f34b23f92b5492344104939f8413d9d3"
+  },
+  {
+    "key": "mallet_rest",
+    "path": "quietFish/assets/mallet_rest.xic",
+    "width": 144,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "75757003855c5448d3f26940b7f71a52c71e25642d23d07c09c214e1bdc44e59"
+  },
+  {
+    "key": "mallet_raise",
+    "path": "quietFish/assets/mallet_raise.xic",
+    "width": 144,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "b601ed6221250764e72da60db6a61a02b4a56eb199132a28b5cb494bb6e5dcdc"
+  },
+  {
+    "key": "mallet_hit",
+    "path": "quietFish/assets/mallet_hit.xic",
+    "width": 144,
+    "height": 200,
+    "bpp": 1,
+    "contentHash": "9c5034a326487d76c351ba8809872dab2e3e48b6d31b29ff3d00c0e8d554a538"
+  },
+  {
+    "key": "splash",
+    "path": "quietFish/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "1d5cb16418c31ef2ca9919079b04197594870b29b8f41b30b3114de662f47866"
+  }
+]

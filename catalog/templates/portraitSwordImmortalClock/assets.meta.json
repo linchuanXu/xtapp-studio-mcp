@@ -1,0 +1,135 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitSwordImmortalClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "a862ccf140f90e681fb9a0de3f4b3fb3259b41fd72b0d6e6bfce7a65b6a969d0"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitSwordImmortalClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "e12f287801b59264b288a60e66b8e3ef4efc2bce81572cb375b1eec4dbcc88f4"
+  },
+  {
+    "key": "splash",
+    "path": "portraitSwordImmortalClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "2a4268061cd25b45587cc202975e3c0df8aa1da95f7e09d4d8d630d7f6259770"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitSwordImmortalClock/assets/ornament.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/ornament-v1.png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "6f70448a134775b658a26be564cac14b810a54cf7675799c91ae8e55caf81dfc"
+  },
+  {
+    "key": "brush_digit_0",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_0.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_0.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "6581114d879e1bce912cb5e9634212ff5827420471e7603517cffd1419b901f9"
+  },
+  {
+    "key": "brush_digit_1",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_1.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_1.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "58d2b382ac95d2447fb7a9ac6517e9bc0f5ff200a8d3140c419aa20593046931"
+  },
+  {
+    "key": "brush_digit_2",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_2.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_2.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "fef19251421dc659a5dff53a54e0dcad72001d7b7644faa0a80ca7378493855e"
+  },
+  {
+    "key": "brush_digit_3",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_3.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_3.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "7b014a4ba6525152fbedb8e587a36244937c3a1cc0b734caf6ddc1d8d4b44a2b"
+  },
+  {
+    "key": "brush_digit_4",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_4.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_4.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "cba5ed87f87c3d87ade05bdaaa5a5660a469cdaf184ad3c4257b8fc79b05f0fe"
+  },
+  {
+    "key": "brush_digit_5",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_5.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_5.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "398c0af37903fa5dda6e699f8a6485d63d64cf8e5e0bad9e01dbe804a355e279"
+  },
+  {
+    "key": "brush_digit_6",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_6.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_6.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "3dd2404113222999de7ace0bead7919b034c476649a4dc11bcaaecc32a183d32"
+  },
+  {
+    "key": "brush_digit_7",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_7.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_7.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "8404d97a378a670624bb0e095c3a3d1d823061e4dabc3a85a7e786e041ac714f"
+  },
+  {
+    "key": "brush_digit_8",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_8.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_8.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "9433d48dbc90db0a77fdcd533330495b79fc05b3e85c33629e53632a02e2ceb1"
+  },
+  {
+    "key": "brush_digit_9",
+    "path": "portraitSwordImmortalClock/assets/brush_digit_9.xic",
+    "rawPath": "portraitSwordImmortalClock/raw/brush_digit_9.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "e12cdd9bfeef23c356ccd03f05e0477e38f3417596a96cb508be432752f6b724"
+  }
+]

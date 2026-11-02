@@ -1,0 +1,299 @@
+[
+  {
+    "key": "home_bg",
+    "path": "sanguosha/assets/home_bg.xic",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "c951d4d58e5830eb9dfe2ced5b0522674103c29bfd06a6f7b85e74fcc86ee56d",
+    "rawPath": "raw/generated/home-battlefield-portrait.png"
+  },
+  {
+    "key": "hero_qingluan",
+    "path": "sanguosha/assets/hero_qingluan.xic",
+    "width": 106,
+    "height": 176,
+    "bpp": 1,
+    "contentHash": "2e77beac737e54231f674fe40a475f007d6de4b536b3b3b0adfe0ec3b8618b6e",
+    "rawPath": "raw/generated/hero-qingluan-v3-large.png"
+  },
+  {
+    "key": "hero_yunlan",
+    "path": "sanguosha/assets/hero_yunlan.xic",
+    "width": 106,
+    "height": 176,
+    "bpp": 1,
+    "contentHash": "7707a258f9c52bc4760843bb13b58bea66b36f4f78e06eba991359caf64a6e0f",
+    "rawPath": "raw/generated/hero-yunlan-v3-large.png"
+  },
+  {
+    "key": "hero_xuange",
+    "path": "sanguosha/assets/hero_xuange.xic",
+    "width": 106,
+    "height": 176,
+    "bpp": 1,
+    "contentHash": "27fa115bf02fc014fc6f088c0c509c2951060473bbd5517d5d3d4b658d061141",
+    "rawPath": "raw/generated/hero-xuange-v3-large.png"
+  },
+  {
+    "key": "hero_chiyu",
+    "path": "sanguosha/assets/hero_chiyu.xic",
+    "width": 106,
+    "height": 176,
+    "bpp": 1,
+    "contentHash": "0aab627c708548c83d2aebecf1e42e6ab6e6ebe0f4411a7e8cd91c333a509343",
+    "rawPath": "raw/generated/hero-chiyu-v3-large.png"
+  },
+  {
+    "key": "table_bg",
+    "path": "sanguosha/assets/table_bg.xic",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "296ae99c993c704dbe3dcc903d044d4db43507b606229611e102624da2c60e26",
+    "rawPath": "raw/generated/table-battlefield.png"
+  },
+  {
+    "key": "battle_board",
+    "path": "sanguosha/assets/battle_board.xic",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "18749eb3b49e93fdcb70860d65df44bcc0d9e46d0c264c0061ac9e1e04dd0c39",
+    "rawPath": "raw/generated/battle-board-v1.png"
+  },
+  {
+    "key": "card_frame",
+    "path": "sanguosha/assets/card_frame.xic",
+    "width": 78,
+    "height": 92,
+    "bpp": 1,
+    "contentHash": "77adcc1c36a7364e8b5f953e7382cf1992b3c900e18613dbf29b5ff672da4056",
+    "rawPath": "raw/generated/card-frame-v1.png"
+  },
+  {
+    "key": "fx_target",
+    "path": "sanguosha/assets/fx_target.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "05db58a9fbeb49ac8b0d45d65495296e1a43e9f0aec2436ec5a9d83208a97f2f",
+    "rawPath": "raw/generated/fx-target-lock-v1.png"
+  },
+  {
+    "key": "fx_slash",
+    "path": "sanguosha/assets/fx_slash.xic",
+    "width": 100,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "c7e3c429fa034d301cf16aabed3ce30a389c9506f1d08415cc7c6da3d558c0ae",
+    "rawPath": "raw/generated/fx-slash-v1.png"
+  },
+  {
+    "key": "fx_turn",
+    "path": "sanguosha/assets/fx_turn.xic",
+    "width": 180,
+    "height": 42,
+    "bpp": 1,
+    "contentHash": "177c331da60f84b51938d7cc72a254330f1be305754c4c3b339211a3b70aae66",
+    "rawPath": "raw/generated/fx-turn-badge-v1.png"
+  },
+  {
+    "key": "fx_hit",
+    "path": "sanguosha/assets/fx_hit.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "94f0f6dae14a2dc13c9f7a62ef8e060ef299bb04a94f61a44ab9734ac82eabae",
+    "rawPath": "raw/generated/fx-hit-v1.png"
+  },
+  {
+    "key": "card_icon_slash",
+    "path": "sanguosha/assets/card_icon_slash.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "7bfdb808fcd89233f3d8e05afe000e95ff48de7b640ed023959b0b459cb49ed6",
+    "rawPath": "raw/openmoji/sword.svg"
+  },
+  {
+    "key": "card_icon_dodge",
+    "path": "sanguosha/assets/card_icon_dodge.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "d34ada7ccedd9be9a9e8b98c599013e14a5655f43f905622e42876e3f3a46438",
+    "rawPath": "raw/openmoji/shield.svg"
+  },
+  {
+    "key": "card_icon_peach",
+    "path": "sanguosha/assets/card_icon_peach.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "e8ddb0a353626743d3ce14b8af9c029975fc1293a466df1e9639229a8b69a3a2",
+    "rawPath": "raw/openmoji/peach.svg"
+  },
+  {
+    "key": "card_icon_duel",
+    "path": "sanguosha/assets/card_icon_duel.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "f9c9b56d79d411e22d6534060e8c631ae0ef90efcff0c7583230c3048d6232c0",
+    "rawPath": "raw/openmoji/bow.svg"
+  },
+  {
+    "key": "card_icon_steal",
+    "path": "sanguosha/assets/card_icon_steal.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "ec9c8ca537ca5bdeca4ea24600146741e72866154200a4aa016fead4b8dcdb39",
+    "rawPath": "raw/openmoji/fist.svg"
+  },
+  {
+    "key": "card_icon_draw",
+    "path": "sanguosha/assets/card_icon_draw.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "9c4f7a6662e4d83c688d93dedd92f6826ccf307bbfbc85a0a4e84a70b535be65",
+    "rawPath": "raw/openmoji/scroll.svg"
+  },
+  {
+    "key": "card_icon_blade",
+    "path": "sanguosha/assets/card_icon_blade.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "802da762ca40c5c5542111499a0e4cf4388e9fda4a5aa9a11261da81a31f0900",
+    "rawPath": "raw/openmoji/dagger.svg"
+  },
+  {
+    "key": "card_mark_slash",
+    "path": "sanguosha/assets/card_mark_slash.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "224a3e7038bcfe38630ee00fe39a488df13678b596ff6487b8e4fc2d94e1a11f",
+    "rawPath": "raw/openmoji/sword.svg"
+  },
+  {
+    "key": "card_mark_dodge",
+    "path": "sanguosha/assets/card_mark_dodge.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "c0582f049c47a896328dfa56d20783c521c5bb11c939b0046e2ce5eb3636e280",
+    "rawPath": "raw/openmoji/shield.svg"
+  },
+  {
+    "key": "card_mark_peach",
+    "path": "sanguosha/assets/card_mark_peach.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "8c4a2eae4eeabe995cf41f4d00fe0fea5b5c9767cac8f8a78c214a4e83d4d950",
+    "rawPath": "raw/openmoji/peach.svg"
+  },
+  {
+    "key": "card_mark_duel",
+    "path": "sanguosha/assets/card_mark_duel.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "77daecd1e207d0332a9a6908aa094e57c5fbe6ae23809d4dbc8910ed838bfb49",
+    "rawPath": "raw/openmoji/bow.svg"
+  },
+  {
+    "key": "card_mark_steal",
+    "path": "sanguosha/assets/card_mark_steal.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "fdb5e29dcce5687ca8a19932f3b7a4f6b23d7d2414c8fa19d3081917afb4c5d4",
+    "rawPath": "raw/openmoji/fist.svg"
+  },
+  {
+    "key": "card_mark_draw",
+    "path": "sanguosha/assets/card_mark_draw.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "b131505962df1582410cdb563f5ecc72e0b26f1b32efdc25b71cfaacd9be915f",
+    "rawPath": "raw/openmoji/scroll.svg"
+  },
+  {
+    "key": "card_mark_blade",
+    "path": "sanguosha/assets/card_mark_blade.xic",
+    "width": 30,
+    "height": 30,
+    "bpp": 1,
+    "contentHash": "b4cc87135f1bb783faf64d73da74249591f04412a485e27c7a99b47846875e0c",
+    "rawPath": "raw/openmoji/dagger.svg"
+  },
+  {
+    "key": "ui_btn_small",
+    "path": "sanguosha/assets/ui_btn_small.xic",
+    "width": 84,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "ca6260d1b74a9bf6cfebb6032edf520a89d120cc859929c237f05f1a3fd4683a",
+    "rawPath": "raw/kenney/ui-button.png"
+  },
+  {
+    "key": "ui_btn_wide",
+    "path": "sanguosha/assets/ui_btn_wide.xic",
+    "width": 160,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "c833d4ad5750632bfe99c5600afa58c3069722b0df6125ea934bb61aa6a55833",
+    "rawPath": "raw/kenney/ui-button.png"
+  },
+  {
+    "key": "ui_btn_response",
+    "path": "sanguosha/assets/ui_btn_response.xic",
+    "width": 180,
+    "height": 40,
+    "bpp": 1,
+    "contentHash": "dc39ffae790edc1c6ac51fa4e424b45689a0045827a9ce6557f45d03083ec383",
+    "rawPath": "raw/kenney/ui-button.png"
+  },
+  {
+    "key": "ui_btn_mulligan",
+    "path": "sanguosha/assets/ui_btn_mulligan.xic",
+    "width": 196,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "bebb9b3bad3c4747121d9b111cf31aa00f8365dcc4e2d048e639088897e09a34",
+    "rawPath": "raw/kenney/ui-button.png"
+  },
+  {
+    "key": "ui_btn_start",
+    "path": "sanguosha/assets/ui_btn_start.xic",
+    "width": 300,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "0269fc6fbd2622d014fecdd053172d69946b6019e32ba6c5c773d9a14fc5d417",
+    "rawPath": "raw/kenney/ui-button.png"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "sanguosha/assets/app_icon_l.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "98d708081c99ff24e610462460db05be04cd8782776041c1c2adab2970a738ad",
+    "rawPath": "raw/generated/home-battlefield-portrait.png"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "sanguosha/assets/app_icon_s.xic",
+    "width": 64,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "4fb3f544bc2d0f58e4a031b1b5576e8c35452151dd8704b187c200cac25a5bc2",
+    "rawPath": "raw/generated/home-battlefield-portrait.png"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "starfieldMonsters/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "1747d5c53a6407c9ea90a50005254e4debbad17acf0b0dd2cb0e0e40860eb984"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "starfieldMonsters/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "a21912abee056fcc6eaa7d2a8c56e6569d529c8a59bbe590989408f5c16639d6"
+  },
+  {
+    "key": "splash",
+    "path": "starfieldMonsters/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "38a1ad1b585cbba410d529ff6de5f92aa1ab2b16be1583f6e72ce6e74e4496fd"
+  }
+]

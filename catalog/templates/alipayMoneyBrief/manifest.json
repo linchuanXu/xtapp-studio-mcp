@@ -1,0 +1,43 @@
+{
+  "app_id": "alipay_money_brief-20880001",
+  "display_name": "支付宝收支提醒",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "隐私优先的收支摘要、自动扣款与付款待办离线演示。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "brand_mark",
+    "feature_scene",
+    "icon_wallet",
+    "icon_bill",
+    "icon_reminder",
+    "icon_shield",
+    "icon_eye",
+    "icon_check"
+  ],
+  "data_files": [
+    {
+      "name": "transactions.tsv",
+      "format": "tsv",
+      "max_bytes": 12288
+    },
+    {
+      "name": "reminders.tsv",
+      "format": "tsv",
+      "max_bytes": 8192
+    }
+  ],
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  }
+}

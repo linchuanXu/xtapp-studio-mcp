@@ -1,0 +1,126 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitChineseClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "7a90a507f1feaf1112fa3f8e6cf9c83ae24243cee0ce848356276bd518687f3d"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitChineseClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "486f37c06ca7445d42ad8681a3ff72a24b23f9b1c233c1d5fb3c639af31c5933"
+  },
+  {
+    "key": "splash",
+    "path": "portraitChineseClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "a17685b283fa27106a167397f28d7b9635df3e1deb232dfb86fd1a615e6a377b"
+  },
+  {
+    "key": "brush_digit_0",
+    "path": "portraitChineseClock/assets/brush_digit_0.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_0.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "6fb6d57b5ba99be1f903d7b4e86e15e64fab906fc8b5e8f8cb516004874755ea"
+  },
+  {
+    "key": "brush_digit_1",
+    "path": "portraitChineseClock/assets/brush_digit_1.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_1.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "f90c3776ff925ab27bdd58ab4ce6d23decf1b45319370b91dac4ce324a8b67e9"
+  },
+  {
+    "key": "brush_digit_2",
+    "path": "portraitChineseClock/assets/brush_digit_2.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_2.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "43dc46c50861c21692120d01148c515081890a3a474bf8610ab210a3f5f44d18"
+  },
+  {
+    "key": "brush_digit_3",
+    "path": "portraitChineseClock/assets/brush_digit_3.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_3.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "8e97359a28184e541622391a5cd5623a27dff2afb4409b6757ee1e079cecc56b"
+  },
+  {
+    "key": "brush_digit_4",
+    "path": "portraitChineseClock/assets/brush_digit_4.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_4.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "315fe124bf897d9ee72e5f1eecc219e87a5676bb02589469550cecd7875cc904"
+  },
+  {
+    "key": "brush_digit_5",
+    "path": "portraitChineseClock/assets/brush_digit_5.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_5.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "2ffbc16f1ce46641c0103a8ef8ff5fd5c2fb75131ea725c617261ac0c34e7a13"
+  },
+  {
+    "key": "brush_digit_6",
+    "path": "portraitChineseClock/assets/brush_digit_6.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_6.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "51d0078be37010163d16754e2084b8db098c9b6e0b5774e1748ba919a11e2a99"
+  },
+  {
+    "key": "brush_digit_7",
+    "path": "portraitChineseClock/assets/brush_digit_7.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_7.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "8f4230a861a59faba75bd7d9569efa66637ccf7f463314e20cb931ee4b852b9c"
+  },
+  {
+    "key": "brush_digit_8",
+    "path": "portraitChineseClock/assets/brush_digit_8.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_8.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "d0775c929a06a70982920190e2d8deeb30f83bfeaf47edf148f5ef323640dd59"
+  },
+  {
+    "key": "brush_digit_9",
+    "path": "portraitChineseClock/assets/brush_digit_9.xic",
+    "rawPath": "portraitChineseClock/raw/brush_digit_9.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "da5f47d67364788ead6027099d9044794d22cfbe4180d1739cd22f11b5851de3"
+  }
+]

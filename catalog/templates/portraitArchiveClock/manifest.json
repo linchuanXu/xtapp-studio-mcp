@@ -1,0 +1,41 @@
+{
+  "app_id": "portrait_archive_clock-a570c8d4",
+  "display_name": "档案双栏时钟",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "不对称档案排版，将时间、日期与月历分成清晰双栏。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "kaisei_digit_0",
+    "kaisei_digit_1",
+    "kaisei_digit_2",
+    "kaisei_digit_3",
+    "kaisei_digit_4",
+    "kaisei_digit_5",
+    "kaisei_digit_6",
+    "kaisei_digit_7",
+    "kaisei_digit_8",
+    "kaisei_digit_9",
+    "kaisei_white_digit_0",
+    "kaisei_white_digit_1",
+    "kaisei_white_digit_2",
+    "kaisei_white_digit_3",
+    "kaisei_white_digit_4",
+    "kaisei_white_digit_5",
+    "kaisei_white_digit_6",
+    "kaisei_white_digit_7",
+    "kaisei_white_digit_8",
+    "kaisei_white_digit_9"
+  ]
+}

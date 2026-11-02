@@ -1,0 +1,31 @@
+{
+  "app_id": "mood_recorder-8c4b244e",
+  "display_name": "情绪记录器",
+  "version": "0.2.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "preload_assets": [
+    "happy_188",
+    "happy_128",
+    "calm_188",
+    "calm_128",
+    "sad_188",
+    "sad_128",
+    "worry_188",
+    "worry_128",
+    "mad_188",
+    "mad_128",
+    "emmm_188",
+    "emmm_128",
+    "app_icon_l",
+    "app_icon_s"
+  ],
+  "splash": "splash",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "菠萝",
+  "description": "记录每日情绪与心情原因，提供周趋势、年度热力图和情绪雷达。"
+}

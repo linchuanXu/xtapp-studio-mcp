@@ -1,0 +1,151 @@
+{
+  "app_id": "dictionary-7e1825de",
+  "display_name": "查字典",
+  "version": "0.4.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "preload_assets": [
+    "app_icon_l",
+    "app_icon_s"
+  ],
+  "splash": "splash",
+  "author": "XTApp Creator",
+  "description": "口袋词典增强版：精选高频词库（20966 词条+常用短语），覆盖基础、进阶与学科词汇；支持联想搜索、词条收藏、文件夹管理与记忆复习",
+  "data_files": [
+    {
+      "name": "A.txt",
+      "format": "txt",
+      "max_bytes": 56422
+    },
+    {
+      "name": "B.txt",
+      "format": "txt",
+      "max_bytes": 54507
+    },
+    {
+      "name": "C.txt",
+      "format": "txt",
+      "max_bytes": 60967
+    },
+    {
+      "name": "D.txt",
+      "format": "txt",
+      "max_bytes": 41630
+    },
+    {
+      "name": "E.txt",
+      "format": "txt",
+      "max_bytes": 27874
+    },
+    {
+      "name": "F.txt",
+      "format": "txt",
+      "max_bytes": 36056
+    },
+    {
+      "name": "G.txt",
+      "format": "txt",
+      "max_bytes": 35475
+    },
+    {
+      "name": "H.txt",
+      "format": "txt",
+      "max_bytes": 31933
+    },
+    {
+      "name": "I.txt",
+      "format": "txt",
+      "max_bytes": 31172
+    },
+    {
+      "name": "J.txt",
+      "format": "txt",
+      "max_bytes": 12869
+    },
+    {
+      "name": "K.txt",
+      "format": "txt",
+      "max_bytes": 18189
+    },
+    {
+      "name": "L.txt",
+      "format": "txt",
+      "max_bytes": 33253
+    },
+    {
+      "name": "M.txt",
+      "format": "txt",
+      "max_bytes": 43458
+    },
+    {
+      "name": "N.txt",
+      "format": "txt",
+      "max_bytes": 26774
+    },
+    {
+      "name": "O.txt",
+      "format": "txt",
+      "max_bytes": 24754
+    },
+    {
+      "name": "P.txt",
+      "format": "txt",
+      "max_bytes": 52332
+    },
+    {
+      "name": "Q.txt",
+      "format": "txt",
+      "max_bytes": 5833
+    },
+    {
+      "name": "R.txt",
+      "format": "txt",
+      "max_bytes": 41888
+    },
+    {
+      "name": "S.txt",
+      "format": "txt",
+      "max_bytes": 90571
+    },
+    {
+      "name": "T.txt",
+      "format": "txt",
+      "max_bytes": 46216
+    },
+    {
+      "name": "U.txt",
+      "format": "txt",
+      "max_bytes": 18187
+    },
+    {
+      "name": "V.txt",
+      "format": "txt",
+      "max_bytes": 18263
+    },
+    {
+      "name": "W.txt",
+      "format": "txt",
+      "max_bytes": 27424
+    },
+    {
+      "name": "X.txt",
+      "format": "txt",
+      "max_bytes": 2208
+    },
+    {
+      "name": "Y.txt",
+      "format": "txt",
+      "max_bytes": 8416
+    },
+    {
+      "name": "Z.txt",
+      "format": "txt",
+      "max_bytes": 4722
+    }
+  ],
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s"
+}

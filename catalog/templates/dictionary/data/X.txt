@@ -1,0 +1,61 @@
+x		|符号|
+x-ray	/5eks reI; Zks9re/	n.|除用外；通常作；射线|
+xat		n.|为纪念死者的雕刻柱|
+xciii		num.|罗马数字 93|
+xcv		num.|罗马数字 95|
+xdr		|外部术语表示形式|
+xe		n.|[化]氙|
+xebec		n.|小型三桅船|
+xeme		n.|[鸟]北极鸥|
+xenia		n.|齐妮亚(亦作Zenia)(f.)|
+xenix		|微软开发的用于PC机的UNIX操作系统|
+xenon	/5zi:nCn; zi9nBn/	n.|氙；见附录|
+xenophobia		n.|仇外心理|
+xeres		n.|为Jerez之旧称|
+xeric		adj.|环境干燥的|
+xerox	/5zIErCks; zIr9Bks/	n.|专利名|
+xf		|extra fine (白兰地规格,藏窖年份75年以上)|
+xhosa	/5kR:sE; kRsB/	n.|科萨人（南非开普省班图人的成员）|
+xi		n.|希腊字母的第14个字母|
+xii		num.|罗马数字 12|
+xiii		num.|罗马数字 13|
+xinca		n.|辛卡人(印第安之一族)|
+xing		|美国出品视频播放软件的公司|
+xingu		n.|兴谷河(巴西中北部一河流)|
+xiv		num.|罗马数字 14|
+xix		num.|罗马数字 19|
+xl	/9eks 5el; 9Zks Zl/	abbr.|尤作衣物上的标记）特大号|
+xmas	/5krIsmEs, 5eksmEs; krIsmEs, ZksmEs/	n.|用作缩略式；字中|
+xml		|extensible Markup Language,解释扩展标记语言|
+xms		|extended memory specification,扩展内存规范|
+xns		|Xerox Network Sytem,施乐网络系统|
+xp		|Extreme Programming,终极编程|
+xpvm		|A Graphical Console and Monitor for PVM,PVM图形控制台|
+xql		|XML Query Language,XML查询语言|
+xr		|ex rights 无权认购新股|
+xsl		|eXtensible Stylesheet Language,可扩展样式表语言|
+xslt		|XSL Transformations,XSL变换|
+xt		|符号|
+xtra		n.|电讯术语|
+xu		n.|苏(越南的辅币单位,相当于1/100盾)|
+xv		n.|罗马数字之十五|
+xvi		num.|罗马数字 16|
+xvii		num.|罗马数字 17|
+xviii		num.|罗马数字 18|
+xw		|ex warrants 无认股证书|
+xxi		num.|罗马数字 21|
+xxii		num.|罗马数字 22|
+xxix		num.|罗马数字 29|
+xxv		num.|罗马数字 25|
+xxx		|(青少年禁看的)X级片或内容|
+xxxi		num.|罗马数字 31|
+xxxiv		num.|罗马数字 34|
+xxxix		num.|罗马数字 39|
+xxxv		num.|罗马数字 35|
+xylan		n.|[植]木聚糖|
+xylem		n.|[植] 木质部|
+xylol		n.|'=xylene|
+xylophone		n.|木琴|
+xylyl		n.|[化]二甲苯基|
+xyris		n.|黄眼草属|
+xyst		n.|室内运动场|

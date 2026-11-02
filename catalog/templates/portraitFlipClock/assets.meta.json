@@ -1,0 +1,126 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitFlipClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "b9c4b274d938681ac212f1d5b6ce521b1f9df786b3ec9bf3c5570f49969d3446"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitFlipClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "94be4ed56592baa8d072f6fff6669d3b8f11b1af8ee0f843261b6fb78060f736"
+  },
+  {
+    "key": "splash",
+    "path": "portraitFlipClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "a5fbb8e858788edefc2e3a3182c49368e7deb47ea7c6c0ab33556acf25406e57"
+  },
+  {
+    "key": "kaisei_digit_0",
+    "path": "portraitFlipClock/assets/kaisei_digit_0.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_0.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "4f6c4c456390c6169e476bcdb242c6cfe3ea27d5972c90036cce5d0a9fe09d4a"
+  },
+  {
+    "key": "kaisei_digit_1",
+    "path": "portraitFlipClock/assets/kaisei_digit_1.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_1.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "201a43a8f1d491389da1b248c3e3c9bdd6910657a72ff83739997a855bb305c5"
+  },
+  {
+    "key": "kaisei_digit_2",
+    "path": "portraitFlipClock/assets/kaisei_digit_2.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_2.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "e5eb1ea29fd128b598b84163ead25f6d2d85608ddeef7976f168db0ea49c9a6d"
+  },
+  {
+    "key": "kaisei_digit_3",
+    "path": "portraitFlipClock/assets/kaisei_digit_3.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_3.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "638d4253fee1569e32ffec8eb51f3bd0252414838e8be2b0f2f61c0e6ebbb045"
+  },
+  {
+    "key": "kaisei_digit_4",
+    "path": "portraitFlipClock/assets/kaisei_digit_4.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_4.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "39637e17219713132a9010820ba5b1d107b409a527e5bfcf4925aec2072aa45b"
+  },
+  {
+    "key": "kaisei_digit_5",
+    "path": "portraitFlipClock/assets/kaisei_digit_5.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_5.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "5860effb048e46aaca36ca0896fd74c49a0f0bbb4669b411c791aa1f2c919f0d"
+  },
+  {
+    "key": "kaisei_digit_6",
+    "path": "portraitFlipClock/assets/kaisei_digit_6.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_6.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "2dfe254b3389543a451c2da8e10d1f8041997cb43b1c9b13757ab11bd4c6214a"
+  },
+  {
+    "key": "kaisei_digit_7",
+    "path": "portraitFlipClock/assets/kaisei_digit_7.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_7.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "864f7b13578dde14145470c594b4beb987cee55ad3165950683285d068328828"
+  },
+  {
+    "key": "kaisei_digit_8",
+    "path": "portraitFlipClock/assets/kaisei_digit_8.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_8.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "9aee6b1dfe1bf7b27eac3efa53f5468e270706d40bab80a484ad2c4aed4937fd"
+  },
+  {
+    "key": "kaisei_digit_9",
+    "path": "portraitFlipClock/assets/kaisei_digit_9.xic",
+    "rawPath": "portraitFlipClock/raw/kaisei_digit_9.png",
+    "rawMime": "image/png",
+    "width": 54,
+    "height": 82,
+    "bpp": 1,
+    "contentHash": "d105692f8c3009c9de5e7f66f6accc4e0886ad444169f5a0a4c23ec7c324dc23"
+  }
+]

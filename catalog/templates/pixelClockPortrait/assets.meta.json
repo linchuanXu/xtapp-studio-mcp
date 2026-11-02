@@ -1,0 +1,146 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "pixelClockPortrait/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "e5a98c3c9632db8c9850a716bc0fd95436f86cd9a03db8204eb06aa38d71f791"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "pixelClockPortrait/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "28a6a37b61074e94c205039b3b24a8fc5af86a8a6cd6947d8596c1c10fc38bba"
+  },
+  {
+    "key": "splash",
+    "path": "pixelClockPortrait/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "4c49a64d940d6b3f7d1dba1367d5908c158241de795922207707e08a5ce22de0"
+  },
+  {
+    "key": "0",
+    "path": "pixelClockPortrait/assets/0.xic",
+    "rawPath": "pixelClockPortrait/raw/0.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "242a9adaac51cc81828eed1ead5062e17d39b1f8e080df6c243677d8e1e91ba8"
+  },
+  {
+    "key": "1",
+    "path": "pixelClockPortrait/assets/1.xic",
+    "rawPath": "pixelClockPortrait/raw/1.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "da57f3dfa2cba5818723ee078a7de723812773553497ffb788fdf796a623b7c3"
+  },
+  {
+    "key": "2",
+    "path": "pixelClockPortrait/assets/2.xic",
+    "rawPath": "pixelClockPortrait/raw/2.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "d34fd75633fafa68969e309abc565a8b70294353f5e8e2048af691f50df95634"
+  },
+  {
+    "key": "3",
+    "path": "pixelClockPortrait/assets/3.xic",
+    "rawPath": "pixelClockPortrait/raw/3.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "e5e3717bdeabf7767fe4e1d8af21509894e5d1fefdd34d608d933463364d4ae8"
+  },
+  {
+    "key": "4",
+    "path": "pixelClockPortrait/assets/4.xic",
+    "rawPath": "pixelClockPortrait/raw/4.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "e7d06ee1c04a42cc8fc9ef47320e59cbcf90e1357a8d32baf815ecb2d5ebce8c"
+  },
+  {
+    "key": "5",
+    "path": "pixelClockPortrait/assets/5.xic",
+    "rawPath": "pixelClockPortrait/raw/5.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "33f1c5902b2c041fc267e461c8930ab7b55b51f9747d5d724d49307cc7433a3e"
+  },
+  {
+    "key": "6",
+    "path": "pixelClockPortrait/assets/6.xic",
+    "rawPath": "pixelClockPortrait/raw/6.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "d74c97f31c3e3bb53cfa7099510cbd52f08cd7a2d243509cc428d6686bb9b714"
+  },
+  {
+    "key": "7",
+    "path": "pixelClockPortrait/assets/7.xic",
+    "rawPath": "pixelClockPortrait/raw/7.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "0032662e262eb579c34738e5ae0c330622b58659e3d31ce426c3e37ece1c654c"
+  },
+  {
+    "key": "8",
+    "path": "pixelClockPortrait/assets/8.xic",
+    "rawPath": "pixelClockPortrait/raw/8.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "678b399fe17c0eacb8f5b4c178e4c8f97c2cb6072b0f2a40993aea7cc55c513e"
+  },
+  {
+    "key": "9",
+    "path": "pixelClockPortrait/assets/9.xic",
+    "rawPath": "pixelClockPortrait/raw/9.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "37684804229e8c47c0526929cd2cb5bc193ca5a6425eb3e9423fa2705fca7307"
+  },
+  {
+    "key": "bg",
+    "path": "pixelClockPortrait/assets/bg.xic",
+    "rawPath": "pixelClockPortrait/raw/bg.png",
+    "rawMime": "image/png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "031331528435a2db5367d036093eecbfac8fe89fd11e5eb7492d75d0fa6d6733"
+  },
+  {
+    "key": "colon",
+    "path": "pixelClockPortrait/assets/colon.xic",
+    "rawPath": "pixelClockPortrait/raw/colon.png",
+    "rawMime": "image/png",
+    "width": 32,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "be492e8189929a2bd67103cfa118c71d946192c98844c9e389f96775e1e4abdb"
+  }
+]

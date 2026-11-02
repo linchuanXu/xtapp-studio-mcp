@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "xtapp_studio": {
+      "title": "XTApp Studio MCP",
+      "description": "Read the public XTApp contract, inspect public app templates, and open the live Studio preview widget.",
+      "command": "node",
+      "args": ["./mcp/server.bundle.mjs"],
+      "cwd": "."
+    }
+  }
+}

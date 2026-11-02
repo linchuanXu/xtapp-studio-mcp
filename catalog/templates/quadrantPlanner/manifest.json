@@ -1,0 +1,24 @@
+{
+  "app_id": "quadrant_planner-1c6a9e72",
+  "display_name": "四象限清单",
+  "version": "0.1.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_l",
+    "app_icon_s",
+    "icon_fire",
+    "icon_sprout",
+    "icon_bell",
+    "icon_archive",
+    "icon_check"
+  ],
+  "author": "XTApp Creator",
+  "description": "离线模拟的四象限任务清单：按重要与紧急程度整理今天的事项。"
+}

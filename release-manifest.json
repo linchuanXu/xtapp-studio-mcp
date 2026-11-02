@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "xtapp-studio-mcp-distribution/v1",
+  "repositoryName": "xtapp-studio-mcp",
+  "primaryAudience": "agent",
+  "agentEntrypoint": "AGENTS.md",
+  "distributionRepository": "https://github.com/linchuanXu/xtapp-studio-mcp",
+  "distributionStatus": "published-git-marketplace",
+  "baseline": "mcp-stdio",
+  "supportedHosts": ["mcp", "codex", "cursor"],
+  "mcp": {
+    "name": "xtapp_studio",
+    "command": "node",
+    "args": ["./mcp/server.bundle.mjs"],
+    "install": "docs/INSTALL_MCP.md",
+    "configPrinter": "scripts/cursor-mcp-config.mjs"
+  },
+  "codex": {
+    "mode": "plugin-marketplace",
+    "install": "docs/INSTALL_CODEX.md"
+  },
+  "cursor": {
+    "mode": "mcp-client",
+    "previewSurface": "builtin-browser",
+    "mcp": "bundled xtapp_studio stdio",
+    "install": "docs/INSTALL_CURSOR.md",
+    "userConfigWriter": "scripts/cursor-mcp-config.mjs"
+  },
+  "marketplace": {
+    "name": "xtapp-studio-mcp-github",
+    "gitSource": "linchuanXu/xtapp-studio-mcp",
+    "gitRef": "main",
+    "manifest": ".agents/plugins/marketplace.json"
+  },
+  "plugin": {
+    "name": "xtapp-studio-mcp",
+    "version": "0.1.8",
+    "path": ".",
+    "displayName": "XTApp Studio",
+    "selector": "xtapp-studio-mcp@xtapp-studio-mcp-github",
+    "mcpName": "xtapp_studio"
+  },
+  "source": {
+    "runtime": "signed-in-xtapp-studio",
+    "defaultPreviewHost": "https://xtapp-ai-dev.xteink.cn",
+    "previewUrlSource": "get_xtapp_preview_status"
+  }
+}

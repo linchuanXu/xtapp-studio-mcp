@@ -1,0 +1,32 @@
+[
+  {
+    "key": "app_icon_s",
+    "path": "hkStockLive/assets/app_icon_s.xic",
+    "rawPath": "hkStockLive/raw/app_icon_s.svg",
+    "rawMime": "image/svg+xml",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "c3aba2837e5f7b4110769ee39a9b29debc76d62bcf5162e034d702e3740c858b"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "hkStockLive/assets/app_icon_l.xic",
+    "rawPath": "hkStockLive/raw/app_icon_l.svg",
+    "rawMime": "image/svg+xml",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "607b0278c9606b5534d05f472bf73430af3844a60b19c61c2949d5178975b429"
+  },
+  {
+    "key": "splash",
+    "path": "hkStockLive/assets/splash.xic",
+    "rawPath": "hkStockLive/raw/splash.svg",
+    "rawMime": "image/svg+xml",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "7f4772488a6785dc73cb952ee7d58ef3906d9d35b9ba3dd8380bdbe78a673fc9"
+  }
+]

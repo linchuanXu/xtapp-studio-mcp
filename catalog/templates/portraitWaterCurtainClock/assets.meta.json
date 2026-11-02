@@ -1,0 +1,144 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitWaterCurtainClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "4f7ec4995c51ed5924a9a0c84e6321ed335f267e9140119fee17f14e48fde9d9"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitWaterCurtainClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "35e2532f2d1c70dfd8309171bd149330d63b996e24eb3dd72f9aa176560717d4"
+  },
+  {
+    "key": "splash",
+    "path": "portraitWaterCurtainClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "0c4677f6d24f2dad21c37c74bc2a39ab508cf89037ed61050a079423380bf305"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitWaterCurtainClock/assets/ornament.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/ornament-v1.png",
+    "rawMime": "image/png",
+    "process": {
+      "brightness": 1,
+      "contrast": -6,
+      "gamma": 1.45,
+      "threshold": 145,
+      "algorithm": "floyd-steinberg",
+      "strength": 0.7
+    },
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "f440197a72e756a648ac10a5c62d48d5c0e4315becefd33843911beee38a3f21"
+  },
+  {
+    "key": "brush_digit_0",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_0.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_0.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "e03efb64190a875116b27a27d6481e937c35b4a5db5ca8e302ad539eed1168da"
+  },
+  {
+    "key": "brush_digit_1",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_1.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_1.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "8bff531895dd7c09445e798e28ca2a53501ca1a386106c22a676c6787ffaefe5"
+  },
+  {
+    "key": "brush_digit_2",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_2.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_2.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "8b109df0380e4780ae910b784e1726cb1625af0ebba9b4ad88aa3ac1c9f283cf"
+  },
+  {
+    "key": "brush_digit_3",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_3.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_3.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "d768c635569dc6610c24b2c6ba294aa3dc0f697fea9c2b49cbb4f5306cdfa9bc"
+  },
+  {
+    "key": "brush_digit_4",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_4.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_4.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "4abecbac0b329513dd9d4cf0bb0d238aedb459df4fa54f575d520cace79a98e3"
+  },
+  {
+    "key": "brush_digit_5",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_5.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_5.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "bf3eb0b7e427dac8e63e5a194fc3c50449cf867cd208a717dead7e5460140284"
+  },
+  {
+    "key": "brush_digit_6",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_6.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_6.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "523a19eff64c9d64daffcaa7b023c90fdbfdbb18b107fa7fee40eab18561dfac"
+  },
+  {
+    "key": "brush_digit_7",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_7.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_7.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "7486b130fe02edb9c148773c4508ae5c02ee980db736d1f886e17c45df0d2fa0"
+  },
+  {
+    "key": "brush_digit_8",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_8.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_8.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "202341e173b8f662a537f16de2d04f47e196f8a50116f64ee07bb4fbb75a6de1"
+  },
+  {
+    "key": "brush_digit_9",
+    "path": "portraitWaterCurtainClock/assets/brush_digit_9.xic",
+    "rawPath": "portraitWaterCurtainClock/raw/brush_digit_9.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "9387825500939d3e8b711d4b449d9cd36a3d27b07d25660255b5590bb2515fd2"
+  }
+]

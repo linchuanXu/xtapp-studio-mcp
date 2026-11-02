@@ -1,0 +1,80 @@
+[
+  {
+    "key": "icon_weather",
+    "path": "inkStatusBoard/assets/icon_weather.xic",
+    "rawPath": "inkStatusBoard/raw/icon_weather.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "08deeb34b99765537f9ed04cc1067ad05b7e322925ed1b36b7f46b69636d7e50"
+  },
+  {
+    "key": "icon_focus",
+    "path": "inkStatusBoard/assets/icon_focus.xic",
+    "rawPath": "inkStatusBoard/raw/icon_focus.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "91355d5c2d3c225d75cd50b65c4739ccd89bdde8e338121c485829031250ae04"
+  },
+  {
+    "key": "icon_todo",
+    "path": "inkStatusBoard/assets/icon_todo.xic",
+    "rawPath": "inkStatusBoard/raw/icon_todo.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "c85d1080a1e3229331082bec6931d3f9ffa643b9c3b1704249c50ee81d3d6ac3"
+  },
+  {
+    "key": "icon_build",
+    "path": "inkStatusBoard/assets/icon_build.xic",
+    "rawPath": "inkStatusBoard/raw/icon_build.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "9686a062353564fcbec5a4a7fc9da56395b05c635cc19bc618633a7e6b37af05"
+  },
+  {
+    "key": "icon_refresh",
+    "path": "inkStatusBoard/assets/icon_refresh.xic",
+    "rawPath": "inkStatusBoard/raw/icon_refresh.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "bcc9cce8824463b3b96033fd865f0b4372fec55c6a5e773b1e6e637d95ea9d9e"
+  },
+  {
+    "key": "icon_cup",
+    "path": "inkStatusBoard/assets/icon_cup.xic",
+    "rawPath": "inkStatusBoard/raw/icon_cup.svg",
+    "rawMime": "image/svg+xml",
+    "process": "Lucide 官方前端图标（ISC）→ Sharp 单色阈值化 → 1bpp XIC",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "eca0ebc6a74afe83988482702d04f4a4be0edc483e2a6fe6b0898760e20eefa1"
+  },
+  {
+    "key": "icon_deepseek",
+    "path": "inkStatusBoard/assets/icon_deepseek.xic",
+    "rawPath": "inkStatusBoard/raw/icon_deepseek.svg",
+    "rawMime": "image/svg+xml",
+    "process": "DeepSeek 官方 GitHub SVG 标识 → 保留鲸鱼符号 → Sharp 单色阈值化 → 1bpp XIC",
+    "sourceUrl": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-LLM/main/images/logo.svg",
+    "width": 36,
+    "height": 36,
+    "bpp": 1,
+    "contentHash": "acbccf71b59bd532e4dfb17009eb24768bb2b31e9aaa7cdc141bfadf95ca11fc"
+  }
+]

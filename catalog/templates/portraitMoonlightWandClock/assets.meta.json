@@ -1,0 +1,135 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitMoonlightWandClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "10df009c6323fdb7ec60dbdc03d0e86e674fa8b9e0f076d91fd7c5c081c1cf7a"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitMoonlightWandClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "b47c525cfa84dfebf0c1adbcff70efe17cf3c57932590bb7e043369f821ba6b1"
+  },
+  {
+    "key": "splash",
+    "path": "portraitMoonlightWandClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "521b5db22936265b2b89ba13111d1790129a8eb86d08df6f43d68ed443a2a9c4"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitMoonlightWandClock/assets/ornament.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/ornament-v2-transparent.png",
+    "width": 480,
+    "height": 788,
+    "bpp": 1,
+    "contentHash": "57a0084435448f372ffb127cf809a80104ba2ad049c459d0fdcd133bff3bee32"
+  },
+  {
+    "key": "kaisei_digit_0",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_0.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_0.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "5c0d097fda26420a4678d5fcbb9364a36099a7629630e26859d8ddecba664bca"
+  },
+  {
+    "key": "kaisei_digit_1",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_1.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_1.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "5be65b9551a9bc609c21cfba2ef950e40c8d44fcfdaae95f8fd70145a26ac7bb"
+  },
+  {
+    "key": "kaisei_digit_2",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_2.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_2.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "31e5b7af2c75c8ccd3371fcae0a7debc731bda1c6518e06f48b8e9672601dd2e"
+  },
+  {
+    "key": "kaisei_digit_3",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_3.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_3.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "c4d71bfc756bd754ce3e7fadc371990df2a8bcce6e3a44348095d6b5636c5cb8"
+  },
+  {
+    "key": "kaisei_digit_4",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_4.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_4.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "c8f43b0f64de465db9b793eb5bde25901a828092e4812a7b1871c5f3c06c86ec"
+  },
+  {
+    "key": "kaisei_digit_5",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_5.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_5.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "80e487bf6b5363069710f20d970c36991591b0b466caea215d26e059366f8391"
+  },
+  {
+    "key": "kaisei_digit_6",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_6.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_6.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "ff6794006ec5f0eab6516f1cc8a606a1d9fce18614ea4b640631d56876728664"
+  },
+  {
+    "key": "kaisei_digit_7",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_7.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_7.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "4064b7efb7fd5f574c84a9235140513e1bf75670d139ee2f049a46308a0a44cf"
+  },
+  {
+    "key": "kaisei_digit_8",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_8.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_8.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "536099798693cc0759fba0e800828baf218450b3a6facde99b46bd17227a0ce2"
+  },
+  {
+    "key": "kaisei_digit_9",
+    "path": "portraitMoonlightWandClock/assets/kaisei_digit_9.xic",
+    "rawPath": "portraitMoonlightWandClock/raw/kaisei_digit_9.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "dd47e40fc315ce42505338773e8dd0010c9858256655b3a07f21af786350c323"
+  }
+]

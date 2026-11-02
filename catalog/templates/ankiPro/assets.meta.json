@@ -1,0 +1,1156 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "ankiPro/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "966e9a329a84e4858cd724978f769842bcc97c4c3b8588458dc5b011ff52b6bc"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "ankiPro/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "7549bf547dbf65829ce3214c92490ee66da09572f52229a464ba362c223bf1fb"
+  },
+  {
+    "key": "splash",
+    "path": "ankiPro/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "547e8d05989b6d7e4bd728b4d551595e6973ed42b395292c2230b357a8c1c0fc"
+  },
+  {
+    "key": "home_scene",
+    "path": "ankiPro/assets/home_scene.xic",
+    "rawPath": "ankiPro/raw/home_scene.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "30fab9bab1e08b06801efdc43cde1b6615ac55bdffbf64f6e69879b5299e2207"
+  },
+  {
+    "key": "home_scene_compact",
+    "path": "ankiPro/assets/home_scene_compact.xic",
+    "rawPath": "ankiPro/raw/home_scene_compact.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "8d9b89863d586370bb2219ecb7c95c2aa35b2d38f9cf2153721e38b50977a087"
+  },
+  {
+    "key": "ui_home_today",
+    "path": "ankiPro/assets/ui_home_today.xic",
+    "rawPath": "ankiPro/raw/ui_home_today.png",
+    "rawMime": "image/png",
+    "width": 216,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "e34e281f10edcf93c47dda08f209b16209d01aac691a8b89b5d0958fee14bb77"
+  },
+  {
+    "key": "ui_digit_0",
+    "path": "ankiPro/assets/ui_digit_0.xic",
+    "rawPath": "ankiPro/raw/ui_digit_0.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "20b1c5280c5df538a2c90ac85f1a90fc53d2554b9c8d3577e84d009dc34e04be"
+  },
+  {
+    "key": "ui_digit_1",
+    "path": "ankiPro/assets/ui_digit_1.xic",
+    "rawPath": "ankiPro/raw/ui_digit_1.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "967e3539673723c4e1383ef6465838be18d2f8674fa718d4111fe9af4ef52f33"
+  },
+  {
+    "key": "ui_digit_2",
+    "path": "ankiPro/assets/ui_digit_2.xic",
+    "rawPath": "ankiPro/raw/ui_digit_2.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "9b7821fed7b2d67e030c97553be5ba8c97381afcc7dfe9402abf53d9c86ec884"
+  },
+  {
+    "key": "ui_digit_3",
+    "path": "ankiPro/assets/ui_digit_3.xic",
+    "rawPath": "ankiPro/raw/ui_digit_3.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "ad48496ee00a6f74d29f66f503221f71fa4971614d0bdebe442cdd4dbbf969cf"
+  },
+  {
+    "key": "ui_digit_4",
+    "path": "ankiPro/assets/ui_digit_4.xic",
+    "rawPath": "ankiPro/raw/ui_digit_4.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "f2209edad6787fff7bfe5c82e2d5be1a088844b1dcc9ca39cb4240d4c2c6bd55"
+  },
+  {
+    "key": "ui_digit_5",
+    "path": "ankiPro/assets/ui_digit_5.xic",
+    "rawPath": "ankiPro/raw/ui_digit_5.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "7284224d5f9dc45b73a9d479df937214d59bde201c0780c258d57a7342ad640d"
+  },
+  {
+    "key": "ui_digit_6",
+    "path": "ankiPro/assets/ui_digit_6.xic",
+    "rawPath": "ankiPro/raw/ui_digit_6.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "8af2d39604357dcf5d0e3d5caff7c44ab70d61878f1d541eeeb3b5b67caed486"
+  },
+  {
+    "key": "ui_digit_7",
+    "path": "ankiPro/assets/ui_digit_7.xic",
+    "rawPath": "ankiPro/raw/ui_digit_7.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "b0fd572e3e7a1dee605633b143ff6ab3ecf17f866047acd36f790f7dc385e5df"
+  },
+  {
+    "key": "ui_digit_8",
+    "path": "ankiPro/assets/ui_digit_8.xic",
+    "rawPath": "ankiPro/raw/ui_digit_8.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "ec0dfa35362a5a280677de1262e0030b967a652733a2f23ac5772f4bf583a000"
+  },
+  {
+    "key": "ui_digit_9",
+    "path": "ankiPro/assets/ui_digit_9.xic",
+    "rawPath": "ankiPro/raw/ui_digit_9.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "d5b0611cdb8205d8967328e6d35a0f5451fb37367cdaf50c2458229d7ec69f4e"
+  },
+  {
+    "key": "letter_a",
+    "path": "ankiPro/assets/letter_a.xic",
+    "rawPath": "ankiPro/raw/letter_a.png",
+    "rawMime": "image/png",
+    "width": 42,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "832981502d02e3c4030050570585a88bbdf3eb1ca20c74e0cf8d5a5abb96e660"
+  },
+  {
+    "key": "letter_b",
+    "path": "ankiPro/assets/letter_b.xic",
+    "rawPath": "ankiPro/raw/letter_b.png",
+    "rawMime": "image/png",
+    "width": 47,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "f8e0d2fc447565b64d26c090055ba90ad59d7284142e797150abeacb215a393c"
+  },
+  {
+    "key": "letter_c",
+    "path": "ankiPro/assets/letter_c.xic",
+    "rawPath": "ankiPro/raw/letter_c.png",
+    "rawMime": "image/png",
+    "width": 42,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "1f727ed3cf3765b2b9f67d539fe0172c0d38fc3e4a09eadd10ae212dee62fcba"
+  },
+  {
+    "key": "letter_d",
+    "path": "ankiPro/assets/letter_d.xic",
+    "rawPath": "ankiPro/raw/letter_d.png",
+    "rawMime": "image/png",
+    "width": 46,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "6cdccbebebad25c66fd62678738d6a810a77045c11c9c365e68c34a4b0271c10"
+  },
+  {
+    "key": "letter_e",
+    "path": "ankiPro/assets/letter_e.xic",
+    "rawPath": "ankiPro/raw/letter_e.png",
+    "rawMime": "image/png",
+    "width": 42,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "e19e68292ac746bc909c163bf22096e05642f94847adbe00c968ef60bc5f9f6e"
+  },
+  {
+    "key": "letter_f",
+    "path": "ankiPro/assets/letter_f.xic",
+    "rawPath": "ankiPro/raw/letter_f.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "dabc4ba3e8d2ffe535bb8f5a75e44020cc4766a63007b88dc0bb5dea586e081a"
+  },
+  {
+    "key": "letter_g",
+    "path": "ankiPro/assets/letter_g.xic",
+    "rawPath": "ankiPro/raw/letter_g.png",
+    "rawMime": "image/png",
+    "width": 43,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "a918fe5bed33150d9e7c3b7ee7a299b2699776c12827d34bc8b69849ec195941"
+  },
+  {
+    "key": "letter_h",
+    "path": "ankiPro/assets/letter_h.xic",
+    "rawPath": "ankiPro/raw/letter_h.png",
+    "rawMime": "image/png",
+    "width": 48,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "fcd8c92be40e82149814bb27f0c774a8f46c3997c55f687eb0d1b3a952f01152"
+  },
+  {
+    "key": "letter_i",
+    "path": "ankiPro/assets/letter_i.xic",
+    "rawPath": "ankiPro/raw/letter_i.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "733a5e7a3abdf2f75400624ffbf7f37c2b9cc761b61c06d3473ddaeb7c14ce7a"
+  },
+  {
+    "key": "letter_j",
+    "path": "ankiPro/assets/letter_j.xic",
+    "rawPath": "ankiPro/raw/letter_j.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "0a60018f4878f3cb9065438100d838c85ebcb68198c237c78a22daacbf3ab176"
+  },
+  {
+    "key": "letter_k",
+    "path": "ankiPro/assets/letter_k.xic",
+    "rawPath": "ankiPro/raw/letter_k.png",
+    "rawMime": "image/png",
+    "width": 45,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "f0f7a078baa9c87c3fd7b0e7ccfcf49b3183f4635d978d38bc3e7f7a594a5944"
+  },
+  {
+    "key": "letter_l",
+    "path": "ankiPro/assets/letter_l.xic",
+    "rawPath": "ankiPro/raw/letter_l.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "855b9ef12b3d6e083213e697bf5027b314b63be2e2f91344b7d1c42b52f15a20"
+  },
+  {
+    "key": "letter_m",
+    "path": "ankiPro/assets/letter_m.xic",
+    "rawPath": "ankiPro/raw/letter_m.png",
+    "rawMime": "image/png",
+    "width": 68,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "6754155e4b463ef013c8f1f364ab4eeca228d937039e93c06fe76aef0ca3daec"
+  },
+  {
+    "key": "letter_n",
+    "path": "ankiPro/assets/letter_n.xic",
+    "rawPath": "ankiPro/raw/letter_n.png",
+    "rawMime": "image/png",
+    "width": 48,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "38c931004e28a74c8edee0ae4a192d687e6f2edfa62caca2d911b6c9ab880728"
+  },
+  {
+    "key": "letter_o",
+    "path": "ankiPro/assets/letter_o.xic",
+    "rawPath": "ankiPro/raw/letter_o.png",
+    "rawMime": "image/png",
+    "width": 48,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d22dbe1bdf0db6a3976d544e2a916c845d36318bda84cd0b5ac10c2ef715b505"
+  },
+  {
+    "key": "letter_p",
+    "path": "ankiPro/assets/letter_p.xic",
+    "rawPath": "ankiPro/raw/letter_p.png",
+    "rawMime": "image/png",
+    "width": 47,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "06ed89328c7df9f1c810ada33518c71fbb37bfea0316b2bed759844f1a2e29d8"
+  },
+  {
+    "key": "letter_q",
+    "path": "ankiPro/assets/letter_q.xic",
+    "rawPath": "ankiPro/raw/letter_q.png",
+    "rawMime": "image/png",
+    "width": 46,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "7d7367dd36eb48937a843cfe00a8c9239be6d2ea244fef463424451472d91673"
+  },
+  {
+    "key": "letter_r",
+    "path": "ankiPro/assets/letter_r.xic",
+    "rawPath": "ankiPro/raw/letter_r.png",
+    "rawMime": "image/png",
+    "width": 35,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "8095073b4ab967c45d68b9035f073bbaad0db13770fc357a8a71c254e50c6ec1"
+  },
+  {
+    "key": "letter_s",
+    "path": "ankiPro/assets/letter_s.xic",
+    "rawPath": "ankiPro/raw/letter_s.png",
+    "rawMime": "image/png",
+    "width": 35,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "9a00831da58115c065affc5af997b35259151def1e8915f64cb6537eda977032"
+  },
+  {
+    "key": "letter_t",
+    "path": "ankiPro/assets/letter_t.xic",
+    "rawPath": "ankiPro/raw/letter_t.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "ba8c11f1ec69e638a34c6bafab4fc29bf658d1a62e814c0bc10d5322bbd70830"
+  },
+  {
+    "key": "letter_u",
+    "path": "ankiPro/assets/letter_u.xic",
+    "rawPath": "ankiPro/raw/letter_u.png",
+    "rawMime": "image/png",
+    "width": 48,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "166dc5406a43eb27abbab79abf628a7886eb53e39107e05f7905fead28486f7c"
+  },
+  {
+    "key": "letter_v",
+    "path": "ankiPro/assets/letter_v.xic",
+    "rawPath": "ankiPro/raw/letter_v.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "5d36abc17527e856347b6fbba3e7c97cef1b410877745bdc0d6de5538857011d"
+  },
+  {
+    "key": "letter_w",
+    "path": "ankiPro/assets/letter_w.xic",
+    "rawPath": "ankiPro/raw/letter_w.png",
+    "rawMime": "image/png",
+    "width": 64,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "596dbf34a78a1cd62a0477de9a9f91f46c13e2313445545d83c92563f6d02249"
+  },
+  {
+    "key": "letter_x",
+    "path": "ankiPro/assets/letter_x.xic",
+    "rawPath": "ankiPro/raw/letter_x.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "fe57ff48b201e95f5307e5864c28ce4c22d8abee43f4d731aa49c0d394d59e92"
+  },
+  {
+    "key": "letter_y",
+    "path": "ankiPro/assets/letter_y.xic",
+    "rawPath": "ankiPro/raw/letter_y.png",
+    "rawMime": "image/png",
+    "width": 46,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "4a340ecf0e851c6d422f20438c71fa1c13c0fecbb54c2fec207f474ba898b268"
+  },
+  {
+    "key": "letter_z",
+    "path": "ankiPro/assets/letter_z.xic",
+    "rawPath": "ankiPro/raw/letter_z.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "b5af404e53f138fdfb8a64b5268da29367f27577b4600d0e79c39d0356e04027"
+  },
+  {
+    "key": "letter_compact_a",
+    "path": "ankiPro/assets/letter_compact_a.xic",
+    "rawPath": "ankiPro/raw/letter_compact_a.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "41ce1f4e22feefef37159810ebd3721b1629f1fdc58bbe81fed4cf31be6563b3"
+  },
+  {
+    "key": "letter_compact_b",
+    "path": "ankiPro/assets/letter_compact_b.xic",
+    "rawPath": "ankiPro/raw/letter_compact_b.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "2c1b59e87e2d30c24ff0eae2bcc2ee2f3c6dcc7c65db28422dd165c462144358"
+  },
+  {
+    "key": "letter_compact_c",
+    "path": "ankiPro/assets/letter_compact_c.xic",
+    "rawPath": "ankiPro/raw/letter_compact_c.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "f76d1180ae2736a2e7ada55428bbe07db78e47d51fd1b7636c9f9576e85cddbf"
+  },
+  {
+    "key": "letter_compact_d",
+    "path": "ankiPro/assets/letter_compact_d.xic",
+    "rawPath": "ankiPro/raw/letter_compact_d.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "3c94f9e813fe55cd045822d865cde34aad97951c8bd1344b0720513530500389"
+  },
+  {
+    "key": "letter_compact_e",
+    "path": "ankiPro/assets/letter_compact_e.xic",
+    "rawPath": "ankiPro/raw/letter_compact_e.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "4c4e512929218b7f4ac361e0ab5dbd699caf25e09d516322ac1df785fea0f721"
+  },
+  {
+    "key": "letter_compact_f",
+    "path": "ankiPro/assets/letter_compact_f.xic",
+    "rawPath": "ankiPro/raw/letter_compact_f.png",
+    "rawMime": "image/png",
+    "width": 21,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "041c155ce0b66fb08276d2b03485982035ef9908597ee891ef58e1a9115028f3"
+  },
+  {
+    "key": "letter_compact_g",
+    "path": "ankiPro/assets/letter_compact_g.xic",
+    "rawPath": "ankiPro/raw/letter_compact_g.png",
+    "rawMime": "image/png",
+    "width": 28,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "e4193f1c1c679c6f3bb5650125a3e20295055fe18cee2199e2a3aa328a7099a7"
+  },
+  {
+    "key": "letter_compact_h",
+    "path": "ankiPro/assets/letter_compact_h.xic",
+    "rawPath": "ankiPro/raw/letter_compact_h.png",
+    "rawMime": "image/png",
+    "width": 32,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "21c266e6d82459984c3146da278ad144eab049eb0015f15307757f4017262107"
+  },
+  {
+    "key": "letter_compact_i",
+    "path": "ankiPro/assets/letter_compact_i.xic",
+    "rawPath": "ankiPro/raw/letter_compact_i.png",
+    "rawMime": "image/png",
+    "width": 19,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "5896b64d6ac34c890b0d7b33bbbce0d938be91dcf96a3534cba2ee945819ca04"
+  },
+  {
+    "key": "letter_compact_j",
+    "path": "ankiPro/assets/letter_compact_j.xic",
+    "rawPath": "ankiPro/raw/letter_compact_j.png",
+    "rawMime": "image/png",
+    "width": 21,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "0e8813b4c77bafbfaeeb070ca20dc9ce0a3a4ff26182bea47060fcc1bf1ecb52"
+  },
+  {
+    "key": "letter_compact_k",
+    "path": "ankiPro/assets/letter_compact_k.xic",
+    "rawPath": "ankiPro/raw/letter_compact_k.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "e0fd58339a1f16177fee23329d341cb03e8337d84456f8a1a5ac051101f073c9"
+  },
+  {
+    "key": "letter_compact_l",
+    "path": "ankiPro/assets/letter_compact_l.xic",
+    "rawPath": "ankiPro/raw/letter_compact_l.png",
+    "rawMime": "image/png",
+    "width": 19,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "f18e65f3aa3a89cf418d164e7e4417ba9f513711cbe60f2daa784f8a800a0fd4"
+  },
+  {
+    "key": "letter_compact_m",
+    "path": "ankiPro/assets/letter_compact_m.xic",
+    "rawPath": "ankiPro/raw/letter_compact_m.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "4ba71c352b5647e8f60411e08880714dd3968bbc34b474bb09db66fa66c72918"
+  },
+  {
+    "key": "letter_compact_n",
+    "path": "ankiPro/assets/letter_compact_n.xic",
+    "rawPath": "ankiPro/raw/letter_compact_n.png",
+    "rawMime": "image/png",
+    "width": 32,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "5754d6618c6d43615556a33f69311010d0a2f2bc621eb0fac8e876c40a80125c"
+  },
+  {
+    "key": "letter_compact_o",
+    "path": "ankiPro/assets/letter_compact_o.xic",
+    "rawPath": "ankiPro/raw/letter_compact_o.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "acd5ae29e6478a062572a0ecd904964267758c3ccb6c8ee190b7ffabe48d2dbf"
+  },
+  {
+    "key": "letter_compact_p",
+    "path": "ankiPro/assets/letter_compact_p.xic",
+    "rawPath": "ankiPro/raw/letter_compact_p.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "d43a96a924948641566b1c611d4a7f19657d86a296d81ecadf00cffc10354e47"
+  },
+  {
+    "key": "letter_compact_q",
+    "path": "ankiPro/assets/letter_compact_q.xic",
+    "rawPath": "ankiPro/raw/letter_compact_q.png",
+    "rawMime": "image/png",
+    "width": 31,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "3798b735ac0344412846d9704ba0e6dd800c2b628d9d4ead66634f0b13d60d62"
+  },
+  {
+    "key": "letter_compact_r",
+    "path": "ankiPro/assets/letter_compact_r.xic",
+    "rawPath": "ankiPro/raw/letter_compact_r.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "64907e0eb5fc8836ce51136c7267102474fde83766edcaacfdeaf17a2e606aa9"
+  },
+  {
+    "key": "letter_compact_s",
+    "path": "ankiPro/assets/letter_compact_s.xic",
+    "rawPath": "ankiPro/raw/letter_compact_s.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "a66d63827f948defcd9ec52e6927769f96abff6363f0f633c1a8f9cf0b276252"
+  },
+  {
+    "key": "letter_compact_t",
+    "path": "ankiPro/assets/letter_compact_t.xic",
+    "rawPath": "ankiPro/raw/letter_compact_t.png",
+    "rawMime": "image/png",
+    "width": 20,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "34fde0d5a11be7733c8aee132ae3020202c00eff5c71486d6d52994d9b6c3a1d"
+  },
+  {
+    "key": "letter_compact_u",
+    "path": "ankiPro/assets/letter_compact_u.xic",
+    "rawPath": "ankiPro/raw/letter_compact_u.png",
+    "rawMime": "image/png",
+    "width": 32,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "a833dbe985e97301bb5a29b8cc5bc37dddff95744eca7d7cdd006335ec67799c"
+  },
+  {
+    "key": "letter_compact_v",
+    "path": "ankiPro/assets/letter_compact_v.xic",
+    "rawPath": "ankiPro/raw/letter_compact_v.png",
+    "rawMime": "image/png",
+    "width": 29,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "ba78598a6a19d5e0d8356de50f8791ad0fa0bdff55731ca8c5ba3d9fe1578b9b"
+  },
+  {
+    "key": "letter_compact_w",
+    "path": "ankiPro/assets/letter_compact_w.xic",
+    "rawPath": "ankiPro/raw/letter_compact_w.png",
+    "rawMime": "image/png",
+    "width": 42,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "72a5070c2c7577ba975c931a60b147cbdf6855c80b3904fb25ece47fc751b196"
+  },
+  {
+    "key": "letter_compact_x",
+    "path": "ankiPro/assets/letter_compact_x.xic",
+    "rawPath": "ankiPro/raw/letter_compact_x.png",
+    "rawMime": "image/png",
+    "width": 29,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "98c10c920a551850f8bf59bc65fb66952d90c197565d70bfdfb9cf1ec1f8c67f"
+  },
+  {
+    "key": "letter_compact_y",
+    "path": "ankiPro/assets/letter_compact_y.xic",
+    "rawPath": "ankiPro/raw/letter_compact_y.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "836826d9384329e962ea3fc6e41f994d481dd352d234fe632b6facd36a106fc6"
+  },
+  {
+    "key": "letter_compact_z",
+    "path": "ankiPro/assets/letter_compact_z.xic",
+    "rawPath": "ankiPro/raw/letter_compact_z.png",
+    "rawMime": "image/png",
+    "width": 25,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "935979193745b28bb080c35cecde2f5eee90e9d1ca9b050a3105e11aa3e69c51"
+  },
+  {
+    "key": "ui_btn_start",
+    "path": "ankiPro/assets/ui_btn_start.xic",
+    "rawPath": "ankiPro/raw/ui_btn_start.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "e8346e90dd307c2e617aea51106a16977d78e1e8ad4c7c9dc13763d2f197aac2"
+  },
+  {
+    "key": "ui_btn_summary",
+    "path": "ankiPro/assets/ui_btn_summary.xic",
+    "rawPath": "ankiPro/raw/ui_btn_summary.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "766ce239bc7dfb97f8fcc67055e270a7e2431555cca0a76f2630ff05fe036bd8"
+  },
+  {
+    "key": "ui_btn_continue",
+    "path": "ankiPro/assets/ui_btn_continue.xic",
+    "rawPath": "ankiPro/raw/ui_btn_continue.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "3fe3e39ae92b210664ef534e4ebf1549909606d666e11f68e7369922fad5206d"
+  },
+  {
+    "key": "ui_btn_reveal",
+    "path": "ankiPro/assets/ui_btn_reveal.xic",
+    "rawPath": "ankiPro/raw/ui_btn_reveal.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "ea0012a7bc2c3ef0f7cf5ad2ef7efba626939ddc5c3d3b1f799c749a990f7f79"
+  },
+  {
+    "key": "ui_btn_library",
+    "path": "ankiPro/assets/ui_btn_library.xic",
+    "rawPath": "ankiPro/raw/ui_btn_library.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "850be95f247b80e47aac60f0f3814ff9869586b0492b2f647a62f36d160f1def"
+  },
+  {
+    "key": "ui_btn_home",
+    "path": "ankiPro/assets/ui_btn_home.xic",
+    "rawPath": "ankiPro/raw/ui_btn_home.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "824678ae48d721951b2a029515da1838f668e7da488778f61fa50520ac253572"
+  },
+  {
+    "key": "ui_btn_again",
+    "path": "ankiPro/assets/ui_btn_again.xic",
+    "rawPath": "ankiPro/raw/ui_btn_again.png",
+    "rawMime": "image/png",
+    "width": 132,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "3969a32b0155e09526b3b8ac3dcfd9629e5a90cef2bf881b25ecc55ead557cec"
+  },
+  {
+    "key": "ui_btn_known",
+    "path": "ankiPro/assets/ui_btn_known.xic",
+    "rawPath": "ankiPro/raw/ui_btn_known.png",
+    "rawMime": "image/png",
+    "width": 132,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "a11c5be4e1e9ab1ec57d8c0aeeb66db81e3dd928ba02dfcbfe5f2c16d08f68dc"
+  },
+  {
+    "key": "ui_btn_hard",
+    "path": "ankiPro/assets/ui_btn_hard.xic",
+    "rawPath": "ankiPro/raw/ui_btn_hard.png",
+    "rawMime": "image/png",
+    "width": 132,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "3799d027d5e4c52a2a5d69f33d8f929b062f9a9f0c345b30cc425d45112e93ad"
+  },
+  {
+    "key": "ui_btn_progress",
+    "path": "ankiPro/assets/ui_btn_progress.xic",
+    "rawPath": "ankiPro/raw/ui_btn_progress.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "437d816e2100858278ddbc5bbc06d183eda76584e0d15a85ce6745e09f6e62b9"
+  },
+  {
+    "key": "ui_btn_settings",
+    "path": "ankiPro/assets/ui_btn_settings.xic",
+    "rawPath": "ankiPro/raw/ui_btn_settings.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "81054be6ad7dae37057e23d2b3bd9a770792731440b573019bc6e482804efc2d"
+  },
+  {
+    "key": "ui_btn_favorites",
+    "path": "ankiPro/assets/ui_btn_favorites.xic",
+    "rawPath": "ankiPro/raw/ui_btn_favorites.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 62,
+    "bpp": 1,
+    "contentHash": "e415d3c1b3a6f9454f3410cfe77ad8630f1698aa1e6a63ee42deae7988847797"
+  },
+  {
+    "key": "ui_btn_reset",
+    "path": "ankiPro/assets/ui_btn_reset.xic",
+    "rawPath": "ankiPro/raw/ui_btn_reset.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "5845bc6e33c8996fb00369b04ef2e1f679b584f30025b7d684d7203ad4e9ce25"
+  },
+  {
+    "key": "ui_btn_cancel",
+    "path": "ankiPro/assets/ui_btn_cancel.xic",
+    "rawPath": "ankiPro/raw/ui_btn_cancel.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "db97cfbbe5456acbd951f3da2883959e6f1e104b529861b9e7fce5459d3f05eb"
+  },
+  {
+    "key": "ui_btn_start_ls",
+    "path": "ankiPro/assets/ui_btn_start_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_start_ls.png",
+    "rawMime": "image/png",
+    "width": 258,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "5461f7d1f4cca2caf739b59894b933f41a2aaf613150d3cae14222c02ba53330"
+  },
+  {
+    "key": "ui_btn_continue_ls",
+    "path": "ankiPro/assets/ui_btn_continue_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_continue_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 68,
+    "bpp": 1,
+    "contentHash": "0c02b2f61be4f816c4c4798488a410d254fb71dec74f6909de957991096c288b"
+  },
+  {
+    "key": "ui_btn_reveal_ls",
+    "path": "ankiPro/assets/ui_btn_reveal_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_reveal_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "1b05639f28758aec4d8431bc534944255e508f0fced84cd13adba3a2af73826e"
+  },
+  {
+    "key": "ui_btn_library_ls",
+    "path": "ankiPro/assets/ui_btn_library_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_library_ls.png",
+    "rawMime": "image/png",
+    "width": 258,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "69bd63aaaf042bf4200307ae9eb00016528c0da0b561ac1a80ed5632fdf64e29"
+  },
+  {
+    "key": "ui_btn_library_wide",
+    "path": "ankiPro/assets/ui_btn_library_wide.xic",
+    "rawPath": "ankiPro/raw/ui_btn_library_wide.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "8df8377e32e06b0525d9eabe78afc20b00dd9706eeb70a7bfae83a9de228328b"
+  },
+  {
+    "key": "ui_btn_home_ls",
+    "path": "ankiPro/assets/ui_btn_home_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_home_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "4feffd4332284c603ba352606f64c2afd8c1d8abd7ec5351ec09331a6177d881"
+  },
+  {
+    "key": "ui_btn_again_ls",
+    "path": "ankiPro/assets/ui_btn_again_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_again_ls.png",
+    "rawMime": "image/png",
+    "width": 232,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "db2d426eafde840e204e950cb3b64ae3f8a8fe935273e1a672c4225091bbe59a"
+  },
+  {
+    "key": "ui_btn_known_ls",
+    "path": "ankiPro/assets/ui_btn_known_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_known_ls.png",
+    "rawMime": "image/png",
+    "width": 232,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "88fd5b038dad810221d5eea2429d65b3a6f86ac728f8e012a18e4083e4ad8815"
+  },
+  {
+    "key": "ui_btn_hard_ls",
+    "path": "ankiPro/assets/ui_btn_hard_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_hard_ls.png",
+    "rawMime": "image/png",
+    "width": 232,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "d9cc61803679abda26e514544f3202016d09800b6ff78ace64ad703761fcc706"
+  },
+  {
+    "key": "ui_btn_progress_ls",
+    "path": "ankiPro/assets/ui_btn_progress_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_progress_ls.png",
+    "rawMime": "image/png",
+    "width": 125,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "b71f045c70a4687d99eb9a1c7b68a79be1d8e99ead0052ec989ffe26f067db4b"
+  },
+  {
+    "key": "ui_btn_settings_ls",
+    "path": "ankiPro/assets/ui_btn_settings_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_settings_ls.png",
+    "rawMime": "image/png",
+    "width": 125,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "3497fbf6f9d6ec7a3ce2cb11f2f7661a7d603c58801409c1064dd2423dc4afe0"
+  },
+  {
+    "key": "ui_btn_favorites_ls",
+    "path": "ankiPro/assets/ui_btn_favorites_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_favorites_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 62,
+    "bpp": 1,
+    "contentHash": "209a582503a844b0b649cf625a0a1b7a2370305e31ad6ddd8ba73d48ac14e544"
+  },
+  {
+    "key": "ui_btn_reset_ls",
+    "path": "ankiPro/assets/ui_btn_reset_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_reset_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "8a039d6dc7aafeaae180faaff0f1ce9866e8aa22ec39352f710cdd64c4d7c2c3"
+  },
+  {
+    "key": "ui_btn_cancel_ls",
+    "path": "ankiPro/assets/ui_btn_cancel_ls.xic",
+    "rawPath": "ankiPro/raw/ui_btn_cancel_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "993589c2f55a422a030793f4a9abf7579cab08356131a95511ab20c3c0a996b6"
+  },
+  {
+    "key": "ui_home_library",
+    "path": "ankiPro/assets/ui_home_library.xic",
+    "rawPath": "ankiPro/raw/ui_home_library.png",
+    "rawMime": "image/png",
+    "width": 133,
+    "height": 88,
+    "bpp": 1,
+    "contentHash": "7c2de5d53c8bc53e710a948d0ebe641b3f9c22f18d6f007904714e25a882ebf8"
+  },
+  {
+    "key": "ui_home_progress",
+    "path": "ankiPro/assets/ui_home_progress.xic",
+    "rawPath": "ankiPro/raw/ui_home_progress.png",
+    "rawMime": "image/png",
+    "width": 133,
+    "height": 88,
+    "bpp": 1,
+    "contentHash": "63a1df25548f4353950510d502f2bf5de6eb294da2bf9429a6fa75a9f91921cb"
+  },
+  {
+    "key": "ui_home_settings",
+    "path": "ankiPro/assets/ui_home_settings.xic",
+    "rawPath": "ankiPro/raw/ui_home_settings.png",
+    "rawMime": "image/png",
+    "width": 133,
+    "height": 88,
+    "bpp": 1,
+    "contentHash": "1bbe457fbc286c6424c41a11cbd2079e802b498f7602600cf462e15ca625a929"
+  },
+  {
+    "key": "ui_title_home",
+    "path": "ankiPro/assets/ui_title_home.xic",
+    "rawPath": "ankiPro/raw/ui_title_home.png",
+    "rawMime": "image/png",
+    "width": 180,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "acc6b1b26bd1496d300ff31cb2a4b299aa35b6da6a0a2010218852b9e51cce92"
+  },
+  {
+    "key": "ui_title_library",
+    "path": "ankiPro/assets/ui_title_library.xic",
+    "rawPath": "ankiPro/raw/ui_title_library.png",
+    "rawMime": "image/png",
+    "width": 132,
+    "height": 40,
+    "bpp": 1,
+    "contentHash": "d88ba11375bea96b69208f436d5450c71330bb3b497066190760d728a4bb3278"
+  },
+  {
+    "key": "ui_title_complete",
+    "path": "ankiPro/assets/ui_title_complete.xic",
+    "rawPath": "ankiPro/raw/ui_title_complete.png",
+    "rawMime": "image/png",
+    "width": 164,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "96b69e0c7e1f044ebcb74a2098e3311f7c569b3e5680a14a6ea1a3e6d5c0ec7a"
+  },
+  {
+    "key": "ui_title_caught_up",
+    "path": "ankiPro/assets/ui_title_caught_up.xic",
+    "rawPath": "ankiPro/raw/ui_title_caught_up.png",
+    "rawMime": "image/png",
+    "width": 164,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "b713e1697025c388dc53e5ffed28e7eb81b595d906ac251ac8b87d9305323236"
+  },
+  {
+    "key": "ui_title_settings",
+    "path": "ankiPro/assets/ui_title_settings.xic",
+    "rawPath": "ankiPro/raw/ui_title_settings.png",
+    "rawMime": "image/png",
+    "width": 164,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "e3c099dbcf19317633ff1d2144fddbb9931f192517b03600c7327cd7885eef97"
+  },
+  {
+    "key": "ui_title_progress",
+    "path": "ankiPro/assets/ui_title_progress.xic",
+    "rawPath": "ankiPro/raw/ui_title_progress.png",
+    "rawMime": "image/png",
+    "width": 164,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "47900b3e9da65af0c99248308351231add6e0ad8ffc48ad6665b017517767862"
+  },
+  {
+    "key": "ui_title_favorites",
+    "path": "ankiPro/assets/ui_title_favorites.xic",
+    "rawPath": "ankiPro/raw/ui_title_favorites.png",
+    "rawMime": "image/png",
+    "width": 164,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "8fc9cd62d3b68cd7a0629471bcfa2a6131fe02cd70833aa39b006033ff37bbc1"
+  },
+  {
+    "key": "ui_title_reset",
+    "path": "ankiPro/assets/ui_title_reset.xic",
+    "rawPath": "ankiPro/raw/ui_title_reset.png",
+    "rawMime": "image/png",
+    "width": 164,
+    "height": 44,
+    "bpp": 1,
+    "contentHash": "f680188cfce709daf21fb865c286ead2c3183ad25714f5938690a0d1be47d5d2"
+  },
+  {
+    "key": "ui_book_row",
+    "path": "ankiPro/assets/ui_book_row.xic",
+    "rawPath": "ankiPro/raw/ui_book_row.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "fa9e6b91cf0c485114160cb99cd16960d8db0c5305454f69930f3f8f80428549"
+  },
+  {
+    "key": "ui_book_row_current",
+    "path": "ankiPro/assets/ui_book_row_current.xic",
+    "rawPath": "ankiPro/raw/ui_book_row_current.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "38104d3b7b261bf4f68aa0ca93e832a57e1e90f0a5059f43139e68ca20814d55"
+  },
+  {
+    "key": "ui_book_row_ls",
+    "path": "ankiPro/assets/ui_book_row_ls.xic",
+    "rawPath": "ankiPro/raw/ui_book_row_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "3ef3d7b67274277ffcf7800056693076b6a9cf224260fa3d11aff3b2fafcc5be"
+  },
+  {
+    "key": "ui_book_row_current_ls",
+    "path": "ankiPro/assets/ui_book_row_current_ls.xic",
+    "rawPath": "ankiPro/raw/ui_book_row_current_ls.png",
+    "rawMime": "image/png",
+    "width": 716,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "8ba9ae7f481da6792a27b17ae98248df4ab9b924f915ef280d025af68c3eb4c3"
+  },
+  {
+    "key": "ui_setting_row",
+    "path": "ankiPro/assets/ui_setting_row.xic",
+    "rawPath": "ankiPro/raw/ui_setting_row.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "fa9e6b91cf0c485114160cb99cd16960d8db0c5305454f69930f3f8f80428549"
+  },
+  {
+    "key": "ui_setting_row_current",
+    "path": "ankiPro/assets/ui_setting_row_current.xic",
+    "rawPath": "ankiPro/raw/ui_setting_row_current.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "38104d3b7b261bf4f68aa0ca93e832a57e1e90f0a5059f43139e68ca20814d55"
+  },
+  {
+    "key": "ui_set_row_ls",
+    "path": "ankiPro/assets/ui_set_row_ls.xic",
+    "rawPath": "ankiPro/raw/ui_set_row_ls.png",
+    "rawMime": "image/png",
+    "width": 350,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "41f5dfd649f8e2ca26d7820e856f11ee394ef33b87d9bfb2318b3ef6137a4d19"
+  },
+  {
+    "key": "ui_set_row_current_ls",
+    "path": "ankiPro/assets/ui_set_row_current_ls.xic",
+    "rawPath": "ankiPro/raw/ui_set_row_current_ls.png",
+    "rawMime": "image/png",
+    "width": 350,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "1a0a0ee09313c3d1c9e2ce3a4e14d62564d186d41d607ce6a2a142e26bec26a6"
+  },
+  {
+    "key": "ui_home_deck",
+    "path": "ankiPro/assets/ui_home_deck.xic",
+    "rawPath": "ankiPro/raw/ui_home_deck.png",
+    "rawMime": "image/png",
+    "width": 416,
+    "height": 88,
+    "bpp": 1,
+    "contentHash": "535ae46df9375e798f23071fb166306f5a473c7710a0ebf8a48c3548a2f74780"
+  }
+]

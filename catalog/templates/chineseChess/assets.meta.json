@@ -1,0 +1,138 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "chineseChess/assets/app_icon_l.xic",
+    "width": 480,
+    "height": 480,
+    "bpp": 1,
+    "contentHash": "02bbed51316c8b8c4e55ab313e6fbb11527bdb2697cec4330818e7a4865cff16"
+  },
+  {
+    "key": "portrait_child",
+    "path": "chineseChess/assets/portrait_child.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "d2fca5d21c2ac3a441249dae77a4902d70f3bf183f33f9d3f6619124ef6934f1"
+  },
+  {
+    "key": "portrait_child_proud",
+    "path": "chineseChess/assets/portrait_child_proud.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "72bd0512f6ff8d6f314fdc576b09227178a0f1c134839463dbb09682f17a4717"
+  },
+  {
+    "key": "portrait_child_panicked",
+    "path": "chineseChess/assets/portrait_child_panicked.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "c3e8010ce5bf6dab2f30cd3ce3eaeecc2ecc4167852f989c06f77017c54929f8"
+  },
+  {
+    "key": "portrait_adult",
+    "path": "chineseChess/assets/portrait_adult.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "9c8d9ae8805ab905ac1bec140114a6ec123feb20e16c538f09ed6a23b1885387"
+  },
+  {
+    "key": "portrait_adult_proud",
+    "path": "chineseChess/assets/portrait_adult_proud.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "905457527617713d2c9e2ff44c0459ec28102dc1535093baaacd2204227b7357"
+  },
+  {
+    "key": "portrait_adult_panicked",
+    "path": "chineseChess/assets/portrait_adult_panicked.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "bfb88634abf824a4ee689c884fe127fa62a3aca35fe83ee4e17fc5ab41a8b532"
+  },
+  {
+    "key": "portrait_elder",
+    "path": "chineseChess/assets/portrait_elder.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "7c8323c47f548414bab704cb9d27bbbaeab315cd8c39afff7ab34fb11c0ba515"
+  },
+  {
+    "key": "portrait_elder_proud",
+    "path": "chineseChess/assets/portrait_elder_proud.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "f7c73175faac3a6fa7767d992c68f7086f14e9bc12730fead7f474f1b60bb5a3"
+  },
+  {
+    "key": "portrait_elder_panicked",
+    "path": "chineseChess/assets/portrait_elder_panicked.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "a0a6588aeea70779a2283749b62e4b4773f8f90e72c3542a00729e2611721c00"
+  },
+  {
+    "key": "piece_black_k",
+    "path": "chineseChess/assets/piece_black_k.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "4ecc482fca815263bb404580a2877db6b61c40487068b03454a6d3e0541dc16c"
+  },
+  {
+    "key": "piece_black_a",
+    "path": "chineseChess/assets/piece_black_a.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "b43ff006b0d078b8623403f863cb68ecb2ba539561e30d9bf6126fd6596faafb"
+  },
+  {
+    "key": "piece_black_b",
+    "path": "chineseChess/assets/piece_black_b.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "834e8a5d8631d003ac537798bd3ccd84f359112008540f0cdf3ea7befb5c5c60"
+  },
+  {
+    "key": "piece_black_n",
+    "path": "chineseChess/assets/piece_black_n.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "306ed6471c04de687e7f0602dde5f8876430d88353f4fdeea51ff3610ed06d6f"
+  },
+  {
+    "key": "piece_black_r",
+    "path": "chineseChess/assets/piece_black_r.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "a9947bf0470fdad06b75b7d8631aa3294ca0d7821f3f726fa9bad26b94bb5f77"
+  },
+  {
+    "key": "piece_black_c",
+    "path": "chineseChess/assets/piece_black_c.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "57cf74834d15d99086d45a165d7d87d496ed62ff01585c64a81e8499b0b1633f"
+  },
+  {
+    "key": "piece_black_p",
+    "path": "chineseChess/assets/piece_black_p.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "9f73c7c07c3dc176c7b11428c58ba0db6a554322b1689403f5ebb36f3e49871f"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "key": "bg_garden",
+    "path": "qingheJourney/assets/bg_garden.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "1b3a39d6a5fbaaba5d717f7bc22097ccbc27e05def84df325675062d018e8502"
+  },
+  {
+    "key": "bg_forbidden",
+    "path": "qingheJourney/assets/bg_forbidden.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "79505ca074ff1308ad56f8d055d5dda3b02997042c3a3f790a01853594a259cd"
+  },
+  {
+    "key": "bg_cloud_stream",
+    "path": "qingheJourney/assets/bg_cloud_stream.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "674459d05d49c06e80044493c8a94aca6f98035593b16db798a367d791bc9748"
+  },
+  {
+    "key": "bg_council",
+    "path": "qingheJourney/assets/bg_council.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "fa0ed84ac7b4fb5155495eab4c071d6f96439d117f841fe115b83636da15d159"
+  },
+  {
+    "key": "bg_vein",
+    "path": "qingheJourney/assets/bg_vein.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "4fcbab71ef5e22c97676b53b4886ab610fed638e6b0a13ce04a9fca772c0487f"
+  },
+  {
+    "key": "bg_pharmacy",
+    "path": "qingheJourney/assets/bg_pharmacy.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "51f0a89faac97e8f36dd8a0336f1f957052b81fa86ab37598b1aebd2bfc81ac5"
+  },
+  {
+    "key": "bg_array",
+    "path": "qingheJourney/assets/bg_array.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "8c6391a32fae55780c72cfc3dc391936116bc946f5bcc61492c86da4b22c10a3"
+  },
+  {
+    "key": "bg_cages",
+    "path": "qingheJourney/assets/bg_cages.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "f6e8caa1a9bb58baa268567384f0fd0a0f7ab14a45d43b94e7ef36bdcb03ca0d"
+  },
+  {
+    "key": "bg_archive",
+    "path": "qingheJourney/assets/bg_archive.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "a85e7993d58da40efbf2a9731c27522b8f55f89f3869fdd5816514c0fb4c5880"
+  },
+  {
+    "key": "bg_well",
+    "path": "qingheJourney/assets/bg_well.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "913fc4f3e60ce28fc8b97934fe8215ed0e7ac4b19b9efaac72e76de4744a4199"
+  },
+  {
+    "key": "bg_bell",
+    "path": "qingheJourney/assets/bg_bell.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "1bd786abc27086c58b992fdfde4abf8b2e676578952039e2abc846bfcb6109a4"
+  },
+  {
+    "key": "bg_medicine_hall",
+    "path": "qingheJourney/assets/bg_medicine_hall.xic",
+    "width": 448,
+    "height": 230,
+    "bpp": 1,
+    "contentHash": "72d381875b5b8e5d5e3766b2c9652a448fbed11ca284edc66040eb1edec9e966"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "qingheJourney/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "7217025e4c6c60e58ed6ceacd44a618fe0809de744b5d4b11fcb67f904c17e70"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "qingheJourney/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "7b47e83db87f27eb1a65aa6883a0a142d890cc30dfcfadd1a72be11374a521d8"
+  },
+  {
+    "key": "splash",
+    "path": "qingheJourney/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "dc678a9b09175aaac163f2a822e8156d357b314274368187841e3306112de87c"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "baguaFocus/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "e674c424a2eacf3416547e882877b0ddeafeb0244acd13e8e3878e9e24bded42"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "baguaFocus/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "1809bc1f7fca17ea067638e22547f1bf9da3b94dc3ddbfd9a3d451fe5df90776"
+  },
+  {
+    "key": "splash",
+    "path": "baguaFocus/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "990773870dedbf3944102ab4da5c8a4eeba70165bb1b4a91d17391eab586b64a"
+  }
+]

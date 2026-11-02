@@ -1,0 +1,41 @@
+[
+  {
+    "key": "icon_codex",
+    "path": "aiQuotaBoard/assets/icon_codex.xic",
+    "rawPath": "aiQuotaBoard/raw/icon_codex.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Iconify Logos: OpenAI 图标",
+    "sourceUrl": "https://api.iconify.design/logos:openai-icon.svg",
+    "process": "品牌 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "5ef4df307b614ad56c9c4380cd7b6768791137f9b11b29d8de57c221b7394f4c"
+  },
+  {
+    "key": "icon_deepseek",
+    "path": "aiQuotaBoard/assets/icon_deepseek.xic",
+    "rawPath": "aiQuotaBoard/raw/icon_deepseek.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Simple Icons: DeepSeek 图标",
+    "sourceUrl": "https://cdn.simpleicons.org/deepseek",
+    "process": "品牌 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "216836a5ff5b6f0404e1c7a211144462fdcc090636116fbfd9132fdc1c1196b3"
+  },
+  {
+    "key": "icon_claude",
+    "path": "aiQuotaBoard/assets/icon_claude.xic",
+    "rawPath": "aiQuotaBoard/raw/icon_claude.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Simple Icons: Anthropic 图标",
+    "sourceUrl": "https://cdn.simpleicons.org/anthropic",
+    "process": "品牌 SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 72,
+    "height": 72,
+    "bpp": 1,
+    "contentHash": "2b4d4248f19f27a32b31b5fec0060998378e743b7204819d09affdef3d725bdb"
+  }
+]

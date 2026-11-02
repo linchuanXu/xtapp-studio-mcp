@@ -1,0 +1,302 @@
+[
+  {
+    "key": "digit_s_0",
+    "path": "schulteGrid/assets/digit_s_0.xic",
+    "rawPath": "schulteGrid/raw/digit_s_0.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "125878b89cccada3c4f446642559fb0fb5aaaaa5cabf21a34027f23caa2e942e"
+  },
+  {
+    "key": "digit_s_1",
+    "path": "schulteGrid/assets/digit_s_1.xic",
+    "rawPath": "schulteGrid/raw/digit_s_1.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "5512ba8eb3cb2c269cb33d27c44fda0f963ea3b43b491c810236295813c66638"
+  },
+  {
+    "key": "digit_s_2",
+    "path": "schulteGrid/assets/digit_s_2.xic",
+    "rawPath": "schulteGrid/raw/digit_s_2.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "240fff0c509c26d618a71254f3c03dd558d68422ba69cb5feef6be87e352541a"
+  },
+  {
+    "key": "digit_s_3",
+    "path": "schulteGrid/assets/digit_s_3.xic",
+    "rawPath": "schulteGrid/raw/digit_s_3.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "7432591f43597b7dafdc6abb1c43e84e4c542efe081b39c3ea35a8a218617241"
+  },
+  {
+    "key": "digit_s_4",
+    "path": "schulteGrid/assets/digit_s_4.xic",
+    "rawPath": "schulteGrid/raw/digit_s_4.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "4c3d49f5ef3b31af96f250d9861a7ee4c500d310487ff1bd297b6964c76c89c2"
+  },
+  {
+    "key": "digit_s_5",
+    "path": "schulteGrid/assets/digit_s_5.xic",
+    "rawPath": "schulteGrid/raw/digit_s_5.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "377859eba8f47df3917089655ce598cb79e701ffd11d0daac48413622b60ef15"
+  },
+  {
+    "key": "digit_s_6",
+    "path": "schulteGrid/assets/digit_s_6.xic",
+    "rawPath": "schulteGrid/raw/digit_s_6.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "089a1e0e688ec9336a1403282ebf2b525e27eb0ed57e2a2c0874a7e97cb382ff"
+  },
+  {
+    "key": "digit_s_7",
+    "path": "schulteGrid/assets/digit_s_7.xic",
+    "rawPath": "schulteGrid/raw/digit_s_7.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "5348b107a0813b40a85710a639b8af4326e331b270cc4854d82775e06275abce"
+  },
+  {
+    "key": "digit_s_8",
+    "path": "schulteGrid/assets/digit_s_8.xic",
+    "rawPath": "schulteGrid/raw/digit_s_8.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "1a656a889bb3df6795039df036279e393bd2f89b643038f9e3346a2a6a8afa85"
+  },
+  {
+    "key": "digit_s_9",
+    "path": "schulteGrid/assets/digit_s_9.xic",
+    "rawPath": "schulteGrid/raw/digit_s_9.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 38,
+    "bpp": 1,
+    "contentHash": "22cd88919815ecb68abe0764ce0f42089376e3600b3245e723582f781bc6748c"
+  },
+  {
+    "key": "digit_m_0",
+    "path": "schulteGrid/assets/digit_m_0.xic",
+    "rawPath": "schulteGrid/raw/digit_m_0.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "8103b46108e88b03459c3cbffe413c4283089c4571271b0da5261492b5b7560a"
+  },
+  {
+    "key": "digit_m_1",
+    "path": "schulteGrid/assets/digit_m_1.xic",
+    "rawPath": "schulteGrid/raw/digit_m_1.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "954ddb583d94f4efccfcfae7121110054480adc3233dcc09b1b435b45d043b4b"
+  },
+  {
+    "key": "digit_m_2",
+    "path": "schulteGrid/assets/digit_m_2.xic",
+    "rawPath": "schulteGrid/raw/digit_m_2.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "e85d773fa3bc35e33e339d45407ac95779c321c8d22e9eda7114a363dc132503"
+  },
+  {
+    "key": "digit_m_3",
+    "path": "schulteGrid/assets/digit_m_3.xic",
+    "rawPath": "schulteGrid/raw/digit_m_3.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "07873e1c4b64a0e019abab594c6749e6471693c37b5734e3613594526d5523d8"
+  },
+  {
+    "key": "digit_m_4",
+    "path": "schulteGrid/assets/digit_m_4.xic",
+    "rawPath": "schulteGrid/raw/digit_m_4.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "af84b0f63a3f054e51c1cc1afa7391e446ed1386d1feb605046dc2febe4d8ab8"
+  },
+  {
+    "key": "digit_m_5",
+    "path": "schulteGrid/assets/digit_m_5.xic",
+    "rawPath": "schulteGrid/raw/digit_m_5.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "257c91d0bf2e2c797efc6911527af4184e4f086ece3903c4ba34cdbc35136804"
+  },
+  {
+    "key": "digit_m_6",
+    "path": "schulteGrid/assets/digit_m_6.xic",
+    "rawPath": "schulteGrid/raw/digit_m_6.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "2f9f828a3bfce6713414dce8f5a73d5e88451d6b7b650449a16abf5ca0e5253b"
+  },
+  {
+    "key": "digit_m_7",
+    "path": "schulteGrid/assets/digit_m_7.xic",
+    "rawPath": "schulteGrid/raw/digit_m_7.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "2cb3c56e778c41963b7f050aa672b28a34dcfffecabc4552929c4b12b15d42bd"
+  },
+  {
+    "key": "digit_m_8",
+    "path": "schulteGrid/assets/digit_m_8.xic",
+    "rawPath": "schulteGrid/raw/digit_m_8.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "261beb427428f98c2951022cd2f076ef4c2c1f9218a6402abdd7be450ba656b4"
+  },
+  {
+    "key": "digit_m_9",
+    "path": "schulteGrid/assets/digit_m_9.xic",
+    "rawPath": "schulteGrid/raw/digit_m_9.png",
+    "rawMime": "image/png",
+    "width": 34,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "81e314b2a7c51bc6193f0af5348aa51fd03a66720eae7bd97d86ada53ed44fc0"
+  },
+  {
+    "key": "digit_l_0",
+    "path": "schulteGrid/assets/digit_l_0.xic",
+    "rawPath": "schulteGrid/raw/digit_l_0.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "d72bf33473eb07274125acfaacf652959c0e2912946bac6a74f279d6218cd40b"
+  },
+  {
+    "key": "digit_l_1",
+    "path": "schulteGrid/assets/digit_l_1.xic",
+    "rawPath": "schulteGrid/raw/digit_l_1.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "21b686876766cc8042b633286840bbe4d4a3c6c654848721ec4443078b4603d5"
+  },
+  {
+    "key": "digit_l_2",
+    "path": "schulteGrid/assets/digit_l_2.xic",
+    "rawPath": "schulteGrid/raw/digit_l_2.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "a86bc21e16b0af6d659a0e83e8b6b841a8377b9bf566c47bb9a0afcb7a782ae2"
+  },
+  {
+    "key": "digit_l_3",
+    "path": "schulteGrid/assets/digit_l_3.xic",
+    "rawPath": "schulteGrid/raw/digit_l_3.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "1fe914d92df2cadc577b1bd70fd526a6168f196adfe8da5d725563a594c603a3"
+  },
+  {
+    "key": "digit_l_4",
+    "path": "schulteGrid/assets/digit_l_4.xic",
+    "rawPath": "schulteGrid/raw/digit_l_4.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "933ddb2bf4b5be49d0398a7b76711219daa65246fcadd78edf33b1d61a9ae85a"
+  },
+  {
+    "key": "digit_l_5",
+    "path": "schulteGrid/assets/digit_l_5.xic",
+    "rawPath": "schulteGrid/raw/digit_l_5.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "edc801617f6ad676e8af4cf70424523c468fa454949af902b5388acb281a6d33"
+  },
+  {
+    "key": "digit_l_6",
+    "path": "schulteGrid/assets/digit_l_6.xic",
+    "rawPath": "schulteGrid/raw/digit_l_6.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "e38a3c812d8581d60091aa2d0eb6a6ee0c3a32dbe054921b44d4259c7ef57567"
+  },
+  {
+    "key": "digit_l_7",
+    "path": "schulteGrid/assets/digit_l_7.xic",
+    "rawPath": "schulteGrid/raw/digit_l_7.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "dc5c44b3d91647f6660ab9225cdc2ed051400aef59f50195da1b7f14e39f8335"
+  },
+  {
+    "key": "digit_l_8",
+    "path": "schulteGrid/assets/digit_l_8.xic",
+    "rawPath": "schulteGrid/raw/digit_l_8.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "adc5f335adf0c796c58ae51d56388727cba0379d1a7419dbf52168fedcf96a85"
+  },
+  {
+    "key": "digit_l_9",
+    "path": "schulteGrid/assets/digit_l_9.xic",
+    "rawPath": "schulteGrid/raw/digit_l_9.png",
+    "rawMime": "image/png",
+    "width": 50,
+    "height": 74,
+    "bpp": 1,
+    "contentHash": "6e08cf3260728600efe5c0cb9d0881b07261a4dbfe7313490e9dae86c13380b1"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "key": "home_background",
+    "path": "laiBeiHaoGua/assets/home_background.xic",
+    "rawPath": "laiBeiHaoGua/raw/home_background.png",
+    "rawMime": "image/png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "bf53a73208734e64cab172b90aa51a4725a9265ec69edf0c0c0d004e0726f232"
+  },
+  {
+    "key": "input_header",
+    "path": "laiBeiHaoGua/assets/input_header.xic",
+    "rawPath": "laiBeiHaoGua/raw/input_header.png",
+    "rawMime": "image/png",
+    "width": 480,
+    "height": 300,
+    "bpp": 1,
+    "contentHash": "3fe1bc190a100dd9bc087481ed6c3b512ef03e41869f6d1d517c5a7f8bd8569c"
+  }
+]

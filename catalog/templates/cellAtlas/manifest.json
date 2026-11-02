@@ -1,0 +1,23 @@
+{
+  "app_id": "cell_atlas-19d6b3e8",
+  "display_name": "细胞图鉴",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Studio",
+  "description": "十二幅高中细胞结构图：当场作图，点部位就加粗并写出用途。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [],
+  "data_files": [
+    {
+      "name": "figures.tsv",
+      "format": "tsv",
+      "max_bytes": 16384
+    }
+  ]
+}

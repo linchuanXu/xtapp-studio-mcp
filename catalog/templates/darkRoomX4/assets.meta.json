@@ -1,0 +1,26 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "darkRoomX4/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "e49bcf894afdba0de12332fd0de971009af5cd59ddfc210665e3e50cc305a5c2"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "darkRoomX4/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "163f65123e8b613430f73aac3a6032bb87590835f779081bb0eb7fb65bdc986b"
+  },
+  {
+    "key": "splash",
+    "path": "darkRoomX4/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "35c70f69a4da7b28b3e15e74a5ab5960322cd89c344eec9268cc7b5d5595997f"
+  }
+]

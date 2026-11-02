@@ -1,0 +1,217 @@
+{
+  "sourceCanvas": { "width": 360, "height": 600 },
+  "targetCanvas": { "width": 480, "height": 800 },
+  "scale": {
+    "numerator": 4,
+    "denominator": 3,
+    "rounding": "floor(value * 4 / 3 + 0.5), independently for x, y, w, and h"
+  },
+  "provenance": [
+    {
+      "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/gamestory.xml",
+      "sha256": "a2f8c7dff0c43b9808ecf225b66f639e460b9859cf54f565563e5d668569c066",
+      "constraints": {
+        "text": { "w": 300, "marginTop": 50, "centerHorizontal": true, "lineSpacingExtra": 10 },
+        "continue": { "w": 75, "h": 38, "marginTop": 170, "marginRight": 40 },
+        "start": { "w": 200, "h": 38, "marginTop": 170, "centerHorizontal": true }
+      }
+    },
+    {
+      "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/help.xml",
+      "sha256": "25b333ee5b4e29a267ed54585b4778353a8f38f8bf2cc23b0371ed65bcb585d1",
+      "constraints": {
+        "leave": { "w": 100, "h": 45, "marginLeft": 8, "alignParentBottom": true },
+        "next": { "w": 100, "h": 45, "marginRight": 8, "alignParentBottom": true },
+        "maskHead": { "h": 45, "alignParentTop": true },
+        "teachingTextWidth": 300
+      }
+    },
+    {
+      "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/houseseller.xml",
+      "sha256": "bb14b43d1a2ecb5a2ba7c327fd0061392ad14d8d79fcce08c4410f8b5cfe8c8c",
+      "constraints": {
+        "head": { "h": 200 },
+        "title": { "marginTop": 10, "centerHorizontal": true },
+        "money": { "marginLeft": 10, "marginTop": 8, "below": "title" },
+        "buy": { "w": 50, "h": 29, "marginLeft": 50, "marginBottom": 12 },
+        "leave": { "w": 50, "h": 29, "marginRight": 50, "marginBottom": 12 }
+      }
+    },
+    {
+      "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/listitem_houseseller.xml",
+      "sha256": "8e2d6b1dc7a4998a8caa78dab0fa80bd2d8b9b91810771c4d3e446a9d4a0b2ca",
+      "constraints": {
+        "row": { "h": 163 },
+        "image": { "w": 190, "h": 159, "marginLeft": 4, "marginTop": 2 },
+        "name": { "w": 122, "marginLeft": 4, "marginTop": 10 },
+        "selection": { "w": 122, "h": 40, "marginLeft": 4, "fit": "fitXY" },
+        "description": { "marginTop": 10, "below": "price" }
+      }
+    },
+    {
+      "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/record.xml",
+      "sha256": "4e086cfe5a930eac85fece0e500de13d6b4fa0e41b0d4cd30201da1047f3ce5f",
+      "constraints": {
+        "head": { "h": 200 },
+        "title": { "marginTop": 10, "centerHorizontal": true },
+        "columns": { "weights": [5, 5, 3], "marginTop": 8, "below": "title" },
+        "leave": { "w": 50, "h": 29, "marginBottom": 12, "centerHorizontal": true }
+      }
+    },
+    {
+      "sourcePath": "decompiled/com.zf.dsmfj/resources/res/layout/listitem_record.xml",
+      "sha256": "5fdba0f0e2bc3e771d228039110b03faaee2f462980c0b4d65142aeced04229a",
+      "constraints": {
+        "row": { "h": 44 },
+        "columns": { "weights": [5, 5, 3], "h": 44 },
+        "backgroundFit": "fitXY"
+      }
+    }
+  ],
+  "storyParagraphs": [
+    "    昨晚彻夜的游戏让我头昏脑涨， 此刻蹲在厕所的我两脚发麻， 但仍在积极地思考着人生。",
+    "    来到这个城市四年了， 合租、月光的标签粘着我挥之不去， 难道这就是我的生活？ 买房的梦想就那么遥不可及？",
+    "    门外合租的张XX已经捉急地在催促了， 而我却陷入了深深的思考中………",
+    "    哼~ 有志者事竟成！ 我要用一年时间改变人生轨迹！ 我要完成别人做不到的事！ 等我来吧， 梦中的家！",
+    "    接下去的一年时间里， 你要用身上仅有的3000块钱， 赚到几百万甚至上千万， 买到理想中的房子！ 你能完成这个挑战吗？"
+  ],
+  "helpExplanations": [
+    "    游戏目标： 在52周（一年）时间结束前赚到足够的钱买到房子。\n    这里显示了房价和时间， 房价可不是一成不变的， 每周都会上涨喔。",
+    "    这里是市场， 点击市场中的货物可以进行购买。\n    游戏的关键就是要掌握货物价格的变化区间， 低买高卖。",
+    "    这里是你的出租屋， 从市场购买的货物会存放在出租屋中。 点击货物可以卖出。\n    出租屋有容量限制， 30/100表示出租屋最多能存放100个货物， 目前还有30个空余空间。",
+    "    这里显示了你的现金、存款以及健康和名声。\n    健康低于95， 你可能会暴毙街头。\n    名声太差， 售楼小姐可能会不愿意把房子卖给你。",
+    "    点击这里的三个按钮， 上面市场中的货物和价格会发生变化， 同时时间也会增加一周。"
+  ],
+  "helpServiceExplanations": [
+    "    把多余的现金存到银行， 可以减少损失， 同时每周都能得到利息。",
+    "    在医院可以花钱看病， 减少暴毙街头的可能。",
+    "    在售楼部你能买到心仪的房子。",
+    "    在中介你可以花钱租用更多的出租屋空间， 让你能买进更多的货物。"
+  ],
+  "logical": {
+    "story": {
+      "text": { "x": 30, "y": 50, "w": 300, "h": 110 },
+      "continue": { "x": 245, "y": 170, "w": 75, "h": 38 },
+      "start": { "x": 80, "y": 170, "w": 200, "h": 38 }
+    },
+    "help": {
+      "leave": { "x": 8, "y": 555, "w": 100, "h": 45 },
+      "next": { "x": 252, "y": 555, "w": 100, "h": 45 },
+      "highlights": [
+        { "x": 0, "y": 0, "w": 360, "h": 45 },
+        { "x": 0, "y": 45, "w": 154, "h": 218 },
+        { "x": 154, "y": 45, "w": 206, "h": 218 },
+        { "x": 0, "y": 263, "w": 360, "h": 69 },
+        { "x": 0, "y": 475, "w": 360, "h": 45 },
+        { "x": 0, "y": 515, "w": 90, "h": 45 },
+        { "x": 90, "y": 515, "w": 90, "h": 45 },
+        { "x": 180, "y": 515, "w": 90, "h": 45 },
+        { "x": 270, "y": 515, "w": 90, "h": 45 }
+      ],
+      "explanation": { "x": 30, "y": 345, "w": 300, "h": 120, "lineHeight": 18 }
+    },
+    "houses": {
+      "head": { "x": 0, "y": 0, "w": 360, "h": 200 },
+      "title": { "x": 180, "y": 10 },
+      "money": { "x": 10, "y": 47 },
+      "viewport": { "x": 0, "y": 72, "w": 360, "h": 467 },
+      "visibleCount": 2,
+      "rows": [
+        { "x": 0, "y": 72, "w": 360, "h": 163 },
+        { "x": 0, "y": 235, "w": 360, "h": 163 }
+      ],
+      "rowFields": {
+        "image": { "x": 4, "y": 2, "w": 190, "h": 159 },
+        "selection": { "x": 198, "y": 0, "w": 122, "h": 40 },
+        "name": { "x": 198, "y": 10, "w": 122, "h": 24 },
+        "price": { "x": 198, "y": 40, "w": 158, "h": 24 },
+        "purchased": { "x": 320, "y": 40, "w": 36, "h": 24 },
+        "description": { "x": 198, "y": 74, "w": 158, "h": 78 }
+      },
+      "buy": { "x": 50, "y": 559, "w": 50, "h": 29 },
+      "leave": { "x": 260, "y": 559, "w": 50, "h": 29 }
+    },
+    "records": {
+      "head": { "x": 0, "y": 0, "w": 360, "h": 200 },
+      "title": { "x": 180, "y": 10 },
+      "columnsY": 47,
+      "columnWidths": [138, 138, 84],
+      "rows": [
+        { "x": 0, "y": 66, "w": 360, "h": 44 },
+        { "x": 0, "y": 110, "w": 360, "h": 44 },
+        { "x": 0, "y": 154, "w": 360, "h": 44 },
+        { "x": 0, "y": 198, "w": 360, "h": 44 },
+        { "x": 0, "y": 242, "w": 360, "h": 44 },
+        { "x": 0, "y": 286, "w": 360, "h": 44 },
+        { "x": 0, "y": 330, "w": 360, "h": 44 },
+        { "x": 0, "y": 374, "w": 360, "h": 44 },
+        { "x": 0, "y": 418, "w": 360, "h": 44 },
+        { "x": 0, "y": 462, "w": 360, "h": 44 }
+      ],
+      "leave": { "x": 155, "y": 559, "w": 50, "h": 29 }
+    }
+  },
+  "scaled": {
+    "story": {
+      "text": { "x": 40, "y": 67, "w": 400, "h": 147 },
+      "continue": { "x": 327, "y": 227, "w": 100, "h": 51 },
+      "start": { "x": 107, "y": 227, "w": 267, "h": 51 }
+    },
+    "help": {
+      "leave": { "x": 11, "y": 740, "w": 133, "h": 60 },
+      "next": { "x": 336, "y": 740, "w": 133, "h": 60 },
+      "highlights": [
+        { "x": 0, "y": 0, "w": 480, "h": 60 },
+        { "x": 0, "y": 60, "w": 205, "h": 291 },
+        { "x": 205, "y": 60, "w": 275, "h": 291 },
+        { "x": 0, "y": 351, "w": 480, "h": 92 },
+        { "x": 0, "y": 633, "w": 480, "h": 60 },
+        { "x": 0, "y": 687, "w": 120, "h": 60 },
+        { "x": 120, "y": 687, "w": 120, "h": 60 },
+        { "x": 240, "y": 687, "w": 120, "h": 60 },
+        { "x": 360, "y": 687, "w": 120, "h": 60 }
+      ],
+      "explanation": { "x": 40, "y": 460, "w": 400, "h": 160, "lineHeight": 24 }
+    },
+    "houses": {
+      "head": { "x": 0, "y": 0, "w": 480, "h": 267 },
+      "title": { "x": 240, "y": 13 },
+      "money": { "x": 13, "y": 63 },
+      "viewport": { "x": 0, "y": 96, "w": 480, "h": 623 },
+      "visibleCount": 2,
+      "rows": [
+        { "x": 0, "y": 96, "w": 480, "h": 217 },
+        { "x": 0, "y": 313, "w": 480, "h": 217 }
+      ],
+      "rowFields": {
+        "image": { "x": 5, "y": 3, "w": 253, "h": 212 },
+        "selection": { "x": 264, "y": 0, "w": 163, "h": 53 },
+        "name": { "x": 264, "y": 13, "w": 163, "h": 32 },
+        "price": { "x": 264, "y": 53, "w": 211, "h": 32 },
+        "purchased": { "x": 427, "y": 53, "w": 48, "h": 32 },
+        "description": { "x": 264, "y": 99, "w": 211, "h": 104 }
+      },
+      "buy": { "x": 67, "y": 745, "w": 67, "h": 39 },
+      "leave": { "x": 347, "y": 745, "w": 67, "h": 39 }
+    },
+    "records": {
+      "head": { "x": 0, "y": 0, "w": 480, "h": 267 },
+      "title": { "x": 240, "y": 13 },
+      "columnsY": 63,
+      "columnWidths": [184, 184, 112],
+      "rows": [
+        { "x": 0, "y": 88, "w": 480, "h": 59 },
+        { "x": 0, "y": 147, "w": 480, "h": 59 },
+        { "x": 0, "y": 205, "w": 480, "h": 59 },
+        { "x": 0, "y": 264, "w": 480, "h": 59 },
+        { "x": 0, "y": 323, "w": 480, "h": 59 },
+        { "x": 0, "y": 381, "w": 480, "h": 59 },
+        { "x": 0, "y": 440, "w": 480, "h": 59 },
+        { "x": 0, "y": 499, "w": 480, "h": 59 },
+        { "x": 0, "y": 557, "w": 480, "h": 59 },
+        { "x": 0, "y": 616, "w": 480, "h": 59 }
+      ],
+      "leave": { "x": 207, "y": 745, "w": 67, "h": 39 }
+    }
+  }
+}

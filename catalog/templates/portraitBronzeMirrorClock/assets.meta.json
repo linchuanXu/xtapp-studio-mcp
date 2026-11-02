@@ -1,0 +1,135 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitBronzeMirrorClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "21ab14309731997d21236960c9d30161b5227af66161bce714541ab813c1b122"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitBronzeMirrorClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "bd29a2a8bd172630596cb27c88b1aeedf70c8ac096f8de14707d0b3e81594bb2"
+  },
+  {
+    "key": "splash",
+    "path": "portraitBronzeMirrorClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "dca7f97c54e2f00720613d9e2a287a61e5728888784c455670ec23f6e34da50b"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitBronzeMirrorClock/assets/ornament.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/ornament-v1.png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "e4ab8bb6d654bd3ce3db134b2023d5c0fdb9dc7a4cc58e7176c6c52194b06141"
+  },
+  {
+    "key": "brush_digit_0",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_0.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_0.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "e03efb64190a875116b27a27d6481e937c35b4a5db5ca8e302ad539eed1168da"
+  },
+  {
+    "key": "brush_digit_1",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_1.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_1.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "8bff531895dd7c09445e798e28ca2a53501ca1a386106c22a676c6787ffaefe5"
+  },
+  {
+    "key": "brush_digit_2",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_2.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_2.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "8b109df0380e4780ae910b784e1726cb1625af0ebba9b4ad88aa3ac1c9f283cf"
+  },
+  {
+    "key": "brush_digit_3",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_3.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_3.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "d768c635569dc6610c24b2c6ba294aa3dc0f697fea9c2b49cbb4f5306cdfa9bc"
+  },
+  {
+    "key": "brush_digit_4",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_4.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_4.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "4abecbac0b329513dd9d4cf0bb0d238aedb459df4fa54f575d520cace79a98e3"
+  },
+  {
+    "key": "brush_digit_5",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_5.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_5.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "bf3eb0b7e427dac8e63e5a194fc3c50449cf867cd208a717dead7e5460140284"
+  },
+  {
+    "key": "brush_digit_6",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_6.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_6.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "523a19eff64c9d64daffcaa7b023c90fdbfdbb18b107fa7fee40eab18561dfac"
+  },
+  {
+    "key": "brush_digit_7",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_7.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_7.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "7486b130fe02edb9c148773c4508ae5c02ee980db736d1f886e17c45df0d2fa0"
+  },
+  {
+    "key": "brush_digit_8",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_8.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_8.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "202341e173b8f662a537f16de2d04f47e196f8a50116f64ee07bb4fbb75a6de1"
+  },
+  {
+    "key": "brush_digit_9",
+    "path": "portraitBronzeMirrorClock/assets/brush_digit_9.xic",
+    "rawPath": "portraitBronzeMirrorClock/raw/brush_digit_9.png",
+    "rawMime": "image/png",
+    "width": 40,
+    "height": 61,
+    "bpp": 1,
+    "contentHash": "9387825500939d3e8b711d4b449d9cd36a3d27b07d25660255b5590bb2515fd2"
+  }
+]

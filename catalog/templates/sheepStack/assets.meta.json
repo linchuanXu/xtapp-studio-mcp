@@ -1,0 +1,170 @@
+[
+  {
+    "key": "tile_leaf",
+    "path": "sheepStack/assets/tile_leaf.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "e1bf87e45ba19c6e4303c1c57f0aac5c32894edb381df3ecbeb241e021f90846"
+  },
+  {
+    "key": "tile_flower",
+    "path": "sheepStack/assets/tile_flower.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "9c1715e48f946cf6b84ac7ba4660eb1b24daf6e244fdda86f83c5a551ca4e9fe"
+  },
+  {
+    "key": "tile_fruit",
+    "path": "sheepStack/assets/tile_fruit.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "fd7e65137fc2c7057b00bd90a4ec90aa0b2b3966e85769662d41268a16a89fd8"
+  },
+  {
+    "key": "tile_bell",
+    "path": "sheepStack/assets/tile_bell.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "b339935784f665537646c933fc63640a1fefaad1be14e1a0d5700f948faf0834"
+  },
+  {
+    "key": "tile_cloud",
+    "path": "sheepStack/assets/tile_cloud.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "0e4504c68451efd1d3509254af43b0d6fbbc432691fee0e2b868745209e4b8ab"
+  },
+  {
+    "key": "tile_star",
+    "path": "sheepStack/assets/tile_star.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "66a8ed03f355ca6b84ec566c6298df6cdeff424b26aca226ef86069eb9b76894"
+  },
+  {
+    "key": "tile_pot",
+    "path": "sheepStack/assets/tile_pot.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "118b80fddfab650142e7ca4f0a966cabe1d9bfbf2aed51c88887f8fb850f616f"
+  },
+  {
+    "key": "tile_umbrella",
+    "path": "sheepStack/assets/tile_umbrella.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "d22ea57323e13d891badbf1c662c9bffff90e2f5b25b4a5550426b7cdcd4f418"
+  },
+  {
+    "key": "tile_moon",
+    "path": "sheepStack/assets/tile_moon.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "f9b161f22a7c0271b2fe2748d20cb5ca130855bf0550f0c587a52e3e0dfdd600"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "sheepStack/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "4ef35300d21613b6acb3f08ac0467bfdd64fee2f5a0fff9d47960045822c0e7e"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "sheepStack/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "3da086c4408ee10cd38d4c6332147623c463567bd5c45103bbe161dd241f1e1e"
+  },
+  {
+    "key": "ui_logo",
+    "path": "sheepStack/assets/ui_logo.xic",
+    "width": 360,
+    "height": 80,
+    "bpp": 1,
+    "contentHash": "84f7fd75c22f6feca88bb2e181d3a176dd5c1736a684488d036f367b64fe6b72"
+  },
+  {
+    "key": "ui_menu_panel",
+    "path": "sheepStack/assets/ui_menu_panel.xic",
+    "width": 396,
+    "height": 360,
+    "bpp": 1,
+    "contentHash": "55052269a28f4e73d3806306f62f871026f90bafcf74e32c78f17d9e590fcbf6"
+  },
+  {
+    "key": "ui_button",
+    "path": "sheepStack/assets/ui_button.xic",
+    "width": 396,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "84cfef870febc5fa1045b75fbc5bdab161c12a750dc02dabe7c0c23cb27d393d"
+  },
+  {
+    "key": "ui_level_cell",
+    "path": "sheepStack/assets/ui_level_cell.xic",
+    "width": 56,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "185d92dcafeb9149895ef397b249f3bdbe1a20fdaadafa6b958527d17354c9dc"
+  },
+  {
+    "key": "ui_tray_slot",
+    "path": "sheepStack/assets/ui_tray_slot.xic",
+    "width": 54,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "95ba8289a0dbddf28cb17113ef9fb49cbd3e7e9511cd1bd49849000fd195bcb5"
+  },
+  {
+    "key": "ui_tool_undo",
+    "path": "sheepStack/assets/ui_tool_undo.xic",
+    "width": 32,
+    "height": 32,
+    "bpp": 1,
+    "contentHash": "2a952fc34ea7483f0cc4515d09f65f64bee300c595ca9bf7f8523775e207b9ce"
+  },
+  {
+    "key": "ui_tool_remove",
+    "path": "sheepStack/assets/ui_tool_remove.xic",
+    "width": 32,
+    "height": 32,
+    "bpp": 1,
+    "contentHash": "7f84b7581640a98b5fd7b836d28c54a4a700126411b7eb694204171554ce0aec"
+  },
+  {
+    "key": "ui_tool_hint",
+    "path": "sheepStack/assets/ui_tool_hint.xic",
+    "width": 32,
+    "height": 32,
+    "bpp": 1,
+    "contentHash": "79a728d03494418e9efaa935d0c9aacf869ed05e3e8f0075f479045550ef9827"
+  },
+  {
+    "key": "ui_state_panel",
+    "path": "sheepStack/assets/ui_state_panel.xic",
+    "width": 432,
+    "height": 648,
+    "bpp": 1,
+    "contentHash": "ee82ec253a2dca6358318968fedcc297884e568bd3a505640dc0a5a8fde04690"
+  },
+  {
+    "key": "splash",
+    "path": "sheepStack/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "6d934cdc945bb70b2d932161af55787172633b71fd13aecf6f06dcd8e5ed0fba"
+  }
+]

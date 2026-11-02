@@ -1,0 +1,38 @@
+{
+  "app_id": "ali_instant_delivery-414c4931",
+  "display_name": "淘宝闪购",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "淘宝闪购订单履约、预计送达与隐私锁屏速览。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "brand_mark",
+    "feature_scene",
+    "delivery_bag",
+    "store_pin",
+    "rider",
+    "route",
+    "shield",
+    "check"
+  ],
+  "data_files": [
+    {
+      "name": "delivery.tsv",
+      "format": "tsv",
+      "max_bytes": 8192
+    }
+  ],
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 30
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "app_id": "meituan_food_report-4d544433",
+  "display_name": "本月吃了啥",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "用24笔外卖与美食消费记录生成AI月度总结。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "hero_scene",
+    "icon_bowl",
+    "icon_coffee",
+    "icon_moon",
+    "icon_chart",
+    "icon_ai",
+    "icon_hotpot",
+    "icon_sushi",
+    "icon_salad",
+    "icon_bbq",
+    "brand_logo",
+    "feature_scene"
+  ],
+  "data_files": [
+    {
+      "name": "orders.tsv",
+      "format": "tsv",
+      "max_bytes": 12288
+    }
+  ]
+}

@@ -1,0 +1,1322 @@
+[
+  {
+    "key": "splash_ink",
+    "path": "heroDaledou/assets/splash_ink.xic",
+    "rawPath": "heroDaledou/raw/splash-source.png",
+    "rawMime": "image/png",
+    "width": 800,
+    "height": 480,
+    "bpp": 1,
+    "contentHash": "3e3079c82e916d88c7afb2939d86a3d856e810edb498c1224b5b1435a5d250f4"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "heroDaledou/assets/app_icon_l.xic",
+    "rawPath": "heroDaledou/raw/splash-source.png",
+    "rawMime": "image/png",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "c63b4e01474bca705bf358d669620d34c96af92aa1eba0a101f3899117dd09d2"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "heroDaledou/assets/app_icon_s.xic",
+    "rawPath": "heroDaledou/raw/splash-source.png",
+    "rawMime": "image/png",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "f5e52931223fa3166b766d1a9ff219540b16deaed664462b69ad52a57256247a"
+  },
+  {
+    "key": "hero_alo",
+    "path": "heroDaledou/assets/hero_alo.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 220,
+    "bpp": 1,
+    "contentHash": "d2903358fc65281d6586ae3101497015df1ed2a42a35da54a568f5ef600b0dbf"
+  },
+  {
+    "key": "hero_noya",
+    "path": "heroDaledou/assets/hero_noya.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 220,
+    "bpp": 1,
+    "contentHash": "6b2f9802d9d2cb9012969bac789da873bb0b2b2443f9a3aba10adfee78ced99f"
+  },
+  {
+    "key": "hero_vira",
+    "path": "heroDaledou/assets/hero_vira.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 220,
+    "bpp": 1,
+    "contentHash": "a27a0d2608619c88c2020c132e5138d86a369d283692805e88824812c82ca87d"
+  },
+  {
+    "key": "hero_miel",
+    "path": "heroDaledou/assets/hero_miel.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 220,
+    "bpp": 1,
+    "contentHash": "d020be5b13855cc1364c6330273f3e01fef1947d6cbc503ab45c47799c7daefa"
+  },
+  {
+    "key": "hero_thumb_alo",
+    "path": "heroDaledou/assets/hero_thumb_alo.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "72450d413040964802b454d34ac4f3dc462feab5eb7157f94e1117c266f00757"
+  },
+  {
+    "key": "hero_thumb_noya",
+    "path": "heroDaledou/assets/hero_thumb_noya.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "b7a306c78060451409866acf4803d9df13f1ae4e01e22ae4cf6f813a7c0db948"
+  },
+  {
+    "key": "hero_thumb_vira",
+    "path": "heroDaledou/assets/hero_thumb_vira.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "c052b0f4e6ffe100c30a45bc12171ec12a84a886f02fe3dbba84c81e172c27d7"
+  },
+  {
+    "key": "hero_thumb_miel",
+    "path": "heroDaledou/assets/hero_thumb_miel.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "281f8355d1ef4dd8bee74575716f3b1fe46e5e95234e36d766fd35925cdad83c"
+  },
+  {
+    "key": "ch_alo",
+    "path": "heroDaledou/assets/ch_alo.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "e44adf5f87067ea0d582e2d376ad65a8fa687b77e6fff35a1284eb56f101791c"
+  },
+  {
+    "key": "ch_noya",
+    "path": "heroDaledou/assets/ch_noya.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "3ba369bb41458eb76b66a2df1dda774f273e506312ad2065e509eeb5d733e3ea"
+  },
+  {
+    "key": "ch_vira",
+    "path": "heroDaledou/assets/ch_vira.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "40102e9828708b1e171d322d691ded3a3386f33a9ddacee8e79e200bf0393e3e"
+  },
+  {
+    "key": "ch_miel",
+    "path": "heroDaledou/assets/ch_miel.xic",
+    "rawPath": "heroDaledou/raw/hero-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d6c054629b4e6f1e315eaf45222d62ad3f817b18d179299d4982a6c20153fb55"
+  },
+  {
+    "key": "foe_slime",
+    "path": "heroDaledou/assets/foe_slime.xic",
+    "rawPath": "heroDaledou/raw/enemy-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 184,
+    "bpp": 1,
+    "contentHash": "f959779e60a6a78f9012e9279c8f79f742959b241e769c613b24e752a4430c63"
+  },
+  {
+    "key": "foe_boar",
+    "path": "heroDaledou/assets/foe_boar.xic",
+    "rawPath": "heroDaledou/raw/enemy-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 184,
+    "bpp": 1,
+    "contentHash": "8e56eb1146edfec5befa4db50b8a2cc8ca0967d24388f66c15395e0a4aec6ec2"
+  },
+  {
+    "key": "foe_crab",
+    "path": "heroDaledou/assets/foe_crab.xic",
+    "rawPath": "heroDaledou/raw/enemy-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 184,
+    "bpp": 1,
+    "contentHash": "de2c0b96800a4008cb90fe20dad2765e83e4a9c0d0a3d3e778867bfbf03910c7"
+  },
+  {
+    "key": "foe_knight",
+    "path": "heroDaledou/assets/foe_knight.xic",
+    "rawPath": "heroDaledou/raw/enemy-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 184,
+    "bpp": 1,
+    "contentHash": "65e190bde0db52e898d4c6a30d27df254ad0e27360e196fd3fabfdd5324b5d9e"
+  },
+  {
+    "key": "foe_golem",
+    "path": "heroDaledou/assets/foe_golem.xic",
+    "rawPath": "heroDaledou/raw/enemy-roster-source.png",
+    "rawMime": "image/png",
+    "width": 176,
+    "height": 184,
+    "bpp": 1,
+    "contentHash": "a9ab07fe45678af1ddaef62ed4c34c12d80ab422c8c6325ce0c59f924acc85f9"
+  },
+  {
+    "key": "weapon_twig",
+    "path": "heroDaledou/assets/weapon_twig.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "864f40c4833e3a6c8a21ad657c2c643427fe541f85ed1f6fd7f236e402309c84"
+  },
+  {
+    "key": "weapon_pan",
+    "path": "heroDaledou/assets/weapon_pan.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "e3d685ed29ddfb305c488dad6ce1472cb2306d96009825bf3cdc9746913f7af4"
+  },
+  {
+    "key": "weapon_jar",
+    "path": "heroDaledou/assets/weapon_jar.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "f90dedfc49b5294d75b0f24cc8fb2a51be083ecaf2a830925b16847e4a2901b3"
+  },
+  {
+    "key": "weapon_star",
+    "path": "heroDaledou/assets/weapon_star.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "be2df8f57b99d153039748514bc8706ebc855d622af26ca308f7176ef8c94300"
+  },
+  {
+    "key": "cw_twig",
+    "path": "heroDaledou/assets/cw_twig.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "5fd1835bdc12811ef0d3971433fd3c3cd26994e995f0a6f3a5ffb5da2e3b064e"
+  },
+  {
+    "key": "cw_pan",
+    "path": "heroDaledou/assets/cw_pan.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "440bb4486ac142754cb0a6a24d0b2a9d3b6162766462ad3b022655913553e894"
+  },
+  {
+    "key": "cw_jar",
+    "path": "heroDaledou/assets/cw_jar.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "8a1ca650c732b94ba12065bf5b8e56d43e4684125b47492163a6ad1bf88e8338"
+  },
+  {
+    "key": "cw_star",
+    "path": "heroDaledou/assets/cw_star.xic",
+    "rawPath": "heroDaledou/raw/weapon-roster-source.png",
+    "rawMime": "image/png",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "d1ab9dae14c7f09be73a0e3aaea3cdbab3a94f871ccec2d123097ed6c112a493"
+  },
+  {
+    "key": "h_tide_medic",
+    "path": "heroDaledou/assets/h_tide_medic.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_tide-medic.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "2419c37d183be9954422ca3db90e130196f182287aa369f71ddb888845d28740"
+  },
+  {
+    "key": "h_moonbell_ranger",
+    "path": "heroDaledou/assets/h_moonbell_ranger.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_moonbell-ranger.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "150e20f588b4b07f0c60de0a38fbc3931bfd47214d050a82c451926272af920c"
+  },
+  {
+    "key": "h_wind_rune_mage",
+    "path": "heroDaledou/assets/h_wind_rune_mage.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_wind-rune-mage.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "b07d3fef9340eb4b90fb091dba68905cf8b078638277bbdbb99d5673c6b7664b"
+  },
+  {
+    "key": "h_cloud_assassin",
+    "path": "heroDaledou/assets/h_cloud_assassin.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_cloud-assassin.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "56fe0eb3d6782c03979f2d6dcf539fe552fdb5a6da7e373a352e737c1b369260"
+  },
+  {
+    "key": "h_stone_guard",
+    "path": "heroDaledou/assets/h_stone_guard.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_stone-guard.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "02565a346521cc74f6d76562f85518d889ca1dea4583abccc4b49012c75c0761"
+  },
+  {
+    "key": "h_starfire_swordsman",
+    "path": "heroDaledou/assets/h_starfire_swordsman.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_starfire-swordsman.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "48474e2392bfd412c3e524a0385cb78b162ec437824fd3ae19237378fb366eaa"
+  },
+  {
+    "key": "w_chaos_dice",
+    "path": "heroDaledou/assets/w_chaos_dice.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_chaos-dice.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "47592b3dc548398c7d86b60aa36d84257398bf04fd40cd718a3b5fd4c5a3118b"
+  },
+  {
+    "key": "cw_chaos_dice",
+    "path": "heroDaledou/assets/cw_chaos_dice.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_chaos-dice.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "4c14083a176ebbc8cca90ffd659f710d68052f11ae6350d7bbd1255cdcd5347b"
+  },
+  {
+    "key": "w_slime_jar",
+    "path": "heroDaledou/assets/w_slime_jar.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_slime-jar.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "4d99bb7472b2a2110cab69df0a6ed80726d0ca81479e204aead3f10e15e5dc6a"
+  },
+  {
+    "key": "cw_slime_jar",
+    "path": "heroDaledou/assets/cw_slime_jar.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_slime-jar.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "64b0fbbae98e9b5acf8e4856ab707e2afaf087a6eb55b49d55098da29f073fbf"
+  },
+  {
+    "key": "w_reef_spear",
+    "path": "heroDaledou/assets/w_reef_spear.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_reef-spear.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "b2517bc8575694d703cad7cb531a766a36095d443b40479e8fa30a0c82b36d07"
+  },
+  {
+    "key": "cw_reef_spear",
+    "path": "heroDaledou/assets/cw_reef_spear.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_reef-spear.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "777f5001af18e80e9df6546b743868e140d998118d969b96e40b88afddf9defc"
+  },
+  {
+    "key": "w_anchor_blade",
+    "path": "heroDaledou/assets/w_anchor_blade.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_anchor-blade.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "a75ec6d3302b45262c659ffcce741ff1d4dbb14fe9dbe548290177fe59cafc75"
+  },
+  {
+    "key": "cw_anchor_blade",
+    "path": "heroDaledou/assets/cw_anchor_blade.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_anchor-blade.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "17b28a6fc18f928a41fda811a5ed7234733c6cef1f34acecbc42329cf9481e4e"
+  },
+  {
+    "key": "w_mirror_boot",
+    "path": "heroDaledou/assets/w_mirror_boot.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_mirror-boot.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d6457eb9238a641103d81922c33b2d29bbeb1fbab1de508b716218138ddabc49"
+  },
+  {
+    "key": "cw_mirror_boot",
+    "path": "heroDaledou/assets/cw_mirror_boot.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_mirror-boot.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "cda4500ef6fad131c9725ffd65ae21bbe2fc48b7929a3dee4091c138a4ea7d27"
+  },
+  {
+    "key": "w_shield_axe",
+    "path": "heroDaledou/assets/w_shield_axe.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_shield-axe.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "7b293ec88375708f517b28a8e239ba323c121b50a5595260a9f6efd7343ed74e"
+  },
+  {
+    "key": "cw_shield_axe",
+    "path": "heroDaledou/assets/cw_shield_axe.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_shield-axe.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "b4292da0e76bd422b7110a0cfdae92f03974b5edc4370073594eed4853e86a6e"
+  },
+  {
+    "key": "w_trap_claw",
+    "path": "heroDaledou/assets/w_trap_claw.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_trap-claw.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "fbff891f55b6a9f7b7bb7ca20ecfa5d5ac26e5f89b2dea62ac57244100538128"
+  },
+  {
+    "key": "cw_trap_claw",
+    "path": "heroDaledou/assets/cw_trap_claw.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_trap-claw.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "5a75f2a80f24e08672954e9a5472ac839dd2a3c510761a323665a5d7a4812c7a"
+  },
+  {
+    "key": "w_mist_lantern",
+    "path": "heroDaledou/assets/w_mist_lantern.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_mist-lantern.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "3212be4d9b38f14c026998c7deb59f59656982b61ce78d461f67361b4f651d95"
+  },
+  {
+    "key": "cw_mist_lantern",
+    "path": "heroDaledou/assets/cw_mist_lantern.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_mist-lantern.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "176e04b50e4c41a3bed88e917b6c1e57c6ef92b401403e44a54b3823024963b0"
+  },
+  {
+    "key": "w_hunter_bow",
+    "path": "heroDaledou/assets/w_hunter_bow.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_hunter-bow.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "f618b0690cb116a2329bb2ce87272f196be1c8dae1d2ee739ab4a5178587c35b"
+  },
+  {
+    "key": "cw_hunter_bow",
+    "path": "heroDaledou/assets/cw_hunter_bow.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_hunter-bow.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "94218b3fd4280a8c178e461795a81c3c081eafadcce45089d157d214dfec69e9"
+  },
+  {
+    "key": "w_cloud_bow",
+    "path": "heroDaledou/assets/w_cloud_bow.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_cloud-bow.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "1131d7e4e6afe622942b1a2dcc36a0f1bf8de02cd35d10c4b27cc5dfb5d0eb4c"
+  },
+  {
+    "key": "cw_cloud_bow",
+    "path": "heroDaledou/assets/cw_cloud_bow.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_cloud-bow.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "24e4f1f56fe679bb045f49e758de7b98a313b1fdefa5b6961234065ab064bbae"
+  },
+  {
+    "key": "w_sun_sword",
+    "path": "heroDaledou/assets/w_sun_sword.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_sun-sword.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "49c41648a2fd075ce43997dc126f0d445f9d12b146b869f2bf73a4ee0729b7ff"
+  },
+  {
+    "key": "cw_sun_sword",
+    "path": "heroDaledou/assets/cw_sun_sword.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_sun-sword.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "11b2ca0f09f573f44f3c452017045031059c1f01c18b41409b0434e163000b38"
+  },
+  {
+    "key": "w_pocket_bell",
+    "path": "heroDaledou/assets/w_pocket_bell.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_pocket-bell.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "91b826406a7292b7a1428098499a1c21c2215e5d76a921cfdff539da7bb898d0"
+  },
+  {
+    "key": "cw_pocket_bell",
+    "path": "heroDaledou/assets/cw_pocket_bell.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_pocket-bell.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "42df7ed61b7e694c61a07c73190e8e860c5d3b01cf438937ad5dd73252f6dbd0"
+  },
+  {
+    "key": "w_meteor_hammer",
+    "path": "heroDaledou/assets/w_meteor_hammer.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_meteor-hammer.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "893cc7e335568eb12dc7e62bec0cbca88a93881d5b6029cdd2a48da0482826f6"
+  },
+  {
+    "key": "cw_meteor_hammer",
+    "path": "heroDaledou/assets/cw_meteor_hammer.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_meteor-hammer.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "6149ab017c08446cd40e9d4168c0c50c5529c80ce771fc2254f2b20279d55ce7"
+  },
+  {
+    "key": "w_comet_fan",
+    "path": "heroDaledou/assets/w_comet_fan.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_comet-fan.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "e37839d45cca16ba84915b1e0a46afba56b2a25284354131061b2640c1ecceaf"
+  },
+  {
+    "key": "cw_comet_fan",
+    "path": "heroDaledou/assets/cw_comet_fan.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_comet-fan.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "162987ca544bfe92eb321627ba498ca861a9f890b85d33eaa1a1f6e914eda016"
+  },
+  {
+    "key": "w_twig_sword",
+    "path": "heroDaledou/assets/w_twig_sword.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_twig-sword.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "602ea81ca0c253019f8edd3a9125f7d56e604528b17321a75d0bbcda288426ec"
+  },
+  {
+    "key": "cw_twig_sword",
+    "path": "heroDaledou/assets/cw_twig_sword.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_twig-sword.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "ec2e7799810fd11a96017f2faa3a90f3a3645d9b123a4c3130e54a84ced6e3e6"
+  },
+  {
+    "key": "w_spark_staff",
+    "path": "heroDaledou/assets/w_spark_staff.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_spark-staff.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "3d8c8c5527b78a7b0347a3c62fcef728bf0c30f4011504a1b1e1be1ef99c1ccd"
+  },
+  {
+    "key": "cw_spark_staff",
+    "path": "heroDaledou/assets/cw_spark_staff.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_spark-staff.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "277278793515ac6cd6acd70d1196f137fc3aa4e2ac6cbead1fa81cf229b7d615"
+  },
+  {
+    "key": "w_frying_pan",
+    "path": "heroDaledou/assets/w_frying_pan.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_frying-pan.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "6f0ba9b1dea4722639236d408f1fbaf8d788fbb9ccb30976a5ba02ba2807b696"
+  },
+  {
+    "key": "cw_frying_pan",
+    "path": "heroDaledou/assets/cw_frying_pan.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_frying-pan.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "64ae8cd9bd020d292801882ba9b5fb36a966ccd571ff4c483630129940332363"
+  },
+  {
+    "key": "w_wind_daggers",
+    "path": "heroDaledou/assets/w_wind_daggers.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_wind-daggers.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "5e4227ae0204384d3b7f7ecd2afed1c97da6608484c3e26685faaa9bed5564d1"
+  },
+  {
+    "key": "cw_wind_daggers",
+    "path": "heroDaledou/assets/cw_wind_daggers.xic",
+    "rawPath": "heroDaledou/raw/web_weapons_wind-daggers.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "0a0a5000b5448c06683e862b410dcbba2f8b82257bccf5ffda3b2821dff5df0a"
+  },
+  {
+    "key": "s_quick_feet",
+    "path": "heroDaledou/assets/s_quick_feet.xic",
+    "rawPath": "heroDaledou/raw/web_skills_quick-feet.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "91c37448795409a134f55e8c6ce7b7564e2b39149d93780236453591713c8df9"
+  },
+  {
+    "key": "cs_quick_feet",
+    "path": "heroDaledou/assets/cs_quick_feet.xic",
+    "rawPath": "heroDaledou/raw/web_skills_quick-feet.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "64b87daf9ad16cc0c32379141fa795017bd539817c31a7ae4f65a97c27d88990"
+  },
+  {
+    "key": "s_last_stand",
+    "path": "heroDaledou/assets/s_last_stand.xic",
+    "rawPath": "heroDaledou/raw/web_skills_last-stand.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d05de207d0e88eb42f4247e7a5a42d3c76cf2a2eb220c125df2a47caafe852df"
+  },
+  {
+    "key": "cs_last_stand",
+    "path": "heroDaledou/assets/cs_last_stand.xic",
+    "rawPath": "heroDaledou/raw/web_skills_last-stand.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "67a26511b8203dbf12a64e3044cf50d5594a641dadb423345c6c7ae1919f8da1"
+  },
+  {
+    "key": "s_battle_cry",
+    "path": "heroDaledou/assets/s_battle_cry.xic",
+    "rawPath": "heroDaledou/raw/web_skills_battle-cry.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "e0e7445a98f07ff4ea674dbf4587b0e20cd6838ccf3f71f5d40eb7dfed5534f2"
+  },
+  {
+    "key": "cs_battle_cry",
+    "path": "heroDaledou/assets/cs_battle_cry.xic",
+    "rawPath": "heroDaledou/raw/web_skills_battle-cry.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "2d33651a7fc7bfeae27db437d832941ecfcfa68f5df129834ef66470679a9b91"
+  },
+  {
+    "key": "s_starfall",
+    "path": "heroDaledou/assets/s_starfall.xic",
+    "rawPath": "heroDaledou/raw/web_skills_starfall.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "5a35c05752fbd9a77d1141521583ef523a6ef8dce0e61256a54151aa91d3eff4"
+  },
+  {
+    "key": "cs_starfall",
+    "path": "heroDaledou/assets/cs_starfall.xic",
+    "rawPath": "heroDaledou/raw/web_skills_starfall.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "22304c871632c565dc0fbd26b0f365dd29409ca479a02330a278e24daf3bb49f"
+  },
+  {
+    "key": "s_bleed_mark",
+    "path": "heroDaledou/assets/s_bleed_mark.xic",
+    "rawPath": "heroDaledou/raw/web_skills_bleed-mark.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "4489ed1d1656afcc4dbcded34f55ccf1082142bca97fd5d95475b8451f3a445c"
+  },
+  {
+    "key": "cs_bleed_mark",
+    "path": "heroDaledou/assets/cs_bleed_mark.xic",
+    "rawPath": "heroDaledou/raw/web_skills_bleed-mark.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "2d97e806d4e12b17b431bb89232b3640a4f4c2e63af2d69f71ade81c3806afc9"
+  },
+  {
+    "key": "s_thick_skin",
+    "path": "heroDaledou/assets/s_thick_skin.xic",
+    "rawPath": "heroDaledou/raw/web_skills_thick-skin.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "dd6abba72bccc9c7397e106881ec1e4770720f878e1faa451f29addb4663ed32"
+  },
+  {
+    "key": "cs_thick_skin",
+    "path": "heroDaledou/assets/cs_thick_skin.xic",
+    "rawPath": "heroDaledou/raw/web_skills_thick-skin.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "13a1effd89c6dd55e5b09cc9b6949c5b10d37199b2f626eed5619edc1661df2f"
+  },
+  {
+    "key": "s_cleanse",
+    "path": "heroDaledou/assets/s_cleanse.xic",
+    "rawPath": "heroDaledou/raw/web_skills_cleanse.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "5fd7430602a9c48d975a31bed20fa658de1ccf4e3c6f7282a51d1ce4a5aecdce"
+  },
+  {
+    "key": "cs_cleanse",
+    "path": "heroDaledou/assets/cs_cleanse.xic",
+    "rawPath": "heroDaledou/raw/web_skills_cleanse.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "7dbc5ffec13b774cc34b00be8fdaa79bef4a1c15034c1e40b42bf4454a057fca"
+  },
+  {
+    "key": "s_lucky_charm",
+    "path": "heroDaledou/assets/s_lucky_charm.xic",
+    "rawPath": "heroDaledou/raw/web_skills_lucky-charm.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d28064db1167e9248e3e3de2579640f28ac10e645712016d259a00bbb12f34cd"
+  },
+  {
+    "key": "cs_lucky_charm",
+    "path": "heroDaledou/assets/cs_lucky_charm.xic",
+    "rawPath": "heroDaledou/raw/web_skills_lucky-charm.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "4d7a76df1653ca70700e2402ab697d35271bb32e33ddb55411658617793265ac"
+  },
+  {
+    "key": "s_counter",
+    "path": "heroDaledou/assets/s_counter.xic",
+    "rawPath": "heroDaledou/raw/web_skills_counter.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "5469f3d6737367deca66f9eb45cad470ed5485b19191a0e516d7957f4c9756f2"
+  },
+  {
+    "key": "cs_counter",
+    "path": "heroDaledou/assets/cs_counter.xic",
+    "rawPath": "heroDaledou/raw/web_skills_counter.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "9c56a53bec9303023885fd168329563a83ed39a99615193da931b48d057884a1"
+  },
+  {
+    "key": "s_tidal_guard",
+    "path": "heroDaledou/assets/s_tidal_guard.xic",
+    "rawPath": "heroDaledou/raw/web_skills_tidal-guard.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "a00a3aa0951b5a683b1bad1b561e7ecb30ee42b5fa85970d83bb91dd785a1f57"
+  },
+  {
+    "key": "cs_tidal_guard",
+    "path": "heroDaledou/assets/cs_tidal_guard.xic",
+    "rawPath": "heroDaledou/raw/web_skills_tidal-guard.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "06bad5418d9c054e23569cae9e1e6b24f8eb416bc1abc2e3d838794c39dd1897"
+  },
+  {
+    "key": "s_second_wind",
+    "path": "heroDaledou/assets/s_second_wind.xic",
+    "rawPath": "heroDaledou/raw/web_skills_second-wind.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "4b3ec07bba81578da1182957ea6fe97844c64abd0513c4ff404a97d0a1226c9f"
+  },
+  {
+    "key": "cs_second_wind",
+    "path": "heroDaledou/assets/cs_second_wind.xic",
+    "rawPath": "heroDaledou/raw/web_skills_second-wind.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "86668f5e30e4ffb949266f4bdc87f24e68d5e62919a0e0b3937e82b4a8bf1621"
+  },
+  {
+    "key": "s_all_in",
+    "path": "heroDaledou/assets/s_all_in.xic",
+    "rawPath": "heroDaledou/raw/web_skills_all-in.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "a3eb8f54545a65536ba081c3e7a3efb7b9320c9060838a20c6bc6749acb237d0"
+  },
+  {
+    "key": "cs_all_in",
+    "path": "heroDaledou/assets/cs_all_in.xic",
+    "rawPath": "heroDaledou/raw/web_skills_all-in.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "387129242871ce1b84ba0aadba7943588a8fa40fcbb815aaff4c5e1dae284b1e"
+  },
+  {
+    "key": "s_fake_death",
+    "path": "heroDaledou/assets/s_fake_death.xic",
+    "rawPath": "heroDaledou/raw/web_skills_fake-death.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "ae5a8f2a33ff48bdf3ae2031ea0df2c29120dfcef9f896579157fa1d4b37c2f7"
+  },
+  {
+    "key": "cs_fake_death",
+    "path": "heroDaledou/assets/cs_fake_death.xic",
+    "rawPath": "heroDaledou/raw/web_skills_fake-death.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "ba24acf344ef5fd3fab50527362ee263d4698da1dc31e7181e7e8c2cb8bedf13"
+  },
+  {
+    "key": "s_shield_slam",
+    "path": "heroDaledou/assets/s_shield_slam.xic",
+    "rawPath": "heroDaledou/raw/web_skills_shield-slam.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "9881c64f672a56bc4a41903df3d3a32d85cba25329bda8e0d1d29fc8b54cec71"
+  },
+  {
+    "key": "cs_shield_slam",
+    "path": "heroDaledou/assets/cs_shield_slam.xic",
+    "rawPath": "heroDaledou/raw/web_skills_shield-slam.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "94b3b01b00d08a751e10549d31f6a95ddb9402a0c6cee907caad41603643b558"
+  },
+  {
+    "key": "p_dawn_feather",
+    "path": "heroDaledou/assets/p_dawn_feather.xic",
+    "rawPath": "heroDaledou/raw/web_support_dawn-feather.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d295836ef5eded1dbff37299ca3d370cc5f765ee1369bf1a410a6a377e00c22b"
+  },
+  {
+    "key": "cp_dawn_feather",
+    "path": "heroDaledou/assets/cp_dawn_feather.xic",
+    "rawPath": "heroDaledou/raw/web_support_dawn-feather.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "b27456808037996fa7913235111e55c9793abb7d718c7fed8aed394020c57f0e"
+  },
+  {
+    "key": "p_ember_fox",
+    "path": "heroDaledou/assets/p_ember_fox.xic",
+    "rawPath": "heroDaledou/raw/web_support_ember-fox.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "eacb4f811b61c177dd4de65c8063d60980258c9cd02ca026b8a8ef68759c3abc"
+  },
+  {
+    "key": "cp_ember_fox",
+    "path": "heroDaledou/assets/cp_ember_fox.xic",
+    "rawPath": "heroDaledou/raw/web_support_ember-fox.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "bebdf6f4b13318120a44eb782e90ed3ecc62196fe75afd0a7a8fd3c75451f07e"
+  },
+  {
+    "key": "p_shield_beetle",
+    "path": "heroDaledou/assets/p_shield_beetle.xic",
+    "rawPath": "heroDaledou/raw/web_support_shield-beetle.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "bcbf4ded4a8f6f2c97350f87338861d35f0fa4192dbb20604736427e90533396"
+  },
+  {
+    "key": "cp_shield_beetle",
+    "path": "heroDaledou/assets/cp_shield_beetle.xic",
+    "rawPath": "heroDaledou/raw/web_support_shield-beetle.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "3cd652b92262399064a68de59ff87144271aa44e961bcea6741cff3eb3c7d092"
+  },
+  {
+    "key": "p_clockwork_bird",
+    "path": "heroDaledou/assets/p_clockwork_bird.xic",
+    "rawPath": "heroDaledou/raw/web_support_clockwork-bird.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "4f9c8ad164b6a95092dc58c2449dda8e8d47a985eabb65fd5021ac1dfd90dff3"
+  },
+  {
+    "key": "cp_clockwork_bird",
+    "path": "heroDaledou/assets/cp_clockwork_bird.xic",
+    "rawPath": "heroDaledou/raw/web_support_clockwork-bird.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "3412b18e43a086271f63f59d3bd7f0f55afa8a726b060b13326cf8e9aaf64728"
+  },
+  {
+    "key": "p_ribbon_charm",
+    "path": "heroDaledou/assets/p_ribbon_charm.xic",
+    "rawPath": "heroDaledou/raw/web_support_ribbon-charm.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "d01bb2c5524528f7636299af46d644c98d3203e1584f009178ebfa08ef137293"
+  },
+  {
+    "key": "cp_ribbon_charm",
+    "path": "heroDaledou/assets/cp_ribbon_charm.xic",
+    "rawPath": "heroDaledou/raw/web_support_ribbon-charm.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "f810caa4b548a221072abbcc27597102c3ceadb85e48fc8314a5f66ed3f81cae"
+  },
+  {
+    "key": "p_cloud_kite",
+    "path": "heroDaledou/assets/p_cloud_kite.xic",
+    "rawPath": "heroDaledou/raw/web_support_cloud-kite.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "3c6fefb6a342f2c40b67fb625234195fb289b68b63950ca976fde5ee86f24d1a"
+  },
+  {
+    "key": "cp_cloud_kite",
+    "path": "heroDaledou/assets/cp_cloud_kite.xic",
+    "rawPath": "heroDaledou/raw/web_support_cloud-kite.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "c22145988ab275d957807f6440817026d07ccb707076d46ae6753096ef020540"
+  },
+  {
+    "key": "p_moss_sprite",
+    "path": "heroDaledou/assets/p_moss_sprite.xic",
+    "rawPath": "heroDaledou/raw/web_support_moss-sprite.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "7f178f32fedea11a34f5302c73ea75d7674097c983dba3104a31909bb895c30b"
+  },
+  {
+    "key": "cp_moss_sprite",
+    "path": "heroDaledou/assets/cp_moss_sprite.xic",
+    "rawPath": "heroDaledou/raw/web_support_moss-sprite.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "505aa334628b6a4cad77df69d5d801e7cb3f319d4407f88c3b69259f1a904e96"
+  },
+  {
+    "key": "p_weather_vial",
+    "path": "heroDaledou/assets/p_weather_vial.xic",
+    "rawPath": "heroDaledou/raw/web_support_weather-vial.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "0fbdc849002c16e25e4d4aa1706b4c7714355945653aa6340d5275196e95bc0f"
+  },
+  {
+    "key": "cp_weather_vial",
+    "path": "heroDaledou/assets/cp_weather_vial.xic",
+    "rawPath": "heroDaledou/raw/web_support_weather-vial.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "c30ae68514e0fefad5b3ba75e2566031b3a2e19a390ce12b23a925618808a465"
+  },
+  {
+    "key": "p_echo_coin",
+    "path": "heroDaledou/assets/p_echo_coin.xic",
+    "rawPath": "heroDaledou/raw/web_support_echo-coin.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "9577c65ea841c17cd2e21c9f962d7f9e0e93fe5733f4351e7a86f55bc8eb5c9c"
+  },
+  {
+    "key": "cp_echo_coin",
+    "path": "heroDaledou/assets/cp_echo_coin.xic",
+    "rawPath": "heroDaledou/raw/web_support_echo-coin.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "74b83d783b5c2ddbe94ccecdfe2ee1fbae5bebd3ab86c10fa6436e570b9d3009"
+  },
+  {
+    "key": "p_broken_crown",
+    "path": "heroDaledou/assets/p_broken_crown.xic",
+    "rawPath": "heroDaledou/raw/web_support_broken-crown.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "9924998df3379d9467213722666a374b8c7c02c6a3fba080ae68f9aaabed4966"
+  },
+  {
+    "key": "cp_broken_crown",
+    "path": "heroDaledou/assets/cp_broken_crown.xic",
+    "rawPath": "heroDaledou/raw/web_support_broken-crown.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "a66ca3ad59d61eef15606d2aaa4366829b6fe116f9689916ef8f9c773d10b9a7"
+  },
+  {
+    "key": "p_pearl_mole",
+    "path": "heroDaledou/assets/p_pearl_mole.xic",
+    "rawPath": "heroDaledou/raw/web_support_pearl-mole.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "64d2e8fece1938c6863e23340aaf08c8dade76adf7137a1ed30e5493ad14abb5"
+  },
+  {
+    "key": "cp_pearl_mole",
+    "path": "heroDaledou/assets/cp_pearl_mole.xic",
+    "rawPath": "heroDaledou/raw/web_support_pearl-mole.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "5da14cdb973540fa5ce7533d3fbc96d5609a95534b9257687d726d9a14f65b8d"
+  },
+  {
+    "key": "p_copper_compass",
+    "path": "heroDaledou/assets/p_copper_compass.xic",
+    "rawPath": "heroDaledou/raw/web_support_copper-compass.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "187ad5a5c94f4212dc7fdb86a550ca48fa51d3d97101e4bb40d87841f54f9dca"
+  },
+  {
+    "key": "cp_copper_compass",
+    "path": "heroDaledou/assets/cp_copper_compass.xic",
+    "rawPath": "heroDaledou/raw/web_support_copper-compass.webp",
+    "rawMime": "image/webp",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "0760370f7647ec385a268f116c77fe1be584c0ccbc38929e5799bf0f22a7fa5f"
+  },
+  {
+    "key": "e_rest",
+    "path": "heroDaledou/assets/e_rest.xic",
+    "rawPath": "heroDaledou/raw/web_events_rest.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "f217f1179183d6130169931848eef7b304e5fa8a0b70c20931c059664bd48255"
+  },
+  {
+    "key": "e_thorns",
+    "path": "heroDaledou/assets/e_thorns.xic",
+    "rawPath": "heroDaledou/raw/web_events_thorns.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "e988bc7ceda390a3e27d0762d3a5c6b0dddc75114faa5d8e6c61509cf5356c23"
+  },
+  {
+    "key": "e_wind",
+    "path": "heroDaledou/assets/e_wind.xic",
+    "rawPath": "heroDaledou/raw/web_events_wind.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "c6858736248fca5e58c1c6e92187a95ad32011ad2e804c08f0cca5b922f21a80"
+  },
+  {
+    "key": "e_chest",
+    "path": "heroDaledou/assets/e_chest.xic",
+    "rawPath": "heroDaledou/raw/web_events_chest.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "4b3518c93b0ac03a7e6da9390a6de8de650392e412f2400d80e9fd6c809e3bc4"
+  },
+  {
+    "key": "e_merchant",
+    "path": "heroDaledou/assets/e_merchant.xic",
+    "rawPath": "heroDaledou/raw/web_events_merchant.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "2ef7f2f0ef3c6aa7ad4d8d298f22780a45ee9dcdc7bb34719eb0ca94b26093d5"
+  },
+  {
+    "key": "e_elite",
+    "path": "heroDaledou/assets/e_elite.xic",
+    "rawPath": "heroDaledou/raw/web_events_elite.webp",
+    "rawMime": "image/webp",
+    "width": 76,
+    "height": 76,
+    "bpp": 1,
+    "contentHash": "66f4c3175ba26b0c64a32b1982129996b7189648ca4ad0c8b90ed830a7a43477"
+  },
+  {
+    "key": "hero_tide",
+    "path": "heroDaledou/assets/hero_tide.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_tide-medic.webp",
+    "rawMime": "image/webp",
+    "width": 176,
+    "height": 220,
+    "bpp": 1,
+    "contentHash": "a3f1630364c0a67d94093439dc4dd97d71c67df1ca3a5ef2664bc598db9cb74d"
+  },
+  {
+    "key": "hero_tide_thumb",
+    "path": "heroDaledou/assets/hero_tide_thumb.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_tide-medic.webp",
+    "rawMime": "image/webp",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "c6b58c7507a51c4163c72a6f2888e1219e3832a8cf8b1b67afc3fd7b333b5689"
+  },
+  {
+    "key": "hero_assassin",
+    "path": "heroDaledou/assets/hero_assassin.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_cloud-assassin.webp",
+    "rawMime": "image/webp",
+    "width": 176,
+    "height": 220,
+    "bpp": 1,
+    "contentHash": "8156cdc81df32e1f577c704b9d661eb973dc1c7925ed26316cbfe40dd02605cf"
+  },
+  {
+    "key": "hero_assassin_thumb",
+    "path": "heroDaledou/assets/hero_assassin_thumb.xic",
+    "rawPath": "heroDaledou/raw/web_heroes_cloud-assassin.webp",
+    "rawMime": "image/webp",
+    "width": 176,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "ec2e88796dabb663f6cf8f8834c4442c4bed4408bd754c8c4d031a470d55ed34"
+  }
+]

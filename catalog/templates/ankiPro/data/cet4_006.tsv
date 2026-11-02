@@ -1,0 +1,200 @@
+task	n.	/tæsk/	任务，工作	My task is to finish this report.	1	1001	0
+angel	n.	/ˈeɪndʒəl/	天使，神差，安琪儿	She sings like an angel.	1	1002	0
+maths	n.	/mæθs/	(英)数学	I'm good at maths.	1	1003	0
+law	n.	/lɔː/	法律，法令；法则	It's against the law.	1	1004	0
+body	n.	/ˈbɒdi/	身体；主体；尸体	Exercise is good for your body.	3	1005	311
+atom	n.	/ˈætəm/	原子；微粒；微量	An atom is the basic unit of matter.	3	1006	280
+bough	n.	/baʊ/	树枝	The bird sat on a bough.	1	1007	0
+rely	v./vi.	/rɪˈlaɪ/	依赖，依靠；信赖；依靠，依赖	You can rely on me.	3	1008	195
+lick	n./v./vt.	/lɪk/	舔；舔吃；舔，舔吃	The dog gave me a lick.	1	1009	0
+quote	n./v./vt.	/kwoʊt/	引用，引证；报价；引用，援引	Can you quote the price?	3	1010	1649
+rear	n./vt./adj.	/rɪər/	后部，后面；背面；后部的，背后的	The car has a rear window.	3	1011	38
+pose	n./v./vt./vi.	/poʊz/	摆姿势，装腔作势；姿势；摆姿势	She struck a beautiful pose.	3	1012	112
+shave	n./v.	/ʃeɪv/	剃，刮；修面；剃，刮，刨，削	I shave every morning.	1	1013	0
+clasp	n.	/klæsp/	扣子，钩子；别针	She wore a necklace with a silver clasp.	3	1014	2445
+load	n./v.	/loʊd/	装；装满；负载	The truck has a heavy load.	1	1015	0
+diary	n.	/ˈdaɪəri/	日记，日记簿	I write in my diary every day.	1	1016	0
+grow	v.	/ɡroʊ/	生长；变得；增长	Plants grow in the garden.	1	1017	0
+knife	n.	/naɪf/	小刀，刀，餐刀	I need a knife to cut the bread.	1	1018	0
+seal	n./v./vt.	/siːl/	封蜡；印记；封	The document has an official seal.	1	1019	0
+rat	n.	/ræt/	老鼠，耗子；鼠	I saw a rat in the kitchen.	1	1020	0
+haste	n.	/heɪst/	急速，急忙；草率	He left in haste.	1	1021	0
+ask	v.	/æsk/	问；要求；邀请	Can I ask you a question?	1	1022	0
+harm	n./v./vt.	/hɑːrm/	有害；伤害，损害；损害	Don't harm anyone.	1	1023	0
+lock	n./v.	/lɑːk/	锁；锁上，锁住	Did you lock the door?	1	1024	0
+lens	n.	/lenz/	透镜，镜片；镜头；透镜，镜片，镜头	The camera has a good lens.	3	1025	85
+bend	v.	/bend/	使弯曲；弯曲	Bend your knees slightly.	3	1026	366
+boil	v.	/bɔɪl/	沸腾；汽化vt煮沸	Boil the water before drinking it.	1	1027	0
+core	n.	/kɔːr/	果实的心，核心；果实的心；核心，要点	The core of the apple is inedible.	1	1028	0
+jaw	n.	/dʒɔː/	颌，颚	He broke his jaw in the accident.	1	1029	0
+deep	adj.	/diːp/	深的；纵深的	The ocean is very deep.	1	1030	0
+beat	vt./vi.	/biːt/	打，敲；打败	My heart began to beat faster.	1	1031	0
+less	adj./adv.	/les/	更少的；更少地	I want less sugar in my coffee.	1	1032	0
+party	n.	/ˈpɑːrti/	党，党派；聚会	We are having a party.	1	1033	0
+weave	v.	/wiːv/	织，编；纺织	She can weave beautiful baskets.	3	1034	747
+prior	adj.	/ˈpraɪər/	在先的；优先的；在前的	I have a prior engagement.	3	1035	946
+pea	n.	/piː/	豌豆；豌豆属植物	I like to eat pea soup.	1	1036	0
+more	adj./adv.	/mɔːr/	更多的；更	I want more cake.	1	1037	0
+not	adv.	/nɑːt/	不，没有	I am not happy.	1	1038	0
+cozy	adj.	/ˈkoʊzi/	舒适的	The room is very cozy.	3	1039	360
+gate	n.	/ɡeɪt/	大门；篱笆门	Close the gate behind you.	1	1040	0
+gene	n.	/dʒiːn/	基因	This gene is responsible for hair color.	1	1041	0
+piano	n.	/piˈænoʊ/	钢琴	She plays the piano beautifully.	1	1042	0
+fun	n.	/fʌn/	乐趣，娱乐；玩笑	It was a lot of fun.	1	1043	0
+main	adj.	/meɪn/	主要的，最重要的	The main road is closed.	3	1044	272
+rough	adj.	/rʌf/	表面不平的；粗略的	The road is very rough.	1	1045	0
+brief	n./vt./adj.	/briːf/	简短的；短暂的；简短的，短暂的	The meeting was brief.	3	1046	2077
+faith	n.	/feɪθ/	信任；信任，信心；信仰	I have faith in you.	3	1047	2673
+rude	adj.	/ruːd/	粗鲁的；粗鲁的，不礼貌的；粗糙的，粗陋的	It's rude to interrupt.	1	1048	0
+fight	v.	/faɪt/	打(仗)；斗争	Don't fight with your brother.	1	1049	0
+scare	n./v.	/skɛr/	吓，使害怕；受惊吓，感到害怕；惊恐，恐慌	The loud noise gave me a scare.	3	1050	675
+ghost	n.	/ɡoʊst/	鬼，灵魂；鬼魂；鬼，灵魂，鬼魂	I saw a ghost in the house.	1	1051	0
+base	n.	/beɪs/	基础，底层；基地	This is the base of the statue.	1	1052	0
+boast	n./v./vt./vi.	/bəʊst/	自夸；吹嘘；自豪	He likes to boast about his achievements.	3	1053	2142
+be	aux.	/biː/	v&vi是，在，做	I want to be a doctor.	1	1054	0
+nest	n./v.	/nest/	巢，窝，穴；筑巢	The bird built a nest.	3	1055	21
+dig	v.	/dɪɡ/	掘，挖；采掘	I like to dig in the garden.	1	1056	0
+loan	n./v./vt.	/loʊn/	贷款；暂借；借出	I need to apply for a loan.	1	1057	0
+mass	n./v./adj.	/mæs/	众多；团；群众	The mass of the object is 10 kilograms.	3	1058	133
+heave	n./vt./vi.	/hiːv/	起伏，隆起；呕吐，恶心；举起，提起，拉起，拖	He heaved a sigh of relief.	3	1059	2386
+aside	adv.	/əˈsaɪd/	在旁边，到旁边	He stepped aside to let her pass.	1	1060	0
+pulse	n./vi.	/pʌls/	脉搏；脉冲，脉动；搏动，跳动	The doctor checked my pulse.	1	1061	0
+rub	vt.	/rʌb/	擦，摩擦	Rub the cream on your skin.	1	1062	0
+inn	n.	/ɪn/	小旅店；小酒店；小旅店，小酒店	They stayed at a small inn.	1	1063	0
+proud	adj.	/praʊd/	骄傲的；自豪的	I am proud of you.	1	1064	0
+erect	v./vt./adj.	/ɪˈrekt/	建造；使竖立；竖直的，垂直的	They will erect a new building here.	3	1065	861
+bang	n./vt./vi.	/bæŋ/	巨响，枪声；猛击；猛击，猛撞	The door slammed with a bang.	3	1066	325
+rain	n./v.	/reɪn/	雨，雨水；下雨	It's starting to rain.	1	1067	0
+greet	v.	/ɡriːt/	问候，招呼；反应	I greet my friends every morning.	1	1068	0
+inner	adj.	/ˈɪnər/	内部的；内心的	This is the inner circle.	1	1069	0
+lady	n.	/ˈleɪdi/	女士，夫人；贵妇人	She is a kind lady.	1	1070	0
+purse	n.	/pɜːrs/	钱包，小钱袋，手袋；钱包，女用小提包	She keeps her money in her purse.	1	1071	0
+do	v./aux.	/duː/	v；做，干，办	I have to do my homework.	1	1072	0
+press	v.	/pres/	压，按，揿；催促	Press the button to start.	3	1073	1728
+bit	n.	/bɪt/	一点，一些，小片	I ate a bit of cake.	1	1074	0
+cent	n.	/sent/	分；分币；百	This candy costs one cent.	1	1075	0
+craft	n.	/kræft/	工艺；手艺，行业；工艺，手艺	She is good at craft.	3	1076	2103
+pick	n.	/pɪk/	镐，鹤嘴锄	Please pick up the trash.	1	1077	0
+hill	n.	/hɪl/	小山，山岗；丘陵	We walked up the hill.	1	1078	0
+nasty	adj.	/ˈnæsti/	龌龊的；淫猥的	That was a nasty comment.	3	1079	1131
+most	adj./adv.	/moʊst/	最多的；最，很	Most people like ice cream.	1	1080	0
+guess	n./vt./vi.	/ɡɛs/	猜测，推测	I guess you are right.	1	1081	0
+sew	v.	/soʊ/	缝制；缝纫；缝制，缝纫	She can sew clothes.	3	1082	345
+stem	n./v./vt./vi.	/stem/	茎，(树)干；起源；茎，干	The stem of the flower is green.	3	1083	30
+tent	n.	/tent/	帐篷	We slept in a tent.	1	1084	0
+night	n.	/naɪt/	夜，夜间	It is dark at night.	1	1085	0
+moist	adj.	/mɔɪst/	湿润的；多雨的；湿润的，潮湿的	The cake is very moist.	3	1086	2487
+drop	v.	/drɒp/	使落下；降低	Don't drop the glass.	1	1087	0
+cage	n.	/keɪdʒ/	笼；鸟笼，囚笼	The bird is in a cage.	1	1088	0
+snap	n./v./adj.	/snæp/	咔嚓折断，啪地绷断；吧嗒一声；猛咬	I heard a snap.	3	1089	36
+boy	n.	/bɔɪ/	男孩，少年；家伙	The boy is playing outside.	1	1090	0
+sound	adj.	/saʊnd/	健康的；完好的	I heard a strange sound.	1	1091	0
+inch	n.	/ɪntʃ/	英寸	The plant grew an inch this week.	1	1092	0
+fact	n.	/fækt/	事实；实际，实情	That is a true fact.	1	1093	0
+next	adj.	/nekst/	紧接的；贴近的	What's next on the list?	1	1094	0
+farm	n.	/fɑːrm/	农场，农庄；饲养场	They live on a farm.	1	1095	0
+drum	n./v.	/drʌm/	鼓；鼓状物，圆桶；有节奏地敲击	He plays the drum in a band.	1	1096	0
+queen	n.	/kwiːn/	王后；女王	She is the queen of England.	1	1097	0
+youth	n.	/juːθ/	青春；青年们；青年	She spent her youth in London.	1	1098	0
+map	n.	/mæp/	地图；图；天体图	I need a map to find the way.	1	1099	0
+by	prep.	/baɪ/	在…旁；被，由	The book was written by him.	1	1100	0
+bride	n.	/braɪd/	新娘	The bride wore a white dress.	3	1101	2129
+make	v.	/meɪk/	使；做，制造	I can make a cake.	1	1102	0
+gold	n./adj.	/ɡoʊld/	金；钱财；金制的	Gold is a valuable metal.	1	1103	0
+lake	n.	/leɪk/	湖	We swam in the lake.	1	1104	0
+pitch	n./vt./vi.	/pɪtʃ/	沥青；投，掷；架设，搭，营	The baseball pitcher threw the ball.	3	1105	487
+fund	n./v./vt.	/fʌnd/	基金，储备；提供资金；资金	We need to fund the project.	3	1106	292
+hence	adv.	/hens/	因此，所以；今后	The road was closed; hence, we took a detour.	1	1107	0
+dial	n./v.	/ˈdaɪəl/	钟面；拨号盘；拨	Dial the number carefully.	1	1108	0
+nine	num.	/naɪn/	九，九个	I have nine apples.	1	1109	0
+cafe	n.	/kæˈfeɪ/	咖啡馆；小餐厅	Let's meet at the cafe.	1	1110	0
+ever	adv.	/ˈevər/	在任何时候；曾经	Have you ever been to Japan?	1	1111	0
+empty	adj.	/ˈempti/	空的；空洞的	The glass is empty.	1	1112	0
+mount	n./v.	/maʊnt/	登上，爬上；…山；登上	We will mount the picture on the wall.	3	1113	2850
+owe	v./vt.	/oʊ/	欠；应把…归功于；感激，感恩	I owe you money.	3	1114	309
+club	n.	/klʌb/	俱乐部，夜总会	I joined a book club.	1	1115	0
+phone	n.	/foʊn/	电话，电话机；耳机	I need to make a phone call.	1	1116	0
+groan	n./v.	/ɡroʊn/	哼，呻吟；呻吟	He let out a groan of pain.	3	1117	749
+ban	n./v./vt.	/bæn/	禁止；取缔，查禁；禁止，禁令	The city banned smoking.	1	1118	0
+soak	v.	/soʊk/	浸，泡；浸泡	Let the beans soak overnight.	1	1119	0
+album	n.	/ˈælbəm/	粘贴簿，集邮簿，像册	I bought a new music album.	3	1120	1023
+frank	adj.	/fræŋk/	坦白的，直率的	He was frank about his mistakes.	1	1121	0
+truth	n.	/truːθ/	真理；真实；真实性	Tell me the truth.	1	1122	0
+shift	n./v.	/ʃɪft/	替换，转移；转换；移动，转移	I work the night shift.	3	1123	804
+tidy	v./adj.	/ˈtaɪdi/	整洁的；整齐的；整洁的，整齐的	Please keep your room tidy.	1	1124	0
+cheat	n./v.	/tʃiːt/	欺骗,作弊；骗取；哄	Don't cheat on the test.	3	1125	1702
+flood	n./v.	/flʌd/	洪水；淹没；涌入	The heavy rain caused a flood.	1	1126	0
+chalk	n.	/tʃɔːk/	白垩；粉笔	The teacher wrote on the board with chalk.	1	1127	0
+mood	n.	/muːd/	心情；心情，情绪；语气	She is in a good mood today.	1	1128	0
+frame	n./vt.	/freɪm/	框架；框架，框子；构架	The picture needs a new frame.	3	1129	2273
+hay	n.	/heɪ/	干草	The horse eats hay.	1	1130	0
+die	v.	/daɪ/	死，死亡；灭亡	Plants die without water.	1	1131	0
+brow	n.	/braʊ/	额；眉，眉毛；额，眉，眉毛	He wiped the sweat from his brow.	1	1132	0
+shoot	n./v.	/ʃuːt/	发射；射中；发芽	Don't shoot the bird!	1	1133	0
+novel	n./adj.	/ˈnɒvəl/	小说；新的	I'm reading a very interesting novel.	3	1134	1632
+pit	n./vt.	/pɪt/	坑，地坑；煤矿；地洞，坑	He fell into a pit.	1	1135	0
+no	adj./adv.	/noʊ/	不；并不；没有	The answer is no.	1	1136	0
+oven	n.	/ˈʌvən/	炉，灶；烘箱；炉，烤箱	Preheat the oven to 200 degrees.	1	1137	0
+Greek	n./adj.	/ɡriːk/	希腊的；希腊人	She is studying Greek history.	1	1138	0
+yawn	n./v./vi.	/jɔːn/	打呵欠；呵欠	I yawn when I'm tired.	1	1139	0
+later	adv.	/ˈleɪtər/	后来；过一会儿	I'll call you later.	1	1140	0
+jewel	n.	/ˈdʒuːəl/	宝石；宝石饰物	She wears a beautiful jewel.	1	1141	0
+loyal	adj.	/ˈlɔɪəl/	忠诚的，忠心的	He is a loyal friend.	3	1142	2748
+fail	v.	/feɪl/	失败；失灵；不能	I don't want to fail the test.	1	1143	0
+tune	n./v./vt.	/tjuːn/	调子；和谐；调谐	That's a catchy tune.	1	1144	0
+grid	n.	/ɡrɪd/	输电网	The city has a street grid.	1	1145	0
+outer	adj.	/ˈaʊtər/	外部的，外面的；外面的，外层的	This is the outer layer.	1	1146	0
+grief	n.	/ɡriːf/	悲伤	She felt great grief after her loss.	3	1147	1714
+legal	adj.	/ˈliːɡəl/	法律的；合法的	Is this contract legal?	3	1148	2949
+chain	n.	/tʃeɪn/	链，链条，项圈	The dog is tied to a chain.	3	1149	1340
+king	n.	/kɪŋ/	国王，君主	He is the king of the country.	1	1150	0
+fancy	n./vt./adj.	/ˈfænsi/	华丽的，别致的；想象力；设想	I fancy a cup of tea.	1	1151	0
+anger	n./v.	/ˈæŋɡər/	怒，愤怒；使发怒	He felt anger at the situation.	1	1152	0
+aim	v.	/eɪm/	瞄准，针对；致力	What is your aim?	1	1153	0
+fond	adj.	/fɒnd/	喜爱的；溺爱的	I am fond of reading.	1	1154	0
+disk	n.	/dɪsk/	圆盘，唱片；磁盘	I saved the file to a disk.	1	1155	0
+site	n./vt.	/saɪt/	场所，地址；地点，地基；场所	This is the construction site.	1	1156	0
+pear	n.	/peər/	梨子，梨树	She bought a pear at the market.	1	1157	0
+feel	v.	/fiːl/	有知觉；触，摸	I feel happy today.	3	1158	150
+width	n.	/wɪdθ/	宽阔，广阔；宽度	What is the width of the room?	1	1159	0
+dog	n.	/dɔːɡ/	狗，犬，犬科动物	I have a dog.	1	1160	0
+deck	n.	/dɛk/	甲板；舱面；层面	We sat on the deck.	1	1161	0
+hear	v.	/hɪr/	听见；审讯；听说	Can you hear me?	1	1162	0
+board	n./v./vt./vi.	/bɔːrd/	板；上(船、车等)；搭伙	We need a new board for the fence.	3	1163	2915
+bake	v./vt.	/beɪk/	烤，烘，焙；烧硬	I like to bake cookies.	1	1164	0
+hint	n./v.	/hɪnt/	暗示，示意；建议；细微的迹象	He gave me a hint.	1	1165	0
+shelf	n.	/ʃelf/	搁板，架子	Put the book on the shelf.	1	1166	0
+fix	v.	/fɪks/	使固定；决定	Can you fix my bike?	1	1167	0
+cable	n.	/ˈkeɪbəl/	缆，索；电缆；电报	We need a new cable for the TV.	3	1168	3412
+halt	n./v./vt.	/hɔːlt/	停止；立定；停住	The car came to a halt.	1	1169	0
+brake	n./v.	/breɪk/	闸，刹车；制动；刹住，用闸使放慢速度	Use the brake to stop the car.	1	1170	0
+real	adj.	/riːəl/	真的；现实的	Is this real gold?	1	1171	0
+keen	adj.	/kiːn/	热心的；激烈的；敏锐的，敏捷的	She is a keen swimmer.	3	1172	82
+kneel	v./vi.	/niːl/	跪，跪下，跪着	Please kneel down.	1	1173	0
+awake	v./adj.	/əˈweɪk/	醒着的；唤醒	I am awake now.	3	1174	700
+found	v.	/faʊnd/	创立，创办；建立	I found my keys.	1	1175	0
+dull	adj.	/dʌl/	枯燥的；不鲜明的；乏味的，单调的	The knife is dull.	1	1176	0
+tank	n.	/tæŋk/	油箱，水箱；坦克；大容器，槽	The car's gas tank is empty.	3	1177	204
+rack	n./vt.	/ræk/	搁物架；行李架；挂架，搁架	I hung my coat on the rack.	1	1178	0
+gray	n./adj.	/ɡreɪ/	灰色的；灰色	The sky is gray today.	1	1179	0
+knee	n.	/niː/	膝，膝盖，膝关节	I hurt my knee playing soccer.	1	1180	0
+admit	v./vt.	/ədˈmɪt/	承认，容许；承认；准许…进入	I admit that I was wrong.	3	1181	1690
+ash	n.	/æʃ/	灰，灰末；骨灰	The fire turned to ash.	1	1182	0
+deed	n.	/diːd/	行为；功绩；契约	It was a good deed.	1	1183	0
+pace	n./v./vi.	/peɪs/	步，步速；踱步；速度	He walked at a slow pace.	3	1184	223
+being	n.	/ˈbiːɪŋ/	存在；生物；生命	He enjoys being with his friends.	1	1185	0
+boost	n./v./vt.	/buːst/	推动,宣扬；促使，促进；提高，使增长	We need to boost sales this quarter.	3	1186	853
+chew	v./vt.	/tʃuː/	咀嚼，嚼碎	You should chew your food well.	3	1187	42
+usage	n.	/ˈjuːsɪdʒ/	使用，对待；惯用法；使用	The usage of this word is changing.	3	1188	1483
+fit	v.	/fɪt/	适合；安装	These shoes don't fit me.	1	1189	0
+hen	n.	/hen/	母鸡，雌禽	The hen laid an egg.	1	1190	0
+awful	adj.	/ˈɔːfl/	可怕的，骇人的；令人不愉快的；令人不愉快的，难…	The weather is awful today.	3	1191	2398
+roll	vt./vi.	/roʊl/	滚动；转动	The ball began to roll.	1	1192	0
+brass	n.	/bræs/	黄铜；黄铜器；黄铜，黄铜器，铜管乐器	The trumpet is made of brass.	1	1193	0
+God	n.	/ɡɑːd/	神，神像；上帝	Some people believe in God.	1	1194	0
+again	adv.	/əˈɡen/	又一次；而且	Please say that again.	1	1195	0
+brisk	adj.	/brɪsk/	活泼的；清新的	We took a brisk walk.	3	1196	533
+mat	n.	/mæt/	席子；草席；垫子	There is a mat by the door.	1	1197	0
+pinch	n./v./vt.	/pɪntʃ/	捏，拧，掐掉；捏，拧；撮，微量	Don't pinch me!	1	1198	0
+glare	n./v.	/ɡleər/	瞪眼	The sun's glare hurt my eyes.	3	1199	1482
+stock	n./vt./adj.	/stɑːk/	库存，股票；原料；库存品	We need to stock up on food.	3	1200	1311

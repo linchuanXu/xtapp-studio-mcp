@@ -1,0 +1,15 @@
+{
+  "app_id": "sheep_wolf_river-a1b2c3d4",
+  "display_name": "羊狼过河",
+  "version": "1.6.3",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "preload_assets": [
+    "scene_background"
+  ],
+  "author": "XTApp Creator",
+  "description": "羊狼过河50关：动态居中输入格、固定船夫、下一关按钮和分级船容量"
+}

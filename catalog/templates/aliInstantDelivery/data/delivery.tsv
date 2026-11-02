@@ -1,0 +1,16 @@
+kind	at	title	detail	eta	value
+meta	0	order_no	5086	0
+meta	0	store	盒马鲜生·观澜湖店	0
+meta	0	address	观澜湖园区 2 号楼 · 尾号 0321	0
+meta	0	amount	68.40	0
+stage	0	订单已确认	门店正在为你拣货	28
+stage	45	拣货进行中	冷藏与常温商品分袋打包	24
+stage	105	骑手已接单	骑手正前往门店取货	18
+stage	170	商品已取出	订单已装车，准备配送	12
+stage	245	配送中	骑手距收货点约 1.1 公里	7
+stage	315	即将送达	骑手已进入园区	2
+stage	360	订单已送达	商品已放至园区前台	0
+item	0	鲜牛奶 950ml	x1	0	16.90
+item	0	云南蓝莓 125g	x2	0	25.80
+item	0	原味贝果	x2	0	13.80
+item	0	环保袋	x1	0	1.00

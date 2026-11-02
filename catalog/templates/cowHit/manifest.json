@@ -1,0 +1,22 @@
+{
+  "app_id": "cow_hit_game-3a91c2d7",
+  "display_name": "牛马再打我一次",
+  "version": "0.1.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "scene1",
+    "scene2",
+    "scene3",
+    "scene4",
+    "scene5"
+  ],
+  "author": "XTApp Creator",
+  "description": "60 秒快速点击挑战小游戏"
+}

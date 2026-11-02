@@ -1,0 +1,24 @@
+{
+  "app_id": "mindnotes_review-1c7a43e9",
+  "display_name": "MindNotes",
+  "version": "0.1.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "system"
+  },
+  "author": "XTApp Studio",
+  "description": "MindNotes 旧设备复习队列与 FSRS 评分。",
+  "permissions": [
+    "net"
+  ],
+  "preload_assets": [
+    "home_review",
+    "grade_again",
+    "grade_hard",
+    "grade_good_inverse",
+    "grade_easy_inverse",
+    "nav_back",
+    "result_complete"
+  ]
+}

@@ -1,0 +1,199 @@
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import { delimiter, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { createHash } from 'node:crypto'
+
+// 维护者车道：只在用户要求刷新/校验知识时运行，源目录一律由本机环境变量提供，
+// 仓库内不写任何 checkout 路径。
+//
+//   XTAPP_CONTRACT_DIR         Studio 按标签同步的契约 2.x 副本 content/contracts/v2（取 source.json 的标签和 spec/*.md）
+//   XTAPP_PUBLIC_KNOWLEDGE_DIR Studio 侧公开知识根目录，可用路径分隔符列多个（POSIX 为 ":"）；
+//                              正文在 content/knowledge/generated/documents/，资产在 content/knowledge/public/
+//
+// 每条带 version：2.x（契约条文）、0.8（Studio 的旧接口指南，只在迁移时检索）、any（两代通用）。
+//
+//   node scripts/sync-knowledge.mjs            重新生成 knowledge/index.json
+//   node scripts/sync-knowledge.mjs --check    只校验已提交的索引是否与源一致（无源时跳过并说明）
+const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
+const check = process.argv.includes('--check')
+const contractDir = process.env.XTAPP_CONTRACT_DIR ? resolve(process.env.XTAPP_CONTRACT_DIR) : null
+const knowledgeDirs = String(process.env.XTAPP_PUBLIC_KNOWLEDGE_DIR || '')
+  .split(delimiter)
+  .map((item) => item.trim())
+  .filter(Boolean)
+  .map((item) => resolve(item))
+const configuredRoots = [...(contractDir ? [contractDir] : []), ...knowledgeDirs]
+
+if (!check && configuredRoots.length === 0) {
+  console.error('缺少知识源：请通过 XTAPP_CONTRACT_DIR / XTAPP_PUBLIC_KNOWLEDGE_DIR 指定本机目录后再生成索引。')
+  process.exit(1)
+}
+if (check && configuredRoots.length === 0) {
+  console.log('跳过知识索引新鲜度检查：未提供 XTAPP_CONTRACT_DIR / XTAPP_PUBLIC_KNOWLEDGE_DIR。')
+  process.exit(0)
+}
+const missingRoots = configuredRoots.filter((item) => !existsSync(item))
+if (missingRoots.length) {
+  console.error(`知识源不存在，拒绝在缺输入的情况下生成索引：${missingRoots.join('、')}`)
+  process.exit(1)
+}
+const studioPreviewKnowledge = join(root, 'knowledge', 'studio-preview.md')
+const files = []
+
+async function visit(path) {
+  if (!existsSync(path)) return
+  for (const entry of await readdir(path, { withFileTypes: true })) {
+    const child = join(path, entry.name)
+    if (entry.isDirectory()) await visit(child)
+    else if (/\.(md|jsonc?|lua)$/i.test(entry.name)) files.push(child)
+  }
+}
+
+let contractTag = null
+if (contractDir) {
+  contractTag = JSON.parse(await readFile(join(contractDir, 'source.json'), 'utf8')).tag
+  if (!/^api-2\.\d+\.\d+$/.test(contractTag || '')) {
+    console.error(`XTAPP_CONTRACT_DIR 不是 Studio 的契约 2.x 副本（缺 source.json 标签）：${contractDir}`)
+    process.exit(1)
+  }
+  for (const name of (await readdir(join(contractDir, 'spec'))).sort()) {
+    if (name.endsWith('.md')) files.push(join(contractDir, 'spec', name))
+  }
+}
+// 英文译本在 Studio 知识目录，不在会被契约同步清掉的副本里。
+const englishSpecDir = contractDir ? join(contractDir, '..', '..', 'knowledge', 'v2-spec-en') : null
+if (englishSpecDir && existsSync(englishSpecDir)) {
+  for (const name of (await readdir(englishSpecDir)).sort()) {
+    if (name.endsWith('.md')) files.push(join(englishSpecDir, name))
+  }
+}
+for (const dir of knowledgeDirs) await visit(dir)
+
+// 契约 2.x 各节按节号归类；名字见 spec/ 目录。
+const SPEC_TOPICS = {
+  input: ['04'], graphics: ['05', '06', '07', '11'], manifest: ['00', '19', '21'], assets: ['08', 'A'],
+  network: ['14'], ui: ['16', '23'], overview: ['03', 'C'],
+}
+function specTopic(name) {
+  const number = /^(?:附录)?([0-9]{2}|[A-Z])/.exec(name)?.[1]
+  return Object.entries(SPEC_TOPICS).find(([, numbers]) => numbers.includes(number))?.[0] || 'runtime'
+}
+// 与 Studio 的 knowledgeApiFamily 同一分法：Studio 只讲 2.x 的指南、两代通用的指南，其余按 0.8 写。
+const V2_DOCUMENTS = /^(?:assets-drawing|text-fonts|device-ui-components|advanced-interactive-games|clock-timer|idle-games|online-games|pro-home-key|eink-motion|time-budget)(?:\.en)?\.md$/
+const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id)(?:\.en)?\.md$/
+
+// 正文里顺带写了点击、按键的作者指南，按内容会被猜成 input；这几篇按篇定主题，
+// 免得按 graphics / network / runtime 过滤时查不到。
+const GUIDE_TOPICS = { 'eink-motion': 'graphics', 'online-games': 'network', 'idle-games': 'runtime' }
+
+function topicFor(source, content) {
+  const value = source.toLowerCase()
+  const guide = GUIDE_TOPICS[value.split('/').at(-1).replace(/(?:\.en)?\.md$/, '')]
+  if (guide) return guide
+  if (value.includes('/input')) return 'input'
+  if (value.includes('/graphics')) return 'graphics'
+  if (value.includes('/runtime')) return 'runtime'
+  if (value.includes('/manifest')) return 'manifest'
+  if (value.includes('ui-components')) return 'ui'
+  if (value.includes('studio-preview')) return 'studio-preview'
+  if (value.includes('/assets')) return 'assets'
+  if (value.includes('/network')) return 'network'
+  if (/on_input|ctx\.input|semantic key/i.test(content)) return 'input'
+  if (/g:(?:clear|line|rect|circle|text|image|layer)/i.test(content)) return 'graphics'
+  return 'overview'
+}
+
+function apiFor(content, topic) {
+  const patterns = {
+    input: /\b(on_input|ctx\.input(?:\.caps)?|normalizeXtappInput)\b/i,
+    graphics: /\b(g:(?:clear|line|rect|circle|text|image|layer|size))\b/i,
+    runtime: /\b(ctx\.(?:state|screen|sys|longtask|perf)|on_(?:load|enter|tick|draw|leave|unload))\b/i,
+    manifest: /\b(manifest(?:\.json)?|app_id|display\.orientation)\b/i,
+    network: /\b(ctx\.net:(?:get|post|poll|cancel))\b/i,
+    'studio-preview': /\b(?:run_xtapp_preview|preview bridge|Lua Worker|SSE)\b/i,
+  }
+  return patterns[topic]?.exec(content)?.[1] || null
+}
+
+function versionFor(sourcePath) {
+  if (sourcePath.startsWith('contract/v2/') || V2_DOCUMENTS.test(sourcePath)) return '2.x'
+  return SHARED_DOCUMENTS.test(sourcePath) ? 'any' : '0.8'
+}
+
+function publicPath(path, contractDir, knowledgeDirs) {
+  const englishSpecDir = contractDir ? join(contractDir, '..', '..', 'knowledge', 'v2-spec-en') : null
+  if (englishSpecDir && (path === englishSpecDir || path.startsWith(`${englishSpecDir}/`))) {
+    return `contract/v2/spec-en/${path.slice(englishSpecDir.length + 1)}`
+  }
+  if (contractDir && (path === contractDir || path.startsWith(`${contractDir}/`))) return `contract/v2/${path.slice(contractDir.length + 1)}`
+  for (const dir of knowledgeDirs) {
+    if (path === dir || path.startsWith(`${dir}/`)) return path.slice(dir.length + 1)
+  }
+  return path.split(/[/\\]/).slice(-2).join('/')
+}
+
+// 作者指南的口语检索词只写在手改源 jsonc 里，生成的 Markdown 不带。
+// 生成目录是 <知识根>/generated/documents，源在同一知识根的 documents/<id>.jsonc。
+async function keywordsFor(path) {
+  const match = /[/\\]generated[/\\]documents[/\\]([^/\\]+?)(\.en)?\.md$/.exec(path)
+  if (!match) return null
+  const source = join(path, '..', '..', '..', 'documents', `${match[1]}.jsonc`)
+  if (!existsSync(source)) return null
+  const document = JSON.parse((await readFile(source, 'utf8')).replace(/^\s*\/\/.*$/gm, ''))
+  return document.keywords?.[match[2] ? 'en' : 'zh'] || null
+}
+
+function exampleFor(content) {
+  const match = content.match(/```(?:lua|json|javascript|js)?\s*\n([\s\S]*?)```/i)
+  return match?.[1]?.trim().slice(0, 2400) || null
+}
+
+const entries = []
+for (const path of files.sort()) {
+  const content = await readFile(path, 'utf8')
+  const sourcePath = publicPath(path, contractDir, knowledgeDirs)
+  const source = sourcePath.startsWith('contract/') ? 'public-contract' : 'xtapp-studio'
+  const topic = source === 'public-contract' ? specTopic(sourcePath.split('/').at(-1)) : topicFor(sourcePath, content)
+  const keywords = source === 'xtapp-studio' ? await keywordsFor(path) : null
+  entries.push({ topic, api: apiFor(content, topic), version: versionFor(sourcePath), source, sourcePath, content, example: exampleFor(content), ...(keywords ? { keywords } : {}) })
+}
+if (existsSync(studioPreviewKnowledge)) {
+  const content = await readFile(studioPreviewKnowledge, 'utf8')
+  entries.push({ topic: 'studio-preview', api: apiFor(content, 'studio-preview'), version: 'any', source: 'xtapp-studio', sourcePath: 'studio/preview.md', content, example: exampleFor(content) })
+}
+
+const hash = createHash('sha256').update([contractTag || '', ...entries.map((entry) => `${entry.source}\0${entry.sourcePath}\0${entry.version}\0${entry.content}\0${entry.keywords || ''}`)].join('\0')).digest('hex')
+const outputPath = join(root, 'knowledge', 'index.json')
+
+if (check) {
+  const previous = JSON.parse(await readFile(outputPath, 'utf8').catch(() => '{"entries":[]}'))
+  if (previous.sourceHash !== hash) {
+    // 报告差异，便于定位是哪些知识没同步。
+    const before = new Map((previous.entries || []).map((entry) => [entry.sourcePath, `${entry.content}\0${entry.keywords || ''}`]))
+    const after = new Map(entries.map((entry) => [entry.sourcePath, `${entry.content}\0${entry.keywords || ''}`]))
+    const added = [...after.keys()].filter((key) => !before.has(key))
+    const removed = [...before.keys()].filter((key) => !after.has(key))
+    const changed = [...after.keys()].filter((key) => before.has(key) && before.get(key) !== after.get(key))
+    const brief = (list) => (list.length ? list.slice(0, 8).join('、') + (list.length > 8 ? ` 等 ${list.length} 项` : '') : '无')
+    console.error('知识索引已过期，请在有源目录的机器上运行 npm run sync:knowledge：')
+    console.error(`  新增：${brief(added)}`)
+    console.error(`  删除：${brief(removed)}`)
+    console.error(`  改动：${brief(changed)}`)
+    process.exit(1)
+  }
+  console.log(`知识索引是最新的：${entries.length} 条（${hash.slice(0, 12)}）。`)
+  process.exit(0)
+}
+
+await mkdir(join(root, 'knowledge'), { recursive: true })
+let generatedAt = new Date().toISOString()
+if (existsSync(outputPath)) {
+  try {
+    const previous = JSON.parse(await readFile(outputPath, 'utf8'))
+    if (previous.sourceHash === hash && typeof previous.generatedAt === 'string') generatedAt = previous.generatedAt
+  } catch { /* rebuild malformed or legacy indexes */ }
+}
+await writeFile(outputPath, JSON.stringify({ schemaVersion: 3, generatedAt, contractTag, sourceHash: hash, entries }, null, 2) + '\n')
+const counts = entries.reduce((total, entry) => ({ ...total, [entry.version]: (total[entry.version] || 0) + 1 }), {})
+console.log(`Generated ${entries.length} public knowledge entries (${JSON.stringify(counts)}, contract ${contractTag || 'none'}, ${hash.slice(0, 12)}).`)

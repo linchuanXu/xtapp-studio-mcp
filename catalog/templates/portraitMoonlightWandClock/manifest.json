@@ -1,0 +1,32 @@
+{
+  "app_id": "portrait_moonlight_wand_clock-b48d7e2a",
+  "display_name": "月光魔法棒",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "月牙、羽翼与丝带围住一枚会显示时间的月光宝石，让桌面像一支安静待命的变身魔法棒。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "ornament",
+    "kaisei_digit_0",
+    "kaisei_digit_1",
+    "kaisei_digit_2",
+    "kaisei_digit_3",
+    "kaisei_digit_4",
+    "kaisei_digit_5",
+    "kaisei_digit_6",
+    "kaisei_digit_7",
+    "kaisei_digit_8",
+    "kaisei_digit_9"
+  ]
+}

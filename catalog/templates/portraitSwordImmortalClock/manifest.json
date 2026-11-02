@@ -1,0 +1,32 @@
+{
+  "app_id": "portrait_sword_immortal_clock-9e1b4c72",
+  "display_name": "云海问剑",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "飞剑、仙鹤与云海围住一轮明月，时间落在最干净的月盘上。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "ornament",
+    "brush_digit_0",
+    "brush_digit_1",
+    "brush_digit_2",
+    "brush_digit_3",
+    "brush_digit_4",
+    "brush_digit_5",
+    "brush_digit_6",
+    "brush_digit_7",
+    "brush_digit_8",
+    "brush_digit_9"
+  ]
+}

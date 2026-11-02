@@ -1,0 +1,32 @@
+{
+  "app_id": "portrait_cubicle_clock-9b1e4f82",
+  "display_name": "工位桌面",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "键盘、咖啡与外卖围住一台空白显示器，时间亮在工位正中的屏幕上。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "ornament",
+    "kaisei_digit_0",
+    "kaisei_digit_1",
+    "kaisei_digit_2",
+    "kaisei_digit_3",
+    "kaisei_digit_4",
+    "kaisei_digit_5",
+    "kaisei_digit_6",
+    "kaisei_digit_7",
+    "kaisei_digit_8",
+    "kaisei_digit_9"
+  ]
+}

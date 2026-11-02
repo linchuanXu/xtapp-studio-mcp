@@ -1,0 +1,16 @@
+{
+  "app_id": "anki_classic-6c3d9f12",
+  "display_name": "墨卡复习 · Classic",
+  "version": "0.1.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "display": {
+    "orientation": "system"
+  },
+  "author": "XTApp Studio",
+  "description": "为 X4 Classic 实体按键设计的间隔复习卡片。",
+  "splash": "splash",
+  "preload_assets": []
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitCliffSteleClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "2a51042e9cb6f44b4bc803b1ce601309bae9ad48c8421d4519aea8a5134815f0"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitCliffSteleClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "ae47625760e5393aec75d6ad8b5384d0f7cbe4c7a931fd71f05691e84074a987"
+  },
+  {
+    "key": "splash",
+    "path": "portraitCliffSteleClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "acf3ba1f9f63e657d2d4ce6c1136e31c1b5a838921dc1336e54306e935f6be09"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitCliffSteleClock/assets/ornament.xic",
+    "rawPath": "portraitCliffSteleClock/raw/ornament-v1.png",
+    "rawMime": "image/png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "5a375935672e0840cef3b83adccf41464198a1f36a167ed6cf02dbfe9895360c"
+  },
+  {
+    "key": "brush_digit_0",
+    "path": "portraitCliffSteleClock/assets/brush_digit_0.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_0.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "6128d960128f620769ee8c2e08d4c53f732f3308a82d232af763f9aee9379365"
+  },
+  {
+    "key": "brush_digit_1",
+    "path": "portraitCliffSteleClock/assets/brush_digit_1.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_1.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "023199ad52bfaddba39c02e154fa9ecc7704d67ff57a9be9b6e9d8ac7230cb45"
+  },
+  {
+    "key": "brush_digit_2",
+    "path": "portraitCliffSteleClock/assets/brush_digit_2.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_2.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "96d598429f249c8cd45d0e35123ab4eb53d24d5d6d34652c414b2d6322ae50f2"
+  },
+  {
+    "key": "brush_digit_3",
+    "path": "portraitCliffSteleClock/assets/brush_digit_3.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_3.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "e8224ce3258561b4ec6302254ccc9fc029d3237934dbf4d9e09af952f22d8b7c"
+  },
+  {
+    "key": "brush_digit_4",
+    "path": "portraitCliffSteleClock/assets/brush_digit_4.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_4.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "fc2ad228879d206303bacf39fc713727834c6b0dee2cd9776e041deb5dbb00a4"
+  },
+  {
+    "key": "brush_digit_5",
+    "path": "portraitCliffSteleClock/assets/brush_digit_5.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_5.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "0b6fb9c3817c5e98d9c46651b3545d4138aa5acc6cd406e8868b8f8bc9ff8f92"
+  },
+  {
+    "key": "brush_digit_6",
+    "path": "portraitCliffSteleClock/assets/brush_digit_6.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_6.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "a32b2c281082b581501304eb9bfbf77f3665c673b79948380da57fe834a30951"
+  },
+  {
+    "key": "brush_digit_7",
+    "path": "portraitCliffSteleClock/assets/brush_digit_7.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_7.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "25baf7186f9fea23d569ef638b365f7d3934f1b0bbc2b6a791219648bad604b2"
+  },
+  {
+    "key": "brush_digit_8",
+    "path": "portraitCliffSteleClock/assets/brush_digit_8.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_8.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "00a90c917318280cb58aad8cd0eabbf9c8cb7e49d4d2c3d3248941fde55b2776"
+  },
+  {
+    "key": "brush_digit_9",
+    "path": "portraitCliffSteleClock/assets/brush_digit_9.xic",
+    "rawPath": "portraitCliffSteleClock/raw/brush_digit_9.png",
+    "rawMime": "image/png",
+    "width": 36,
+    "height": 55,
+    "bpp": 1,
+    "contentHash": "3d4a39001dea421f162f2921ac29fb52b445d451f33669a650be6ac996ad887a"
+  }
+]

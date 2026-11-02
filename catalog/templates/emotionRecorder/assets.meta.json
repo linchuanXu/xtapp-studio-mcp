@@ -1,0 +1,122 @@
+[
+  {
+    "key": "happy_128",
+    "path": "emotionRecorder/assets/happy_128.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "27a30422c643a1dcf7da280a0eb113ea9dbbf7572bb4cff6f17673d14d484f1e"
+  },
+  {
+    "key": "happy_188",
+    "path": "emotionRecorder/assets/happy_188.xic",
+    "width": 188,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "fc2f3d9f97c2a7e23add7266034775ef6c0d454c29a5f1e3258abe445477692f"
+  },
+  {
+    "key": "calm_128",
+    "path": "emotionRecorder/assets/calm_128.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "b137a5e6305133f5cc71540ae0832b9c7ce1c650b4d7204091140779b9dfbc11"
+  },
+  {
+    "key": "calm_188",
+    "path": "emotionRecorder/assets/calm_188.xic",
+    "width": 188,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "d9b4887876b65d1af0915e956fe90336b125b979296bcc7aceb5e11806fa6246"
+  },
+  {
+    "key": "sad_128",
+    "path": "emotionRecorder/assets/sad_128.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "b0ba7c0d87f4690d5a455d4609061a22a202f46ea7428d9d7ebd323ddb916ba5"
+  },
+  {
+    "key": "sad_188",
+    "path": "emotionRecorder/assets/sad_188.xic",
+    "width": 188,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "6bccc6676d19a8f77b1e1ba89c0618a3470fc73fd88525c8d2d8353c6f28c12f"
+  },
+  {
+    "key": "worry_128",
+    "path": "emotionRecorder/assets/worry_128.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "1539528f54bc11196426f7b5b7745b30f5c532060139e8eefc973059915eb578"
+  },
+  {
+    "key": "worry_188",
+    "path": "emotionRecorder/assets/worry_188.xic",
+    "width": 188,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "ffa3793b8b211447c33c45f21dd7563feed7e4e28efb7aa8a135223ca814128e"
+  },
+  {
+    "key": "mad_128",
+    "path": "emotionRecorder/assets/mad_128.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "f1d742b98b3363d74a93537312b6525cc59114d66251cc1814caf903916756b3"
+  },
+  {
+    "key": "mad_188",
+    "path": "emotionRecorder/assets/mad_188.xic",
+    "width": 188,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "a3bb73559ea2b4e6e0b99e89586e323c5941b56bf58ac85ec31f301e0f9991d7"
+  },
+  {
+    "key": "emmm_128",
+    "path": "emotionRecorder/assets/emmm_128.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "b104edb6ef10d7b5122250026f5e704cc2695c4e5589966c6637c079989e7748"
+  },
+  {
+    "key": "emmm_188",
+    "path": "emotionRecorder/assets/emmm_188.xic",
+    "width": 188,
+    "height": 188,
+    "bpp": 1,
+    "contentHash": "ae1cc9dc1e5baa171c33855d3cd72f89589c05b4b3e27b1ae9f4c04af15b8c7c"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "emotionRecorder/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "b7fb5c83c2951ce1f638af7406108b1b4756d293b49b74b414005fad1b3b040f"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "emotionRecorder/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "03242b0e94e467bb7c887d9796d520232827a7afb5bae740907679e60ad202aa"
+  },
+  {
+    "key": "splash",
+    "path": "emotionRecorder/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "c94573e51812130c563683310eae2e4aafd4565d73e6fbbfa43c841bafb2e9b2"
+  }
+]

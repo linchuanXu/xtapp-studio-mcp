@@ -1,0 +1,135 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitQinClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "12b4ebb711056b2f0e021072d345810e4ff1ac0e46a800109d07c0d863bcbd3b"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitQinClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "cc68663387caa73f13043479c965b09673430bf7dfb585f1c0bce30bf1499f67"
+  },
+  {
+    "key": "splash",
+    "path": "portraitQinClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "30067445e4f4e524a625021eec41ed9d47b3ad971bf39e4c78d1b2a66eff522b"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitQinClock/assets/ornament.xic",
+    "rawPath": "portraitQinClock/raw/ornament-v1.png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "fa5866aa1ddbee261516ba81f12b36c9d60c9e3293b744bd0a2fa87faf35e70f"
+  },
+  {
+    "key": "brush_digit_0",
+    "path": "portraitQinClock/assets/brush_digit_0.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_0.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "6fb6d57b5ba99be1f903d7b4e86e15e64fab906fc8b5e8f8cb516004874755ea"
+  },
+  {
+    "key": "brush_digit_1",
+    "path": "portraitQinClock/assets/brush_digit_1.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_1.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "f90c3776ff925ab27bdd58ab4ce6d23decf1b45319370b91dac4ce324a8b67e9"
+  },
+  {
+    "key": "brush_digit_2",
+    "path": "portraitQinClock/assets/brush_digit_2.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_2.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "43dc46c50861c21692120d01148c515081890a3a474bf8610ab210a3f5f44d18"
+  },
+  {
+    "key": "brush_digit_3",
+    "path": "portraitQinClock/assets/brush_digit_3.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_3.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "8e97359a28184e541622391a5cd5623a27dff2afb4409b6757ee1e079cecc56b"
+  },
+  {
+    "key": "brush_digit_4",
+    "path": "portraitQinClock/assets/brush_digit_4.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_4.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "315fe124bf897d9ee72e5f1eecc219e87a5676bb02589469550cecd7875cc904"
+  },
+  {
+    "key": "brush_digit_5",
+    "path": "portraitQinClock/assets/brush_digit_5.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_5.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "2ffbc16f1ce46641c0103a8ef8ff5fd5c2fb75131ea725c617261ac0c34e7a13"
+  },
+  {
+    "key": "brush_digit_6",
+    "path": "portraitQinClock/assets/brush_digit_6.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_6.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "51d0078be37010163d16754e2084b8db098c9b6e0b5774e1748ba919a11e2a99"
+  },
+  {
+    "key": "brush_digit_7",
+    "path": "portraitQinClock/assets/brush_digit_7.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_7.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "8f4230a861a59faba75bd7d9569efa66637ccf7f463314e20cb931ee4b852b9c"
+  },
+  {
+    "key": "brush_digit_8",
+    "path": "portraitQinClock/assets/brush_digit_8.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_8.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "d0775c929a06a70982920190e2d8deeb30f83bfeaf47edf148f5ef323640dd59"
+  },
+  {
+    "key": "brush_digit_9",
+    "path": "portraitQinClock/assets/brush_digit_9.xic",
+    "rawPath": "portraitQinClock/raw/brush_digit_9.png",
+    "rawMime": "image/png",
+    "width": 24,
+    "height": 37,
+    "bpp": 1,
+    "contentHash": "da5f47d67364788ead6027099d9044794d22cfbe4180d1739cd22f11b5851de3"
+  }
+]

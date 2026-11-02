@@ -1,0 +1,22 @@
+{
+  "app_id": "ai_quota_board-0c6aa55d",
+  "display_name": "AI 余量板",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "离线生成三种 AI 工具可用余量的墨水屏仪表盘。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_l",
+    "app_icon_s",
+    "icon_codex",
+    "icon_deepseek",
+    "icon_claude"
+  ]
+}

@@ -1,0 +1,354 @@
+[
+  {
+    "key": "tile_apple",
+    "path": "inkMatch3/assets/tile_apple.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "52a75abe107ab4e50ef7de461f971bd21bff595ef0463e22329e87dd017df437"
+  },
+  {
+    "key": "tile_grape",
+    "path": "inkMatch3/assets/tile_grape.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "947951d2b79af11631fa7c005e2aafde7192891276e976bffd2128f3abb71aac"
+  },
+  {
+    "key": "tile_cherry",
+    "path": "inkMatch3/assets/tile_cherry.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "754edd821cee806dc5e64b23f95bcbe10530b1ea4d9231acf5d2cc51a06ca7de"
+  },
+  {
+    "key": "tile_carrot",
+    "path": "inkMatch3/assets/tile_carrot.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "a6c21ee50fc18a61af0638c08b13041a77f8e718b8657c5cd658ca158fcdf7f4"
+  },
+  {
+    "key": "tile_corn",
+    "path": "inkMatch3/assets/tile_corn.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "b1e1112c59f4b5670d2aced4a69dd5788b896b59dfe2711b1a32aa584101d091"
+  },
+  {
+    "key": "tile_mushroom",
+    "path": "inkMatch3/assets/tile_mushroom.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "7c9a12c33327f91ee09af1753ec9bf7d56205372e4106787ccd547e78b2bb16b"
+  },
+  {
+    "key": "tile_row",
+    "path": "inkMatch3/assets/tile_row.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "9579bc34001ae49d8632dafdf2f833263ca3cfb4f12e2b86f7f95fed0fe62cc9"
+  },
+  {
+    "key": "tile_col",
+    "path": "inkMatch3/assets/tile_col.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "b1d412d331a957f8d1759cfbca1edfc570736e9af03325464439116724d7cb8d"
+  },
+  {
+    "key": "tile_blast",
+    "path": "inkMatch3/assets/tile_blast.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "0eafb3432e798c983d6acd9eb6012cbf00920df99318d161903a2a7b8705956b"
+  },
+  {
+    "key": "tile_color",
+    "path": "inkMatch3/assets/tile_color.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "8a0d5cb0075b5ad8f6cc4413f7486bde73522f2a8d0af5fe676f8d6969cd09e7"
+  },
+  {
+    "key": "ui_ice",
+    "path": "inkMatch3/assets/ui_ice.xic",
+    "width": 52,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "ae1dbd217e3d058a9ddbe48a47b6098021e92a76af5afe66441669bd3ba2146a"
+  },
+  {
+    "key": "ui_lock",
+    "path": "inkMatch3/assets/ui_lock.xic",
+    "width": 52,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "9ca04bf247e8d1c6f70e745f8975b5fb6cde22b1e90470ca2536c66054b1c5e0"
+  },
+  {
+    "key": "ui_rock",
+    "path": "inkMatch3/assets/ui_rock.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "9073e2a3a22760392a286b5def2b1e8f9ab9d6caa6e780466b25d7767fa3bf9d"
+  },
+  {
+    "key": "ui_weed",
+    "path": "inkMatch3/assets/ui_weed.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "4e0d7088fdb9ed51c681f92620ff677617a93a625fa5f657c063286c71c24ee0"
+  },
+  {
+    "key": "ui_basket",
+    "path": "inkMatch3/assets/ui_basket.xic",
+    "width": 54,
+    "height": 54,
+    "bpp": 1,
+    "contentHash": "1fe7cb978fb13411384af91146ad849296221b71664dba95f9408fd8aeeceb6e"
+  },
+  {
+    "key": "ui_star",
+    "path": "inkMatch3/assets/ui_star.xic",
+    "width": 52,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "778d7223c2d66b39a4b800f5bd89f71f208d5f8682b5a45ae9b9c28903ccc02f"
+  },
+  {
+    "key": "ui_hint",
+    "path": "inkMatch3/assets/ui_hint.xic",
+    "width": 40,
+    "height": 40,
+    "bpp": 1,
+    "contentHash": "55540cea3bbdd147e25dcddc5e9eee37683551bab9f5287c06087f52a06ce12a"
+  },
+  {
+    "key": "ui_shuffle",
+    "path": "inkMatch3/assets/ui_shuffle.xic",
+    "width": 40,
+    "height": 40,
+    "bpp": 1,
+    "contentHash": "a79983da0280da6bd25e095b321e11fa8c258ebfef71121d28360d69d18eff65"
+  },
+  {
+    "key": "ui_victory",
+    "path": "inkMatch3/assets/ui_victory.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "7bbec6de362d0778c159ca4fecb0a04c93f62af1f6830c3bb28850f9d84f7ace"
+  },
+  {
+    "key": "ui_defeat",
+    "path": "inkMatch3/assets/ui_defeat.xic",
+    "width": 160,
+    "height": 160,
+    "bpp": 1,
+    "contentHash": "74f610f769204e1c875a53fe996e1a685a3cc8f96200f3cfc6ef28c414b152da"
+  },
+  {
+    "key": "hero_farmer",
+    "path": "inkMatch3/assets/hero_farmer.xic",
+    "width": 148,
+    "height": 148,
+    "bpp": 1,
+    "contentHash": "4af42aafa830afbbabe2be5aef94f90c07cc7256d0bc438e1d07234d3322c527"
+  },
+  {
+    "key": "home_orchard",
+    "path": "inkMatch3/assets/home_orchard.xic",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "c710bd297f18fe7463a288580b4d9f3c8e7cde0c056f50361bedfe643dd3e59d"
+  },
+  {
+    "key": "ui_title",
+    "path": "inkMatch3/assets/ui_title.xic",
+    "width": 384,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "10119b8bf8f3e75f7bc608a4da4e9516585e5bf27e1b32134c531ce8a3a0b924"
+  },
+  {
+    "key": "ui_title_outline",
+    "path": "inkMatch3/assets/ui_title_outline.xic",
+    "width": 384,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "192638ee8f74258efd83f3a73066926c7e0b42e772d1b8eb6d00bd69891fcfa8"
+  },
+  {
+    "key": "ui_play",
+    "path": "inkMatch3/assets/ui_play.xic",
+    "width": 64,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "5399ad6de2d764adeba4c04761fe83cc866619610eda95c03749caef17165fd6"
+  },
+  {
+    "key": "ui_pause",
+    "path": "inkMatch3/assets/ui_pause.xic",
+    "width": 48,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "f3c8de263b8b9723205017fec9a288b3c5e8b6af5bc01fb352d4ca83fbc6737a"
+  },
+  {
+    "key": "prop_tomato",
+    "path": "inkMatch3/assets/prop_tomato.xic",
+    "width": 96,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "0e114c67a83e5d1bdbff6060b953a9d23d840cf7301b25a43e96a02798648fe1"
+  },
+  {
+    "key": "prop_water",
+    "path": "inkMatch3/assets/prop_water.xic",
+    "width": 80,
+    "height": 80,
+    "bpp": 1,
+    "contentHash": "f67cd491b7dfdfddb5fe45e81c1b6f3e9863db55ee6aa870040548105dd5a323"
+  },
+  {
+    "key": "btn_continue",
+    "path": "inkMatch3/assets/btn_continue.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "8091793de941a5c27c828c6bd4343b447783f83ac324937125bd2f139a3f2593"
+  },
+  {
+    "key": "btn_levels",
+    "path": "inkMatch3/assets/btn_levels.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "0b4551a9509cfa48cc290ef5360eb31fd134810508c33b87ea30ed843230c360"
+  },
+  {
+    "key": "btn_rules",
+    "path": "inkMatch3/assets/btn_rules.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "fac3f252efe01e840a66abda5f6d998d289cbd368b79b11a2f9c4967487f2382"
+  },
+  {
+    "key": "btn_start",
+    "path": "inkMatch3/assets/btn_start.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "d021dae5abe4517c49217d97acaedb153b01332fabcdb714b03d425b83c4843d"
+  },
+  {
+    "key": "btn_back",
+    "path": "inkMatch3/assets/btn_back.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "2af239872a9b5e34eba8e24eca9ff27b5cf0fbc4142b43c45aee8c032159ef5f"
+  },
+  {
+    "key": "btn_hint",
+    "path": "inkMatch3/assets/btn_hint.xic",
+    "width": 196,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "3a6de33b93b83c4d968f3c330d50e8cced89d68f8bdcd2dda16c087524290e34"
+  },
+  {
+    "key": "btn_shuffle",
+    "path": "inkMatch3/assets/btn_shuffle.xic",
+    "width": 196,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "b917076476b5808c57ff354fecf2f1b70eee675445ea30d82e588c82c6c88122"
+  },
+  {
+    "key": "btn_resume",
+    "path": "inkMatch3/assets/btn_resume.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "c18a5a805aabc3014ce33b00b8cefe7c0af18cc374a5d9abaa0c3dbfdf8189e8"
+  },
+  {
+    "key": "btn_restart",
+    "path": "inkMatch3/assets/btn_restart.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "6eef890d7090489a821773faeced051309b4a2ede7d66ac9adc7bbd594e2abf7"
+  },
+  {
+    "key": "btn_home",
+    "path": "inkMatch3/assets/btn_home.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "27f9044fd79a7295ea8804a365c397bdbe4b4cbed10b5f1d9f3c35d14ab631d9"
+  },
+  {
+    "key": "btn_next",
+    "path": "inkMatch3/assets/btn_next.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "ba0ff716c7c04e654282f362d135000fb434ea56c77ff531d4f449c562e7cb42"
+  },
+  {
+    "key": "btn_again",
+    "path": "inkMatch3/assets/btn_again.xic",
+    "width": 300,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "ab3270ebfd1a8967f6527b8c9ac7109eb6ea8024743293b8f52ad57144dea7f9"
+  },
+  {
+    "key": "ui_logo",
+    "path": "inkMatch3/assets/ui_logo.xic",
+    "width": 360,
+    "height": 86,
+    "bpp": 1,
+    "contentHash": "4090b5dfcd1ae09a02f7dbefcb35abc14b4887160345ddca76f22f63928f2c63"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "inkMatch3/assets/app_icon_l.xic",
+    "width": 128,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "17f612e0c1d802fead7d8b79bf3040a17b8d8bd7becd598bdf2660e1e6365677"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "inkMatch3/assets/app_icon_s.xic",
+    "width": 64,
+    "height": 64,
+    "bpp": 1,
+    "contentHash": "ec66260ddc4249fb411b3d155fb94345f989671bb876bd4e4d2c32547280bffa"
+  },
+  {
+    "key": "splash",
+    "path": "inkMatch3/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "94aae97ec6985288936c0cb30cc547bb3c48d92efc42f12761083b6ac41e1800"
+  }
+]

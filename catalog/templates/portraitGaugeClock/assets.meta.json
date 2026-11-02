@@ -1,0 +1,126 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitGaugeClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "31555fb5f0ae86aa8d495428097323c2bbfc02869d21a079e876230e59f41828"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitGaugeClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "50b1fffddc65fd5b820c5a5c2e7222870a0afc216761721fd5a82681e0b88a5e"
+  },
+  {
+    "key": "splash",
+    "path": "portraitGaugeClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "68f3a3ce8a9033c862acddb309aeadd765cff7cecc3b088b0818595cd39a8a15"
+  },
+  {
+    "key": "kaisei_digit_0",
+    "path": "portraitGaugeClock/assets/kaisei_digit_0.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_0.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "5201c6aad0195a263e2e5346088fcff0a49779273c7ff42a39bb6731473e5780"
+  },
+  {
+    "key": "kaisei_digit_1",
+    "path": "portraitGaugeClock/assets/kaisei_digit_1.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_1.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "ea5a0f583fc240dfb22ce8c10356ca8b41a062ccf57d62f31cd44a458af0e9e0"
+  },
+  {
+    "key": "kaisei_digit_2",
+    "path": "portraitGaugeClock/assets/kaisei_digit_2.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_2.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "14ceb98675bbf1494dd9113e0a71fb229936afc30f01d69acd94aff3b0525940"
+  },
+  {
+    "key": "kaisei_digit_3",
+    "path": "portraitGaugeClock/assets/kaisei_digit_3.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_3.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "0e540cef81a105c72ffba35138a60fd4a2e80689e62e1100b5c48549b0c9ecb3"
+  },
+  {
+    "key": "kaisei_digit_4",
+    "path": "portraitGaugeClock/assets/kaisei_digit_4.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_4.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "42a0355150d21d185224b74fdab08af46fc3ebce031cdbcea214fc202b8f94f6"
+  },
+  {
+    "key": "kaisei_digit_5",
+    "path": "portraitGaugeClock/assets/kaisei_digit_5.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_5.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "91f92522d5cd5c0e1760d406295187bd49e315878c79f271d89bb02bcf49e048"
+  },
+  {
+    "key": "kaisei_digit_6",
+    "path": "portraitGaugeClock/assets/kaisei_digit_6.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_6.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "c310e0a2eeee21f5382c1de79e43028531ed0539c29e61ece23f2512ac185efa"
+  },
+  {
+    "key": "kaisei_digit_7",
+    "path": "portraitGaugeClock/assets/kaisei_digit_7.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_7.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "7ec1e04be9b7080229359611f237d8ecb9ba6705b539479ee5e92c6cc6bc3686"
+  },
+  {
+    "key": "kaisei_digit_8",
+    "path": "portraitGaugeClock/assets/kaisei_digit_8.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_8.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "427313ee08cf230a17b93bc31d07e47a9e1c0791aa7674b462fef135425659b3"
+  },
+  {
+    "key": "kaisei_digit_9",
+    "path": "portraitGaugeClock/assets/kaisei_digit_9.xic",
+    "rawPath": "portraitGaugeClock/raw/kaisei_digit_9.png",
+    "rawMime": "image/png",
+    "width": 44,
+    "height": 67,
+    "bpp": 1,
+    "contentHash": "922041ef906fd4a1d51445a68c51adfcf449ff352434ed690e494e474fad8097"
+  }
+]

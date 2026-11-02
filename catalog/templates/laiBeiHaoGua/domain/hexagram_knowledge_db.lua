@@ -1,0 +1,88 @@
+-- Compact static lazy loader: 8 groups.
+local M = { source = "六十四卦解卦_整理完成.xlsx · Sheet1!A1:AL65" }
+local CACHE = {}
+local LOADERS = {
+  function() return require("domain.hexagram_knowledge_group_1") end,
+  function() return require("domain.hexagram_knowledge_group_2") end,
+  function() return require("domain.hexagram_knowledge_group_3") end,
+  function() return require("domain.hexagram_knowledge_group_4") end,
+  function() return require("domain.hexagram_knowledge_group_5") end,
+  function() return require("domain.hexagram_knowledge_group_6") end,
+  function() return require("domain.hexagram_knowledge_group_7") end,
+  function() return require("domain.hexagram_knowledge_group_8") end,
+}
+local GROUP_BY_NAME = {
+  ["地风升"] = 5,
+  ["地火明夷"] = 3,
+  ["地雷复"] = 4,
+  ["地山谦"] = 7,
+  ["地水师"] = 6,
+  ["地天泰"] = 1,
+  ["地泽临"] = 2,
+  ["兑为泽"] = 2,
+  ["风地观"] = 8,
+  ["风火家人"] = 3,
+  ["风雷益"] = 4,
+  ["风山渐"] = 7,
+  ["风水涣"] = 6,
+  ["风天小畜"] = 1,
+  ["风泽中孚"] = 2,
+  ["艮为山"] = 7,
+  ["火地晋"] = 8,
+  ["火风鼎"] = 5,
+  ["火雷噬嗑"] = 4,
+  ["火山旅"] = 7,
+  ["火水未济"] = 6,
+  ["火天大有"] = 1,
+  ["火泽睽"] = 2,
+  ["坎为水"] = 6,
+  ["坤为地"] = 8,
+  ["雷地豫"] = 8,
+  ["雷风恒"] = 5,
+  ["雷火丰"] = 3,
+  ["雷山小过"] = 7,
+  ["雷水解"] = 6,
+  ["雷天大壮"] = 1,
+  ["雷泽归妹"] = 2,
+  ["离为火"] = 3,
+  ["乾为天"] = 1,
+  ["山地剥"] = 8,
+  ["山风蛊"] = 5,
+  ["山火贲"] = 3,
+  ["山雷颐"] = 4,
+  ["山水蒙"] = 6,
+  ["山天大畜"] = 1,
+  ["山泽损"] = 2,
+  ["水地比"] = 8,
+  ["水风井"] = 5,
+  ["水火既济"] = 3,
+  ["水雷屯"] = 4,
+  ["水山蹇"] = 7,
+  ["水天需"] = 1,
+  ["水泽节"] = 2,
+  ["天地否"] = 8,
+  ["天风姤"] = 5,
+  ["天火同人"] = 3,
+  ["天雷无妄"] = 4,
+  ["天山遁"] = 7,
+  ["天水讼"] = 6,
+  ["天泽履"] = 2,
+  ["巽为风"] = 5,
+  ["泽地萃"] = 8,
+  ["泽风大过"] = 5,
+  ["泽火革"] = 3,
+  ["泽雷随"] = 4,
+  ["泽山咸"] = 7,
+  ["泽水困"] = 6,
+  ["泽天夬"] = 1,
+  ["震为雷"] = 4,
+}
+
+function M.get(name)
+  local groupIndex = GROUP_BY_NAME[name]
+  if not groupIndex then return nil end
+  if not CACHE[groupIndex] then CACHE[groupIndex] = LOADERS[groupIndex]() end
+  return CACHE[groupIndex][name]
+end
+
+return M

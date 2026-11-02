@@ -1,0 +1,36 @@
+{
+  "app_id": "qinghe_journey-a13e5f20",
+  "display_name": "清河问道",
+  "version": "0.8.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "preload_assets": [
+    "bg_village",
+    "bg_shrine",
+    "bg_path",
+    "bg_gate",
+    "char_ali",
+    "char_shenzhao",
+    "char_linghu",
+    "bg_garden",
+    "bg_forbidden",
+    "bg_cloud_stream",
+    "bg_council",
+    "bg_vein",
+    "bg_pharmacy",
+    "bg_array",
+    "bg_cages",
+    "bg_archive",
+    "bg_well",
+    "bg_bell",
+    "bg_medicine_hall"
+  ],
+  "author": "XTApp Creator",
+  "description": "原创 X4 Pro 触屏修仙图文游戏：清河疫火、云岚外门、筑基前夜三卷主线，有限资源代价与持久行记。",
+  "splash": "splash"
+}

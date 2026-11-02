@@ -1,0 +1,55 @@
+name: Sync XTApp contract knowledge
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Fetch authoritative contract
+        id: contract
+        env:
+          CONTRACT_TOKEN: ${{ secrets.XTAPP_CONTRACT_REPO_TOKEN }}
+          CONTRACT_REPO: ${{ secrets.XTAPP_CONTRACT_REPO_URL }}
+        run: |
+          if [ -z "$CONTRACT_REPO" ]; then
+            echo 'Contract source is not configured; skip knowledge rebuild.'
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          mkdir -p "$RUNNER_TEMP/xtapp-contract"
+          if [ -n "$CONTRACT_TOKEN" ]; then
+            AUTH_HEADER=$(printf 'x-access-token:%s' "$CONTRACT_TOKEN" | base64 -w 0)
+            git -c http.extraheader="Authorization: Basic $AUTH_HEADER" clone --depth 1 "$CONTRACT_REPO" "$RUNNER_TEMP/xtapp-contract"
+          else
+            git clone --depth 1 "$CONTRACT_REPO" "$RUNNER_TEMP/xtapp-contract"
+          fi
+          echo "XTAPP_CONTRACT_DIR=$RUNNER_TEMP/xtapp-contract" >> "$GITHUB_ENV"
+          echo 'available=true' >> "$GITHUB_OUTPUT"
+      - name: Rebuild public knowledge index
+        if: steps.contract.outputs.available == 'true'
+        run: npm ci && npm run sync:knowledge
+      - name: Commit knowledge update to main when changed
+        run: |
+          if git diff --quiet -- knowledge/index.json; then
+            echo 'Knowledge index is up to date.'
+            exit 0
+          fi
+          git config user.name 'xtapp-contract-sync[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add knowledge/index.json
+          git commit -m '🧠 同步：XTApp 公开契约知识索引'
+          git push origin main

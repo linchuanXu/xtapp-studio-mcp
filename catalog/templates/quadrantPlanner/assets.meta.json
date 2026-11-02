@@ -1,0 +1,98 @@
+[
+  {
+    "key": "icon_fire",
+    "path": "quadrantPlanner/assets/icon_fire.xic",
+    "rawPath": "quadrantPlanner/raw/icon_fire.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "Lucide SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "e3f06ee095e43df464c3ca73646d75736944f4405a89fe660725ea0e28d98670"
+  },
+  {
+    "key": "icon_sprout",
+    "path": "quadrantPlanner/assets/icon_sprout.xic",
+    "rawPath": "quadrantPlanner/raw/icon_sprout.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "Lucide SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "1e1be7ce5ccf3eadaa89834da5cd1073b4f769e3ba16d02790cf772fc92c3c61"
+  },
+  {
+    "key": "icon_bell",
+    "path": "quadrantPlanner/assets/icon_bell.xic",
+    "rawPath": "quadrantPlanner/raw/icon_bell.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "Lucide SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "d7afe8aef0040cdcffa807e09823ed10b29135895367af486da80694843a4d5d"
+  },
+  {
+    "key": "icon_archive",
+    "path": "quadrantPlanner/assets/icon_archive.xic",
+    "rawPath": "quadrantPlanner/raw/icon_archive.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "Lucide SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "3b09487b4d0da2b97d30aba606a024698f036621419b71e7f768fa3f46059244"
+  },
+  {
+    "key": "icon_check",
+    "path": "quadrantPlanner/assets/icon_check.xic",
+    "rawPath": "quadrantPlanner/raw/icon_check.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "Lucide SVG → Sharp 单色阈值化 → 1bpp XIC",
+    "width": 56,
+    "height": 56,
+    "bpp": 1,
+    "contentHash": "30806b27749a7e25a8358197e037e79dcc00cd296809805abd0632fd87dec4b1"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "quadrantPlanner/assets/app_icon_s.xic",
+    "rawPath": "quadrantPlanner/raw/app_icon_s.png",
+    "rawMime": "image/png",
+    "source": "commissioned four-quadrant mark",
+    "process": "四象限符号原图 → 100×100 cover → Floyd–Steinberg 1bpp XIC",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "48e93be8181e18de1ad76514a8aaca5fc67f4548185b4793f25d01f9f9593197"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "quadrantPlanner/assets/app_icon_l.xic",
+    "rawPath": "quadrantPlanner/raw/app_icon_l.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "火焰、嫩芽、铃铛、归档盒 SVG → 200×150 单色线稿 → 1bpp XIC",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "45e435372059c0024d3a06ad34eebdbb58a6e0c2ec7a52a19a376232a249b8cf"
+  },
+  {
+    "key": "splash",
+    "path": "quadrantPlanner/assets/splash.xic",
+    "rawPath": "quadrantPlanner/raw/splash.svg",
+    "rawMime": "image/svg+xml",
+    "source": "Lucide",
+    "process": "火焰、嫩芽、铃铛、归档盒 SVG → 400×225 单色线稿 → 1bpp XIC",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "d49c781549c6c5b4d2dbcb9808e639d91095781117cb66187b33d4ba66c107f6"
+  }
+]

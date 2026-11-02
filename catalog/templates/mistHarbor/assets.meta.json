@@ -1,0 +1,130 @@
+[
+  {
+    "key": "bg_harbor",
+    "path": "mistHarbor/assets/bg_harbor.xic",
+    "width": 448,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "aec80a724080eeff83cd80fe9616db5c0cb1db5fb3ae7a74dcaa5940c99f7dca"
+  },
+  {
+    "key": "bg_hall",
+    "path": "mistHarbor/assets/bg_hall.xic",
+    "width": 448,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "c9368d69594f75e3527995128b425ceb7dd30f93b3c8b15268fa4ddac7a6b856"
+  },
+  {
+    "key": "bg_tower",
+    "path": "mistHarbor/assets/bg_tower.xic",
+    "width": 448,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "0eea3dd6284ff114a921cdccad0cb108dbca32b609ea86c7ef1de48d5c294cd1"
+  },
+  {
+    "key": "bg_warehouse",
+    "path": "mistHarbor/assets/bg_warehouse.xic",
+    "width": 448,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "aafd0031d08639704479e01526faacafd594ce8af1be0a2ab7e80caf876ad7b2"
+  },
+  {
+    "key": "bg_post",
+    "path": "mistHarbor/assets/bg_post.xic",
+    "width": 448,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "1be153fdc0cc1b6f245e7976b957992421a2b498e9c8e046606c9970344ec794"
+  },
+  {
+    "key": "bg_board",
+    "path": "mistHarbor/assets/bg_board.xic",
+    "width": 448,
+    "height": 128,
+    "bpp": 1,
+    "contentHash": "3d9ac6172fa0311a88de2f307f3aee0044f06dbad915084caa17713dfe10cb1d"
+  },
+  {
+    "key": "char_lin",
+    "path": "mistHarbor/assets/char_lin.xic",
+    "width": 112,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "73c0f548e75f2e9f41f5c190e0ccce807df539a605e71d7bd8ea9f7c766464ec"
+  },
+  {
+    "key": "char_cheng",
+    "path": "mistHarbor/assets/char_cheng.xic",
+    "width": 112,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "38326146ff4f384d68fbf97eef56d6540e9a25b33e37bd0f60652de4ee627781"
+  },
+  {
+    "key": "char_su",
+    "path": "mistHarbor/assets/char_su.xic",
+    "width": 112,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "e242addbc97d259a490d57cc5a450942d294029f1846e42e4be5ff8f35fce7eb"
+  },
+  {
+    "key": "char_xu",
+    "path": "mistHarbor/assets/char_xu.xic",
+    "width": 112,
+    "height": 96,
+    "bpp": 1,
+    "contentHash": "62b3d077611bed9c76370a1ef61f8fc00ea74756e938caadd9cc6984512d1870"
+  },
+  {
+    "key": "prop_clock",
+    "path": "mistHarbor/assets/prop_clock.xic",
+    "width": 252,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "da3102b74322f36c7f8b79d2b46d753390d4e5e359cb767be1237d61a0c2cc8c"
+  },
+  {
+    "key": "prop_wire",
+    "path": "mistHarbor/assets/prop_wire.xic",
+    "width": 252,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "4d1c832ca3d42a3dbe64d5431ee55b1ab0b397c2bd8f42009fe3720f4580acee"
+  },
+  {
+    "key": "prop_letter",
+    "path": "mistHarbor/assets/prop_letter.xic",
+    "width": 252,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "ac98795662518d3fe55d5c97311ced1a619cbfe1d0ce66819f09a922c6f68fd2"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "mistHarbor/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "ea15ffcb404a229aee5ebb00ca5bbfd59f67f87859b88c077c8b179f9a17815b"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "mistHarbor/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "d01eef8aa21e005c8f1b44fbf3220508a1373519a5614fe47d15a57002e8ebee"
+  },
+  {
+    "key": "splash",
+    "path": "mistHarbor/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "d9c443484e3647d07c1ff15127b618ee852f1c22bf9d35f5af4ca8e1f847804c"
+  }
+]

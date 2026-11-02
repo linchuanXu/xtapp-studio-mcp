@@ -1,0 +1,134 @@
+[
+  {
+    "key": "type_title",
+    "path": "marketPulseLive/assets/type_title.xic",
+    "rawPath": "marketPulseLive/raw/type_title.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 216,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "eb52f772dbf12842e93d518242b16016a81f760205cde3d516367e6a25a01d12"
+  },
+  {
+    "key": "type_dow",
+    "path": "marketPulseLive/assets/type_dow.xic",
+    "rawPath": "marketPulseLive/raw/type_dow.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 240,
+    "height": 50,
+    "bpp": 1,
+    "contentHash": "869c5fa59010da964b39183d22dee1b7b797fc31d25ab9ddc58c2a28695c1f07"
+  },
+  {
+    "key": "type_nasdaq",
+    "path": "marketPulseLive/assets/type_nasdaq.xic",
+    "rawPath": "marketPulseLive/raw/type_nasdaq.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 280,
+    "height": 48,
+    "bpp": 1,
+    "contentHash": "172d92d0ca6771349ca03511b751534f5b8a651a042239a58302e92c85479563"
+  },
+  {
+    "key": "type_movers",
+    "path": "marketPulseLive/assets/type_movers.xic",
+    "rawPath": "marketPulseLive/raw/type_movers.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 216,
+    "height": 52,
+    "bpp": 1,
+    "contentHash": "c9221c6c97a745aba641283ca974700ca90be168b4a1e44543f89fddfa46c008"
+  },
+  {
+    "key": "type_a",
+    "path": "marketPulseLive/assets/type_a.xic",
+    "rawPath": "marketPulseLive/raw/type_a.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 112,
+    "height": 42,
+    "bpp": 1,
+    "contentHash": "baa60e56a1e0a15e8bc8dfb479e5f5f2861927b09cf087aec437eaeb5bc3b655"
+  },
+  {
+    "key": "type_us",
+    "path": "marketPulseLive/assets/type_us.xic",
+    "rawPath": "marketPulseLive/raw/type_us.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 112,
+    "height": 42,
+    "bpp": 1,
+    "contentHash": "186043a3fb4123206bd8826f2a5306b94bce95a2296fe251f893ac1af2bac38f"
+  },
+  {
+    "key": "type_macro",
+    "path": "marketPulseLive/assets/type_macro.xic",
+    "rawPath": "marketPulseLive/raw/type_macro.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 84,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "dd9f1e0b1e769ae2fc003e9b07b298421d2898fca8ad01ebf2936275885d5071"
+  },
+  {
+    "key": "type_dollar",
+    "path": "marketPulseLive/assets/type_dollar.xic",
+    "rawPath": "marketPulseLive/raw/type_dollar.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 144,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "cdc7c2185d628d2346fcbb03c780fb500eac38902e3113cb7c695e9f515ada27"
+  },
+  {
+    "key": "type_oil",
+    "path": "marketPulseLive/assets/type_oil.xic",
+    "rawPath": "marketPulseLive/raw/type_oil.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 144,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "9ba9b8006e7e4a4af831e687bc14e8bfd65af059d8ecb58876e52f8164f5b7ed"
+  },
+  {
+    "key": "type_asia",
+    "path": "marketPulseLive/assets/type_asia.xic",
+    "rawPath": "marketPulseLive/raw/type_asia.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 84,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "9e58bc36bbd41fb73ab1ad9746fa56088ba9e6cffebaf13141c9229c508f8e3a"
+  },
+  {
+    "key": "type_hsi",
+    "path": "marketPulseLive/assets/type_hsi.xic",
+    "rawPath": "marketPulseLive/raw/type_hsi.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 144,
+    "height": 34,
+    "bpp": 1,
+    "contentHash": "e52878102a5ae3f2373baef29539a0d2ce125d7fc53fdfda2ca403d9dcbbc927"
+  },
+  {
+    "key": "type_fx",
+    "path": "marketPulseLive/assets/type_fx.xic",
+    "rawPath": "marketPulseLive/raw/type_fx.png",
+    "rawMime": "image/png",
+    "process": "Hiragino Sans GB TTC → 目标像素栅格化 → 1bpp XIC",
+    "width": 144,
+    "height": 28,
+    "bpp": 1,
+    "contentHash": "8a8a23eeaed0a619f84cd351b3c80e8644110c61b47654c6199600ce58b527c0"
+  }
+]

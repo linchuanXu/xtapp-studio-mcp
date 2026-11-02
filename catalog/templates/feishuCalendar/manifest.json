@@ -1,0 +1,35 @@
+{
+  "app_id": "feishu_calendar-a1b2c3d4",
+  "display_name": "飞书日历",
+  "version": "0.7.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "author": "XTEPD",
+  "description": "在 X4 Pro 上用触屏查看飞书日历的日、周、月和日程",
+  "display": {
+    "orientation": "portrait"
+  },
+  "permissions": [
+    "net"
+  ],
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_l",
+    "app_icon_s",
+    "logo_feishu",
+    "icon_nav_prev",
+    "icon_nav_next",
+    "icon_refresh",
+    "icon_settings",
+    "icon_pin",
+    "icon_section_time",
+    "icon_section_place",
+    "icon_section_note",
+    "empty_no_events",
+    "empty_no_agenda",
+    "empty_loading",
+    "empty_unconfigured"
+  ]
+}

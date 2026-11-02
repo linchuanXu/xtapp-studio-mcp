@@ -1,0 +1,38 @@
+{
+  "app_id": "meituan_deals-4d544431",
+  "display_name": "附近神价",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "浏览附近团购特价，支持分类、排序与套餐详情。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "hero_scene",
+    "icon_food",
+    "icon_leisure",
+    "icon_movie",
+    "icon_tag",
+    "icon_location",
+    "icon_hotpot",
+    "icon_coffee",
+    "icon_sushi",
+    "icon_burger",
+    "brand_logo",
+    "feature_scene"
+  ],
+  "data_files": [
+    {
+      "name": "deals.tsv",
+      "format": "tsv",
+      "max_bytes": 8192
+    }
+  ]
+}

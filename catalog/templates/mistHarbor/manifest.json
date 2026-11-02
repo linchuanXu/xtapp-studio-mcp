@@ -1,0 +1,32 @@
+{
+  "app_id": "mist_harbor-4e13a0bf",
+  "display_name": "雾港遗书",
+  "version": "0.2.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "preload_assets": [
+    "bg_harbor",
+    "bg_hall",
+    "bg_tower",
+    "bg_warehouse",
+    "bg_post",
+    "bg_board",
+    "char_lin",
+    "char_cheng",
+    "char_su",
+    "char_xu",
+    "prop_clock",
+    "prop_wire",
+    "prop_letter",
+    "app_icon_l",
+    "app_icon_s"
+  ],
+  "author": "XTApp Studio",
+  "description": "原创单人剧本杀：在封港前的雨夜，核对证词、追踪物证，找出钟楼命案的真相。",
+  "splash": "splash"
+}

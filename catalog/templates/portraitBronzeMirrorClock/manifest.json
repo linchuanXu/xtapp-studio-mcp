@@ -1,0 +1,32 @@
+{
+  "app_id": "portrait_bronze_mirror_clock-8a32c947",
+  "display_name": "山水铜镜",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "松枝、远山与书案围住一面宋式古铜镜；时间静静浮在镜面中央。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "ornament",
+    "brush_digit_0",
+    "brush_digit_1",
+    "brush_digit_2",
+    "brush_digit_3",
+    "brush_digit_4",
+    "brush_digit_5",
+    "brush_digit_6",
+    "brush_digit_7",
+    "brush_digit_8",
+    "brush_digit_9"
+  ]
+}

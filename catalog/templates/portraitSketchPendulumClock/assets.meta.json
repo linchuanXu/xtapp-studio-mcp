@@ -1,0 +1,135 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitSketchPendulumClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "91f5a17b88075a7ae18f4bd97849cc8df945baab9cf07192fd6e7775acd75bd5"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitSketchPendulumClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "c774122803f71625c9359292ad934184de6ec3a080571ee272b5d5f0ab8dace1"
+  },
+  {
+    "key": "splash",
+    "path": "portraitSketchPendulumClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "e2db2a7e725d4f6754f9720b997dac0ef8f3fef470159d72c00d048f899ffe93"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitSketchPendulumClock/assets/ornament.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/ornament-v1.png",
+    "width": 480,
+    "height": 788,
+    "bpp": 1,
+    "contentHash": "1e5a108cf84010bc9b0fdd8c519813da05667bb2e04b65690bb024b1ea6fc77b"
+  },
+  {
+    "key": "kaisei_digit_0",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_0.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_0.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "093768321e52dba87e7488e493fec30acf0b76cbfa6365f0068b00bee65f65e0"
+  },
+  {
+    "key": "kaisei_digit_1",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_1.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_1.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "944110920c7322c0e6801df87a5aeb3fa2e9cf366239870f2b23508cd6bb1e89"
+  },
+  {
+    "key": "kaisei_digit_2",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_2.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_2.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "0ca8df1984eeca535e1d4908b9a61003f8fdc067114f9668d2a46577111d86ce"
+  },
+  {
+    "key": "kaisei_digit_3",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_3.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_3.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "034a9599a43737be7bfa2ad5e7b8b5bd2c59a335d3013d6390d4d7323d5475f3"
+  },
+  {
+    "key": "kaisei_digit_4",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_4.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_4.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "62124c8160d9029a75d131755f0205d703fc70112076190a867c7465b469857e"
+  },
+  {
+    "key": "kaisei_digit_5",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_5.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_5.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "1d384115198a91ae85ace4c056e3c910eceaee7b2176cd15be37abfde5268bdb"
+  },
+  {
+    "key": "kaisei_digit_6",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_6.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_6.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "e2c4759cdc8e34bcb01192a2feb71adb9233f2d0550d4275299a9a8cb6b81b8e"
+  },
+  {
+    "key": "kaisei_digit_7",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_7.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_7.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "da961ff6d59fecbea6b92435f49ea9993332b2424023909d704adbe5245c652e"
+  },
+  {
+    "key": "kaisei_digit_8",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_8.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_8.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "fdedc1b8971fbcbb7fda362ea183d46d506d2678da3924226f8cc8d891125fa1"
+  },
+  {
+    "key": "kaisei_digit_9",
+    "path": "portraitSketchPendulumClock/assets/kaisei_digit_9.xic",
+    "rawPath": "portraitSketchPendulumClock/raw/kaisei_digit_9.png",
+    "rawMime": "image/png",
+    "width": 30,
+    "height": 46,
+    "bpp": 1,
+    "contentHash": "df7752850f619587ee16ef223c783cc6e9592fa6203ac5b433c96372fd4a7564"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "app_id": "card_game_sample-9c61f2a4",
+  "display_name": "卡牌游戏样例",
+  "version": "0.1.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "landscape"
+  },
+  "preload_assets": [],
+  "author": "XTApp AI Studio",
+  "description": "规则插件驱动的通用卡牌运行时与可玩双人样例。"
+}

@@ -1,0 +1,34 @@
+{
+  "app_id": "ali_1688_restock-16880001",
+  "display_name": "1688 采购补货台",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "author": "XTApp Creator",
+  "description": "为小商家汇总低库存、供应商报价、起订量与到货计划的离线采购决策台。",
+  "app_icon_s": "app_icon_s",
+  "app_icon_l": "app_icon_l",
+  "splash": "splash",
+  "preload_assets": [
+    "app_icon_s",
+    "app_icon_l",
+    "brand_mark",
+    "feature_scene",
+    "icon_box",
+    "icon_alert",
+    "icon_factory",
+    "icon_truck",
+    "icon_quote",
+    "icon_check"
+  ],
+  "data_files": [
+    {
+      "name": "inventory.tsv",
+      "format": "tsv",
+      "max_bytes": 12288
+    }
+  ]
+}

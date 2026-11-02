@@ -1,0 +1,32 @@
+[
+  {
+    "key": "app_icon_s",
+    "path": "inkNewsLive/assets/app_icon_s.xic",
+    "rawPath": "inkNewsLive/raw/app_icon_s.svg",
+    "rawMime": "image/svg+xml",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "eef5ae27b00397114ce8cce7b73bd836a6a2930367bda9e36fe9cf7a61c60d47"
+  },
+  {
+    "key": "app_icon_l",
+    "path": "inkNewsLive/assets/app_icon_l.xic",
+    "rawPath": "inkNewsLive/raw/app_icon_l.svg",
+    "rawMime": "image/svg+xml",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "c83d036c9c54ef161b3297eaff1f30e84b4e66e37e121aaf3c35ba1b8a810f26"
+  },
+  {
+    "key": "splash",
+    "path": "inkNewsLive/assets/splash.xic",
+    "rawPath": "inkNewsLive/raw/splash.svg",
+    "rawMime": "image/svg+xml",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "866dbe8e1ae33b154e49eb25402c810316fdfa242dc4d03353035e7cf35f519d"
+  }
+]

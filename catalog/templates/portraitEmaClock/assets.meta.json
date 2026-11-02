@@ -1,0 +1,135 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "portraitEmaClock/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "2e9cda2e72fd658e197bff74fb0a456a472a43beca74864946e2d7f19bb4859b"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "portraitEmaClock/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "6497a1d5fd4854764b2d7aea1348937c6ffecb92469afa5122f9f9901a73115b"
+  },
+  {
+    "key": "splash",
+    "path": "portraitEmaClock/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "5912ac41a78c3893e8b7df0eed6c090607539f4bf30d5a75b67f2fef3530f15b"
+  },
+  {
+    "key": "ornament",
+    "path": "portraitEmaClock/assets/ornament.xic",
+    "rawPath": "portraitEmaClock/raw/ornament-v1.png",
+    "width": 480,
+    "height": 800,
+    "bpp": 1,
+    "contentHash": "6724e35c66e98a1b0c072d1a3513c4c51e2a31b66d54c6ad6b46ef1b4f4bb35e"
+  },
+  {
+    "key": "kaisei_digit_0",
+    "path": "portraitEmaClock/assets/kaisei_digit_0.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_0.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "5477e483b9cd53b4810846942e51afa734c68efa10ac5e9069b9d2f494ff2e22"
+  },
+  {
+    "key": "kaisei_digit_1",
+    "path": "portraitEmaClock/assets/kaisei_digit_1.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_1.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "84e3f7f35a912250051894b3c7aee991eaf4c120448ab8f0fb8df4f809bf9a49"
+  },
+  {
+    "key": "kaisei_digit_2",
+    "path": "portraitEmaClock/assets/kaisei_digit_2.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_2.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "6a1ba6285f6717110f1b067e00af876cb8505c6cd2c422e3f075448cc048f6b1"
+  },
+  {
+    "key": "kaisei_digit_3",
+    "path": "portraitEmaClock/assets/kaisei_digit_3.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_3.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "b8077097f4741b11b07c5efe3c25d57d40bd43def28d406cae83cf8d86455d77"
+  },
+  {
+    "key": "kaisei_digit_4",
+    "path": "portraitEmaClock/assets/kaisei_digit_4.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_4.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "278ac80735145384d6faefd90eb153dcab5acbd4b4b21f74a62b398531400f52"
+  },
+  {
+    "key": "kaisei_digit_5",
+    "path": "portraitEmaClock/assets/kaisei_digit_5.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_5.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "fee7b40a775af97acf45f1489200398d3a6ecba2b56de9361feec90dbcce4ebd"
+  },
+  {
+    "key": "kaisei_digit_6",
+    "path": "portraitEmaClock/assets/kaisei_digit_6.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_6.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "b4a23424c1b81c02c6699aac317fa0c3da8531d407aa484a3cb7a4271d21a731"
+  },
+  {
+    "key": "kaisei_digit_7",
+    "path": "portraitEmaClock/assets/kaisei_digit_7.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_7.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "db6fa1fa3c606b1f191347c9e73a74f19414b4ca342f3942e3a4db637f51fdec"
+  },
+  {
+    "key": "kaisei_digit_8",
+    "path": "portraitEmaClock/assets/kaisei_digit_8.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_8.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "e1c2e89fb42b2f67c2478b505adbdd645933c1c2f4178f8535001bd225d7285a"
+  },
+  {
+    "key": "kaisei_digit_9",
+    "path": "portraitEmaClock/assets/kaisei_digit_9.xic",
+    "rawPath": "portraitEmaClock/raw/kaisei_digit_9.png",
+    "rawMime": "image/png",
+    "width": 38,
+    "height": 58,
+    "bpp": 1,
+    "contentHash": "8c94e38c41b630491595f80234404e8ca3fc49bbe6f5e45cbaf4a44109829061"
+  }
+]

@@ -1,0 +1,258 @@
+{
+  "app_id": "hello_world-6629a6c8",
+  "display_name": "中国象棋",
+  "version": "0.1.5",
+  "api": "2.17",
+  "entry": "index.lua",
+  "data_files": [
+    {
+      "name": "geometry.v1.moves.txt",
+      "format": "txt",
+      "max_bytes": 9072
+    },
+    {
+      "name": "geometry.v1.moves.index.txt",
+      "format": "txt",
+      "max_bytes": 3240
+    },
+    {
+      "name": "geometry.v1.rays.txt",
+      "format": "txt",
+      "max_bytes": 14040
+    },
+    {
+      "name": "geometry.v1.meta.txt",
+      "format": "txt",
+      "max_bytes": 183
+    },
+    {
+      "name": "openings.prefix.L00.txt",
+      "format": "txt",
+      "max_bytes": 26
+    },
+    {
+      "name": "openings.prefix.L00.index.txt",
+      "format": "txt",
+      "max_bytes": 14
+    },
+    {
+      "name": "openings.prefix.L02.txt",
+      "format": "txt",
+      "max_bytes": 461
+    },
+    {
+      "name": "openings.prefix.L02.index.txt",
+      "format": "txt",
+      "max_bytes": 434
+    },
+    {
+      "name": "openings.prefix.L04.txt",
+      "format": "txt",
+      "max_bytes": 1461
+    },
+    {
+      "name": "openings.prefix.L04.index.txt",
+      "format": "txt",
+      "max_bytes": 2310
+    },
+    {
+      "name": "openings.prefix.L06.txt",
+      "format": "txt",
+      "max_bytes": 2716
+    },
+    {
+      "name": "openings.prefix.L06.index.txt",
+      "format": "txt",
+      "max_bytes": 5362
+    },
+    {
+      "name": "openings.prefix.L08.txt",
+      "format": "txt",
+      "max_bytes": 4270
+    },
+    {
+      "name": "openings.prefix.L08.index.txt",
+      "format": "txt",
+      "max_bytes": 9184
+    },
+    {
+      "name": "openings.prefix.L10.txt",
+      "format": "txt",
+      "max_bytes": 6158
+    },
+    {
+      "name": "openings.prefix.L10.index.txt",
+      "format": "txt",
+      "max_bytes": 13790
+    },
+    {
+      "name": "openings.prefix.L12.txt",
+      "format": "txt",
+      "max_bytes": 8494
+    },
+    {
+      "name": "openings.prefix.L12.index.txt",
+      "format": "txt",
+      "max_bytes": 19432
+    },
+    {
+      "name": "openings.prefix.L14.txt",
+      "format": "txt",
+      "max_bytes": 11163
+    },
+    {
+      "name": "openings.prefix.L14.index.txt",
+      "format": "txt",
+      "max_bytes": 26712
+    },
+    {
+      "name": "openings.prefix.L16.txt",
+      "format": "txt",
+      "max_bytes": 14215
+    },
+    {
+      "name": "openings.prefix.L16.index.txt",
+      "format": "txt",
+      "max_bytes": 33922
+    }
+  ],
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_l",
+  "display": {
+    "orientation": "portrait"
+  },
+  "preload_assets": [
+    "portrait_child",
+    "portrait_child_proud",
+    "portrait_child_panicked",
+    "portrait_adult",
+    "portrait_adult_proud",
+    "portrait_adult_panicked",
+    "portrait_elder",
+    "portrait_elder_proud",
+    "portrait_elder_panicked"
+  ],
+  "author": "XTApp Creator",
+  "description": "中国象棋双人对弈：完整行棋规则、将军/将死判定，支持触摸与按键。人机模式带 AI 人像。",
+  "opening_prefix_dictionary": {
+    "generator_version": "itlwei-prefix-v2",
+    "pack_max_length": 16,
+    "input_sha256": "998d084fdee4c19560a365fc3d56b44b3eb2c16a23692ce7d75a6363a2219b54",
+    "prefix_count": 7940,
+    "candidate_count": 11028,
+    "input_bytes": 585769,
+    "total_bytes": 160124,
+    "compression_ratio": 0.2733569034892594,
+    "output_sha256": "36d3239a9c032a8a8b61a0026dee91ae027c25615df5c92a771de85beaedcb91",
+    "files": [
+      {
+        "name": "openings.prefix.L00.txt",
+        "bytes": 26,
+        "records": 1,
+        "sha256": "dfeb3c2dcd598a060295fb44547229b238b3cc2a56e3392f75fee8c0c9ba3db5"
+      },
+      {
+        "name": "openings.prefix.L00.index.txt",
+        "bytes": 14,
+        "records": 1,
+        "sha256": "3f2a419a637e9cb4edce4e161b952948df6dd9c096a8d451346e29a399179f70"
+      },
+      {
+        "name": "openings.prefix.L02.txt",
+        "bytes": 461,
+        "records": 31,
+        "sha256": "fb06b44caa599735305fd9b5c3794dae02d5bc2e24675edb5c61c2413d410bd7"
+      },
+      {
+        "name": "openings.prefix.L02.index.txt",
+        "bytes": 434,
+        "records": 31,
+        "sha256": "52704024d3b1b2e7676ec2a7bfb47d72a4ac1df4e97edd567ac26ae570f5e476"
+      },
+      {
+        "name": "openings.prefix.L04.txt",
+        "bytes": 1461,
+        "records": 165,
+        "sha256": "9b11541d30ac32f505cb7a256698ac5f027de9b9a0b1f2cc80e54d5163f80d33"
+      },
+      {
+        "name": "openings.prefix.L04.index.txt",
+        "bytes": 2310,
+        "records": 165,
+        "sha256": "06fedd0d7672f2ca66a2d7a600b43896f1ebdcfa74f4406848b0715da5dfe632"
+      },
+      {
+        "name": "openings.prefix.L06.txt",
+        "bytes": 2716,
+        "records": 383,
+        "sha256": "c6e54036baa4facaf075290b5cd3327a6aba11cf879a30fdaf6052c22f3baddc"
+      },
+      {
+        "name": "openings.prefix.L06.index.txt",
+        "bytes": 5362,
+        "records": 383,
+        "sha256": "51934cc3b3cfab91e0194f281b386d2ed86b20cf4bc6f39a71477f94f7cfa51e"
+      },
+      {
+        "name": "openings.prefix.L08.txt",
+        "bytes": 4270,
+        "records": 656,
+        "sha256": "39998bfaefc3b2228211ee451cace745530b852672a4ec81360480f9c8188643"
+      },
+      {
+        "name": "openings.prefix.L08.index.txt",
+        "bytes": 9184,
+        "records": 656,
+        "sha256": "9406c4ebbe8442023e06eed2d4bb984ef21967da865171c8a55f493a71a4b3ae"
+      },
+      {
+        "name": "openings.prefix.L10.txt",
+        "bytes": 6158,
+        "records": 985,
+        "sha256": "7e604bbf555ebda0c9a4accdf5aaf51f6a20d195ac8e7bd7bad440a2b50ede3b"
+      },
+      {
+        "name": "openings.prefix.L10.index.txt",
+        "bytes": 13790,
+        "records": 985,
+        "sha256": "ede7baf4f17760d88c430ceba7ae76ce71c13ae7b79487ce76cf6d583907b811"
+      },
+      {
+        "name": "openings.prefix.L12.txt",
+        "bytes": 8494,
+        "records": 1388,
+        "sha256": "e32356038b62f523ffd36f99a127d59ab02e3c7f533fc513d41b4f7de5e7e6b7"
+      },
+      {
+        "name": "openings.prefix.L12.index.txt",
+        "bytes": 19432,
+        "records": 1388,
+        "sha256": "bb8248c4a8f896d398e93d76b1a0c94dcd5701c9384ba4387e8df4b2c196b9bb"
+      },
+      {
+        "name": "openings.prefix.L14.txt",
+        "bytes": 11163,
+        "records": 1908,
+        "sha256": "54621e173e15eae85acb390d618dd84db298c04042847d16dd4c3fb576868b7a"
+      },
+      {
+        "name": "openings.prefix.L14.index.txt",
+        "bytes": 26712,
+        "records": 1908,
+        "sha256": "56659ad0f64f586d5cb725097923b82ceefc514a9c1db0fddb38a4772089dc50"
+      },
+      {
+        "name": "openings.prefix.L16.txt",
+        "bytes": 14215,
+        "records": 2423,
+        "sha256": "2baa2d817aa08d3ee09d3ae77ea036292b07f8804d31804a68e1cc73c6e6f224"
+      },
+      {
+        "name": "openings.prefix.L16.index.txt",
+        "bytes": 33922,
+        "records": 2423,
+        "sha256": "aed781314e1935d82f2d797f2d07dfaf49137347db2894635dd70e7a5d8fd79b"
+      }
+    ]
+  }
+}

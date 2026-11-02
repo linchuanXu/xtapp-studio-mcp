@@ -1,0 +1,146 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "pixelClockLandscape/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "25e145f25837b847f8c3320f98fcbe364bfbe553025fc2dbcffd9ffee935cfeb"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "pixelClockLandscape/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "01aa897b502a6ee56eb6a870c9305e8ad8f319d24ec769249b48db3793d79047"
+  },
+  {
+    "key": "splash",
+    "path": "pixelClockLandscape/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "a00ea7696b5a19a83bd1ab38d67980c90aea4eed7cb06d1b1301d55103a448d9"
+  },
+  {
+    "key": "0",
+    "path": "pixelClockLandscape/assets/0.xic",
+    "rawPath": "pixelClockLandscape/raw/0.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "242a9adaac51cc81828eed1ead5062e17d39b1f8e080df6c243677d8e1e91ba8"
+  },
+  {
+    "key": "1",
+    "path": "pixelClockLandscape/assets/1.xic",
+    "rawPath": "pixelClockLandscape/raw/1.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "da57f3dfa2cba5818723ee078a7de723812773553497ffb788fdf796a623b7c3"
+  },
+  {
+    "key": "2",
+    "path": "pixelClockLandscape/assets/2.xic",
+    "rawPath": "pixelClockLandscape/raw/2.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "d34fd75633fafa68969e309abc565a8b70294353f5e8e2048af691f50df95634"
+  },
+  {
+    "key": "3",
+    "path": "pixelClockLandscape/assets/3.xic",
+    "rawPath": "pixelClockLandscape/raw/3.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "e5e3717bdeabf7767fe4e1d8af21509894e5d1fefdd34d608d933463364d4ae8"
+  },
+  {
+    "key": "4",
+    "path": "pixelClockLandscape/assets/4.xic",
+    "rawPath": "pixelClockLandscape/raw/4.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "e7d06ee1c04a42cc8fc9ef47320e59cbcf90e1357a8d32baf815ecb2d5ebce8c"
+  },
+  {
+    "key": "5",
+    "path": "pixelClockLandscape/assets/5.xic",
+    "rawPath": "pixelClockLandscape/raw/5.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "33f1c5902b2c041fc267e461c8930ab7b55b51f9747d5d724d49307cc7433a3e"
+  },
+  {
+    "key": "6",
+    "path": "pixelClockLandscape/assets/6.xic",
+    "rawPath": "pixelClockLandscape/raw/6.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "d74c97f31c3e3bb53cfa7099510cbd52f08cd7a2d243509cc428d6686bb9b714"
+  },
+  {
+    "key": "7",
+    "path": "pixelClockLandscape/assets/7.xic",
+    "rawPath": "pixelClockLandscape/raw/7.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "0032662e262eb579c34738e5ae0c330622b58659e3d31ce426c3e37ece1c654c"
+  },
+  {
+    "key": "8",
+    "path": "pixelClockLandscape/assets/8.xic",
+    "rawPath": "pixelClockLandscape/raw/8.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "678b399fe17c0eacb8f5b4c178e4c8f97c2cb6072b0f2a40993aea7cc55c513e"
+  },
+  {
+    "key": "9",
+    "path": "pixelClockLandscape/assets/9.xic",
+    "rawPath": "pixelClockLandscape/raw/9.png",
+    "rawMime": "image/png",
+    "width": 80,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "37684804229e8c47c0526929cd2cb5bc193ca5a6425eb3e9423fa2705fca7307"
+  },
+  {
+    "key": "bg",
+    "path": "pixelClockLandscape/assets/bg.xic",
+    "rawPath": "pixelClockLandscape/raw/bg.png",
+    "rawMime": "image/png",
+    "width": 800,
+    "height": 480,
+    "bpp": 1,
+    "contentHash": "b41df19c1735067dff3831e89f19e0e71e20f450fec492e9160192b14a9e1ce5"
+  },
+  {
+    "key": "colon",
+    "path": "pixelClockLandscape/assets/colon.xic",
+    "rawPath": "pixelClockLandscape/raw/colon.png",
+    "rawMime": "image/png",
+    "width": 32,
+    "height": 108,
+    "bpp": 1,
+    "contentHash": "be492e8189929a2bd67103cfa118c71d946192c98844c9e389f96775e1e4abdb"
+  }
+]

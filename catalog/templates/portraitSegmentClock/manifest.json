@@ -1,0 +1,31 @@
+{
+  "app_id": "portrait_segment_clock-e8249b17",
+  "display_name": "细线七段时钟",
+  "version": "1.0.0",
+  "api": "2.17",
+  "entry": "index.lua",
+  "display": {
+    "orientation": "portrait"
+  },
+  "lockscreen": {
+    "entry": "lockscreen.lua",
+    "interval_sec": 60
+  },
+  "author": "XTApp Creator",
+  "description": "用细长七段线条组成时间，摆脱方块点阵的厚重感。",
+  "app_icon_l": "app_icon_l",
+  "app_icon_s": "app_icon_s",
+  "splash": "splash",
+  "preload_assets": [
+    "kaisei_digit_0",
+    "kaisei_digit_1",
+    "kaisei_digit_2",
+    "kaisei_digit_3",
+    "kaisei_digit_4",
+    "kaisei_digit_5",
+    "kaisei_digit_6",
+    "kaisei_digit_7",
+    "kaisei_digit_8",
+    "kaisei_digit_9"
+  ]
+}

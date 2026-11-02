@@ -1,0 +1,26 @@
+[
+  {
+    "key": "app_icon_l",
+    "path": "ankiClassic/assets/app_icon_l.xic",
+    "width": 200,
+    "height": 150,
+    "bpp": 1,
+    "contentHash": "a8febaa490b2c3c25022fd10a0c31f9a3af2ab88012cee980da1ed1b3819bd7e"
+  },
+  {
+    "key": "app_icon_s",
+    "path": "ankiClassic/assets/app_icon_s.xic",
+    "width": 100,
+    "height": 100,
+    "bpp": 1,
+    "contentHash": "482016d2c13e93f76b37b9c0a15c7f61f741e4a4d54e3ce2c6e8f2594cee11c9"
+  },
+  {
+    "key": "splash",
+    "path": "ankiClassic/assets/splash.xic",
+    "width": 400,
+    "height": 225,
+    "bpp": 1,
+    "contentHash": "f74253a124ab7bf2bcaa0562a01a9432fa208133a178bccd69597784802b4dc8"
+  }
+]
