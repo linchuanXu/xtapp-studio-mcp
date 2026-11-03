@@ -3,6 +3,7 @@ import test from 'node:test'
 import { snapshotRevision } from './projectSnapshot.mjs'
 import {
   diffSnapshots,
+  overwriteNote,
   pushProjectSnapshot,
   snapshotPushState,
   sourcePushBodies,
@@ -193,6 +194,30 @@ test('PATCH 修订冲突时回退全量 POST', async () => {
   assert.equal(result.revision, 'rev-full')
 })
 
+test('覆盖已有项目时即使有上次快照也整份推送，每批都带覆盖目标', async () => {
+  const snapshot = {
+    revision: 'same',
+    files: { 'index.lua': 'ok' },
+    assets: Array.from({ length: 81 }, (_, index) => asset(index)),
+    fileCount: 1,
+    assetCount: 81,
+    warnings: [],
+    projectDir: '/tmp/demo-overwrite',
+  }
+  const previous = snapshotPushState(snapshot, 'server-same')
+  const calls = []
+  await pushProjectSnapshot(snapshot, async (path, body) => {
+    calls.push({ path, body })
+    return { status: 'queued', revision: `rev-${calls.length}` }
+  }, { previous, overwriteProjectId: 'target-1' })
+  assert.deepEqual(calls.map((call) => call.path), ['/preview/source', '/preview/source/patch'])
+  assert.equal(calls[0].body.overwriteProjectId, 'target-1')
+  assert.equal(calls[1].body.overwriteProjectId, 'target-1')
+  const plain = sourcePushBodies(snapshot)[0]
+  assert.equal(plain.overwriteProjectId, undefined)
+  assert.notEqual(calls[0].body.revision, plain.revision)
+})
+
 test('diff 只报告变化的文件和素材', () => {
   const diff = diffSnapshots(
     {
@@ -224,4 +249,15 @@ test('同一工程的推送串行执行', async () => {
     }),
   ])
   assert.deepEqual(order, ['a1', 'a2', 'b1', 'b2'])
+})
+
+test('覆盖后提示把保留的 app_id 和项目 id 写回本地', () => {
+  assert.equal(overwriteNote(null), '')
+  const note = overwriteNote({ projectId: 'p-1', appId: 'shop.app' }, { localAppId: 'other.app', localCloudProjectId: '' })
+  assert.match(note, /"app_id" in manifest\.json to "shop\.app"/)
+  assert.match(note, /\{"cloudProjectId": "p-1"\}/)
+  assert.equal(
+    overwriteNote({ projectId: 'p-1', appId: 'shop.app' }, { localAppId: 'shop.app', localCloudProjectId: 'p-1' }),
+    'Studio overwrote the project; it kept its project id and app_id.',
+  )
 })

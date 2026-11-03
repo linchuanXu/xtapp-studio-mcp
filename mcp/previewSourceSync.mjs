@@ -123,7 +123,7 @@ function catalogOf(snapshot = {}) {
   }
 }
 
-export function sourcePushBodies(snapshot = {}) {
+export function sourcePushBodies(snapshot = {}, { overwriteProjectId = '' } = {}) {
   const files = snapshot.files && typeof snapshot.files === 'object' ? snapshot.files : {}
   const assets = Array.isArray(snapshot.assets) ? snapshot.assets : []
   const { fileKeys, assetKeys } = catalogOf(snapshot)
@@ -145,8 +145,9 @@ export function sourcePushBodies(snapshot = {}) {
     fileCount: snapshot.fileCount,
     assetCount: snapshot.assetCount,
     capturedAt: snapshot.capturedAt,
-    revision: snapshotRevision(firstFiles, firstAssets, snapshot.cloudProjectId),
+    revision: snapshotRevision(firstFiles, firstAssets, `${snapshot.cloudProjectId || ''}${overwriteProjectId ? `|overwrite:${overwriteProjectId}` : ''}`),
     ...(snapshot.cloudProjectId ? { cloudProjectId: snapshot.cloudProjectId } : {}),
+    ...(overwriteProjectId ? { overwriteProjectId } : {}),
   })
   for (const batch of fileBatches.slice(1)) {
     bodies.push({
@@ -182,8 +183,8 @@ function finishPush(snapshot, result) {
   }
 }
 
-async function pushReplace(snapshot, request) {
-  const bodies = sourcePushBodies(snapshot)
+async function pushReplace(snapshot, request, { overwriteProjectId = '' } = {}) {
+  const bodies = sourcePushBodies(snapshot, { overwriteProjectId })
   const first = bodies[0]
   let result = await request('/preview/source', first)
   if (!result?.revision) return finishPush(snapshot, result)
@@ -195,6 +196,8 @@ async function pushReplace(snapshot, request) {
       fileKeys: body.fileKeys,
       assetKeys: body.assetKeys,
       warnings: body.warnings,
+      // 分批的后续补丁也带上覆盖目标，否则代理会在整份推完前把它清掉。
+      ...(overwriteProjectId ? { overwriteProjectId } : {}),
     })
     if (!result?.revision) break
   }
@@ -258,7 +261,9 @@ async function pushPatch(snapshot, previous, request) {
   return finishPush(snapshot, result)
 }
 
-export async function pushProjectSnapshot(snapshot, request, { previous } = {}) {
+export async function pushProjectSnapshot(snapshot, request, { previous, overwriteProjectId = '' } = {}) {
+  // 用户点名覆盖已有项目：整份推一次，Studio 据此清掉目标项目里本地没有的文件和图。
+  if (overwriteProjectId) return pushReplace(snapshot, request, { overwriteProjectId })
   if (previous?.serverRevision && previous.revision === snapshot.revision) {
     return finishPush(snapshot, {
       status: 'unchanged',
@@ -272,4 +277,18 @@ export async function pushProjectSnapshot(snapshot, request, { previous } = {}) 
     if (!isRevisionConflict(error)) throw error
     return pushReplace(snapshot, request)
   }
+}
+
+// 覆盖后 Studio 沿用原项目的 app_id 和项目 id；本地还是旧的，下次同步就会改回去或另建项目。
+export function overwriteNote(overwrite, { localAppId = '', localCloudProjectId = '' } = {}) {
+  if (!overwrite?.projectId) return ''
+  const steps = []
+  if (overwrite.appId && String(localAppId || '').trim() !== overwrite.appId) {
+    steps.push(`set "app_id" in manifest.json to "${overwrite.appId}"`)
+  }
+  if (String(localCloudProjectId || '').trim() !== overwrite.projectId) {
+    steps.push(`write docs/studio.cloud.json as {"cloudProjectId": "${overwrite.projectId}"}`)
+  }
+  if (!steps.length) return 'Studio overwrote the project; it kept its project id and app_id.'
+  return `Studio overwrote the project and kept its project id and app_id. In the local folder now ${steps.join(' and ')}; otherwise the next sync changes the app_id back or opens a different Studio project, and the store listing no longer matches.`
 }

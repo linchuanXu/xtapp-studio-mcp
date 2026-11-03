@@ -99,6 +99,14 @@ into the cloud draft or the store package.
 **Starting a separate copy:** choose "Save as a new cloud project" in the Studio project
 manager.
 
+**Overwriting an existing project with the folder:** for example, you edited it under
+another account but the store listing is tied to the project here. Tell the AI "overwrite
+Studio project <cloud project id> with this folder". Studio asks you first. If you agree, it
+saves a "Before overwrite" snapshot in history, then replaces every file and image with the
+folder's, removing images and docs that exist only in Studio. The project id, `app_id` and
+store listing link stay the same; the AI writes the id and `app_id` back into the folder so
+later syncs carry on normally. Cancel and nothing changes.
+
 ## Files and images: which side wins
 
 | Case | Result |
