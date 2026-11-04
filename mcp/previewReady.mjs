@@ -1,4 +1,4 @@
-export const PLUGIN_VERSION = '0.1.10'
+export const PLUGIN_VERSION = '0.1.11'
 export const PREVIEW_RUN_WAIT_MS = 30_000
 export const PREVIEW_QUICK_WAIT_MS = 10_000
 

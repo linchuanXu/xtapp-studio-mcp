@@ -289,6 +289,7 @@ export function overwriteNote(overwrite, { localAppId = '', localCloudProjectId 
   if (String(localCloudProjectId || '').trim() !== overwrite.projectId) {
     steps.push(`write docs/studio.cloud.json as {"cloudProjectId": "${overwrite.projectId}"}`)
   }
-  if (!steps.length) return 'Studio overwrote the project; it kept its project id and app_id.'
-  return `Studio overwrote the project and kept its project id and app_id. In the local folder now ${steps.join(' and ')}; otherwise the next sync changes the app_id back or opens a different Studio project, and the store listing no longer matches.`
+  const tell = 'Tell the user: the project id, app_id and store listing link did not change; the "Before overwrite" snapshot in Studio History restores the old version; the store listing updates only after they save to the cloud and the review passes.'
+  if (!steps.length) return `Studio overwrote the project; it kept its project id and app_id. ${tell}`
+  return `Studio overwrote the project and kept its project id and app_id. In the local folder now ${steps.join(' and ')}; otherwise the next sync changes the app_id back or opens a different Studio project, and the store listing no longer matches. ${tell}`
 }

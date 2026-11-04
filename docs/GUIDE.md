@@ -101,11 +101,20 @@ manager.
 
 **Overwriting an existing project with the folder:** for example, you edited it under
 another account but the store listing is tied to the project here. Tell the AI "overwrite
-Studio project <cloud project id> with this folder". Studio asks you first. If you agree, it
-saves a "Before overwrite" snapshot in history, then replaces every file and image with the
-folder's, removing images and docs that exist only in Studio. The project id, `app_id` and
-store listing link stay the same; the AI writes the id and `app_id` back into the folder so
-later syncs carry on normally. Cancel and nothing changes.
+Studio project <cloud project id> with this folder". Studio asks you first; cancel and nothing
+changes. The confirm dialog spells out:
+
+- **Will be replaced:** code, assets and settings come from the folder; files and images in
+  Studio that the folder does not have are deleted.
+- **Stays the same:** the project id, cloud project and store listing link; `app_id` (devices
+  see the same app and players keep their saves); chat history; your store listing, since
+  overwriting only changes your own project and the listing updates only after you save to the
+  cloud and the review passes.
+- **If something goes wrong:** a "Before overwrite" snapshot is saved first and can be restored
+  from History; a failure partway restores the project automatically, never half replaced.
+
+Afterwards the AI writes the id and `app_id` back into the folder so later syncs carry on
+normally.
 
 ## Files and images: which side wins
 

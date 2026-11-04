@@ -37484,7 +37484,7 @@ var StdioServerTransport = class {
 };
 
 // mcp/previewReady.mjs
-var PLUGIN_VERSION = "0.1.10";
+var PLUGIN_VERSION = "0.1.11";
 var PREVIEW_RUN_WAIT_MS = 3e4;
 var PREVIEW_QUICK_WAIT_MS = 1e4;
 function requireProjectDir(projectDir) {
@@ -38150,8 +38150,9 @@ function overwriteNote(overwrite, { localAppId = "", localCloudProjectId = "" } 
   if (String(localCloudProjectId || "").trim() !== overwrite.projectId) {
     steps.push(`write docs/studio.cloud.json as {"cloudProjectId": "${overwrite.projectId}"}`);
   }
-  if (!steps.length) return "Studio overwrote the project; it kept its project id and app_id.";
-  return `Studio overwrote the project and kept its project id and app_id. In the local folder now ${steps.join(" and ")}; otherwise the next sync changes the app_id back or opens a different Studio project, and the store listing no longer matches.`;
+  const tell = 'Tell the user: the project id, app_id and store listing link did not change; the "Before overwrite" snapshot in Studio History restores the old version; the store listing updates only after they save to the cloud and the review passes.';
+  if (!steps.length) return `Studio overwrote the project; it kept its project id and app_id. ${tell}`;
+  return `Studio overwrote the project and kept its project id and app_id. In the local folder now ${steps.join(" and ")}; otherwise the next sync changes the app_id back or opens a different Studio project, and the store listing no longer matches. ${tell}`;
 }
 
 // mcp/studioPull.mjs
@@ -38912,7 +38913,7 @@ var SESSION_NOTE = " Optional projectDir picks that project's preview; without i
 var optionalProjectDir = external_exports.string().trim().optional();
 var DELETE_ASSETS_NOTE = " Sync deletes source files and images the worktree pushed earlier once they are gone locally. Images that exist only in Studio (uploaded or generated there) are kept and listed; to delete them when the user asks, pass their keys in deleteAssets.";
 var deleteAssetsSchema = external_exports.array(external_exports.string().trim().min(1)).max(200).optional();
-var OVERWRITE_NOTE = ` Only when the user explicitly asks to overwrite an existing Studio project (for example one that is already listed in the store) with this folder, pass that project's id as overwriteProjectId. Studio asks the user to confirm first; if they agree it keeps the project id, app_id and store listing link, saves a "Before overwrite" snapshot in history, and replaces every file and image, including ones that exist only in Studio. If they decline, nothing changes.`;
+var OVERWRITE_NOTE = ` Only when the user explicitly asks to overwrite an existing Studio project (for example one that is already listed in the store) with this folder, pass that project's id as overwriteProjectId. Studio asks the user to confirm first; if they agree it keeps the project id, app_id and store listing link, saves a "Before overwrite" snapshot in history, and replaces every file and image, including ones that exist only in Studio. If it fails partway, Studio restores the project to how it was. If they decline, nothing changes. The store listing updates only after the user saves to the cloud and the review passes.`;
 var overwriteProjectIdSchema = external_exports.string().trim().regex(/^[A-Za-z0-9._:-]{1,80}$/).optional();
 server.registerTool("run_xtapp_preview", { description: `Ensure the official Studio preview page is running the current local worktree. Requires the absolute projectDir. If the page is closed or needs login, returns the exact previewUrl instead of claiming success.${DELETE_ASSETS_NOTE}${OVERWRITE_NOTE}`, inputSchema: { projectDir: external_exports.string().trim().min(1), device: external_exports.enum(["x4_classic", "x4_pro"]).optional(), deleteAssets: deleteAssetsSchema, overwriteProjectId: overwriteProjectIdSchema } }, async ({ projectDir, device = "x4_pro", deleteAssets = [], overwriteProjectId = "" }) => {
   const result = await ensurePreviewReady({ projectDir, device, deleteAssets, overwriteProjectId });

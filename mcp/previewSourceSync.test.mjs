@@ -256,8 +256,8 @@ test('覆盖后提示把保留的 app_id 和项目 id 写回本地', () => {
   const note = overwriteNote({ projectId: 'p-1', appId: 'shop.app' }, { localAppId: 'other.app', localCloudProjectId: '' })
   assert.match(note, /"app_id" in manifest\.json to "shop\.app"/)
   assert.match(note, /\{"cloudProjectId": "p-1"\}/)
-  assert.equal(
-    overwriteNote({ projectId: 'p-1', appId: 'shop.app' }, { localAppId: 'shop.app', localCloudProjectId: 'p-1' }),
-    'Studio overwrote the project; it kept its project id and app_id.',
-  )
+  assert.match(note, /Before overwrite/)
+  const synced = overwriteNote({ projectId: 'p-1', appId: 'shop.app' }, { localAppId: 'shop.app', localCloudProjectId: 'p-1' })
+  assert.match(synced, /^Studio overwrote the project; it kept its project id and app_id\. /)
+  assert.doesNotMatch(synced, /manifest\.json/)
 })

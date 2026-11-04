@@ -408,7 +408,7 @@ const optionalProjectDir = z.string().trim().optional()
 const DELETE_ASSETS_NOTE = ' Sync deletes source files and images the worktree pushed earlier once they are gone locally. Images that exist only in Studio (uploaded or generated there) are kept and listed; to delete them when the user asks, pass their keys in deleteAssets.'
 const deleteAssetsSchema = z.array(z.string().trim().min(1)).max(200).optional()
 
-const OVERWRITE_NOTE = ' Only when the user explicitly asks to overwrite an existing Studio project (for example one that is already listed in the store) with this folder, pass that project\'s id as overwriteProjectId. Studio asks the user to confirm first; if they agree it keeps the project id, app_id and store listing link, saves a "Before overwrite" snapshot in history, and replaces every file and image, including ones that exist only in Studio. If they decline, nothing changes.'
+const OVERWRITE_NOTE = ' Only when the user explicitly asks to overwrite an existing Studio project (for example one that is already listed in the store) with this folder, pass that project\'s id as overwriteProjectId. Studio asks the user to confirm first; if they agree it keeps the project id, app_id and store listing link, saves a "Before overwrite" snapshot in history, and replaces every file and image, including ones that exist only in Studio. If it fails partway, Studio restores the project to how it was. If they decline, nothing changes. The store listing updates only after the user saves to the cloud and the review passes.'
 const overwriteProjectIdSchema = z.string().trim().regex(/^[A-Za-z0-9._:-]{1,80}$/).optional()
 
 
