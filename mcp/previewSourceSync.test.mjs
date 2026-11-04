@@ -165,6 +165,36 @@ test('有上次成功快照时只 PATCH 变更', async () => {
   assert.equal(result.revision, 'server-2')
 })
 
+test('配置声明随首包发出，只改声明时也补一次 PATCH', async () => {
+  const configuration = {
+    configurationFields: [{ key: 'API_KEY', label: 'Key', type: 'secret', required: true }],
+    configurationInjections: [{ key: 'API_KEY', file: 'index.lua', marker: '__APP_CONFIG_API_KEY__' }],
+  }
+  const files = { 'index.lua': 'ok' }
+  const [first] = sourcePushBodies({ files, assets: [], warnings: [], projectDir: '/tmp/c', configuration })
+  assert.deepEqual(first.configurationFields, configuration.configurationFields)
+  assert.deepEqual(first.configurationInjections, configuration.configurationInjections)
+  assert.notEqual(first.revision, snapshotRevision(files, []))
+
+  const previous = snapshotPushState({ revision: 'r1', files, assets: [] }, 'server-1')
+  const calls = []
+  await pushProjectSnapshot({ revision: 'r2', files, assets: [], warnings: [], projectDir: '/tmp/c', configuration }, async (path, body) => {
+    calls.push({ path, body })
+    return { status: 'queued', revision: 'server-2' }
+  }, { previous })
+  assert.equal(calls.length, 1)
+  assert.deepEqual(calls[0].body.configurationFields, configuration.configurationFields)
+
+  const withConfig = snapshotPushState({ revision: 'r2', files, assets: [], configuration }, 'server-2')
+  const removed = []
+  await pushProjectSnapshot({ revision: 'r3', files, assets: [], warnings: [], projectDir: '/tmp/c', configuration: null }, async (path, body) => {
+    removed.push(body)
+    return { status: 'queued', revision: 'server-3' }
+  }, { previous: withConfig })
+  assert.deepEqual(removed[0].configurationFields, [])
+  assert.deepEqual(removed[0].configurationInjections, [])
+})
+
 test('PATCH 修订冲突时回退全量 POST', async () => {
   const previous = snapshotPushState({
     revision: 'old',

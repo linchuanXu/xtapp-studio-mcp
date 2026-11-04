@@ -12,7 +12,7 @@ import { loadOrCreatePreviewSession, previewRunPath, previewSessionFileForProjec
 import { readProjectSnapshot, resolveProjectDir } from './projectSnapshot.mjs'
 import { isInsideRoot, looksAbsolute, samePath } from './projectPath.mjs'
 import { overwriteNote, pushProjectSnapshot, snapshotPushState, withProjectPushLock } from './previewSourceSync.mjs'
-import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems } from './studioPull.mjs'
+import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems, writeStudioConfiguration } from './studioPull.mjs'
 import { tapPreviewTarget } from './previewTap.mjs'
 import { appFileBytes, deleteAppFile, listAppFiles, readAppFile, writeAppFile } from './appFiles.mjs'
 import { resolveStudioOrigin } from './regionConfig.mjs'
@@ -330,6 +330,8 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
       written.push(...await writeExportedItems(snapshot.projectDir, result.export, snapshot))
       selection.missing.push(...(result.export.missing || []))
     }
+    const configurationPath = await writeStudioConfiguration(snapshot.projectDir, catalog)
+    if (configurationPath) written.push(configurationPath)
     const lines = [
       written.length ? `Pulled ${written.length} items from Studio: ${written.join(', ')}` : 'Nothing to pull.',
       selection.skipped.length ? `Local copies differ and were not overwritten: ${selection.skipped.join(', ')} (pull again with overwrite: true to use the Studio version)` : '',

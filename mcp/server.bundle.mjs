@@ -37484,7 +37484,7 @@ var StdioServerTransport = class {
 };
 
 // mcp/previewReady.mjs
-var PLUGIN_VERSION = "0.1.11";
+var PLUGIN_VERSION = "0.1.12";
 var PREVIEW_RUN_WAIT_MS = 3e4;
 var PREVIEW_QUICK_WAIT_MS = 1e4;
 function requireProjectDir(projectDir) {
@@ -37680,6 +37680,10 @@ var ASSET_FILE = /^(?:assets|raw)\/[A-Za-z0-9_-]{1,23}\.(xic|png|jpe?g|webp)$/i;
 var LOOKS_LIKE_SOURCE = /\.(lua|tsv|txt|json)$/i;
 var SILENT_SKIP = /^(?:docs|tmp|prototypes|\.tmp)\//i;
 var CLOUD_BINDING_PATHS = ["docs/studio.cloud.json", "studio.cloud.json"];
+var CONFIGURATION_PATH = "docs/studio.configuration.json";
+var MAX_CONFIGURATION_ITEMS = 64;
+var CONFIGURATION_KEY = /^[A-Z][A-Z0-9_]{0,63}$/;
+var CONFIGURATION_TYPES = /* @__PURE__ */ new Set(["text", "secret", "number", "boolean"]);
 function snapshotRevision(files = {}, assets = [], extra = "") {
   const digest = createHash2("sha256").update(JSON.stringify(Object.entries(files).sort(([a], [b]) => a.localeCompare(b)))).update(JSON.stringify(
     assets.map(({ path: path2, sha256, bytes }) => ({ path: path2, sha256, bytes })).sort((a, b) => String(a.path).localeCompare(String(b.path)))
@@ -37708,6 +37712,70 @@ async function readCloudProjectId(root) {
     }
   }
   return "";
+}
+function configurationRevisionTag(configuration) {
+  return configuration ? `|config:${JSON.stringify(configuration)}` : "";
+}
+function configText(value, max) {
+  return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+function parseProjectConfiguration(raw) {
+  const warnings = [];
+  let data = raw;
+  if (typeof raw === "string") {
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      return { configuration: null, warnings: [`${CONFIGURATION_PATH} is not valid JSON; the preview runs without configuration`] };
+    }
+  }
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    return { configuration: null, warnings: [`${CONFIGURATION_PATH} must be an object with configurationFields and configurationInjections`] };
+  }
+  const fields = [];
+  const keys = /* @__PURE__ */ new Set();
+  for (const item of Array.isArray(data.configurationFields) ? data.configurationFields.slice(0, MAX_CONFIGURATION_ITEMS) : []) {
+    const key = configText(item?.key, 64);
+    if (!CONFIGURATION_KEY.test(key) || keys.has(key)) {
+      warnings.push(`${CONFIGURATION_PATH}: field "${key}" needs a unique key of capital letters, digits and underscores; skipped`);
+      continue;
+    }
+    const type = CONFIGURATION_TYPES.has(item.type) ? item.type : "text";
+    if (item.type && item.type !== type) warnings.push(`${CONFIGURATION_PATH}: field ${key} has unknown type "${item.type}"; using text`);
+    const field = { key, label: configText(item.label, 120) || key, type, required: item.required === true };
+    const help = configText(item.help, 500);
+    if (help) field.help = help;
+    if (item.default !== void 0 && item.default !== null && item.default !== "") {
+      if (type === "secret") warnings.push(`${CONFIGURATION_PATH}: secret field ${key} must not have a default; default dropped`);
+      else field.default = String(item.default).slice(0, 500);
+    }
+    keys.add(key);
+    fields.push(field);
+  }
+  const injections = [];
+  for (const item of Array.isArray(data.configurationInjections) ? data.configurationInjections.slice(0, MAX_CONFIGURATION_ITEMS) : []) {
+    const key = configText(item?.key, 64);
+    const file2 = configText(item?.file, 256);
+    const marker = typeof item?.marker === "string" ? item.marker.slice(0, 200) : "";
+    if (!keys.has(key) || !file2 || !marker) {
+      warnings.push(`${CONFIGURATION_PATH}: injection for "${key}" needs a declared key, file and marker; skipped`);
+      continue;
+    }
+    injections.push({ key, file: file2, marker });
+  }
+  if (!fields.length) {
+    return { configuration: null, warnings: [...warnings, `${CONFIGURATION_PATH} declares no configurationFields; the preview runs without configuration`] };
+  }
+  return { configuration: { configurationFields: fields, configurationInjections: injections }, warnings };
+}
+async function readProjectConfiguration(root) {
+  let raw;
+  try {
+    raw = await readFile2(join2(root, ...CONFIGURATION_PATH.split("/")), "utf8");
+  } catch {
+    return { configuration: null, warnings: [] };
+  }
+  return parseProjectConfiguration(raw);
 }
 function assetMime(path2) {
   const lower = String(path2 || "").toLowerCase();
@@ -37808,10 +37876,12 @@ async function readProjectSnapshot(projectDir) {
     }
   } else warnings.push("manifest.json not found");
   const cloudProjectId = await readCloudProjectId(root);
+  const { configuration, warnings: configurationWarnings } = await readProjectConfiguration(root);
+  warnings.push(...configurationWarnings);
   return {
     projectDir: root,
     projectName: basename(root),
-    revision: snapshotRevision(files, assets, cloudProjectId),
+    revision: snapshotRevision(files, assets, `${cloudProjectId}${configurationRevisionTag(configuration)}`),
     manifest,
     files,
     assets,
@@ -37821,7 +37891,8 @@ async function readProjectSnapshot(projectDir) {
     assetBytes,
     assetCount: assets.length,
     capturedAt: Date.now(),
-    cloudProjectId
+    cloudProjectId,
+    configuration
   };
 }
 
@@ -37902,7 +37973,14 @@ function snapshotPushState(snapshot = {}, serverRevision = "") {
     assetHashes: Object.fromEntries(
       (Array.isArray(snapshot.assets) ? snapshot.assets : []).filter((item) => item?.key).map((item) => [item.key, item.sha256])
     ),
-    cloudProjectId: String(snapshot.cloudProjectId || "")
+    cloudProjectId: String(snapshot.cloudProjectId || ""),
+    configuration: snapshot.configuration || null
+  };
+}
+function configurationBody(configuration) {
+  return {
+    configurationFields: configuration?.configurationFields || [],
+    configurationInjections: configuration?.configurationInjections || []
   };
 }
 function previousAssetHashes(previous = {}) {
@@ -38013,8 +38091,9 @@ function sourcePushBodies(snapshot = {}, { overwriteProjectId = "" } = {}) {
     fileCount: snapshot.fileCount,
     assetCount: snapshot.assetCount,
     capturedAt: snapshot.capturedAt,
-    revision: snapshotRevision(firstFiles, firstAssets, `${snapshot.cloudProjectId || ""}${overwriteProjectId ? `|overwrite:${overwriteProjectId}` : ""}`),
+    revision: snapshotRevision(firstFiles, firstAssets, `${snapshot.cloudProjectId || ""}${configurationRevisionTag(snapshot.configuration)}${overwriteProjectId ? `|overwrite:${overwriteProjectId}` : ""}`),
     ...snapshot.cloudProjectId ? { cloudProjectId: snapshot.cloudProjectId } : {},
+    ...snapshot.configuration ? configurationBody(snapshot.configuration) : {},
     ...overwriteProjectId ? { overwriteProjectId } : {}
   });
   for (const batch of fileBatches.slice(1)) {
@@ -38073,7 +38152,8 @@ async function pushPatch(snapshot, previous, request) {
   const diff = diffSnapshots(previous, snapshot);
   const hasDeletes = diff.deleteFiles.length || diff.deleteAssets.length;
   const bindingChanged = String(snapshot.cloudProjectId || "") !== String(previous.cloudProjectId || "");
-  if (!Object.keys(diff.files).length && !diff.assets.length && !hasDeletes && !bindingChanged) {
+  const configurationChanged = JSON.stringify(snapshot.configuration || null) !== JSON.stringify(previous.configuration || null);
+  if (!Object.keys(diff.files).length && !diff.assets.length && !hasDeletes && !bindingChanged && !configurationChanged) {
     return finishPush(snapshot, {
       status: "unchanged",
       revision: previous.serverRevision
@@ -38095,7 +38175,8 @@ async function pushPatch(snapshot, previous, request) {
     deleteFiles: diff.deleteFiles,
     deleteAssets: diff.deleteAssets,
     warnings: snapshot.warnings || [],
-    ...snapshot.cloudProjectId ? { cloudProjectId: snapshot.cloudProjectId } : {}
+    ...snapshot.cloudProjectId ? { cloudProjectId: snapshot.cloudProjectId } : {},
+    ...configurationChanged ? configurationBody(snapshot.configuration) : {}
   });
   if (!result?.revision) return finishPush(snapshot, result);
   revision = result.revision;
@@ -38157,7 +38238,7 @@ function overwriteNote(overwrite, { localAppId = "", localCloudProjectId = "" } 
 
 // mcp/studioPull.mjs
 import { createHash as createHash3 } from "node:crypto";
-import { mkdir as mkdir2, rm, writeFile as writeFile2 } from "node:fs/promises";
+import { access, mkdir as mkdir2, rm, writeFile as writeFile2 } from "node:fs/promises";
 import { dirname as dirname2, resolve as resolve2 } from "node:path";
 var ASSET_KEY = /^[A-Za-z0-9_-]{1,23}$/;
 var EXPORT_BATCH_ITEMS = 200;
@@ -38261,6 +38342,20 @@ async function writeExportedItems(root, exported = {}, snapshot = {}) {
     written.push(path2);
   }
   return written;
+}
+async function writeStudioConfiguration(root, catalog = {}) {
+  const raw = JSON.stringify({
+    configurationFields: Array.isArray(catalog.configurationFields) ? catalog.configurationFields : [],
+    configurationInjections: Array.isArray(catalog.configurationInjections) ? catalog.configurationInjections : []
+  });
+  const { configuration } = parseProjectConfiguration(raw);
+  if (!configuration) return "";
+  const target = insideRoot(root, CONFIGURATION_PATH);
+  if (await access(target).then(() => true, () => false)) return "";
+  await mkdir2(dirname2(target), { recursive: true });
+  await writeFile2(target, `${JSON.stringify(configuration, null, 2)}
+`, "utf8");
+  return CONFIGURATION_PATH;
 }
 function describeStudioAssets({ keptAssets = [], deleted = [], deleteMissing = [] } = {}) {
   return [
@@ -38840,6 +38935,8 @@ async function pullStudioSource({ projectDir, paths, keys, overwrite = false }) 
       written.push(...await writeExportedItems(snapshot.projectDir, result.export, snapshot));
       selection.missing.push(...result.export.missing || []);
     }
+    const configurationPath = await writeStudioConfiguration(snapshot.projectDir, catalog);
+    if (configurationPath) written.push(configurationPath);
     const lines = [
       written.length ? `Pulled ${written.length} items from Studio: ${written.join(", ")}` : "Nothing to pull.",
       selection.skipped.length ? `Local copies differ and were not overwritten: ${selection.skipped.join(", ")} (pull again with overwrite: true to use the Studio version)` : "",

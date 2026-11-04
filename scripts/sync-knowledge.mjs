@@ -81,7 +81,7 @@ function specTopic(name) {
 }
 // 与 Studio 的 knowledgeApiFamily 同一分法：Studio 只讲 2.x 的指南、两代通用的指南，其余按 0.8 写。
 const V2_DOCUMENTS = /^(?:assets-drawing|text-fonts|device-ui-components|advanced-interactive-games|clock-timer|idle-games|online-games|pro-home-key|eink-motion|time-budget)(?:\.en)?\.md$/
-const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id|studio-ai-plugin)(?:\.en)?\.md$/
+const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id|studio-ai-plugin|install-configuration)(?:\.en)?\.md$/
 
 // 正文里顺带写了点击、按键的作者指南，按内容会被猜成 input；这几篇按篇定主题，
 // 免得按 graphics / network / runtime 过滤时查不到。

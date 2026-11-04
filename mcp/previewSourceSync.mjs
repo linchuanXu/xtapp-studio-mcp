@@ -1,4 +1,4 @@
-import { snapshotRevision } from './projectSnapshot.mjs'
+import { configurationRevisionTag, snapshotRevision } from './projectSnapshot.mjs'
 import { isRevisionConflict } from './previewBridgeClient.mjs'
 
 export const SOURCE_ASSET_BATCH = 80
@@ -27,6 +27,15 @@ export function snapshotPushState(snapshot = {}, serverRevision = '') {
         .map((item) => [item.key, item.sha256]),
     ),
     cloudProjectId: String(snapshot.cloudProjectId || ''),
+    configuration: snapshot.configuration || null,
+  }
+}
+
+// 本地有声明就带上；声明文件删了就发空列表，让 Studio 一并清掉。从没有过声明时不发，保留 Studio 里已有的。
+function configurationBody(configuration) {
+  return {
+    configurationFields: configuration?.configurationFields || [],
+    configurationInjections: configuration?.configurationInjections || [],
   }
 }
 
@@ -145,8 +154,9 @@ export function sourcePushBodies(snapshot = {}, { overwriteProjectId = '' } = {}
     fileCount: snapshot.fileCount,
     assetCount: snapshot.assetCount,
     capturedAt: snapshot.capturedAt,
-    revision: snapshotRevision(firstFiles, firstAssets, `${snapshot.cloudProjectId || ''}${overwriteProjectId ? `|overwrite:${overwriteProjectId}` : ''}`),
+    revision: snapshotRevision(firstFiles, firstAssets, `${snapshot.cloudProjectId || ''}${configurationRevisionTag(snapshot.configuration)}${overwriteProjectId ? `|overwrite:${overwriteProjectId}` : ''}`),
     ...(snapshot.cloudProjectId ? { cloudProjectId: snapshot.cloudProjectId } : {}),
+    ...(snapshot.configuration ? configurationBody(snapshot.configuration) : {}),
     ...(overwriteProjectId ? { overwriteProjectId } : {}),
   })
   for (const batch of fileBatches.slice(1)) {
@@ -208,7 +218,8 @@ async function pushPatch(snapshot, previous, request) {
   const diff = diffSnapshots(previous, snapshot)
   const hasDeletes = diff.deleteFiles.length || diff.deleteAssets.length
   const bindingChanged = String(snapshot.cloudProjectId || '') !== String(previous.cloudProjectId || '')
-  if (!Object.keys(diff.files).length && !diff.assets.length && !hasDeletes && !bindingChanged) {
+  const configurationChanged = JSON.stringify(snapshot.configuration || null) !== JSON.stringify(previous.configuration || null)
+  if (!Object.keys(diff.files).length && !diff.assets.length && !hasDeletes && !bindingChanged && !configurationChanged) {
     return finishPush(snapshot, {
       status: 'unchanged',
       revision: previous.serverRevision,
@@ -231,6 +242,7 @@ async function pushPatch(snapshot, previous, request) {
     deleteAssets: diff.deleteAssets,
     warnings: snapshot.warnings || [],
     ...(snapshot.cloudProjectId ? { cloudProjectId: snapshot.cloudProjectId } : {}),
+    ...(configurationChanged ? configurationBody(snapshot.configuration) : {}),
   })
   if (!result?.revision) return finishPush(snapshot, result)
   revision = result.revision

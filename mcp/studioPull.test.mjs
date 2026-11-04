@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import test from 'node:test'
-import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems } from './studioPull.mjs'
+import { describeStudioAssets, selectPullItems, splitExportBatches, writeExportedItems, writeStudioConfiguration } from './studioPull.mjs'
 
 const sha = (text) => createHash('sha256').update(text).digest('hex')
 
@@ -57,4 +57,25 @@ test('kept and deleted Studio images are reported to the agent', () => {
   assert.match(text, /not deleted: gone/)
   assert.match(text, /sync kept them: photo/)
   assert.match(text, /deleteAssets/)
+})
+
+test('pull writes Studio configuration declarations only when the worktree has none', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'xtapp-pull-config-'))
+  try {
+    const catalog = {
+      configurationFields: [{ key: 'CITY', label: '城市', type: 'text', required: true }],
+      configurationInjections: [{ key: 'CITY', file: 'main.lua', marker: '__CITY__' }],
+    }
+    assert.equal(await writeStudioConfiguration(root, {}), '')
+    assert.equal(await writeStudioConfiguration(root, catalog), 'docs/studio.configuration.json')
+    const written = JSON.parse(await readFile(join(root, 'docs/studio.configuration.json'), 'utf8'))
+    assert.deepEqual(written.configurationFields.map((field) => field.key), ['CITY'])
+    assert.deepEqual(written.configurationInjections, catalog.configurationInjections)
+
+    await writeFile(join(root, 'docs/studio.configuration.json'), '{"configurationFields":[]}', 'utf8')
+    assert.equal(await writeStudioConfiguration(root, catalog), '')
+    assert.equal(await readFile(join(root, 'docs/studio.configuration.json'), 'utf8'), '{"configurationFields":[]}')
+  } finally {
+    await rm(root, { recursive: true, force: true })
+  }
 })

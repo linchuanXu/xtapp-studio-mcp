@@ -101,6 +101,36 @@ AI「用这个文件夹覆盖 Studio 里的工程 <云工程编号>」。Studio 
 
 覆盖完 AI 会把编号和 `app_id` 写回文件夹，以后照常同步。
 
+## 安装前配置
+
+应用需要用户安装前填的值（API Key、城市等）时，在文件夹里写 `docs/studio.configuration.json`。
+它和 `docs/studio.cloud.json` 一样只在你电脑上起作用，不进商店包：
+
+```json
+{
+  "configurationFields": [
+    { "key": "WEATHER_KEY", "label": "天气 API Key", "type": "secret", "required": true }
+  ],
+  "configurationInjections": [
+    { "key": "WEATHER_KEY", "file": "config.lua", "marker": "__WEATHER_KEY__" }
+  ]
+}
+```
+
+字段按安装前配置的规范写（`key` 用大写，`type` 是 `text`、`secret`、`number` 或 `boolean`；
+每条注入写已声明的 key、文件和文件里出现的占位符）。预览时插件把声明带进 Studio 工程；必填的
+还没填，Studio 会弹「运行前配置」，填好后把值写进一份副本再运行，源码里仍是占位符。填的值只存在
+这个浏览器里。
+
+删掉这个文件，下次预览 Studio 里的声明也清掉。Studio 有声明而文件夹里没有这个文件时，拉取
+（`pull_xtapp_studio_source`）会把它写出来。
+
+在 Studio 的「项目设置 → 安装前配置」里也能添加和编辑这些声明；文件夹里有这个文件时，下次同步以文件为准，
+拉取也不会覆盖已有的文件。想留下 Studio 里的改动，先删掉本地这个文件再拉取。
+
+填的值是明文写进包里的。填过密钥后导出的 `.xtapp` 或测试版本就带着你的密钥，不要发给别人，拿到的人能直接用；
+要分享请发商店链接。已经发出去的，去服务商那里作废密钥，再重新安装。
+
 ## 图片和文件：哪边说了算
 
 | 情况 | 结果 |

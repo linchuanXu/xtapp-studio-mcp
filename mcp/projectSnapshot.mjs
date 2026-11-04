@@ -13,6 +13,11 @@ const ASSET_FILE = /^(?:assets|raw)\/[A-Za-z0-9_-]{1,23}\.(xic|png|jpe?g|webp)$/
 const LOOKS_LIKE_SOURCE = /\.(lua|tsv|txt|json)$/i
 const SILENT_SKIP = /^(?:docs|tmp|prototypes|\.tmp)\//i
 const CLOUD_BINDING_PATHS = ['docs/studio.cloud.json', 'studio.cloud.json']
+// 安装前配置的声明（附录 D）：不进包，随同步写进 Studio 工程，让预览弹「运行前配置」。
+export const CONFIGURATION_PATH = 'docs/studio.configuration.json'
+export const MAX_CONFIGURATION_ITEMS = 64
+const CONFIGURATION_KEY = /^[A-Z][A-Z0-9_]{0,63}$/
+const CONFIGURATION_TYPES = new Set(['text', 'secret', 'number', 'boolean'])
 
 export function snapshotRevision(files = {}, assets = [], extra = '') {
   const digest = createHash('sha256')
@@ -49,6 +54,74 @@ export async function readCloudProjectId(root) {
     }
   }
   return ''
+}
+
+// 声明也算进 revision：只改声明时插件照样推送。
+export function configurationRevisionTag(configuration) {
+  return configuration ? `|config:${JSON.stringify(configuration)}` : ''
+}
+
+function configText(value, max) {
+  return typeof value === 'string' ? value.trim().slice(0, max) : ''
+}
+
+/** Validates the declaration file; returns the cleaned lists plus warnings for whatever was dropped. */
+export function parseProjectConfiguration(raw) {
+  const warnings = []
+  let data = raw
+  if (typeof raw === 'string') {
+    try { data = JSON.parse(raw) } catch {
+      return { configuration: null, warnings: [`${CONFIGURATION_PATH} is not valid JSON; the preview runs without configuration`] }
+    }
+  }
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
+    return { configuration: null, warnings: [`${CONFIGURATION_PATH} must be an object with configurationFields and configurationInjections`] }
+  }
+  const fields = []
+  const keys = new Set()
+  for (const item of Array.isArray(data.configurationFields) ? data.configurationFields.slice(0, MAX_CONFIGURATION_ITEMS) : []) {
+    const key = configText(item?.key, 64)
+    if (!CONFIGURATION_KEY.test(key) || keys.has(key)) {
+      warnings.push(`${CONFIGURATION_PATH}: field "${key}" needs a unique key of capital letters, digits and underscores; skipped`)
+      continue
+    }
+    const type = CONFIGURATION_TYPES.has(item.type) ? item.type : 'text'
+    if (item.type && item.type !== type) warnings.push(`${CONFIGURATION_PATH}: field ${key} has unknown type "${item.type}"; using text`)
+    const field = { key, label: configText(item.label, 120) || key, type, required: item.required === true }
+    const help = configText(item.help, 500)
+    if (help) field.help = help
+    if (item.default !== undefined && item.default !== null && item.default !== '') {
+      if (type === 'secret') warnings.push(`${CONFIGURATION_PATH}: secret field ${key} must not have a default; default dropped`)
+      else field.default = String(item.default).slice(0, 500)
+    }
+    keys.add(key)
+    fields.push(field)
+  }
+  const injections = []
+  for (const item of Array.isArray(data.configurationInjections) ? data.configurationInjections.slice(0, MAX_CONFIGURATION_ITEMS) : []) {
+    const key = configText(item?.key, 64)
+    const file = configText(item?.file, 256)
+    const marker = typeof item?.marker === 'string' ? item.marker.slice(0, 200) : ''
+    if (!keys.has(key) || !file || !marker) {
+      warnings.push(`${CONFIGURATION_PATH}: injection for "${key}" needs a declared key, file and marker; skipped`)
+      continue
+    }
+    injections.push({ key, file, marker })
+  }
+  if (!fields.length) {
+    return { configuration: null, warnings: [...warnings, `${CONFIGURATION_PATH} declares no configurationFields; the preview runs without configuration`] }
+  }
+  return { configuration: { configurationFields: fields, configurationInjections: injections }, warnings }
+}
+
+export async function readProjectConfiguration(root) {
+  let raw
+  try {
+    raw = await readFile(join(root, ...CONFIGURATION_PATH.split('/')), 'utf8')
+  } catch {
+    return { configuration: null, warnings: [] }
+  }
+  return parseProjectConfiguration(raw)
 }
 
 function assetMime(path) {
@@ -138,10 +211,12 @@ export async function readProjectSnapshot(projectDir) {
     try { manifest = JSON.parse(files['manifest.json']) } catch { warnings.push('manifest.json is not valid JSON; the preview will show a validation error') }
   } else warnings.push('manifest.json not found')
   const cloudProjectId = await readCloudProjectId(root)
+  const { configuration, warnings: configurationWarnings } = await readProjectConfiguration(root)
+  warnings.push(...configurationWarnings)
   return {
     projectDir: root,
     projectName: basename(root),
-    revision: snapshotRevision(files, assets, cloudProjectId),
+    revision: snapshotRevision(files, assets, `${cloudProjectId}${configurationRevisionTag(configuration)}`),
     manifest,
     files,
     assets,
@@ -152,5 +227,6 @@ export async function readProjectSnapshot(projectDir) {
     assetCount: assets.length,
     capturedAt: Date.now(),
     cloudProjectId,
+    configuration,
   }
 }

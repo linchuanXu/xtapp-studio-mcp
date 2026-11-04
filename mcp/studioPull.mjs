@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto'
-import { mkdir, rm, writeFile } from 'node:fs/promises'
+import { access, mkdir, rm, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { isInsideRoot } from './projectPath.mjs'
-import { TEXT_FILE } from './projectSnapshot.mjs'
+import { CONFIGURATION_PATH, parseProjectConfiguration, TEXT_FILE } from './projectSnapshot.mjs'
 
 // 把 Studio 里的文件和图拉回本地目录。Studio 上传或生成的图同步时不会被删，
 // AI 可以拉回本地收进代码，或在用户同意后用 deleteAssets 删掉。
@@ -106,6 +106,25 @@ export async function writeExportedItems(root, exported = {}, snapshot = {}) {
     written.push(path)
   }
   return written
+}
+
+/**
+ * The Studio project declares install-time configuration but the worktree has no
+ * docs/studio.configuration.json yet: write it, so the next sync does not lose the declarations.
+ * An existing local file is the author's and is never replaced.
+ */
+export async function writeStudioConfiguration(root, catalog = {}) {
+  const raw = JSON.stringify({
+    configurationFields: Array.isArray(catalog.configurationFields) ? catalog.configurationFields : [],
+    configurationInjections: Array.isArray(catalog.configurationInjections) ? catalog.configurationInjections : [],
+  })
+  const { configuration } = parseProjectConfiguration(raw)
+  if (!configuration) return ''
+  const target = insideRoot(root, CONFIGURATION_PATH)
+  if (await access(target).then(() => true, () => false)) return ''
+  await mkdir(dirname(target), { recursive: true })
+  await writeFile(target, `${JSON.stringify(configuration, null, 2)}\n`, 'utf8')
+  return CONFIGURATION_PATH
 }
 
 /** Tell the agent which Studio images sync kept and which it deleted on request. */

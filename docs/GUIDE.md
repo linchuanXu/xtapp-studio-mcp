@@ -116,6 +116,41 @@ changes. The confirm dialog spells out:
 Afterwards the AI writes the id and `app_id` back into the folder so later syncs carry on
 normally.
 
+## Install-time configuration
+
+If the app needs values the user fills in before installing (an API key, a city), declare
+them in the folder's `docs/studio.configuration.json`. Like `docs/studio.cloud.json`, the file
+stays on your computer and does not go into the store package:
+
+```json
+{
+  "configurationFields": [
+    { "key": "WEATHER_KEY", "label": "Weather API key", "type": "secret", "required": true }
+  ],
+  "configurationInjections": [
+    { "key": "WEATHER_KEY", "file": "config.lua", "marker": "__WEATHER_KEY__" }
+  ]
+}
+```
+
+The fields follow the install-time configuration contract (`key` in upper case, `type` is
+`text`, `secret`, `number` or `boolean`; every injection names a declared key, a file and a
+placeholder that appears in that file). On preview the plugin sends the declarations to the
+Studio project. When a required value is still empty, Studio opens "Configure before running";
+fill it in and the preview runs with the values written into a copy. Your source keeps the
+placeholder. Values you enter stay in that browser only.
+
+Deleting the file clears the declarations in Studio on the next preview. When Studio has
+declarations but the folder has no file, pulling (`pull_xtapp_studio_source`) writes it.
+
+You can also add and edit the declarations in Studio under Project settings → Install-time
+configuration. When the folder has the file, the next sync uses the file, and pulling does not
+overwrite an existing file. To keep edits made in Studio, delete the local file, then pull.
+
+Values go into the package as plain text. An `.xtapp` or test build exported with your key filled
+in carries that key: don't send it to anyone, since whoever gets it can use your key. Share the
+store link instead, and if a filled-in package has already gone out, revoke the key and reinstall.
+
 ## Files and images: which side wins
 
 | Case | Result |
