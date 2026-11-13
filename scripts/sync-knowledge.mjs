@@ -9,9 +9,9 @@ import { createHash } from 'node:crypto'
 //
 //   XTAPP_CONTRACT_DIR         Studio 按标签同步的契约 2.x 副本 content/contracts/v2（取 source.json 的标签和 spec/*.md）
 //   XTAPP_PUBLIC_KNOWLEDGE_DIR Studio 侧公开知识根目录，可用路径分隔符列多个（POSIX 为 ":"）；
-//                              正文在 content/knowledge/generated/documents/，资产在 content/knowledge/public/
+//                              作者指南正文在 content/knowledge/generated/documents/
 //
-// 每条带 version：2.x（契约条文）、0.8（Studio 的旧接口指南，只在迁移时检索）、any（两代通用）。
+// Studio 只保留 Lua API 2.x：条目只有契约 2.x 条文和 Studio 作者指南两种，version 一律是 2.x。
 //
 //   node scripts/sync-knowledge.mjs            重新生成 knowledge/index.json
 //   node scripts/sync-knowledge.mjs --check    只校验已提交的索引是否与源一致（无源时跳过并说明）
@@ -79,10 +79,6 @@ function specTopic(name) {
   const number = /^(?:附录)?([0-9]{2}|[A-Z])/.exec(name)?.[1]
   return Object.entries(SPEC_TOPICS).find(([, numbers]) => numbers.includes(number))?.[0] || 'runtime'
 }
-// 与 Studio 的 knowledgeApiFamily 同一分法：Studio 只讲 2.x 的指南、两代通用的指南，其余按 0.8 写。
-const V2_DOCUMENTS = /^(?:assets-drawing|text-fonts|device-ui-components|advanced-interactive-games|clock-timer|idle-games|online-games|pro-home-key|eink-motion|time-budget)(?:\.en)?\.md$/
-const SHARED_DOCUMENTS = /^(?:studio-javascript-files|manifest-app-id|studio-ai-plugin|install-configuration)(?:\.en)?\.md$/
-
 // 正文里顺带写了点击、按键的作者指南，按内容会被猜成 input；这几篇按篇定主题，
 // 免得按 graphics / network / runtime 过滤时查不到。
 const GUIDE_TOPICS = { 'eink-motion': 'graphics', 'online-games': 'network', 'idle-games': 'runtime' }
@@ -114,11 +110,6 @@ function apiFor(content, topic) {
     'studio-preview': /\b(?:run_xtapp_preview|preview bridge|Lua Worker|SSE)\b/i,
   }
   return patterns[topic]?.exec(content)?.[1] || null
-}
-
-function versionFor(sourcePath) {
-  if (sourcePath.startsWith('contract/v2/') || V2_DOCUMENTS.test(sourcePath)) return '2.x'
-  return SHARED_DOCUMENTS.test(sourcePath) ? 'any' : '0.8'
 }
 
 function publicPath(path, contractDir, knowledgeDirs) {
@@ -156,11 +147,11 @@ for (const path of files.sort()) {
   const source = sourcePath.startsWith('contract/') ? 'public-contract' : 'xtapp-studio'
   const topic = source === 'public-contract' ? specTopic(sourcePath.split('/').at(-1)) : topicFor(sourcePath, content)
   const keywords = source === 'xtapp-studio' ? await keywordsFor(path) : null
-  entries.push({ topic, api: apiFor(content, topic), version: versionFor(sourcePath), source, sourcePath, content, example: exampleFor(content), ...(keywords ? { keywords } : {}) })
+  entries.push({ topic, api: apiFor(content, topic), version: '2.x', source, sourcePath, content, example: exampleFor(content), ...(keywords ? { keywords } : {}) })
 }
 if (existsSync(studioPreviewKnowledge)) {
   const content = await readFile(studioPreviewKnowledge, 'utf8')
-  entries.push({ topic: 'studio-preview', api: apiFor(content, 'studio-preview'), version: 'any', source: 'xtapp-studio', sourcePath: 'studio/preview.md', content, example: exampleFor(content) })
+  entries.push({ topic: 'studio-preview', api: apiFor(content, 'studio-preview'), version: '2.x', source: 'xtapp-studio', sourcePath: 'studio/preview.md', content, example: exampleFor(content) })
 }
 
 const hash = createHash('sha256').update([contractTag || '', ...entries.map((entry) => `${entry.source}\0${entry.sourcePath}\0${entry.version}\0${entry.content}\0${entry.keywords || ''}`)].join('\0')).digest('hex')

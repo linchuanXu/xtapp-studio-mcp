@@ -332,7 +332,7 @@ Enter only when the user asks to refresh, validate, or release:
    maintainer-local source directories through environment variables.
    `XTAPP_CONTRACT_DIR` is Studio's tag-synced API 2.x contract copy.
    `XTAPP_PUBLIC_KNOWLEDGE_DIR` accepts several roots separated by the
-   platform path delimiter (Studio generated documents + public assets).
+   platform path delimiter (Studio generated author guides).
    Run `npm run knowledge:check` after refreshing: it fails when the
    committed `knowledge/index.json` no longer matches those sources, and
    skips with a notice when no roots are provided.

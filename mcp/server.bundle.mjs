@@ -37484,7 +37484,7 @@ var StdioServerTransport = class {
 };
 
 // mcp/previewReady.mjs
-var PLUGIN_VERSION = "0.1.12";
+var PLUGIN_VERSION = "0.1.13";
 var PREVIEW_RUN_WAIT_MS = 3e4;
 var PREVIEW_QUICK_WAIT_MS = 1e4;
 function requireProjectDir(projectDir) {
@@ -38724,14 +38724,12 @@ async function templateFiles(id) {
   if (!info?.isDirectory()) throw new Error(`Public template not found: ${id}`);
   return readStoreTemplate(dir);
 }
-async function contractSearch(query, { limit = 6, topic = "", api = "2.x" } = {}) {
-  if (api !== "2.x") api = "2.x";
+async function contractSearch(query, { limit = 6, topic = "" } = {}) {
   const needle = String(query || "").trim().toLowerCase();
   if (!needle || !existsSync(KNOWLEDGE_INDEX)) return [];
   const knowledge = await readJson(KNOWLEDGE_INDEX);
   const rows = [];
   for (const entry of knowledge.entries || []) {
-    if (entry.version !== api && entry.version !== "any") continue;
     if (topic && entry.topic !== topic) continue;
     for (const { section, score } of searchSections(String(entry.content || ""), needle, entry.keywords)) {
       rows.push({
@@ -38765,8 +38763,8 @@ K3(server, "render_xtapp_studio_widget", {
   inputSchema: { projectDir: external_exports.string().trim().optional() },
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ["model", "app"] }, "openai/outputTemplate": WIDGET_URI, "openai/widgetAccessible": true }
 }, async (input2 = {}) => textResult("XTApp Studio preview widget ready.", { projectDir: input2.projectDir ? resolve4(input2.projectDir) : null, widget: WIDGET_URI }));
-server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
-  const results = await contractSearch(query, { limit, topic, api: "2.x" });
+server.registerTool("search_xtapp_knowledge", { description: "Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search covers API 2.x only.", inputSchema: { query: external_exports.string().min(1), topic: external_exports.enum(["input", "graphics", "runtime", "manifest", "network", "assets", "ui", "studio-preview", "overview"]).optional(), limit: external_exports.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
+  const results = await contractSearch(query, { limit, topic });
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: "2.x", count: results.length, results });
 });
 server.registerTool("list_xtapp_store_apps", { description: "List public XTApp apps available as checked-in templates. Each item carries its manifest api. The checked-in official apps are API 2.x source.", inputSchema: { query: external_exports.string().optional() } }, async ({ query = "" }) => {

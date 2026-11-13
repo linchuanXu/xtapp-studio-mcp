@@ -56,11 +56,11 @@ of overwriting it.
 - Marketplace / selector / Studio origin: `region.json` (this checkout is China; overseas is `xtapp-studio-mcp-intl`)
 - Plugin: `xtapp-studio-mcp`
 - Display name: `XTApp Studio`
-- Plugin version: `0.1.12`
+- Plugin version: `0.1.13`
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)
-- Public knowledge: `knowledge/index.json` (schema 3, 123 entries: 86 API 2.x contract sections and guides, 6 shared, 31 frozen 0.8 pages that search does not return)
+- Public knowledge: `knowledge/index.json` (schema 3, 118 API 2.x entries: 74 contract sections, 44 Studio author guides)
 - Public catalog: `catalog/index.json` (107 reviewed text templates)
 - Widget: `widget/index.html` is Codex-only; shows preview status, not the simulator frame
 
@@ -134,11 +134,11 @@ API 2.x contract copy (`source.json` + `spec/`); the index records its tag:
 
 ```bash
 XTAPP_CONTRACT_DIR=<studio-contracts-v2-copy> \
-XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents>:<studio-content-public> \
+XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents> \
 npm run sync:knowledge
 
 XTAPP_CONTRACT_DIR=<studio-contracts-v2-copy> \
-XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents>:<studio-content-public> \
+XTAPP_PUBLIC_KNOWLEDGE_DIR=<studio-content-documents> \
 npm run knowledge:check
 ```
 

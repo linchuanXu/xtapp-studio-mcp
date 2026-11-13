@@ -88,16 +88,13 @@ async function templateFiles(id) {
   return readStoreTemplate(dir)
 }
 
-// 知识只从提交的 knowledge/index.json 检索。索引里仍有冻结的 0.8 页，检索不返回它们。
-// 每条带 version：2.x（契约）、any（两代通用）。调用方传 0.8 也按 2.x 查。
-async function contractSearch(query, { limit = 6, topic = '', api = '2.x' } = {}) {
-  if (api !== '2.x') api = '2.x'
+// 知识只从提交的 knowledge/index.json 检索；索引只收 Lua API 2.x（契约条文 + Studio 作者指南）。
+async function contractSearch(query, { limit = 6, topic = '' } = {}) {
   const needle = String(query || '').trim().toLowerCase()
   if (!needle || !existsSync(KNOWLEDGE_INDEX)) return []
   const knowledge = await readJson(KNOWLEDGE_INDEX)
   const rows = []
   for (const entry of knowledge.entries || []) {
-    if (entry.version !== api && entry.version !== 'any') continue
     if (topic && entry.topic !== topic) continue
     for (const { section, score } of searchSections(String(entry.content || ''), needle, entry.keywords)) {
       rows.push({
@@ -135,8 +132,8 @@ registerAppTool(server, 'render_xtapp_studio_widget', {
   _meta: { ui: { resourceUri: WIDGET_URI, visibility: ['model', 'app'] }, 'openai/outputTemplate': WIDGET_URI, 'openai/widgetAccessible': true },
 }, async (input = {}) => textResult('XTApp Studio preview widget ready.', { projectDir: input.projectDir ? resolve(input.projectDir) : null, widget: WIDGET_URI }))
 
-server.registerTool('search_xtapp_knowledge', { description: 'Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search is 2.x only; frozen 0.8 pages are not returned.', inputSchema: { query: z.string().min(1), topic: z.enum(['input', 'graphics', 'runtime', 'manifest', 'network', 'assets', 'ui', 'studio-preview', 'overview']).optional(), limit: z.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
-  const results = await contractSearch(query, { limit, topic, api: '2.x' })
+server.registerTool('search_xtapp_knowledge', { description: 'Search the public XTApp Lua API 2.x contract and guides. Classify the question first and optionally filter by topic. Each hit is the whole heading section, so use that section instead of asking for a shorter excerpt. Search covers API 2.x only.', inputSchema: { query: z.string().min(1), topic: z.enum(['input', 'graphics', 'runtime', 'manifest', 'network', 'assets', 'ui', 'studio-preview', 'overview']).optional(), limit: z.number().int().min(1).max(10).optional() } }, async ({ query, topic, limit }) => {
+  const results = await contractSearch(query, { limit, topic })
   return textResult(JSON.stringify(results, null, 2), { query, topic: topic || null, api: '2.x', count: results.length, results })
 })
 
