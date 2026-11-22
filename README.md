@@ -56,11 +56,11 @@ of overwriting it.
 - Marketplace / selector / Studio origin: `region.json` (this checkout is China; overseas is `xtapp-studio-mcp-intl`)
 - Plugin: `xtapp-studio-mcp`
 - Display name: `XTApp Studio`
-- Plugin version: `0.1.16`
+- Plugin version: `0.1.17`
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)
-- Public knowledge: `knowledge/index.json` (schema 3, 126 API 2.x entries: 76 contract sections, 50 Studio author guides)
+- Public knowledge: `knowledge/index.json` (schema 3, 130 API 2.x entries: 76 contract sections, 54 Studio author guides)
 - Public catalog: `catalog/index.json` (107 reviewed text templates)
 - Widget: `widget/index.html` is Codex-only; shows preview status, not the simulator frame
 
