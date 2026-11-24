@@ -9,15 +9,15 @@ import { loadPluginRegion, resolveStudioOrigin } from './regionConfig.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 
-// 这条测试会随发行一起发布到国内/国外各一份，所以只能断言“任何发行都成立”的身份规则，
-// 不能写死某一个区的取值（上一版写死 cn，导致国外发行仓里它一直是红的）。
+// 这条测试会随发行一起发布到国内版/国际版各一份，所以只能断言“任何发行都成立”的身份规则，
+// 不能写死某一个区的取值（上一版写死 cn，导致国际版发行仓里它一直是红的）。
 test('region.json carries a complete identity for this distribution', () => {
   const region = loadPluginRegion()
   assert.match(region.id, /^(?:cn|intl)$/)
   assert.match(region.githubSource, /^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/)
   assert.equal(region.pluginSelector.split('@')[1], region.marketplaceName)
   assert.equal(region.pluginSelector.split('@')[0], 'xtapp-studio-mcp')
-  // 国内发行必须带可用的 Studio 源；国外发行的源由环境变量注入。
+  // 国内版必须带可用的 Studio 源；国际版的源由环境变量注入。
   if (region.id === 'cn') assert.match(resolveStudioOrigin({ env: {}, region }), /^https:\/\//)
 })
 
