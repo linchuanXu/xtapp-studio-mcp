@@ -56,7 +56,7 @@ of overwriting it.
 - Marketplace / selector / Studio origin: `region.json` (China: `xtapp-studio-mcp`; Global: `xtapp-studio-mcp-intl`)
 - Plugin: `xtapp-studio-mcp`
 - Display name: `XTApp Studio`
-- Plugin version: `0.1.17`
+- Plugin version: `0.1.18`
 - Runtime: signed-in XTApp Studio
 - Default preview: official Studio host; always use the `previewUrl` from `get_xtapp_preview_status`
 - Skills: `xtapp-contracts`, `xtapp-open-preview` (portable; auto-loaded in Codex)

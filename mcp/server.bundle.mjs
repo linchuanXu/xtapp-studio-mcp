@@ -37484,7 +37484,7 @@ var StdioServerTransport = class {
 };
 
 // mcp/previewReady.mjs
-var PLUGIN_VERSION = "0.1.17";
+var PLUGIN_VERSION = "0.1.18";
 var PREVIEW_RUN_WAIT_MS = 3e4;
 var PREVIEW_QUICK_WAIT_MS = 1e4;
 function requireProjectDir(projectDir) {

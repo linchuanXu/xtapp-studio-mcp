@@ -38,7 +38,7 @@ test('env XTAPP_STUDIO_CONTROL_URL overrides region.json', () => {
   assert.equal(
     resolveStudioOrigin({
       env: { XTAPP_STUDIO_CONTROL_URL: 'https://studio.example/' },
-      region: { studioOrigin: 'https://xtapp-ai.xteink.cn' },
+      region: { studioOrigin: 'https://inkapp.xteink.cn' },
     }),
     'https://studio.example',
   )

@@ -24,15 +24,15 @@ test('envelope unwraps data and surfaces stable error codes', () => {
 
 test('connection refusal is not_connected; abort is a real timeout', () => {
   assert.deepEqual(
-    classifyPreviewBridgeError({ code: 'ECONNREFUSED' }, 'https://xtapp-ai.xteink.cn'),
-    { status: 'not_connected', message: 'Cannot reach the Studio preview bridge: https://xtapp-ai.xteink.cn' },
+    classifyPreviewBridgeError({ code: 'ECONNREFUSED' }, 'https://inkapp.xteink.cn'),
+    { status: 'not_connected', message: 'Cannot reach the Studio preview bridge: https://inkapp.xteink.cn' },
   )
   assert.deepEqual(
-    classifyPreviewBridgeError({ name: 'AbortError' }, 'https://xtapp-ai.xteink.cn'),
+    classifyPreviewBridgeError({ name: 'AbortError' }, 'https://inkapp.xteink.cn'),
     {
       status: 'timeout',
       code: 'PREVIEW_TIMEOUT',
-      message: 'Studio response timed out: https://xtapp-ai.xteink.cn',
+      message: 'Studio response timed out: https://inkapp.xteink.cn',
     },
   )
 })

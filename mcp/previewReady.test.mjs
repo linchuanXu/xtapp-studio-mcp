@@ -17,7 +17,7 @@ test('启动预览多等一会儿，按键和截图仍用短超时', () => {
 test('未打开预览页时只请用户打开链接，不报成功', () => {
   const ready = describePreviewReady({
     connectedStatus: 'not_connected',
-    previewUrl: 'https://xtapp-ai.xteink.cn/studio/preview?preview=1&session=abc',
+    previewUrl: 'https://inkapp.xteink.cn/studio/preview?preview=1&session=abc',
     displayName: '末班墨水车',
   })
   assert.equal(ready.userStatus, 'need_login_or_open_page')
